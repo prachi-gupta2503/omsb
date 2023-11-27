@@ -1,0 +1,1 @@
+create index IX_1A6219AE on omsb_email_template (templateName[$COLUMN_LENGTH:75$]);

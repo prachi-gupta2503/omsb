@@ -1,0 +1,4 @@
+Bundle-Name: omsb-post-login-web
+Bundle-SymbolicName: gov.omsb.post.login
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.post.login.constants

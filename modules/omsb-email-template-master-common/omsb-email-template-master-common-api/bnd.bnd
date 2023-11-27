@@ -1,0 +1,6 @@
+Bundle-Name: omsb-email-template-master-common-api
+Bundle-SymbolicName: gov.omsb.email.template.master.common.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.email.template.master.common.api,\
+	gov.omsb.email.template.master.common.dto

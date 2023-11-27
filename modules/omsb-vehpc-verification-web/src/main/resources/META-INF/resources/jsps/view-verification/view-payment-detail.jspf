@@ -1,0 +1,112 @@
+<table  class="display omsb-tableview" width="100%" >
+        <thead>
+            <tr>
+                <th><liferay-ui:message key="total-amout" /></th>
+                <th><liferay-ui:message key="mode-of-payment" /></th>
+                <th><liferay-ui:message key="payment-date" /></th>
+                <th><liferay-ui:message key="action" /></th>
+            </tr>
+        </thead>
+		<tbody>
+			<c:forEach var="payment" items="${paymentDetail}">
+				<tr class="odd">
+					<td>${payment.totalAmount}</td>
+					<td>${payment.modeOfPayment}</td>
+					<td>${payment.paymentDate}</td>
+					<c:set var="commaSeparatedPayment" value="" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.additionalAmount};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.amount};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.currency};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.modeOfPayment};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.getPaymentDate()};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.paymentDone};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.totalAmount};" />
+					<c:set var="commaSeparatedPayment" value="${commaSeparatedPayment}${payment.transactionNumber};" />
+					<td>
+						<button class="dropdown-item" data-toggle="modal" data-payment="${commaSeparatedPayment}" data-target="#paymentPop" ><liferay-ui:message key="view" /> </button>
+					</td>
+				</tr>
+			</c:forEach> 
+		</tbody>
+		</table>
+		<!-- popup 1 -->
+		<div class="modal fade" id="paymentPop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog information-box" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header d-none">
+		        <h5 class="modal-title" id="exampleModalLabel"><liferay-ui:message key="payment-details" /></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		       <div class="omsb-label-view "> 
+			<div class="label-group-header row">
+				<span ><liferay-ui:message key="payment-details" /></span>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+			</div>
+			<div class="row">
+
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="additional-amount" /></label>
+				<label class="label-content additionalAmount"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="amount" /></label>
+				<label class="label-content amount"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="currency" /></label>
+				<label class="label-content currency"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="mode-of-payment" /></label>
+				<label class="label-content modeOfPayment"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="payment-date" /></label>
+				<label class="label-content paymentDate"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="payment-done" /></label>
+				<label class="label-content paymentDone"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="total-amount" /> </label>
+				<label class="label-content totalAmount"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="transaction-number" /></label>
+				<label class="label-content transactionNumber"></label>
+			</div>
+		</div>
+	</div>
+		      </div>
+		      <div class="modal-footer d-none">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal"><liferay-ui:message key="close" /></button>
+		        <button type="button" class="btn btn-primary"><liferay-ui:message key="save-changes" /></button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+<!-- popup1 -->
+
+<script>
+	$('#paymentPop').on('show.bs.modal', function(event) {
+		var button = $(event.relatedTarget) // Button that triggered the modal
+		var rowContent = button.data('payment');
+		var array = rowContent.split(";");
+		var modal = $(this)
+		modal.find('.additionalAmount').text(array[0]);
+		modal.find('.amount').text(array[1]);
+		modal.find('.currency').text(array[2]);
+		modal.find('.modeOfPayment').text(array[3]);
+		modal.find('.paymentDate').text(array[4]);
+		modal.find('.paymentDone').text(array[5]);
+		modal.find('.totalAmount').text(array[6]);
+		modal.find('.transactionNumber').text(array[7]);
+	})
+</script>
+

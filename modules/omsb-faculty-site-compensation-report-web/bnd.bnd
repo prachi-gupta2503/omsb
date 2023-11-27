@@ -1,0 +1,4 @@
+Bundle-Name: omsb-faculty-site-compensation-report-web
+Bundle-SymbolicName: gov.omsb.faculty.site.compensation.report.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.faculty.site.compensation.report.web.constants

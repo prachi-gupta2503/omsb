@@ -1,0 +1,6 @@
+Bundle-Name: omsb-form-builder-headless-api
+Bundle-SymbolicName: gov.omsb.form.builder.headless.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	gov.omsb.form.builder.headless.dto.v1_0,\
+	gov.omsb.form.builder.headless.resource.v1_0

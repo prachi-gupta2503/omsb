@@ -1,0 +1,5 @@
+Bundle-Name: omsb-endpoint-configuration-api
+Bundle-SymbolicName: gov.omsb.endpoint.configuration
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.endpoint.configuration.api
+	

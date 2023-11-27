@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<!-- The code commented as this details not required as received feedback 
+		from the client on 16-08-2023 Select a.program_master_id, a.program_type_id, 
+		c.eligibility_degree_master_id, a.program_name, a.program_code, d.program_type_name, 
+		e.eligibility_degree, a.program_objectives, a.program_admission_requirements, 
+		a.program_description, a.program_vision, a.program_mission, a.program_status, 
+		a.establishment_date from program_master a left join program_type_master 
+		d on a.program_type_id = d.program_type_master_id left join program_eligibility_degree_rel 
+		c on a.program_master_id = c.program_id left join eligibility_degree_master 
+		e on c.eligibility_degree_master_id = e.eligibility_degree_master_id -->
+	<sql id="getAllPrograms">
+		<![CDATA[
+			Select 
+			a.program_master_id,
+			a.program_type_id,
+			a.program_name,
+			a.program_code,
+			d.program_type_name,
+			a.program_objectives,
+			a.program_admission_requirements,
+			a.program_description,
+			a.program_vision,
+			a.program_mission,
+			a.program_status,
+			a.establishment_date
+			
+			from program_master a
+			left join program_type_master d on a.program_type_id = d.program_type_master_id
+		]]>
+	</sql>
+
+	<sql id="getProgramDetails">
+		<![CDATA[
+			Select 
+			a.program_master_id,
+			a.program_type_id,
+			c.eligibility_degree_master_id,
+			a.program_name,
+			a.program_code,
+			d.program_type_name,
+			e.eligibility_degree,
+			a.program_objectives,
+			a.program_admission_requirements,
+			a.program_description,
+			a.program_vision,
+			a.program_mission,
+			a.program_status,
+			a.establishment_date
+									
+			from program_master a
+			left join program_type_master d on a.program_type_id = d.program_type_master_id
+			left join program_eligibility_degree_rel c on a.program_master_id = c.program_id
+			left join eligibility_degree_master e on c.eligibility_degree_master_id = e.eligibility_degree_master_id
+			where a.program_master_id = ?
+		]]>
+	</sql>
+
+	<sql id="getRotationStructure">
+		<![CDATA[
+			SELECT R1.PROGDURATION_ROTATION_TL_BLOCKS_REL_ID,
+				PD1.PROG_DURATION_ID,
+				R1.ROTATION_ID,
+				PD1.PROGRAM_ID,
+				T1.TRAINEE_LEVEL_MASTER_ID,
+				T1.TRAINEE_LEVEL_NAME,
+				R1.NO_OF_BLOCKS,
+				PM1.PROGRAM_NAME
+			FROM PROGDURATION_ROTATION_TRAINEELEVEL_BLOCKS_REL R1,
+				TRAINEE_LEVEL_MASTER T1,
+				PROGRAM_DURATION_DETAILS PD1,
+				PROGRAM_MASTER PM1
+			WHERE R1.TRAINEE_LEVEL_ID = T1.TRAINEE_LEVEL_MASTER_ID
+				AND PD1.PROG_DURATION_ID = R1.PROGRAM_DURATION_ID
+				AND PD1.PROGRAM_ID = PM1.PROGRAM_MASTER_ID
+				AND R1.ROTATION_ID = ?
+			ORDER BY PD1.PROGRAM_ID,
+				R1.ROTATION_ID,
+				T1.TRAINEE_LEVEL_MASTER_ID
+		]]>
+	</sql>
+
+	<sql id="getTrainingSiteStructure">
+		<![CDATA[
+			SELECT R1.ROTATION_ID,
+				R1.NO_OF_SLOTS,
+				R1.TRAINING_SITES_ID,
+				T1.TRAINING_SITE_NAME,
+				RM1.ROTATION_NAME,
+				PM1.PROGRAM_NAME
+			FROM PROGDURATION_ROTATION_TRAININGSITES_REL R1,
+				TRAINING_SITES_MASTER T1,
+				ROTATION_MASTER RM1,
+				PROGRAM_DURATION_DETAILS PD1,
+				PROGRAM_MASTER PM1
+			WHERE R1.TRAINING_SITES_ID = T1.TRAINING_SITE_MASTER_ID
+				AND R1.ROTATION_ID = RM1.ROTATION_MASTER_ID
+				AND PD1.PROG_DURATION_ID = R1.PROGRAM_DURATION_ID
+				AND PD1.PROGRAM_ID = PM1.PROGRAM_MASTER_ID	
+				AND R1.TRAINING_SITES_ID = ?
+				AND PD1.AY_APPLICABLE_FORM = ?
+		]]>
+	</sql>
+
+	<sql id="getProgramStructure">
+		<![CDATA[
+			SELECT 
+				RTB1.progduration_rotation_tl_blocks_rel_id,
+				RTB1.ROTATION_ID, 
+				RTB1.NO_OF_BLOCKS,
+				RM1.ROTATION_NAME,
+				TLM1.TRAINEE_LEVEL_MASTER_ID,
+				TLM1.TRAINEE_LEVEL_NAME,
+				RTB1.rotation_type
+			FROM PROGDURATION_ROTATION_TRAINEELEVEL_BLOCKS_REL RTB1,
+			TRAINEE_LEVEL_MASTER TLM1,
+			ROTATION_MASTER RM1
+			WHERE 
+			RTB1.ROTATION_ID = RM1.ROTATION_MASTER_ID
+			AND TLM1.TRAINEE_LEVEL_MASTER_ID = RTB1.TRAINEE_LEVEL_ID
+			AND RTB1.PROGRAM_DURATION_ID = ?
+		]]>
+	</sql>
+
+	<sql id="getSetUpProcedureDetails">
+		<![CDATA[
+			Select 
+			ptrt.progduration_rotation_tl_pg_procedure_pt_rel_id,
+			pd.ay_applicable_form,
+			tl.trainee_level_name,
+			rm.rotation_name,
+			pgm.procedure_group_name,
+			pm.procedure_name,
+			ptrt.program_duration_id,
+			pm.cpt_code,
+			ptrt.minimum_procedures,
+			ptrt.traineelevel_minimum_procedures 
+			from progduration_rotation_tl_pg_procedure_pt_rel ptrt
+			join program_duration_details pd on ptrt.program_duration_id = pd.prog_duration_id
+			left join trainee_level_master tl on ptrt.trainee_level_id = tl.trainee_level_master_id
+			left join rotation_master rm on ptrt.rotation_id = rm.rotation_master_id
+			left join procedure_group_master pgm on ptrt.procedure_group_id = pgm.procedure_group_master_id
+			join procedure_master pm on ptrt.procedure_id = pm.procedure_master_id
+			order by ptrt.modified_date desc
+		]]>
+	</sql>
+
+	<sql id="getTraineeLevelsByProgDurationId">
+		<![CDATA[
+			SELECT 
+				tlm.trainee_level_master_id,
+				tlm.trainee_level_name
+			FROM 
+				progduration_rotation_traineelevel_blocks_rel prt,
+				trainee_level_master tlm
+			WHERE 
+				prt.trainee_level_id = tlm.trainee_level_master_id
+				AND prt.program_duration_id = ?
+		]]>
+	</sql>
+
+	<sql id="getRotationsByTraineeLevelId">
+		<![CDATA[
+			SELECT 
+				rm.rotation_master_id,
+				rm.rotation_name
+			FROM 
+				progduration_rotation_traineelevel_blocks_rel prt,
+				rotation_master rm
+			WHERE 
+				prt.rotation_id = rm.rotation_master_id
+				AND prt.trainee_level_id = ?
+		]]>
+	</sql>
+
+	<sql id="getRotationsByTraineeLevelIdAndProgramDurationId">
+		<![CDATA[
+			SELECT 
+				rm.rotation_master_id,
+				rm.rotation_name
+			FROM 
+				progduration_rotation_traineelevel_blocks_rel prt,
+				rotation_master rm
+			WHERE 
+				prt.rotation_id = rm.rotation_master_id
+				AND prt.trainee_level_id = ?
+				AND	prt.program_duration_id = ?
+		]]>
+	</sql>
+
+	<sql id="getTraineeLoggedProcedureDetailsListBySupervisor">
+        <![CDATA[
+            select tlpd.trainee_logged_procedure_details_id,
+            	tlpd.trainee_id,
+                tlpd.patient_id, 
+                tsm.training_site_name, 
+                rtm.role_type_name, 
+                tlpd.procedure_performed_date, 
+                tlpd.diagnosis_description,
+                tlpd.procedure_status,
+                pm.procedure_name,
+				pm.cpt_code,
+				pgm.procedure_group_name,
+				prom.program_name,
+				pdd.ay_applicable_form
+            from trainee_logged_procedure_details tlpd  
+                left join training_sites_master tsm on tsm.training_site_master_id = tlpd.training_sites_id
+                left join role_type_master rtm on rtm.role_type_master_id = tlpd.role_type_id
+                left join procedure_master pm on tlpd.procedure_id = pm.procedure_master_id
+				left join procedure_group_master pgm on pgm.procedure_group_master_id = tlpd.procedure_group_id
+				left join program_duration_details pdd on tlpd.program_duration_id = pdd.prog_duration_id
+				left join program_master prom on pdd.program_id = prom.program_master_id
+            where tlpd.faculty_id = ?
+            and tlpd.program_duration_id in (select prog_duration_id from program_duration_details where program_id in ($[PROGRAM_IDS]))
+            order by tlpd.trainee_logged_procedure_details_id
+        ]]>
+	</sql>
+
+	<sql id="getTraineeLoggedProcedureDetailsListByProgram">
+        <![CDATA[
+            select tlpd.trainee_logged_procedure_details_id,
+            	tlpd.trainee_id,
+                tlpd.patient_id, 
+                tsm.training_site_name, 
+                rtm.role_type_name, 
+                tlpd.procedure_performed_date, 
+                tlpd.diagnosis_description,
+                tlpd.procedure_status,
+                pm.procedure_name,
+				pm.cpt_code,
+				pgm.procedure_group_name,
+				prom.program_name,
+				pdd.ay_applicable_form
+            from trainee_logged_procedure_details tlpd  
+                left join training_sites_master tsm on tsm.training_site_master_id = tlpd.training_sites_id
+                left join role_type_master rtm on rtm.role_type_master_id = tlpd.role_type_id
+                left join procedure_master pm on tlpd.procedure_id = pm.procedure_master_id
+				left join procedure_group_master pgm on pgm.procedure_group_master_id = tlpd.procedure_group_id
+				left join program_duration_details pdd on tlpd.program_duration_id = pdd.prog_duration_id
+				left join program_master prom on pdd.program_id = prom.program_master_id
+            where tlpd.program_duration_id in (select prog_duration_id from program_duration_details where program_id in ($[PROGRAM_IDS]))
+			order by tlpd.trainee_logged_procedure_details_id
+        ]]>
+	</sql>
+
+	<sql id="getAllTraineeLoggedProcedureDetailsList">
+        <![CDATA[
+            select tlpd.trainee_logged_procedure_details_id,
+            	tlpd.trainee_id,
+                tlpd.patient_id, 
+                tsm.training_site_name, 
+                rtm.role_type_name, 
+                tlpd.procedure_performed_date, 
+                tlpd.diagnosis_description,
+                tlpd.procedure_status,
+                pm.procedure_name,
+				pm.cpt_code,
+				pgm.procedure_group_name,
+				prom.program_name,
+				pdd.ay_applicable_form
+            from trainee_logged_procedure_details tlpd  
+                left join training_sites_master tsm on tsm.training_site_master_id = tlpd.training_sites_id
+                left join role_type_master rtm on rtm.role_type_master_id = tlpd.role_type_id
+                left join procedure_master pm on tlpd.procedure_id = pm.procedure_master_id
+				left join procedure_group_master pgm on pgm.procedure_group_master_id = tlpd.procedure_group_id
+				left join program_duration_details pdd on tlpd.program_duration_id = pdd.prog_duration_id
+				left join program_master prom on pdd.program_id = prom.program_master_id
+            order by tlpd.trainee_logged_procedure_details_id
+        ]]>
+	</sql>
+
+	<sql
+		id="getTraineeLoggedProcedureDetailBySupervisorAndTraineeLoggedProcedureDetailId">
+        <![CDATA[
+            select tlpd.trainee_logged_procedure_details_id,
+            	tlpd.trainee_id,
+                tlpd.patient_id, 
+                tsm.training_site_name, 
+                rtm.role_type_name, 
+                tlpd.procedure_performed_date, 
+                tlpd.diagnosis_description,
+                tlpd.procedure_status,
+                pm.procedure_name
+            from trainee_logged_procedure_details tlpd, 
+                training_sites_master tsm, 
+                role_type_master rtm,
+                procedure_master pm
+            where tsm.training_site_master_id = tlpd.training_sites_id
+                and rtm.role_type_master_id = tlpd.role_type_id
+                and tlpd.procedure_id = pm.procedure_master_id 
+                and tlpd.faculty_id = ?
+                and tlpd.trainee_logged_procedure_details_id = ?
+            order by tlpd.trainee_logged_procedure_details_id
+        ]]>
+	</sql>
+
+	<sql id="getTraineeLevel">
+		<![CDATA[
+			SELECT DISTINCT
+			tlm.trainee_level_name,
+			tlm.trainee_level_master_id
+		FROM
+			program_master pm
+			INNER JOIN program_duration_details pdd ON pm.program_master_id = pdd.program_id
+			INNER JOIN progduration_rotation_traineelevel_blocks_rel prtb ON pdd.prog_duration_id = prtb.program_duration_id
+			INNER JOIN trainee_level_master tlm ON prtb.trainee_level_id = tlm.trainee_level_master_id
+		WHERE
+			pm.program_master_id = ?
+		]]>
+	</sql>
+
+	<sql id="getSiteCapacityDetails">
+		<![CDATA[
+			Select 
+			prtr.progduration_rotation_ts_rel_id,
+			tsm.training_site_name,
+			rm.rotation_name,
+			prtr.no_of_slots,
+			pd.ay_applicable_form,
+			pd.prog_duration_id
+			from progduration_rotation_trainingsites_rel prtr
+			join program_duration_details pd on prtr.program_duration_id = pd.prog_duration_id
+			join training_sites_master tsm on prtr.training_sites_id = tsm.training_site_master_id
+			join rotation_master rm on prtr.rotation_id = rm.rotation_master_id
+		]]>
+	</sql>
+
+	<sql id="getProgramCohorts">
+		<![CDATA[
+			select 
+				ptblr.progduration_tl_blocks_lt_id,
+				pm.program_name,
+				pdd.ay_applicable_form,
+				ptblr.no_of_blocks,
+				tlm.trainee_level_name,
+				ltm.level_type_name,
+				pm.program_master_id,
+				ptblr.program_duration_id,
+				ptblr.modified_date,
+				tlm.trainee_level_master_id
+			from program_master pm, 
+				program_duration_details pdd, 
+				progduration_traineelevel_blocks_leveltype_rel ptblr,
+				trainee_level_master tlm,
+				level_type_master ltm
+			where ptblr.program_duration_id = pdd.prog_duration_id 
+				and pdd.program_id = pm.program_master_id
+				and tlm.trainee_level_master_id = ptblr.trainee_level_id
+				and ltm.level_type_master_id = ptblr.level_type_id
+		]]>
+	</sql>
+
+	<sql id="getSharedRotationIdForApprover">
+		<![CDATA[
+			select 
+				shared_rotation_request_details_id 
+			from shared_rotation_request_details 
+			where ? = ANY (string_to_array(request_raised_to, ','));
+		]]>
+	</sql>
+
+	<sql id="getConfigureRotationDetails">
+		<![CDATA[
+          Select
+            ptlr.progduration_rotation_tl_blocks_rel_id,
+			pm.program_name,
+			pd.ay_applicable_form,
+			tl.trainee_level_name,
+			rm.rotation_name,
+			rtm.rotation_type_name,
+			ptlr.no_of_blocks
+
+            from progduration_rotation_traineelevel_blocks_rel ptlr
+            join program_duration_details pd on ptlr.program_duration_id = pd.prog_duration_id
+            join trainee_level_master tl on ptlr.trainee_level_id = tl.trainee_level_master_id
+            join rotation_master rm on ptlr.rotation_id = rm.rotation_master_id
+			join program_master pm on pd.program_id = pm.program_master_id 
+			join rotation_type_master rtm on ptlr.rotation_type = rtm.rotation_type_master_id
+        ]]>
+	</sql>
+
+	<sql id="getConfigureRotationDetailsByProgramAndDuration">
+		<![CDATA[
+		Select
+            ptlr.progduration_rotation_tl_blocks_rel_id,
+			ptlr.rotation_id,
+			ptlr.program_duration_id,
+			ptlr.trainee_level_id,
+			ptlr.rotation_type,
+			ptlr.no_of_blocks			
+
+            from progduration_rotation_traineelevel_blocks_rel ptlr
+            join program_duration_details pd on ptlr.program_duration_id = pd.prog_duration_id
+            join trainee_level_master tl on ptlr.trainee_level_id = tl.trainee_level_master_id
+            join rotation_master rm on ptlr.rotation_id = rm.rotation_master_id
+			join program_master pm on pd.program_id = pm.program_master_id 
+			join rotation_type_master rtm on ptlr.rotation_type = rtm.rotation_type_master_id
+			where pm.program_master_id = ? and tl.trainee_level_master_id = ? and pd.prog_duration_id = ?;
+		]]>
+	</sql>
+
+	<sql id="getProgramAndCohortsFromProgramDuration">
+		<![CDATA[
+			select 
+				pm.program_name,
+				pdd.ay_applicable_form,
+				pdd.no_of_blocks,
+				pm.program_master_id,
+				pdd.prog_duration_id
+			from program_master pm, 
+				program_duration_details pdd
+			where pdd.program_id = pm.program_master_id
+		]]>
+	</sql>
+
+	<sql id="getTrainingSiteDetailsByProgramDuration">
+		<![CDATA[
+          SELECT 
+				prt.training_sites_id,
+				ts.training_site_name
+			FROM 
+				program_duration_details pd,
+				progduration_rotation_trainingsites_rel prt,
+				training_sites_master ts
+			WHERE 
+				pd.prog_duration_id = prt.program_duration_id
+				AND prt.training_sites_id = ts.training_site_master_id
+				AND pd.program_id = ?
+				AND pd.ay_applicable_form = ?
+        ]]>
+	</sql>
+
+	<sql id="getProgramTrainingSitesCapacityDetails">
+		<![CDATA[
+			select 
+			    prtr.progduration_rotation_ts_rel_id,
+			    ts.training_site_master_id,
+			    ts.training_site_name,
+			    rm.rotation_name,
+			    prtr.no_of_slots
+			
+			from progduration_rotation_trainingsites_rel prtr
+			join training_sites_master ts on prtr.training_sites_id = ts.training_site_master_id
+			join rotation_master rm on prtr.rotation_id = rm.rotation_master_id
+		]]>
+	</sql>
+
+	<sql id="getRotationsByTrainingSiteId">
+		<![CDATA[
+			SELECT 
+				rm.rotation_master_id,
+				rm.rotation_name
+			FROM 
+				progduration_rotation_trainingsites_rel prt,
+				rotation_master rm
+			WHERE 
+				prt.rotation_id = rm.rotation_master_id
+				AND prt.training_sites_id = ?
+		]]>
+	</sql>
+
+	<sql id="getProgdurationRotationByRotationAndDuration">
+		<![CDATA[
+			SELECT R1.ROTATION_ID,
+				R1.NO_OF_SLOTS,
+				R1.TRAINING_SITES_ID,
+				PD1.PROG_DURATION_ID
+			FROM PROGDURATION_ROTATION_TRAININGSITES_REL R1,
+				TRAINING_SITES_MASTER T1,
+				ROTATION_MASTER RM1,
+				PROGRAM_DURATION_DETAILS PD1,
+				PROGRAM_MASTER PM1
+			WHERE R1.TRAINING_SITES_ID = T1.TRAINING_SITE_MASTER_ID
+				AND R1.ROTATION_ID = RM1.ROTATION_MASTER_ID
+				AND PD1.PROG_DURATION_ID = R1.PROGRAM_DURATION_ID
+				AND PD1.PROGRAM_ID = PM1.PROGRAM_MASTER_ID	
+				AND R1.ROTATION_ID = ?
+				AND PD1.AY_APPLICABLE_FORM = ?
+		]]>
+	</sql>
+
+	<sql id="getConfigureRotationDetailsByRotationAndDuration">
+		<![CDATA[	
+		Select
+            sum(ptlr.no_of_blocks)		
+            from progduration_rotation_traineelevel_blocks_rel ptlr
+            join program_duration_details pd on ptlr.program_duration_id = pd.prog_duration_id
+            join trainee_level_master tl on ptlr.trainee_level_id = tl.trainee_level_master_id
+            join rotation_master rm on ptlr.rotation_id = rm.rotation_master_id
+			join program_master pm on pd.program_id = pm.program_master_id 
+			join rotation_type_master rtm on ptlr.rotation_type = rtm.rotation_type_master_id
+			AND ptlr.rotation_id = ?
+			AND pd.ay_applicable_form = ?
+			]]>
+	</sql>
+
+	<sql id="getTrainingSitesByCohort">
+		<![CDATA[	
+			SELECT 
+				DISTINCT(ts.training_site_master_id),
+				ts.training_site_name
+			FROM 
+				progduration_rotation_trainingsites_rel prt,
+				training_sites_master ts
+			WHERE 
+			prt.training_sites_id = ts.training_site_master_id
+			AND prt.program_duration_id = ?
+		]]>
+	</sql>
+
+	<sql id="getNotSharedRotationsByTrainingSiteId">
+		<![CDATA[
+			SELECT 
+				DISTINCT(rm.rotation_master_id),
+				rm.rotation_name
+			FROM 
+				progduration_rotation_trainingsites_rel prt,
+				rotation_master rm
+			WHERE 
+				prt.rotation_id = rm.rotation_master_id
+				AND prt.training_sites_id = ?
+				AND prt.is_shared_rotation = false
+		]]>
+	</sql>
+	<sql id="getECMembershipRequestData">
+        <![CDATA[
+            SELECT
+            	pm.program_name, 
+            	concat_ws(' ',u.firstname, u.middlename, u.lastname) as potentialECMember, 
+            	r.name as role_name,
+				emrst.name_en as status_name,
+				emrst.name_ar as status_name_ar,
+				COALESCE(emr.ec_member_request_id, 0) as ec_member_request_id,
+				COALESCE(bd.bank_details_id, 0) as bank_details_id,
+  				COALESCE(emr.passport_copy_id, 0) as passport_copy_id,
+    			COALESCE(emr.national_id_copy_id, 0) as national_id_copy_id,
+    			emrst.code as status_code,
+				emr.latest_ec_member_request_state_id
+            FROM 
+            	ec_member_request emr  
+			inner join program_master pm on emr.program_id = pm.program_master_id
+			inner join user_ u on u.userid = emr.potential_ec_member_lruserid
+			inner join role_ r on r.roleid = emr.potential_ec_member_role_id
+			left join bank_details bd on bd.ec_member_request_id =emr.ec_member_request_id
+			inner join ec_member_request_state emrs on emr.latest_ec_member_request_state_id = emrs.ec_member_request_state_id
+			inner join ec_member_request_status emrst on emrs.ec_member_request_status_id = emrst.ec_member_request_status_id
+        ]]>
+	</sql>
+
+	<sql id="getECMembershipRequestStateData">
+        <![CDATA[
+        	SELECT emrs.create_date, 
+           	concat_ws(' ',u.firstname, u.middlename, u.lastname) as potentialECMember,
+           	emrs.comments
+		FROM ec_member_request_state emrs inner join ec_member_request emr 
+			on emr.ec_member_request_id =emrs.ec_member_request_id
+			inner join user_ u on emr.potential_ec_member_id=u.userid 
+			where emr.ec_member_request_id = ?
+        ]]>
+	</sql>
+
+	<sql id="getTrainingSiteDetailsByProgram">
+		<![CDATA[
+          SELECT 
+				prt.training_sites_id,
+				ts.training_site_name,
+				pm1.program_name
+			FROM 
+				program_duration_details pd,
+				progduration_rotation_trainingsites_rel prt,
+				program_master pm1,
+				training_sites_master ts
+			WHERE 
+				pd.prog_duration_id = prt.program_duration_id
+				AND prt.training_sites_id = ts.training_site_master_id
+				AND pd.program_id  = pm1.program_master_id 
+				AND pm1.program_master_id = ?
+        ]]>
+	</sql>
+
+
+	<sql id="getFacultySiteCompensationReportDetailsOfEcMember">
+        <![CDATA[
+           
+         select  distinct u.firstname, u.middlename, u.lastname, fi.amount_in_omr, rm.rotation_name ,  
+            tsm.training_site_name, tsm.training_site_code,u.userid,r.name
+            from faculty_rotation_ts_block_details_rel frtbd
+            inner join progduration_rotation_trainingsites_rel prtr on frtbd.progduration_rotation_ts_rel_id= prtr.progduration_rotation_ts_rel_id
+            inner join user_ u on frtbd.faculty_id= u.userid 
+            inner join rotation_master rm on prtr.rotation_id=rm.rotation_master_id
+            inner join training_sites_master tsm on prtr.training_sites_id= tsm.training_site_master_id
+            inner join program_duration_details pdd on prtr.program_duration_id=pdd.prog_duration_id
+	        left join ec_member_request emr on emr.potential_ec_member_lruserid = frtbd.faculty_id and emr.program_id=pdd.program_id
+	        left join role_ r on emr.potential_ec_member_role_id=r.roleid
+	        left join faculty_incentive fi on r.roleid = fi.role_id 
+	        where pdd.program_id=?
+			
+        ]]>
+	</sql>
+
+	<sql id="getTrainingSiteNameWithRotation">
+        <![CDATA[
+        
+            select distinct tsm.training_site_name,rm.rotation_name
+            from faculty_rotation_ts_block_details_rel  frtbd 
+            inner join progduration_rotation_trainingsites_rel prtr on frtbd.progduration_rotation_ts_rel_id= prtr.progduration_rotation_ts_rel_id
+            inner join program_duration_details pdd on prtr.program_duration_id=pdd.prog_duration_id
+	        inner join training_sites_master tsm on prtr.training_sites_id=tsm.training_site_master_id
+            inner join rotation_master rm on prtr.rotation_id=rm.rotation_master_id
+            where pdd.program_id=?      
+
+        ]]>
+	</sql>
+
+	<sql id="getTrainingSiteByRotation">
+        <![CDATA[
+           SELECT 
+				prt.no_of_slots,
+				prt.progcode_rsn_sitecode,
+				prt.rotation_owning_program_id,
+				prt.is_shared_rotation,
+				prt.progduration_rotation_ts_rel_id,
+				prt.training_sites_id,
+				prt.rotation_id,
+				prt.owning_program_duration_id
+			FROM 
+				program_duration_details pd,
+				progduration_rotation_trainingsites_rel prt
+			WHERE 
+				pd.prog_duration_id = prt.program_duration_id
+        ]]>
+	</sql>
+
+	<sql id="getTraineeNoofBlocks">
+        <![CDATA[
+		    select 
+			prtbr.program_duration_id as programDurationId,
+			prtbr.rotation_id as rotationId,
+			prtbr.trainee_level_id as traineeLevelId,
+			prtbr.no_of_blocks as noOfBlocks,
+			prtbr.rotation_type as rotationTypeId
+			from progduration_rotation_traineelevel_blocks_rel prtbr
+			join progduration_traineelevel_blocks_leveltype_rel ptblr on 
+			prtbr.program_duration_id = ptblr.program_duration_id and
+			prtbr.trainee_level_id = ptblr.trainee_level_id where ptblr.program_duration_id = ? and ptblr.trainee_level_id = ?
+	
+	   ]]>
+	</sql>
+
+	<sql id="getVisitTypeByProgramDurationId">
+        <![CDATA[
+		    SELECT
+			    vtm.visit_type_master_id,
+			    vtm.visit_type_name
+			FROM visit_type_master vtm
+			WHERE vtm.visit_type_master_id NOT IN (
+				SELECT 
+					DISTINCT visit_type_master_id 
+				FROM visit_type_prog_duration_rel vtpdr 
+				WHERE vtpdr.program_duration_id = ?
+			);
+	   ]]>
+	</sql>
+
+	<sql id="getRoleTypeByProgramDurationId">
+        <![CDATA[
+		    SELECT
+			    rtm.role_type_master_id,
+			    rtm.role_type_name
+			FROM role_type_master rtm
+			WHERE rtm.role_type_master_id NOT IN (
+				SELECT 
+					DISTINCT role_type_master_id 
+				FROM role_type_prog_duration_rel rtpdr 
+				WHERE rtpdr.program_duration_id = ?
+			);
+	   ]]>
+	</sql>
+
+	<sql id="getPatientTypeByProgramDurationId">
+        <![CDATA[
+		    SELECT
+			    ptm.patient_type_master_id,
+			    ptm.patient_type_name
+			FROM patient_type_master ptm
+			WHERE ptm.patient_type_master_id NOT IN (
+				SELECT 
+					DISTINCT patient_type_master_id 
+				FROM patient_type_prog_duration_rel ptpdr 
+				WHERE ptpdr.program_duration_id = ?
+			);
+	   ]]>
+	</sql>
+	<sql id="getRotationsByTrainingSiteAndCohort">
+        <![CDATA[
+		  	select 
+				prtr.progduration_rotation_ts_rel_id ,
+				prtr.program_duration_id, 
+				prtr.training_sites_id, 
+				prtr.rotation_id, 
+				rm.rotation_name, 
+				prtr.no_of_slots  
+			from 
+				progduration_rotation_trainingsites_rel prtr, 
+				rotation_master rm 
+			where 
+				rm.rotation_master_id  = prtr.rotation_id 
+				and training_sites_id = ? 
+				and prtr.program_duration_id = ?
+	
+	   ]]>
+	</sql>
+
+
+	<sql id="getDutyLogHoursList">
+       <![CDATA[
+		SELECT
+		dl.duty_log_id,
+		dl.trainee_id,
+		pda.program_duty_assignment_id,
+		dl.start_date,
+		dl.end_date
+		FROM
+		duty_log dl
+		INNER JOIN
+		
+		program_duty_assignment pda ON dl.program_duty_assignment_id = pda.program_duty_assignment_id
+		INNER JOIN
+		duty_assignment_master dam ON pda.duty_assignment_id = dam.duty_assignment_id
+		INNER JOIN
+		duty_types_master dtm ON dam.duty_type_id = dtm.duty_type_id
+		INNER JOIN
+		program_master pm ON pm.program_master_id = pda.program_id
+		INNER JOIN
+		user_ u ON dl.trainee_id = u.userid 
+		INNER JOIN 
+		leave_master lm ON dl.trainee_id = lm.trainee_id
+		INNER JOIN 
+		trainee_cohort_details tcd on  pda.cohort_id=tcd.trainee_cohort_details_id
+		INNER JOIN 
+		trainee_level_master tlm on tcd.trainee_level_id = tlm.trainee_level_master_id
+		  ]]>
+    </sql>
+    
+	<sql id="getTrainingSiteByDatePerformed">
+        <![CDATA[
+			SELECT training_site_master_id FROM training_sites_master
+			WHERE training_site_master_id = (SELECT training_sites_id FROM progduration_rotation_trainingsites_rel
+			WHERE progduration_rotation_ts_rel_id = (SELECT progduration_rotation_ts_rel_id FROM trainee_rotation_ts_block_details_rel
+			WHERE blocks_metadata_details_rel_id = (SELECT blocks_metadata_details_rel_id FROM blocks_metadata_details_rel
+			WHERE '$[PERFORMED_DATE]' >= block_start_date
+			AND '$[PERFORMED_DATE]' <= block_end_date
+			AND progduration_tl_blocks_lt_id = (SELECT progduration_tl_blocks_lt_id FROM progduration_traineelevel_blocks_leveltype_rel
+			WHERE program_duration_id = (SELECT program_duration_id FROM trainee_admission_details_rel where trainee_id = ?) AND trainee_level_id = (SELECT trainee_level_id FROM trainee_cohort_details 
+			WHERE trainee_admission_details_rel_id = (SELECT trainee_admission_details_rel_id FROM trainee_admission_details_rel where trainee_id = ?) 
+			AND is_current_trainee_level is true))) AND trainee_id = ?))
+		]]>
+    </sql>
+
+	<sql id="getDutyLogViolationList">
+       <![CDATA[
+            
+       select  dlv.program_master_id,tptd.trainee_level_id, prtl.rotation_id, prtl.training_sites_id,bmdr.block_no,
+       bmdr.block_start_date, bmdr.block_end_date , SUM(dlv.acgme_80_hours_rule) as acgme_80_hours_rule,SUM(dlv.acgme_call_rule_option1) as acgme_call_rule_option1 ,SUM(dlv.acgme_call_rule_option2) as acgme_call_rule_option2,
+       SUM(dlv.acgme_Short_Break_Rule) as acgme_Short_Break_Rule,SUM(dlv.acgme_24_hours_rule) as acgme_24_hours_rule,SUM(dlv.acgme_day_off_rule) as acgme_day_off_rule 
+	   from duty_log_violation dlv
+       inner join blocks_metadata_details_rel bmdr on dlv.block_id=bmdr.blocks_metadata_details_rel_id
+       inner join program_master pm on dlv.program_master_id=pm.program_master_id
+       inner join training_sites_master tsm on dlv.training_site_id=tsm.training_site_master_id
+       inner join trainee_rotation_ts_block_details_rel trtbd on dlv.trainee_id=trtbd.trainee_id
+       inner join progduration_rotation_trainingsites_rel prtl on trtbd.progduration_rotation_ts_rel_id =prtl.progduration_rotation_ts_rel_id
+       inner join trainee_progduration_traineelevel_details tptd on tptd.trainee_id=dlv.trainee_id
+       inner join trainee_level_master tlm on tptd.trainee_level_id = tlm.trainee_level_master_id
+       inner join user_ u on dlv.trainee_id = u.userid
+       inner join trainee_rotation_ts_block_details_rel trtbdr on dlv.trainee_id = trtbdr.trainee_id
+       inner join trainee_cohort_details tcd on  trtbdr.trainee_cohort_details_id=tcd.trainee_cohort_details_id             
+       ]]>
+	</sql>
+	
+	
+	<sql id="getDutyLogViolationListByUserId">
+       <![CDATA[
+       
+       select  dlv.program_master_id,tptd.trainee_level_id, prtl.rotation_id, prtl.training_sites_id,bmdr.block_no,
+       bmdr.block_start_date, bmdr.block_end_date , SUM(dlv.acgme_80_hours_rule) as acgme_80_hours_rule,SUM(dlv.acgme_call_rule_option1) as acgme_call_rule_option1 ,SUM(dlv.acgme_call_rule_option2) as acgme_call_rule_option2,
+       SUM(dlv.acgme_Short_Break_Rule) as acgme_Short_Break_Rule,SUM(dlv.acgme_24_hours_rule) as acgme_24_hours_rule,SUM(dlv.acgme_day_off_rule) as acgme_day_off_rule 
+	   from duty_log_violation dlv
+       inner join blocks_metadata_details_rel bmdr on dlv.block_id=bmdr.blocks_metadata_details_rel_id
+       inner join program_master pm on dlv.program_master_id=pm.program_master_id
+       inner join training_sites_master tsm on dlv.training_site_id=tsm.training_site_master_id
+       inner join trainee_rotation_ts_block_details_rel trtbd on dlv.trainee_id=trtbd.trainee_id
+       inner join progduration_rotation_trainingsites_rel prtl on trtbd.progduration_rotation_ts_rel_id =prtl.progduration_rotation_ts_rel_id
+       inner join trainee_progduration_traineelevel_details tptd on tptd.trainee_id=dlv.trainee_id
+       inner join trainee_level_master tlm on tptd.trainee_level_id = tlm.trainee_level_master_id
+       inner join user_ u on dlv.trainee_id = u.userid
+       inner join trainee_rotation_ts_block_details_rel trtbdr on dlv.trainee_id = trtbdr.trainee_id
+       inner join trainee_cohort_details tcd on  trtbdr.trainee_cohort_details_id=tcd.trainee_cohort_details_id             
+       where u.userid = ?
+       Group By dlv.block_id, tptd.trainee_level_id, prtl.rotation_id, prtl.training_sites_id, bmdr.block_no, bmdr.block_start_date, bmdr.block_end_date, dlv.program_master_id
+       
+	   ]]>
+	</sql>
+	
+		<sql id="checkAcgmeCallRule8Hour">
+       <![CDATA[      
+		SELECT dtm.duty_type, dtm.duty_type_id, dl.start_date, dl.end_date
+		FROM duty_log dl
+		INNER JOIN program_duty_assignment pda ON dl.program_duty_assignment_id = pda.program_duty_assignment_id
+		INNER JOIN duty_assignment_master dam ON pda.duty_assignment_id = dam.duty_assignment_id
+		INNER JOIN duty_types_master dtm ON dam.duty_type_id = dtm.duty_type_id
+		where dam.duty_type_id = ? and dl.trainee_id  = ? and dl.blocks_metadata_details_rel_id = ? ;  
+        ]]>
+	</sql>
+	
+	<sql id="checkAcgmeCallRule48Hour">
+       <![CDATA[      
+     SELECT 
+       dl.start_date,dl.end_date
+		FROM
+		duty_log dl
+        INNER JOIN
+		program_duty_assignment pda ON dl.program_duty_assignment_id = pda.program_duty_assignment_id
+		INNER JOIN
+		duty_assignment_master dam ON pda.duty_assignment_id = dam.duty_assignment_id
+		INNER JOIN
+		duty_types_master dtm ON dam.duty_type_id = dtm.duty_type_id        
+        where dtm.duty_type_id = ? and dl.trainee_id  = ? and dl.blocks_metadata_details_rel_id = ?  and dl.duty_log_id < ?      
+        order by start_date desc Limit 1
+        ]]>
+	</sql>
+
+	<sql id="getDutyLogs">
+       <![CDATA[      
+        SELECT
+        dl.duty_log_id, dl.start_date, dl.end_date, dl.residency_level_id,
+        dl.blocks_metadata_details_rel_id, dl.program_duty_assignment_id,
+        dl.trainee_id
+	    FROM
+        duty_log dl
+	    WHERE
+        dl.start_date >= ?
+        AND dl.start_date <= ? and dl.trainee_id = ?  order by start_date asc; 
+        ]]>
+	</sql>
+
+	<sql id="getRotationIdByDatePerformed">
+        <![CDATA[
+			SELECT rotation_id FROM progduration_rotation_trainingsites_rel
+			WHERE progduration_rotation_ts_rel_id = (SELECT progduration_rotation_ts_rel_id FROM trainee_rotation_ts_block_details_rel
+			WHERE blocks_metadata_details_rel_id = (SELECT blocks_metadata_details_rel_id FROM blocks_metadata_details_rel
+			WHERE '$[PERFORMED_DATE]' >= block_start_date
+			AND '$[PERFORMED_DATE]' <= block_end_date
+			AND progduration_tl_blocks_lt_id = (SELECT progduration_tl_blocks_lt_id FROM progduration_traineelevel_blocks_leveltype_rel
+			WHERE program_duration_id = (SELECT program_duration_id FROM trainee_admission_details_rel where trainee_id = ?) AND trainee_level_id = (SELECT trainee_level_id FROM trainee_cohort_details 
+			WHERE trainee_admission_details_rel_id = (SELECT trainee_admission_details_rel_id FROM trainee_admission_details_rel where trainee_id = ?) 
+			AND is_current_trainee_level is true))) AND trainee_id = ?)
+			
+		]]>
+    </sql>
+    
+    <sql id="getTraineeByProgramCohortAndTraineeLevel">
+        <![CDATA[
+			SELECT tadr.trainee_id 
+			FROM trainee_admission_details_rel tadr, trainee_cohort_details tcd 
+			WHERE tadr.trainee_admission_details_rel_id = tcd.trainee_admission_details_rel_id  
+			AND tadr.program_duration_id = ?
+			AND tcd.trainee_level_id = ?;
+		]]>
+    </sql>
+    
+     <sql id="getResidentsPerRotationPerTrainingSite">
+        <![CDATA[
+			select b.training_sites_id,
+			b.training_site_name,
+			b.rotation_id,
+			b.rotation_name,
+			b.block_no,
+			b.inProgram,
+			b.notInProgram,
+			faculty_id,
+			u.firstname,
+			u.lastname
+			from (select training_sites_id
+			, rotation_id
+			, rotation_name
+			, block_no
+			, sum(traineesInProgram)    inProgram
+			, sum(traineesNotInProgram) notInProgram
+			, a.progduration_rotation_ts_rel_id
+			,training_site_name
+			from (select training_sites_id,
+			training_site_name,
+			rotation_id,
+			rotation_name,
+			bmdr.block_no,
+			count(bmdr.block_no) as traineesInProgram,
+			0                    as traineesNotInProgram,
+			prtr.progduration_rotation_ts_rel_id
+			from progduration_rotation_trainingsites_rel prtr
+			inner join program_duration_details pdd on prtr.program_duration_id = pdd.prog_duration_id
+			inner join training_sites_master tsm on prtr.training_sites_id = tsm.training_site_master_id
+			full join rotation_master rm on prtr.rotation_id = rm.rotation_master_id
+			left join trainee_rotation_ts_block_details_rel trtbdr
+			on prtr.progduration_rotation_ts_rel_id = trtbdr.progduration_rotation_ts_rel_id
+			inner join blocks_metadata_details_rel bmdr
+			on trtbdr.blocks_metadata_details_rel_id = bmdr.blocks_metadata_details_rel_id
+			where pdd.program_id = ?
+			and pdd.ay_applicable_form = ?
+			group by training_sites_id,training_site_name,prtr.progduration_rotation_ts_rel_id, rotation_id, rotation_name,bmdr.block_no
+			
+			union
+			
+			select training_sites_id,
+			training_site_name,
+			rotation_id,
+			rotation_name,
+			bmdr.block_no,
+			0                    as traineesInProgram,
+			count(bmdr.block_no) as traineesNotInProgram,
+			prtr.progduration_rotation_ts_rel_id
+			from progduration_rotation_trainingsites_rel prtr
+			inner join program_duration_details pdd on prtr.program_duration_id = pdd.prog_duration_id
+			inner join training_sites_master tsm on prtr.training_sites_id = tsm.training_site_master_id
+			full join rotation_master rm on prtr.rotation_id = rm.rotation_master_id
+			left join trainee_rotation_ts_block_details_rel trtbdr
+			on prtr.progduration_rotation_ts_rel_id = trtbdr.progduration_rotation_ts_rel_id
+			inner join blocks_metadata_details_rel bmdr
+			on trtbdr.blocks_metadata_details_rel_id = bmdr.blocks_metadata_details_rel_id
+			where pdd.program_id <> ?
+			and pdd.ay_applicable_form = ?
+			group by training_sites_id,training_site_name,prtr.progduration_rotation_ts_rel_id, rotation_id, rotation_name,bmdr.block_no) a
+			
+			group by training_sites_id,training_site_name,rotation_id,rotation_name,block_no, progduration_rotation_ts_rel_id
+			
+			order by training_sites_id, rotation_id, block_no) b
+			left join faculty_rotation_ts_block_details_rel frtbdr
+			on b.progduration_rotation_ts_rel_id = frtbdr.progduration_rotation_ts_rel_id
+			inner join user_ u on faculty_id = u.userid
+			
+			order by b.training_sites_id, b.rotation_id, b.block_no
+		]]>
+    </sql>
+    
+    <sql id="getFacultyRequestData">
+       <![CDATA[   
+		    select pm.program_name,
+			tsm.training_site_name, 
+			rm.rotation_name, 
+			u.userid,
+			ft.name_en as faculty_type_en, ft.name_ar as faculty_type_ar, 
+			fss.name_en as faculty_request_status_en, fss.name_ar as faculty_request_status_ar, 
+			fr.faculty_request_id,
+			fss.code as faculty_request_status_code
+		    from faculty_request fr 
+			inner join faculty_request_rotations frr on  fr.faculty_request_id=frr.faculty_request_id
+			inner join faculty_request_state frs on  fr.faculty_request_id=frs.faculty_request_id
+			and frs.faculty_request_state_id=fr.lastest_faculty_request_state_id
+			inner join faculty_request_status fss on frs.faculty_request_status_id = fss.faculty_request_status_id 
+			inner join program_master pm on fr.program_id = pm.program_master_id 
+			inner join training_sites_master tsm on frr.training_site_id=tsm.training_site_master_id
+			inner join user_ u on fr.potential_faculty_id=u.userid
+			left join rotation_master rm on frr.rotation_id=rm.rotation_master_id
+			left join faculty_type ft on ft.faculty_type_id=fr.potential_faculty_type_id
+		]]>
+	</sql>
+    <sql id="getTrainingSiteDetailsByProgramMaster">
+       <![CDATA[   
+		      SELECT 
+				distinct prt.training_sites_id,
+				ts.training_site_name,
+				pm1.program_name
+			FROM 
+				program_duration_details pd,
+				progduration_rotation_trainingsites_rel prt,
+				program_master pm1,
+				training_sites_master ts
+			WHERE 
+				pd.prog_duration_id = prt.program_duration_id
+				AND prt.training_sites_id = ts.training_site_master_id
+				AND pd.program_id  = pm1.program_master_id 
+				AND pm1.program_master_id = ?
+		]]>
+	</sql>
+    
+    
+	
+</custom-sql>

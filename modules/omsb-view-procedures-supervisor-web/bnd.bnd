@@ -1,0 +1,5 @@
+Bundle-Name: omsb-view-procedures-supervisor-web
+Bundle-SymbolicName: gov.omsb.view.procedures.supervisor.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.view.procedures.supervisor.web.constants,\
+				gov.omsb.view.procedures.supervisor.web.util

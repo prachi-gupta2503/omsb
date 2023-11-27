@@ -1,0 +1,53 @@
+.status-box-piechart svg {width: 150px; border-radius: 50%; background:#E82C2A; transform: rotate(-90deg);}
+.status-box-piechart svg text {transform: rotate(90deg);font-size:5px;}
+.status-box-piechart circle {fill: none;stroke-width: 32; r: 16; cx: 16; cy: 16;}
+.status-box-piechart circle.first {stroke: #FA981C}
+.status-box-piechart circle.second {stroke: #FA981C}
+    
+
+/*=== Start Pia Chart CSS ===*/
+
+.status-box-piechart{display: flex; justify-content: center; margin-bottom: 22px;}
+.box-piechart.highcharts-figure{height: auto !important;}
+.box-piechart.highcharts-figure .highcharts-background{background: none !important;}
+.box-piechart.highcharts-figure,.highcharts-data-table table {min-width: auto; max-width: auto;}
+.box-piechart.highcharts-data-table table {font-family: Verdana, sans-serif; border-collapse: collapse; border: 1px solid #ebebeb; margin: 10px auto; text-align: center; width: 100%; max-width: 500px;}
+.box-piechart.highcharts-data-table caption {padding: 1em 0; font-size: 1.2em;color: #555;}
+.box-piechart.highcharts-data-table th {font-weight: 600; padding: 0.5em;}
+.box-piechart.highcharts-data-table td,.highcharts-data-table th,.highcharts-data-table caption {padding: 0.5em;}
+.box-piechart.highcharts-data-table thead tr,.highcharts-data-table tr:nth-child(even) {background: #f8f8f8;}
+.box-piechart.highcharts-data-table tr:hover {background: #f1f7ff;}
+
+/*===// End Pia Chart CSS ===*/
+
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {}
+
+/* common css for screen size < 1199 (Table landscape view ) */
+@media only screen and (max-width: 1199px) {}
+
+/* common css for screen size < 991 (Table portrait view ) */
+@media only screen and (max-width: 991px) {
+.status-box .status-dtls{min-width: 85px;}
+}
+
+/* common css for screen size < 767 (Mobile landscape view )  */
+@media only screen and (max-width: 768px) {}
+
+/* common css for screen size < 479 (Mobile portrait view )  */
+@media only screen and (max-width: 479px) {}
+
+/* common css for screen size < 320 (Mobile portrait view for 320 )  */
+@media only screen and (max-width: 320px) {}
+
+/* common css for screen size between  768 to 1199 (Tablet view for  768 to 1199 ) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+/* common css for screen size between  768 to 1023 (Tablet view for  768 to 1023 ) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+
+/* common css for screen size between  1024 to 1600  (Small desktop view for  1024 to 1600 )*/
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+
+}

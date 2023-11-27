@@ -1,0 +1,4 @@
+Bundle-Name: omsb-define-rotation-and-shared-rotations-web
+Bundle-SymbolicName: gov.omsb.define.rotation.and.shared.rotations.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.define.rotation.and.shared.rotations.web.constants

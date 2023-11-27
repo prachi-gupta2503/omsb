@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="gov.omsb.email.template.master.model.EmailTemplateMaster">
+		<field name="templateId" type="long" />
+		<field name="templateName" type="String" />
+		<field name="templateDescription" type="String" />
+		<field name="senderType" type="String" />
+		<field name="senderEmailId" type="String" />
+		<field name="defaultCC" type="String" />
+		<field name="defaultBCC" type="String" />
+		<field name="subject" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="dynamicBody" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="staticBody" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="signature" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="userNotification" type="String">
+			<hint-collection name="EDITOR" />
+		</field>
+		<field name="isRichText" type="boolean" />
+		<field name="createdBy" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+	</model>
+	<hint-collection name="EDITOR">
+		<hint name="editor">true</hint>
+		<hint name="max-length">2000000</hint>
+	</hint-collection>
+</model-hints>

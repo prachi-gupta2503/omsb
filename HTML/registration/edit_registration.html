@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>OMSB :: Role Approver</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--- Start Fonts CSS files Here --->
+	<link rel="stylesheet" href=".././css/fontawesome4.7.0/font-awesome.min.css">
+	<!---// End Fonts CSS files Here --->
+
+	<!--- Start CSS files Here --->
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/flaticons/uicons-solid-rounded.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/docs.css">
+
+	<!---// End CSS files Here --->
+
+
+	<!--- Start JS files Here --->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!---// End JS files Here --->
+
+</head>
+
+<body>
+	<div class="main-content">
+
+		<!-- Header -->
+		<header class="omsb-header">
+			<div class="omsb-top-header">
+				<div class="container">
+					<div class="omsb-top-header-row">
+						<div class="leftbar">
+							<div class="buttons-wrap">
+								<div class="button-col"><button class="btn "><i class="fa fa-microphone"></i>
+										Voice</button></div>
+								<div class="button-col"><button class="btn "><i class="fa fa-eye-slash"></i> Special
+										colors</button></div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-plus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-minus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn "><i class="fa fa-sitemap"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="rightbar">
+							<div class="social-links-wrap">
+								<div class="social-link"><a href="#" class="trans" title="Facebook"><img
+											src="../images/svg/fb.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="linkedin"><img
+											src="../images/svg/linkedin.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Twitter"><img
+											src="../images/svg/twitter.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Youtube"><img
+											src="../images/svg/youtube.svg"></a></div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--// End Top Header-->
+
+			<div class="omsb-main-header">
+				<div class="container">
+					<div class="omsb-main-header-wrap">
+						<div class="leftbar">
+							<div class="humber-menu">
+
+							</div>
+							<div class="omsb-brand-logo">
+								<img src="../images/svg/logo.svg">
+								<div class="logo-texts">
+									<span class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </span>
+									<span class="logo-text-english">Oman Medical Specialty Board</span>
+								</div>
+							</div>
+
+
+							<div class="omsb-sidebar-navigation">
+								<ul class="omsb-navbar">
+									<li class="omsb-nav-item active"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Home" /> Home</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Examination" /> Examination</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="About Us" /> About Us</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Events" /> Events</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Services" /> Services</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Contact" /> Contact</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Follow Me" /> Follow Me</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="rightbar">
+							<div class="buttons-wrap">
+								<div class="button-col">
+									<div class="custom-control custom-switch">
+										<label class="first-label" for="switch1">LTR</label>
+										<input type="checkbox" class="custom-control-input" id="switch1" name="example">
+										<label class="custom-control-label second-label" for="switch1">RTL</label>
+									</div>
+								</div>
+								<div class="button-col">
+									<button type="button" class="notification-block" title="Notifications">
+										<span class="notification-alert"></span>
+									</button>
+								</div>
+								<div class="button-col">
+									<button type="button" class="profile-dtls" title="User Profile"><img
+											class="profile-pic" src="../images/svg/profile.svg"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<!-- Header -->
+
+		<!--- Start Main Content Section Here --->
+		<section class="omsb-main-wrapper" id="omsb-main-wrapper">
+			<!-- breadcrumbs -->
+			<div class="omsb-breadcrumbs">
+				<div class="container ">
+					<div class="omsb-breadcrumbs-wrap">
+						<div class="leftbar">
+							<div class="breadcrumb-link">
+								<ul>
+									<li><a href="#" class="trans" title="Home">Home</a></li>
+									<li>Registration</li>
+								</ul>
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumbs -->
+
+			<!-- Inner Wrapper Contents -->
+			<div id="wrapper">
+				<div class="container">
+			
+						<div class="omsb-card ">
+							
+							
+							<form name="registration-form" class="" id="registration-form">
+								
+								<div class="reg_step1"  id="reg_step1">
+									<div class="omsb-card m-0 p-0">
+										<div class="omsb-page-top-info mb-4">
+											<div class="pagetitle">Edit Registration</div>
+										</div>
+										
+									</div>
+									
+									
+									<h3 class="reg-form-title">Personal Details</h3>
+									<div class="row">
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Username</label>
+												<input type="text" name="username" id="username" value="adbul123" class="form-control" readonly>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label required">Civil ID</label>
+												<input type="text" name="civilid" id="civilid" value="123456" class="form-control" readonly>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Date of Birth</label>
+												<input type="text" name="dob" id="dob" value="12-02-1996" placeholder="DD-MM-YYYY" class="form-control datePicker" readonly disabled="disadbled">
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Passport No.</label>
+												<input type="text" name="passportno" id="passportno" value="L456342" class="form-control" readonly>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Country of Issue</label>
+												<select  name="coi" id="coi" class="form-control">
+													<option value="">select</option>
+													<option value="1" selected>Visit type1</option>
+													<option value="2">Visit type1</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Date of Exipry</label>
+												<input type="text" name="doe" id="doe" value="17-02-2025" placeholder="DD-MM-YYYY" class="form-control datePicker">
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<label class="control-label">First name</label>
+												<input type="text" name="firstname" id="firstname" value="adbul"
+												class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Family name</label>
+												<input type="text" name="familyname" id="familyname" value="mhamad" class="form-control">
+											</div>
+										</div>
+										
+										<div class="col-lg-4 col-md-4">
+											<div class="form-group">
+												<label class="control-label">Email</label>
+												<input type="text" name="email" id="email" value="adbul@gmail.com"
+												class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-8 col-md-8 row p-0">
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Email OTP</label>
+													<input type="text" name="emailotp" id="emailotp" placeholder="_ _ _ _ _ _"
+													class="form-control">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3">
+												<div class="form-group">
+													<label></label>
+													<button type="button" class="btn omsb-bc-red-button" name="sendeotp" title="send Email OTP " id="checkemailotp"> Send OTP</button>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3">
+												<div class="form-group">
+													<label></label>
+													<button type="button" class="btn omsb-bc-red-button" name="verifyemailotp" title="Verify Email" id="checkemailotp"> Verify Email</button>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4">
+											<div class="form-group">
+												<label class="control-label">Mobile</label>
+												<input type="text" name="mobile" id="mobile" value="987654321"
+												class="form-control">
+											</div>
+										</div>
+										<div class="col-lg-8 col-md-8 row p-0">
+											<div class="col-lg-6 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Mobile OTP</label>
+													<input type="text" name="mobileotp" id="mobileotp" placeholder="_ _ _ _ _ _"
+													class="form-control">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-3">
+												<div class="form-group">
+													<label></label>
+													<button type="button" class="btn omsb-bc-red-button" name="sendmotp" title="send mobile OTP " id="checkemailotp"> Send OTP</button>
+												</div>
+											</div>
+
+											<div class="col-lg-3 col-md-6">
+												<div class="form-group">
+													<label></label>
+													<button type="button" class="btn omsb-bc-red-button" name="verifyemailotp" title="Verify Email" id="checkemailotp"> Verify Mobile</button>
+												</div>
+											</div>
+											
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Gender</label>
+												<select  name="gender" id="gender" class="form-control">
+													<option value="">select</option>
+													<option value="male" selected>MALE</option>
+													<option value="female">FEMALE</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Nationality</label>
+												<select  name="nationality" id="nationality" class="form-control">
+													<option value="">select</option>
+													<option value="oman" selected>Oman</option>
+													<option value="india">India</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="col-lg-12 col-md-12">
+											<div class="form-group">
+												<label class="control-label">Photo</label>
+												<div class="omsb-custom-html-file">
+													<input type="file" name="Photo" id="Photo" value=""	class="form-control ">
+														<span class="file-value"></span>
+														<span class="file-title">Select file</span>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Profession</label>
+												<select  name="profession" id="profession" class="form-control">
+													<option value="">select</option>
+													<option value="profession1" selected>PROFESSION 1</option>
+													<option value="profession2">PROFESSION 2</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Primary speciality</label>
+												<select  name="primaryspeciality" id="primaryspeciality" class="form-control">
+													<option value="">select</option>
+													<option value="primaryspeciality1" selected>primaryspeciality 1</option>
+													<option value="primaryspeciality2">primaryspeciality 2</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-6">
+											<div class="form-group">
+												<label class="control-label">Secondary speciality</label>
+												<select  name="secondaryspeciality" id="secondaryspeciality" class="form-control">
+													<option value="">select</option>
+													<option value="secondaryspeciality1" selected>secondaryspeciality 1</option>
+													<option value="secondaryspeciality2">secondaryspeciality 2</option>
+												</select>
+											</div>
+										</div>
+										
+										
+									</div>
+									
+								</div>
+
+								<div class="reg_step2 "  id="reg_step2">
+																	
+									<div class="omsb-page-top-info mb-4">
+										<h3 class="reg-form-title">Education Details</h3>
+										<div class="information"><button type="button" class="btn omsb-bg-red-button" id="add_edu_detail"><img src="../images/svg/plus_img.svg" alt=""> Add More</button></div>
+									</div>
+									<div id="edu_detail_area">
+										<div class="omsb-card  omsb-card-graybg omsb-noBorderRadius edu_detail" id="edu_detail_1" >
+											<div class="omsb-list-filter">
+											<div class="row ">
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label required">Title</label>
+														<input type="text" name="title" id="title" value="123456"
+														class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Institution</label>
+														<select  name="Institution" id="Institution" class="form-control">
+															<option value="">select</option>
+															<option value="Institution 1" selected>Institution 1</option>
+															<option value="Institution">Institution 2</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Country of Institution</label>
+														<select  name="Institution" id="Institution" class="form-control">
+															<option value="">select</option>
+															<option value="Institution 1" selected>Institution 1</option>
+															<option value="Institution">Institution 2</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">GPA</label>
+														<input type="text" name="GPA" id="GPA" value="14"
+														class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Year of Graducation</label>
+														<select  name="Institution" id="Institution" class="form-control">
+															<option value="">select</option>
+															<option value="Institution 1" selected>Institution 1</option>
+															<option value="Institution">Institution 2</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Qualification Document</label>
+														<div class="omsb-custom-html-file">
+															<input type="file" name="qualificationdoc" id="qualificationdoc" value="123456"
+															class="form-control ">
+																<span class="file-value"></span>
+																<span class="file-title">Select file</span>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+											<div class="filter-button-wrap flex d-none">
+												<button class="btn edu_delete" title="Delete">
+													<img src="../images/svg/delete_icon.svg">
+												</button>
+											</div>
+										</div>
+										</div>
+									</div>
+									
+								</div>
+
+								<div class="reg_step3 mt-4"  id="reg_step3">
+									
+									<div class="omsb-page-top-info mb-4">
+										<h3 class="reg-form-title">Work Details</h3>
+										<div class="information"><button type="button" class="btn omsb-bg-red-button" id="add_work_detail"><img src="../images/svg/plus_img.svg" alt=""> Add More</button></div>
+									</div>
+									<div class="d-flex">
+										<div class="w-50">
+											<label class="control-label">Are you currently or have been employed?</label>
+										</div>
+										<div class="form-group yesorno">
+											<div class="custom-control custom-radio ">
+												<input type="radio" name="employed" class="custom-control-input" id="employed_yes" checked>
+												<label class="custom-control-label m-0" for="employed_yes">Yes</label>
+											</div>
+											
+											<div class="custom-control custom-radio ">
+												<input type="radio" name="employed" class="custom-control-input" id="employed_no">
+												<label class="custom-control-label m-0" for="employed_no">No</label>
+											</div>
+										</div>
+									</div>
+									
+									<div id="work_detail_area">
+										<div class="omsb-card omsb-card-graybg omsb-noBorderRadius work_detail" id="work_detail_1" >
+											<div class="omsb-list-filter">
+											<div class="row ">
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label ">Work sector type</label>
+														<input type="text" name="worksectortype" id="worksectortype" value="123456"
+														class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Work sector</label>
+														<select  name="worksector" id="worksector" class="form-control">
+															<option value="">select</option>
+															<option value="SQBH" selected>SQBH</option>
+															<option value="SQAH">SQAH</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label ">Work sector other</label>
+														<input type="text" name="worksectorother" id="worksectorother" value="other" class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label ">Work sector location</label>
+														<select  name="Worksectorlocation" id="Worksectorlocation" class="form-control">
+															<option value="">select</option>
+															<option value="Worksectorlocation 1" selected>Worksectorlocation 1</option>
+															<option value="Worksectorlocation 2">Worksectorlocation  2</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Designation</label>
+														<select  name="designation" id="designation" class="form-control">
+															<option value="">select</option>
+															<option value="designation 1" selected>designation 1</option>
+															<option value="designation">designation 2</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label ">Designation other</label>
+														<input type="text" name="designationother" id="designationother" value=""
+														class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-12 col-md-12">
+													<div class="form-group">
+														<label class="control-label">Qualification Document</label>
+														<div class="omsb-custom-html-file">
+															<input type="file" name="qualificationdoc" id="qualificationdoc" value="123456"
+															class="form-control">
+															<span class="file-value"></span>
+															<span class="file-title">Select file</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="filter-button-wrap flex d-none">
+												<button type="button" class="btn work_delete" title="Delete">
+													<img src="../images/svg/delete_icon.svg">
+												</button>
+											</div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<div class="custom-control custom-checkbox ">
+													<input type="checkbox" class="custom-control-input" id="declare1" name="declare1" checked>
+													<label class="custom-control-label m-0" for="declare1">I declare that all of the information provided by me in this form is true and collect to the best of my knowledge. <span class="required"></span> </label>
+													
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<div class="custom-control custom-checkbox ">
+													<input type="checkbox" class="custom-control-input" id="declare2" name="declare2" checked>
+													<label class="custom-control-label m-0" for="declare2">I agree to have my general information (name, specialty, and workplace) presented in the OMSB Public Healthcare Professionals Directory.</label>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+
+								<div class="reg_step4 mt-4"  id="reg_step4">
+									
+									<div class="omsb-page-top-info mb-4">
+										<h3 class="reg-form-title">Role/Service</h3>
+									</div>
+									
+									<div class="d-flex">
+										<div class="w-50">
+											<label class="control-label">Are you associated with OMSB?</label>
+										</div>
+										<div class="form-group yesorno">
+											<div class="custom-control custom-radio ">
+												<input type="radio" name="associated" class="custom-control-input" id="associated_yes" value="1" checked>
+												<label class="custom-control-label m-0" for="associated_yes">Yes</label>
+											</div>
+											
+											<div class="custom-control custom-radio ">
+												<input type="radio" name="associated" class="custom-control-input" id="associated_no" value="0">
+												<label class="custom-control-label m-0" for="associated_no">No</label>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									
+									<div class="" id="registrant_detail_area" >
+										<div class="d-flex">
+											<div class="w-50">
+												<label class="control-label">Are you registering for role or service?</label>
+											</div>
+											<div class="form-group yesorno">
+												<div class="custom-control custom-radio ">
+													<input type="radio" name="registering" class="custom-control-input" id="registering_yes" value="1" >
+													<label class="custom-control-label m-0" for="registering_yes">Role</label>
+												</div>
+												
+												<div class="custom-control custom-radio ">
+													<input type="radio" name="registering" class="custom-control-input" id="registering_no" value="0" checked>
+													<label class="custom-control-label m-0" for="registering_no">Service</label>
+												</div>
+											</div>
+										</div>
+
+									<div class="omsb-card omsb-card-graybg omsb-noBorderRadius " id="role_detail_area">
+										<div class="row ">
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label ">Role</label>
+													
+													<select  name="role" id="role" class="form-control">
+														<option value="">select</option>
+														<option value="admin" selected>admin</option>
+														<option value="user">user</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Department</label>
+													<select  name="department" id="department" class="form-control">
+														<option value="">select</option>
+														<option value="Department1" selected>Department 1</option>
+														<option value="Department2">Department 2</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Section</label>
+													<select  name="section" id="section" class="form-control">
+														<option value="">select</option>
+														<option value="section2" selected>section 2</option>
+														<option value="section3">section 3</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Committe</label>
+													<select  name="committe" id="committe" class="form-control">
+														<option value="">select</option>
+														<option value="function1" selected>Committe 1</option>
+														<option value="function2">Committe 2</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Function</label>
+													<select  name="function" id="function" class="form-control">
+														<option value="">select</option>
+														<option value="function1" selected>function 1</option>
+														<option value="function2">function 2</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Program type</label>
+													<select  name="programtype" id="programtype" class="form-control">
+														<option value="">select</option>
+														<option value="programtype1" selected>Program type 1</option>
+														<option value="programtype2">Program type 2</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label">Program </label>
+													<select  name="program" id="program" class="form-control">
+														<option value="">select</option>
+														<option value="program1" selected>Program 1</option>
+														<option value="program2">Program 2</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-4 col-md-6">
+												<div class="form-group">
+													<label class="control-label ">Service</label>
+													
+													<select  name="service" id="service" class="form-control">
+														<option value="">select</option>
+														<option value="service1" selected>service 1</option>
+														<option value="service2">service 2</option>
+													</select>
+												</div>
+											</div>
+																					
+										</div>
+									</div>
+
+									
+								</div>
+
+									
+								</div>
+
+
+									<div class="bottom-backbtn-wrap">
+										<button class="btn omsb-bc-red-button" type="button" title="Save At This Stage">Save</button>
+										<button class="btn omsb-bg-red-button" type="button" title="Next">Cancel</button>
+										
+									</div>
+
+							</form>
+						</div>
+				</div>
+			</div>
+			<!--// Inner Wrapper Contents -->
+
+		</section>
+		<!---// End Main Content Section Here --->
+
+		<!-- footer -->
+		<div class="omsb-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<p class="copyright">2023 All rights reserved to Oman medical specialty board</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		</div>
+		<script type="text/javascript">
+			
+		
+			$('#dob').datepicker({
+			format: "dd-mm-yyyy",
+			orientation: "bottom auto",
+			autoclose: true
+			}).on('change', function(){
+			$('.datepicker').hide();
+			});
+			
+			$('#add_edu_detail').click(function() {
+				var edudtl = $("#edu_detail_area .edu_detail:first-child").clone().appendTo('#edu_detail_area');
+				edudtl.find('.d-none').removeClass('d-none');
+				edu_delete();
+			});
+
+			function edu_delete(){
+				$('.edu_delete').click(function() {
+					$(this).parent().parent().parent().remove();
+				});
+			}
+			function work_delete(){
+				$('.work_delete').click(function() {
+					$(this).parent().parent().parent().remove();
+				});
+			}
+
+			$('#add_work_detail').click(function() {
+				var wrkdtl = $("#work_detail_area .work_detail:first-child").clone().appendTo('#work_detail_area');
+				wrkdtl.find('.d-none').removeClass('d-none');
+				work_delete();
+			});
+
+			
+			$(".custom-file-input2").on("change", function () {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").children('.uploader-value').addClass("selected").html(fileName);
+			});
+
+			$('.go-pervious').click(function() {
+				var ptid = $(this).attr('data-pervious');
+				$('#'+ptid).removeClass("d-none");
+				$(this).parent().parent().addClass('d-none');
+			});
+
+			$('.go-next').click(function() {
+				var ntid = $(this).attr('data-next');
+				$('#'+ntid).removeClass("d-none");
+				$(this).parent().parent().addClass('d-none');
+			});
+
+			
+			$('input[name="associated"]').change(function() {
+				var passoc = $("input[name='associated']:checked").val();
+				console.log("passoc"+passoc);
+				if(passoc == 0 || passoc == "0" ) {
+					console.log("card");
+					$('#registrant_detail_area').removeClass("d-none");
+					$('#associated_detail_area').addClass("d-none");
+				}
+				else{
+					console.log("mobile");
+					$('#associated_detail_area').removeClass("d-none");
+					$('#registrant_detail_area').addClass("d-none");
+				}
+			});
+
+			$('input[name="registering"]').change(function() {
+				var preg = $("input[name='registering']:checked").val();
+				console.log("preg"+preg);
+				if(preg == 0 || preg == "0" ) {
+					$('#service_detail_area').removeClass("d-none");
+					$('#role_detail_area').addClass("d-none");
+				}
+				else{
+					$('#role_detail_area').removeClass("d-none");
+					$('#service_detail_area').addClass("d-none");
+				}
+			});
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>OMSB :: Identification Presonal ID</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/flaticons/uicons-solid-rounded.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="../css/fontawesome4.7.0/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/datatables/responsive.bootstrap4.min.css">
+	<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="../js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="../js/datatables/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="../js/datatables/responsive.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/docs.css">
+</head>
+
+<body>
+	<div class="main-content id-box">
+		<div class="omsb-main-wrapper" id="omsb-main-wrapper">
+
+			<div class=" row bg-white">
+
+				<div class="col-12 login-right">
+					<div class="omsb-card m-0">
+						<div class="omsb-pre-login header pt-0">
+							<div>
+								<img src="../images/svg/logo.svg">
+							</div>
+							<div>
+								<p class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </p>
+								<p class="logo-text-english">Oman Medical Specialty Board</p>
+							</div>
+						</div>
+						<div class="Id-forms">
+							<div class="omsb-page-top-info">
+								<div class="pagetitle">Identification - Personal ID</div>
+							</div>
+							<form name="login-user-password" class="login-wup">
+								<div class="d-flex mb-3">
+									<label class="control-label d-flex mb-0 mr-3">Do you have a Civil ID ?</label>
+									<div class="form-group d-flex w-auto mb-0">
+										<div class="custom-control custom-radio ">
+											<input type="radio" name="CivilId-radio" class="custom-control-input"
+												id="CivilId_yes">
+											<label class="custom-control-label m-0" for="CivilId_yes">Yes</label>
+										</div>
+
+										<div class="custom-control custom-radio ">
+											<input type="radio" name="CivilId-radio" class="custom-control-input"
+												id="CivilId_no">
+											<label class="custom-control-label m-0" for="CivilId_no">No</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="omsb-card omsb-card-graybg omsb-BorderRadius-4">
+									<h3 class="reg-form-title mb-3"> Enter following to help us identify You:</h3>
+									<div class="row identify-row">
+										<div class="col-md-6 col-sm-6 col-xs-12 leftbar">
+											<div class="form-group">
+												<label class="control-label">Passport Number</label>
+												<input class="form-control" placeholder="Passport Number" type="text"
+													name="passportno">
+											</div>
+										</div>
+										<div class="col-md-2 col-sm-2 col-xs-12 centerbar ">
+											<h5 class="reg-form-section-title text-center">OR</h5>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-12 rightbar">
+											<div class="form-group">
+												<label class="control-label">DFRN</label>
+												<input class="form-control" placeholder="DFRN" type="text" name="dfrn">
+											</div>
+										</div>
+
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<div class="form-group">
+												<label class="control-label">Date of birth</label>
+												<input class="form-control datePicker" placeholder="DD-MM-YYYY"
+													type="text" name="dob" id="dob">
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="bottom-backbtn-wrap m-0">
+									<button class="btn omsb-bc-red-button" title="Next">Next</button>
+									<a class="btn omsb-btn btn-back" href="#"><i
+											class="fi fi-sr-arrow-left"></i>Back</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+
+
+		$('#dob').datepicker({
+			format: "dd-mm-yyyy",
+			orientation: "bottom auto",
+			autoclose: true
+		}).on('change', function () {
+			$('.datepicker').hide();
+		});
+
+	</script>
+</body>
+
+</html>

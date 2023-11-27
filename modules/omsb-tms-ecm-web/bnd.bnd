@@ -1,0 +1,7 @@
+Bundle-Name: omsb-tms-ecm-web
+Bundle-SymbolicName: gov.omsb.tms.ecm.web
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.tms.ecm.web.constants,\
+	gov.omsb.tms.ecm.web.workflow,\
+	gov.omsb.tms.ecm.web.util

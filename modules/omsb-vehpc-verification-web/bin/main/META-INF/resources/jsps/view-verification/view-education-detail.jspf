@@ -1,0 +1,132 @@
+<table class="your-iterator-class display omsb-tableview" width="100%">
+	<thead>
+		<tr>
+			<th><liferay-ui:message key="qualification-attained" /></th>
+			<th><liferay-ui:message key="issuing-authority-name" /></th>
+			<th><liferay-ui:message key="issuing-authority-country" /></th>
+			<th><liferay-ui:message key="qualification-conferred-date" /></th>
+			<th><liferay-ui:message key="action" /></th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="education" items="${educationDetail}">
+			<tr class='odd clickable-row'>
+				<c:set var="commaSeparatedString" value="" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.modeOfStudy};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getIssuingAuthorityName()};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getIssuingAuthorityState()};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getIssuingAuthorityCountryName()};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getQualificationAttained()};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getQualificationConferredDate()};" />
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${education.getDurationInMonths()};" />
+				<c:forEach var="cert" items="${education.items}">	
+		            <c:set var="commaSeparatedCerificate" value="${commaSeparatedCerificate}${cert.educationCertificateUrl};" />
+		    	</c:forEach>
+				<c:set var="commaSeparatedString" value="${commaSeparatedString}${commaSeparatedCerificate};" />
+				<td>${education.getQualificationAttained()}</td>
+				<td>${education.getIssuingAuthorityName()}</td>
+				<td>${education.getIssuingAuthorityCountryName()}</td>
+				<td>${education.getQualificationConferredDate()}</td>
+				<td>
+					<button class="clickable-row dropdown-item" data-toggle="modal" data-edd="${commaSeparatedString}" data-State="${education.getIssuingAuthorityState()}" data-target="#edupop1"> 
+						<liferay-ui:message key="view" />
+					</button>
+				</td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+<!-- popup 1 -->
+<div class="modal fade" id="edupop1" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog information-box" role="document">
+		<div class="modal-content">
+			<div class="modal-header d-none">
+				<h5 class="modal-title" id="exampleModalLabel"><liferay-ui:message key="education-details" /></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+					<span aria-hidden="true">&times;</span> 
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="omsb-label-view ">
+					<div class="label-group-header row">
+						<span><liferay-ui:message key="education-details" /></span>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 label-box">
+							<label class="label-name "><liferay-ui:message key="mode-of-study" /></label> 
+							<label class="label-content modeOfStudy" id="modeOfStudy"></label>
+						</div>
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="issuing-authority-name" /></label> 
+							<label class="label-content issuingAuthorityName">${education.getIssuingAuthorityName()}</label>
+						</div>
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="issuing-authority-state" /></label> 
+							<label class="label-content issuingAuthorityState">${education.getIssuingAuthorityState()}</label>
+						</div>
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="issuing-authority-country" /></label> 
+							<label class="label-content issuingAuthorityCountry"></label>
+						</div>
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="qualification-attained" /></label> 
+							<label class="label-content qualificationAttained"></label>
+						</div>
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="qualification-conferred-date" /></label> 
+							<label class="label-content qualificationConferredDate">${education.getQualificationConferredDate()}</label>
+						</div>
+
+						<div class="col-md-3 label-box">
+							<label class="label-name"><liferay-ui:message key="duration-months" /></label> 
+							<label class="label-content durationMonths"></label>
+						</div>
+						 <div class="col-md-3 label-box">
+						    <label class="label-name"><liferay-ui:message key="education-certificate" /></label>
+						    <c:forEach var="certificate" items="${educationDetail}">
+						    	<c:forEach var="cert" items="${certificate.items}">	
+						    	 
+						 		 <label class="label-content ">					    	
+						            <a target="_blank" href="${cert.educationCertificateUrl}">${cert.educationCertificateName}</a>
+						    	</c:forEach>
+						     </c:forEach>
+						    </label>
+						</div> 
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer d-none">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><liferay-ui:message key="close" /></button>
+				<button type="button" class="btn btn-primary"><liferay-ui:message key="save-changes" /></button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- popup1 -->
+
+<script>
+$('#edupop1').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var rowContent = button.data('edd');
+  var recipientState = button.data('state');
+  var array = rowContent.split(";");
+  console.log("",array);
+  var modal = $(this)
+  modal.find('.modeOfStudy').text(array[0]);
+  modal.find('.issuingAuthorityName').text(array[1]);
+  modal.find('.issuingAuthorityState').text(array[2]);
+  modal.find('.issuingAuthorityCountry').text(array[3]);
+  modal.find('.qualificationAttained').text(array[4]);
+  modal.find('.qualificationConferredDate').text(array[5]);
+  modal.find('.durationMonths').text(array[6]);
+ /*  modal.find('.education-certificate').attr('href',array[7]); */
+ 
+})
+
+</script>
+

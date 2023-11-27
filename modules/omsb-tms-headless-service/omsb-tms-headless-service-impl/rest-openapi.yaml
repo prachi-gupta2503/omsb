@@ -1,0 +1,83 @@
+info:
+    description: "OmsbTmsHeadlessService REST API"
+    license:
+        name: "Apache 2.0"
+        url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    title: "OmsbTmsHeadlessService"
+    version: v1.0
+openapi: 3.0.1
+components:
+   schemas:
+       CaseDetails:
+           description: To get the Data Flow Case Number.
+           properties:
+               caseTypeId:
+                   description: The caseTypeId.
+                   type: integer
+               crn:
+                   description: example CRN-2208-109540
+                   type: string
+               caseNumber:
+                   description: example O004-2022-16022022
+                   type: string
+               message:
+                   description: The message.
+                   type: string
+               stageId:
+                   description: The stageId.
+                   type: string
+               statusId:
+                   description: The status Id.
+                   type: integer
+           type: object
+       CaseDetailsResponse:
+           description: To give the response.
+           properties:
+               message:
+                   description: The caseTypeId.
+                   type: string
+               status:
+                   description: The crn .
+                   type: string
+           type: object
+
+paths:
+   "/notify-to-client":
+       get:
+           description: Get DataFlow Data
+           operationId: getData
+           responses:
+               200:
+                   content:
+                       application/json:
+                           schema:
+                               items:
+                                   $ref: "#/components/schemas/CaseDetailsResponse"
+                               type: array
+                       application/xml:
+                           schema:
+                               items:
+                                   $ref: "#/components/schemas/CaseDetailsResponse"
+                               type: array
+                   description: default response
+       post:
+           description: Adds a new case details data
+           operationId: addData
+           requestBody:
+               content:
+                   application/json:
+                       schema:
+                           $ref: "#/components/schemas/CaseDetails"
+                   application/xml:
+                       schema:
+                           $ref: "#/components/schemas/CaseDetails"
+           responses:
+               200:
+                   content:
+                       application/json:
+                           schema:
+                               $ref: "#/components/schemas/CaseDetailsResponse"
+                       application/xml:
+                           schema:
+                               $ref: "#/components/schemas/CaseDetailsResponse"
+                   description: default response

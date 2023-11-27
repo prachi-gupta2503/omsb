@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>OMSB :: Identification Confirmation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/flaticons/uicons-solid-rounded.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="../css/fontawesome4.7.0/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/datatables/dataTables.bootstrap4.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/datatables/responsive.bootstrap4.min.css">
+		<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="../js/datatables/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="../js/datatables/dataTables.bootstrap4.min.js"></script>
+		<script type="text/javascript" src="../js/datatables/dataTables.responsive.min.js"></script>
+		<script type="text/javascript" src="../js/datatables/responsive.bootstrap4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/docs.css">
+	</head>
+	<body>
+		<div class="main-content id-box" >
+			<div class="omsb-main-wrapper" id="omsb-main-wrapper">
+				
+				<div class=" row bg-white">
+					
+					<div class="col-12 login-right">
+						<div class="omsb-card pb-0 mb-0">
+							<div class="omsb-pre-login header pt-0">
+								<div>
+									<img src="../images/svg/logo.svg">
+								</div>
+								<div>
+									<p class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </p>
+									<p class="logo-text-english">Oman Medical Specialty Board</p>
+								</div>
+							</div>
+							<div class="Id-forms ">
+								<div class="omsb-card m-0 pt-0 px-0">
+									<div class="omsb-page-top-info">
+										<div class="pagetitle">Identification - Confirmation</div>
+									</div>
+									<!-- <label class="control-label">No existing Record for you has not been found. Processing with new registration</label> -->
+									<form name="id-confrim-registrant" class="login-wup">
+											
+											<!-- <h3 class="reg-form-title">Confirm with following details to continue</h3>
+											<h3 class="reg-form-sub-title ">Your Passport Number</h3> -->
+											<div class="row">
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Civil ID</label>
+														<input class="form-control" placeholder="Passport Number" type="text" value="A1234S23" name="passportno" readonly>
+													</div>
+												</div>
+												
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label">DFRN</label>
+														<input class="form-control" placeholder="DFRN" type="text" name="dfrn"  value="1234567" readonly>
+													</div>
+												</div>
+	
+												<div class="col-lg-4 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Date of birth</label>
+														<input class="form-control datePicker" placeholder="DD-MM-YYYY" type="text" value="12-02-1996" name="dob" id="dob" readonly>
+													</div>
+												</div>
+											</div>
+										<div class="bottom-backbtn-wrap">
+											<button class="btn omsb-bc-red-button" title="registration">Proceed with new registration</button>
+											<a class="btn omsb-btn omsb-bg-red-button" href="#">Start Again</a>
+										</div>
+									</form>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+		
+			$('#dob').datepicker({
+			format: "dd-mm-yyyy",
+			orientation: "bottom auto",
+			autoclose: true
+			}).on('change', function(){
+			$('.datepicker').hide();
+			});
+			
+		</script>
+	</body>
+</html>

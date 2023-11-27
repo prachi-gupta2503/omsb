@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.dynamic.form.builder.slayer.model.FormDefinition">
+		<field name="uuid" type="String" />
+		<field name="formDefinitionId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="formName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="formTitle" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="formDescription" type="String">
+			<hint name="max-length">5000</hint>
+		</field>
+		<field name="formVersion" type="String" />
+		<field name="formConfig" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+	</model>
+</model-hints>

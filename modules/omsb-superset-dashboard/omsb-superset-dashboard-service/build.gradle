@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:omsb-superset-dashboard:omsb-superset-dashboard-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../omsb-superset-dashboard-api/src/main/java"
+}
+
+group = "gov.omsb.superset.dashboard"

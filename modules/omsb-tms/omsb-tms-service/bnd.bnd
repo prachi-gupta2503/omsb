@@ -1,0 +1,7 @@
+Bundle-Name: omsb-tms-service
+Bundle-SymbolicName: gov.omsb.tms.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: gov.omsb.tms.model.impl

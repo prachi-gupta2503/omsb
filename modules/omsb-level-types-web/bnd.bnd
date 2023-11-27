@@ -1,0 +1,4 @@
+Bundle-Name: omsb-level-types-web
+Bundle-SymbolicName: gov.omsb.level.types.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.level.types.web.constants

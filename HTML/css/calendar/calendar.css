@@ -1,0 +1,6 @@
+#external-events .datepicker-inline {width: 100%;}
+#external-events .table-condensed {width: 100%;border: 1px solid #dee2e6!important;}
+#external-events .table-condensed .day:hover { border-radius:0 !important ; -webkit-border-radius:0 !important ; -moz-border-radius:0 !important ; -ms-border-radius:0 !important ; -o-border-radius:0 !important ; }
+#external-events .table-condensed thead tr:nth-child(2) {background-color: #DC3545;color: #fff;}
+#external-events .table-condensed thead tr:nth-child(2) th { border-radius:0 ; -webkit-border-radius:0 ; -moz-border-radius:0 ; -ms-border-radius:0 ; -o-border-radius:0 ; }
+#external-events .table-condensed thead tr th:hover {background-color: #DC3545;color: #fff;}

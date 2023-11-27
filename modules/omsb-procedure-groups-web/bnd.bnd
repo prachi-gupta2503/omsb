@@ -1,0 +1,4 @@
+Bundle-Name: omsb-procedure-groups-web
+Bundle-SymbolicName: gov.omsb.procedure.groups.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.procedure.groups.web.constants

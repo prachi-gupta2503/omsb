@@ -1,0 +1,88 @@
+<table  class="display omsb-tableview" width="100%" >
+        <thead>
+            <tr>
+                <th><liferay-ui:message key="category-2-package-type" /></th>
+                <th><liferay-ui:message key="category-3-service-type" /></th>
+                <th><liferay-ui:message key="category-4-profession-type" /></th>
+                <th><liferay-ui:message key="action" /></th>
+            </tr>
+        </thead>
+		<tbody>
+			<c:forEach var="referencial" items="${referencialDetail}">
+				<tr class="odd">
+					<td>${referencial.category2PackageType}</td>
+					<td>${referencial.category3ServiceType}</td>
+					<td>${referencial.category4ProfessionType}</td>
+					<c:set var="commaSeparatedReferencial" value="" />
+					<c:set var="commaSeparatedReferencial" value="${commaSeparatedReferencial}${referencial.getCategory2PackageType()};" />
+					<c:set var="commaSeparatedReferencial" value="${commaSeparatedReferencial}${referencial.getCategory3ServiceType()};" />
+					<c:set var="commaSeparatedReferencial" value="${commaSeparatedReferencial}${referencial.getCategory4ProfessionType()};" />
+					<c:set var="commaSeparatedReferencial" value="${commaSeparatedReferencial}${referencial.getCustomerName()};" />
+					<td>
+						<button class="dropdown-item" data-toggle="modal" data-referencial="${commaSeparatedReferencial}" data-target="#refPop" ><liferay-ui:message key="view" /></button>
+						</td>
+				</tr>
+			</c:forEach> 
+		</tbody>
+		</table>
+		<!-- popup 1 -->
+		<div class="modal fade" id="refPop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog information-box" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header d-none">
+		        <h5 class="modal-title" id="exampleModalLabel"><liferay-ui:message key="referencial-detail" /></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		       <div class="omsb-label-view "> 
+			<div class="label-group-header row">
+				<span ><liferay-ui:message key="referencial-detail" /></span>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+			</div>
+			<div class="row">
+
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="category-2-package-type" /></label>
+				<label class="label-content category2PackageType"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="category-3-service-type" /></label>
+				<label class="label-content category3ServiceType"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="category-4-profession-type" /></label>
+				<label class="label-content category4ProfessionType"></label>
+			</div>
+			<div class="col-md-3 label-box">
+				<label class="label-name"><liferay-ui:message key="customer-name" /></label>
+				<label class="label-content customerName"></label>
+			</div>
+		</div>
+	</div>
+		      </div>
+		      <div class="modal-footer d-none">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal"><liferay-ui:message key="close" /></button>
+		        <button type="button" class="btn btn-primary"><liferay-ui:message key="save-changes" /></button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+<!-- popup1 -->
+
+<script>
+$('#refPop').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var rowContent = button.data('referencial');  // Extract info from data-* attributes
+  var array = rowContent.split(";");
+  var modal = $(this)
+  modal.find('.category2PackageType').text(array[0]);
+  modal.find('.category3ServiceType').text(array[1]);
+  modal.find('.category4ProfessionType').text(array[2]);
+  modal.find('.customerName').text(array[3]);
+})
+
+</script>

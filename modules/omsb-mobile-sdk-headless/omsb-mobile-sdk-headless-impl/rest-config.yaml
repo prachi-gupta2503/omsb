@@ -1,0 +1,9 @@
+apiDir: "../omsb-mobile-sdk-headless-api/src/main/java"
+apiPackagePath: "gov.omsb.mobile.sdk.headless"
+application:
+    baseURI: "/omsb-mobile-sdk-headless"
+    className: "OmsbMobileSdkHeadlessApplication"
+    name: "OmsbMobileSdkHeadless"
+author: "Niddhi Thacker"
+clientDir: "../omsb-mobile-sdk-headless-client/src/main/java"
+testDir: "../omsb-mobile-sdk-headless-test/src/testIntegration/java"

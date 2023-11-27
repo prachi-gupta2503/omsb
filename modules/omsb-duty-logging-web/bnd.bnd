@@ -1,0 +1,6 @@
+Bundle-Name: omsb-duty-logging-web
+Bundle-SymbolicName: gov.omsb.duty.logging.web
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.duty.logging.web.constants,\
+	gov.omsb.duty.logging.web.util

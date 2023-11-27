@@ -1,0 +1,4 @@
+Bundle-Name: omsb-exam-master-web
+Bundle-SymbolicName: gov.omsb.exam.master.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.exam.master.web.constants

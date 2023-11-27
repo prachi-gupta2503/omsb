@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 7.4.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_7_4_0.dtd">
+
+<resource-action-mapping>
+<portlet-resource>
+    <portlet-name>gov_omsb_view_procedures_supervisor_web_OmsbViewProceduresSupervisorWebPortlet</portlet-name>
+    <permissions>
+        <supports>
+            <action-key>PASS_LOG_PROCEDURE</action-key>
+            <action-key>NOT_PASS_LOG_PROCEDURE</action-key>
+            <action-key>REFUSE_LOG_PROCEDURE</action-key>
+            <action-key>VIEW_ALL_LOG_PROCEDURE</action-key>
+            <action-key>VIEW_DEDICATED_LOG_PROCEDURE</action-key>
+        </supports>
+        <guest-unsupported>
+            <action-key>PASS_LOG_PROCEDURE</action-key>
+            <action-key>NOT_PASS_LOG_PROCEDURE</action-key>
+            <action-key>REFUSE_LOG_PROCEDURE</action-key>
+            <action-key>VIEW_ALL_LOG_PROCEDURE</action-key>
+            <action-key>VIEW_DEDICATED_LOG_PROCEDURE</action-key>
+        </guest-unsupported>
+    </permissions>
+</portlet-resource>
+</resource-action-mapping>

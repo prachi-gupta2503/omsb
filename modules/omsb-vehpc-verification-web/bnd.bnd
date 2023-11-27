@@ -1,0 +1,4 @@
+Bundle-Name: omsb-vehpc-verification-web
+Bundle-SymbolicName: omsb.vehpc.verification.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.vehpc.verification.web.constants

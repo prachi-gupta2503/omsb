@@ -1,0 +1,10 @@
+Bundle-Name: omsb-common-service
+Bundle-SymbolicName: omsb.common.service
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.common.service.util
+-privatepackage: \
+	/,\
+	com.fasterxml.jackson.*,\
+	com.fasterxml.jackson.databind
+com.fasterxml.jackson.databind

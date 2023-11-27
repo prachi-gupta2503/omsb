@@ -1,0 +1,8 @@
+Bundle-Name: omsb-faculty-membership
+Bundle-SymbolicName: gov.omsb.faculty.membership.web.portlet
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.faculty.membership.web.portlet.constants,\
+	gov.omsb.faculty.membership.web.workflow,\
+	gov.omsb.faculty.membership.web.constants,\
+	gov.omsb.faculty.membership.web.util

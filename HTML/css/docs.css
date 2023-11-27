@@ -1,0 +1,25 @@
+@import "common.css";
+
+
+@import "PagesCSS/__equivalency-request-list-screen-employer.css";
+@import "PagesCSS/__notification.css";
+@import "PagesCSS/__view-equivalency-request.css";
+@import "PagesCSS/_verification.css";
+@import "PagesCSS/_registration.css";
+@import "comboTreePlugin.css";
+
+/*==== TMS ====*/
+@import "TMS/_program.css";
+@import "TMS/_tms_routation.css";
+@import "TMS/_tmsEC.css";
+
+/*==== TMS Master Rotation 2 ====*/
+@import "tms-master-rotation-2/_master-rotation.css";
+
+/*==== Exam ====*/
+@import "exam/_trainee.css";
+
+/*==== leave ====*/
+@import "leave/_leave.css";
+
+@import "custom_second.css";

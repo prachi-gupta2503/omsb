@@ -1,0 +1,8 @@
+Bundle-Name: omsb-common-api
+Bundle-SymbolicName: omsb.common.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.common.api,\
+	gov.omsb.common.dto,\
+	gov.omsb.common.util,\
+	gov.omsb.common.constants

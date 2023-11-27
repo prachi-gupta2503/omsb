@@ -1,0 +1,1442 @@
+<?xml version="1.0"?>
+
+<workflow-definition
+	xmlns="urn:liferay.com:liferay-workflow_7.4.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:liferay.com:liferay-workflow_7.4.0 http://www.liferay.com/dtd/liferay-workflow-definition_7_4_0.xsd"
+>
+	<version>1</version>
+	<state>
+		<name>requester</name>
+		<description>Begin a workflow.</description>
+		<metadata><![CDATA[{"xy":[-425,-553],"transitions":{"0b77fa38-b4ea-42e8-a2e2-bda08d1fc2b8":{"bendpoints":[]}}}]]></metadata>
+		<initial>true</initial>
+		<labels>
+			<label language-id="en_US">
+				Requester
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Initiated
+					</label>
+				</labels>
+				<name>0b77fa38-b4ea-42e8-a2e2-bda08d1fc2b8</name>
+				<target>sectionStaff</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</state>
+	<state>
+		<name>107a07fa-3214-4731-b1ce-9d27eb40430c</name>
+		<description>Conclude the workflow.</description>
+		<metadata>
+			<![CDATA[
+				{
+					"xy": [
+						399.4701357283187,
+						899.7213393091209
+					],
+					"terminal": true
+				}
+			]]>
+		</metadata>
+		<actions>
+			<action>
+				<name>Complete</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.COMPLETE);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>Request Completed Notification to New Member</name>
+				<description>
+					<![CDATA[Request Completed Notification to New Member]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+You have been added as a new EC member for Program - ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import gov.omsb.tms.service.EcMemberRequestLocalServiceUtil
+
+long classPk = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+
+user = EcMemberRequestLocalServiceUtil.getPotentialMemberUser(classPk);]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Request Complete Notification</name>
+				<description>
+					<![CDATA[Request Complete Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+New user has been added as a EC Member for Program - ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<labels>
+			<label language-id="en_US">
+				Complete
+			</label>
+		</labels>
+	</state>
+	<task>
+		<name>sectionStaff</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-46,-509],"transitions":{"EC_SECTION_STAFF_REJECT":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>EC Section Staff</name>
+				<description>Staff Info</description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.EC_SECTION_STAFF);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);
+ ]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>EC_SECTION_STAFF NEW REQUEST NOTIFICATION</name>
+				<description>
+					<![CDATA[EC_SECTION_STAFF NEW REQUEST NOTIFICATION]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Section Staff
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve
+					</label>
+				</labels>
+				<name>EC_SECTION_STAFF_APPROVE</name>
+				<target>480aa365-2f4a-48e1-8973-602136d45c3a</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						SEND BACK
+					</label>
+				</labels>
+				<name>EC_SECTION_STAFF_REJECT</name>
+				<target>fad25274-eb4a-49de-a946-d10d9edef579</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>fad25274-eb4a-49de-a946-d10d9edef579</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[338,-332],"transitions":{"EDIT_REQUEST":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Request Rejected Action</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.REJECTED);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>Request Rejected Notification</name>
+				<description>
+					<![CDATA[Request Rejected Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+Your request has been rejected, please check the comments for details]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<user />
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Edit Request
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						RE-SUBMIT
+					</label>
+				</labels>
+				<name>EDIT_REQUEST</name>
+				<target>sectionStaff</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>480aa365-2f4a-48e1-8973-602136d45c3a</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-250,-356],"transitions":{"EC_SECTION_HEAD_REJECT":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Ec Section Head</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.EC_SECTION_HEAD);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>Section Head Notification</name>
+				<description>
+					<![CDATA[n1]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_HEAD));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by Staff</name>
+				<description>
+					<![CDATA[Approved by Staff]]>
+				</description>
+				<template>
+					<![CDATA[The request has been approved by the EC Section Staff and is now with the EC Section Head]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_HEAD));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Section Head
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve
+					</label>
+				</labels>
+				<name>EC_SECTION_HEAD_APPROVE</name>
+				<target>50efa252-525e-478b-9549-aa4b5a700d2a</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Send Back
+					</label>
+				</labels>
+				<name>EC_SECTION_HEAD_REJECT</name>
+				<target>fad25274-eb4a-49de-a946-d10d9edef579</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>50efa252-525e-478b-9549-aa4b5a700d2a</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-248,-192],"transitions":{"GME_DIRECTOR_REJECT":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>GME Director</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.GME_DIRECTOR);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>GME Directon Notification</name>
+				<description>
+					<![CDATA[GME Directon Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.GME_DIRECTOR));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by Head</name>
+				<description>
+					<![CDATA[Approved by Staff]]>
+				</description>
+				<template>
+					<![CDATA[The request has been approved by the EC Section Head and is now with the GME Director]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.GME_DIRECTOR));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				GME Director
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve and send to Executive President
+					</label>
+				</labels>
+				<name>GME_DIRECTOR_SEND_TO_PRESIDENT</name>
+				<target>1955abb6-e154-428c-9523-16519957d612</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve and send to VPAA
+					</label>
+				</labels>
+				<name>GME_DIRECTOR_SENND_TO_VPAA</name>
+				<target>e4519420-f773-48ab-8c04-bcdf18c070d0</target>
+				<default>false</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Send Back
+					</label>
+				</labels>
+				<name>GME_DIRECTOR_REJECT</name>
+				<target>fad25274-eb4a-49de-a946-d10d9edef579</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>e4519420-f773-48ab-8c04-bcdf18c070d0</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[236,-59],"transitions":{"VPAA_REJECT":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>VPAA</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.VPAA);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>VPAA Notification</name>
+				<description>
+					<![CDATA[VPAA Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.VPAA));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by GME Director</name>
+				<description>
+					<![CDATA[Approved by Staff]]>
+				</description>
+				<template>
+					<![CDATA[The request has been approved by the GME Director and is now with the VPAA]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.VPAA));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				VPAA
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve
+					</label>
+				</labels>
+				<name>VPAA_APPROVE</name>
+				<target>1955abb6-e154-428c-9523-16519957d612</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Send Back
+					</label>
+				</labels>
+				<name>VPAA_REJECT</name>
+				<target>fad25274-eb4a-49de-a946-d10d9edef579</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>1955abb6-e154-428c-9523-16519957d612</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-84,56],"transitions":{"PRESIDENT_REJECT":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Executive President</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.PRESIDENT);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>EXECUTIVE PRESIDENT NOTIFICATION</name>
+				<description>
+					<![CDATA[EXECUTIVE PRESIDENT NOTIFICATION]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EXECUTIVE_PRESIDENT));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by VPAA or GME Director</name>
+				<description>
+					<![CDATA[Approved]]>
+				</description>
+				<template>
+					<![CDATA[The request has been approved by the GME Director and is now with the Executive President]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EXECUTIVE_PRESIDENT));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Executive President
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Approve
+					</label>
+				</labels>
+				<name>PRESIDENT_APPROVE</name>
+				<target>d6355b86-7537-4007-bbb4-d32748d33404</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Send Back
+					</label>
+				</labels>
+				<name>PRESIDENT_REJECT</name>
+				<target>fad25274-eb4a-49de-a946-d10d9edef579</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>a3a880ec-1db6-4bdc-b10b-4353a5bb966a</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-430,578],"transitions":{"ADD_MEMBER_DETAILS":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Member Details</name>
+				<description>Member Details</description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.MEMBER_DETAILS_ENTRY);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>Add Member Details Notification</name>
+				<description>
+					<![CDATA[Add Member Details Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+A few details are required in order to process the request to add you to the EC Committee for Program ${programName}. Please do fill in the same.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import gov.omsb.tms.service.EcMemberRequestLocalServiceUtil
+
+long classPk = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+
+user = EcMemberRequestLocalServiceUtil.getPotentialMemberUser(classPk);]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import gov.omsb.tms.service.EcMemberRequestLocalServiceUtil
+
+long classPk = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+
+user = EcMemberRequestLocalServiceUtil.getPotentialMemberUser(classPk)]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Member Details
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Member Details
+					</label>
+				</labels>
+				<name>ADD_MEMBER_DETAILS</name>
+				<target>0ee97999-3f5d-4524-86d7-26790ec2e308</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>0ee97999-3f5d-4524-86d7-26790ec2e308</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[-16,749],"transitions":{"MEMBER_DETAILS_APPROVE":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Approve Request</name>
+				<description>Approve Request</description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.MEMBER_DETAILS_REVIEW);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>MEMBER_DETAILS_REVIEW NOTIFICATION</name>
+				<description>
+					<![CDATA[MEMBER_DETAILS_REVIEW NOTIFICATION]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+
+You have received a new EC Member request for Program- ${programName}]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Approve Request
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						REJECT MEMBER DETAILS
+					</label>
+				</labels>
+				<name>MEMBER_DETAILS_REJECT</name>
+				<target>25fde5cd-3025-4bca-8016-666df14bd84c</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						MEMBER_DETAILS_APPROVE
+					</label>
+				</labels>
+				<name>MEMBER_DETAILS_APPROVE</name>
+				<target>107a07fa-3214-4731-b1ce-9d27eb40430c</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>d6355b86-7537-4007-bbb4-d32748d33404</name>
+		<description>Ask a Section Staff to upload NOC</description>
+		<metadata><![CDATA[{"xy":[-105,209],"transitions":{"SEND_TO_AU_FOR_NOC":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Section Staff For NOC</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.NOC);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>NOC NOTIFICATION</name>
+				<description>
+					<![CDATA[NOC NOTIFICATION]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+A user is being added as EC Member for Program ${programName}. Please provide a No Objection Letter for this individual.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by EP</name>
+				<description>
+					<![CDATA[Approved]]>
+				</description>
+				<template>
+					<![CDATA[The request has been approved by the Executive President and is now with the EC Section Staff]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.EC_SECTION_STAFF));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				EC Section Staff NOC
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Upload NOC
+					</label>
+				</labels>
+				<name>NOC_UPLOAD</name>
+				<target>33594969-6593-41b1-898f-10a8d8debf6c</target>
+				<default>true</default>
+			</transition>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Send to AU for NOC
+					</label>
+				</labels>
+				<name>SEND_TO_AU_FOR_NOC</name>
+				<target>7a27b6c9-a150-45fe-bd9d-6b4115b43a76</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>25fde5cd-3025-4bca-8016-666df14bd84c</name>
+		<description>Ask a user to work on the item.</description>
+		<metadata><![CDATA[{"xy":[256,527],"transitions":{"EDIT_MEMBER_DETAILS":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Edit Member Details</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.MEMBER_DETAILS_ENTRY);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>Edit Member Details Notification</name>
+				<description>
+					<![CDATA[Edit Member Details Notification]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+A few details are required in order to process the request to add you to the EC Committee for Program ${programName}. Please do fill in the same.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import gov.omsb.tms.service.EcMemberRequestLocalServiceUtil
+
+long classPk = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+
+user = EcMemberRequestLocalServiceUtil.getPotentialMemberUser(classPk);]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil
+import com.liferay.portal.kernel.workflow.WorkflowConstants
+import gov.omsb.tms.service.EcMemberRequestLocalServiceUtil
+
+long classPk1 = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+
+user = EcMemberRequestLocalServiceUtil.getPotentialMemberUser(classPk1)]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Member Details Edit
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						EDIT MEMBER DETAILS
+					</label>
+				</labels>
+				<name>EDIT_MEMBER_DETAILS</name>
+				<target>0ee97999-3f5d-4524-86d7-26790ec2e308</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>33594969-6593-41b1-898f-10a8d8debf6c</name>
+		<description>Ask a user to Request Qarar</description>
+		<metadata><![CDATA[{"xy":[-507,360],"transitions":{"REQUEST_QARAR":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Generate Qarar</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.GENERATE_QARAR);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+import com.liferay.portal.kernel.model.User;
+
+long classPk1 = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+users = new ArrayList<User>();
+users.addAll(ECMemberUserUtil.getQararRequesters(classPk1));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Request Qarar
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Request Qarar
+					</label>
+				</labels>
+				<name>REQUEST_QARAR</name>
+				<target>1b62e7c6-6ee5-479d-adf7-42c317b47e13</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>1b62e7c6-6ee5-479d-adf7-42c317b47e13</name>
+		<description>Ask a user to Confirm Qarar.</description>
+		<metadata><![CDATA[{"xy":[-45,383],"transitions":{"MEMBER_DETAILS_REQUEST":{"bendpoints":[]}}}]]></metadata>
+		<actions>
+			<action>
+				<name>Confirm Qarar</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.QARAR_REQUESTED);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+import com.liferay.portal.kernel.model.User;
+
+long classPk1 = GetterUtil.getLong(workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK))
+users = new ArrayList<User>();
+users.addAll(ECMemberUserUtil.getQararRequesters(classPk1));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Confirm Qarar
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Request Member Details
+					</label>
+				</labels>
+				<name>MEMBER_DETAILS_REQUEST</name>
+				<target>a3a880ec-1db6-4bdc-b10b-4353a5bb966a</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+	<task>
+		<name>7a27b6c9-a150-45fe-bd9d-6b4115b43a76</name>
+		<description>Ask AU to upload NOC</description>
+		<metadata><![CDATA[{"xy":[-511,182],"transitions":{"AU_NOC_UPLOAD":{"bendpoints":[]}}}]]></metadata>
+	<actions>
+			<action>
+				<name>Authorizing Individual</name>
+				<description></description>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandler;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import gov.omsb.tms.ecm.web.workflow.RequestStatus;
+
+String className = (String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME);
+
+WorkflowHandler workflowHandler = WorkflowHandlerRegistryUtil.getWorkflowHandler(className);
+
+workflowContext.put(RequestStatus.STATUS_CODE,RequestStatus.NOC);
+workflowHandler.updateStatus(WorkflowConstants.STATUS_ANY, workflowContext);]]>
+				</script>
+				<script-language>groovy</script-language>
+				<priority>1</priority>
+				<execution-type>onEntry</execution-type>
+			</action>
+			<notification>
+				<name>NOC NOTIFICATION</name>
+				<description>
+					<![CDATA[NOC NOTIFICATION]]>
+				</description>
+				<template>
+					<![CDATA[<#assign programName = "" />
+
+<#if serviceContext.getAttribute("PROGRAM-NAME")?has_content>
+
+    <#assign programName = serviceContext.getAttribute("PROGRAM-NAME") />
+
+</#if>
+A user is being added as EC Member for Program ${programName}. Please provide a No Objection Letter for this individual.]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<scripted-recipient>
+						<script>
+							<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.AUTHORIZED_INDIVIDUAL));]]>
+						</script>
+						<script-language>groovy</script-language>
+					</scripted-recipient>
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+			<notification>
+				<name>Approved by EP</name>
+				<description>
+					<![CDATA[Approved]]>
+				</description>
+				<template>
+					<![CDATA[The request has been forwarded to Authorizing Individual for NOC]]>
+				</template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<user />
+				</recipients>
+				<execution-type>onEntry</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<scripted-assignment>
+				<script>
+					<![CDATA[import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import gov.omsb.tms.ecm.web.util.ECMemberUserUtil;
+import gov.omsb.tms.ecm.web.constants.ECMemberRoles;
+import com.liferay.portal.kernel.model.Role;
+
+long companyId = GetterUtil.getLong((String) workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
+roles = new ArrayList<Role>();
+roles.add(ECMemberUserUtil.getRole(companyId, ECMemberRoles.AUTHORIZED_INDIVIDUAL));]]>
+				</script>
+				<script-language>groovy</script-language>
+			</scripted-assignment>
+		</assignments>
+		<labels>
+			<label language-id="en_US">
+				Authorizing Individual
+			</label>
+		</labels>
+		<transitions>
+			<transition>
+				<labels>
+					<label language-id="en_US">
+						Upload NOC
+					</label>
+				</labels>
+				<name>AU_NOC_UPLOAD</name>
+				<target>33594969-6593-41b1-898f-10a8d8debf6c</target>
+				<default>true</default>
+			</transition>
+		</transitions>
+	</task>
+</workflow-definition>

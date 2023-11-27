@@ -1,0 +1,9 @@
+{
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "themes\\omsb-portal-theme",
+            "themes\\omsb-theme"
+        ]
+    }
+}

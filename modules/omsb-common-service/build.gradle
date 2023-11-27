@@ -1,0 +1,13 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	
+	compileOnly project(":modules:omsb-common-api")
+	
+	compileOnly project(":modules:omsb-endpoint-configuration-api")
+	
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.1'
+	
+	compileOnly project(":modules:omsb-http-connector-api")
+	
+	implementation group: 'javax.mail', name: 'mail', version: '1.4.1'
+}

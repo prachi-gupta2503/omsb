@@ -1,0 +1,4 @@
+Bundle-Name: omsb-bylaw-rules
+Bundle-SymbolicName: gov.omsb.bylaw.rules
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.bylaw.rules.constants

@@ -1,0 +1,4 @@
+Bundle-Name: omsb-program-workflow-details-web
+Bundle-SymbolicName: gov.omsb.program.workflow.details.rel.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.program.workflow.details.rel.web.constants

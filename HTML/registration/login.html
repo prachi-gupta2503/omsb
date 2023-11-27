@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<title>OMSB :: Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-datepicker3.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/flaticons/uicons-solid-rounded.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+	<link rel="stylesheet" href="../css/fontawesome4.7.0/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/intlTelInput.css">
+	<link rel="stylesheet" href="../css/register/_forgotpassword.css">
+
+	<link rel="stylesheet" type="text/css" href="../css/docs.css">
+
+</head>
+<body class="forgrt_password_screen">
+	<div class="main-content" >
+
+
+<div class="omsb-main-wrapper" id="omsb-main-wrapper">
+<div class=" row bg-white">
+	<div class="col-lg-6 col-md-6 login-left"><img class="w-100" src="../images/svg/login_left.svg"></div>
+	<div class="col-lg-6 col-md-6 login-right">
+		<div class="login-box-wrap">
+			<div class="login-box">
+				<div class="logo-img">
+					<img src="../images/svg/logo.svg">
+				</div>
+				<div class="site-title">
+					<div class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </div>
+					<div class="logo-text-english">Oman Medical Specialty Board</div>
+				</div>
+				<h2 class="forgot_password_heading pt-4">Forgot Password?</h2>
+				<div class="login-forms">
+					<div class="row">
+						<div class="col-lg-12">
+							<ul class="nav nav-pills omsb-nav-pills justify-content-center" id="myTab" role="tablist">
+								<li class="nav-item">
+								  <a class="nav-link active" id="changebyemail-tab" data-toggle="tab" href="#changebyemail" role="tab" aria-controls="changebyemail" aria-selected="true">Change by Email</a>
+								</li>
+								<li class="nav-item">
+								  <a class="nav-link" id="changebymobile-tab" data-toggle="tab" href="#changebymobilearea" role="tab" aria-controls="changebymobilearea" aria-selected="false">Change by Mobile</a>
+								</li>
+							  </ul>
+						</div>
+					</div>
+					<div class="col-lg-12 mt-4">
+						<div class="tab-content" id="v-pills-tabContent">
+	
+							<div class="tab-pane fade show active" id="changebyemail" role="tabpanel" aria-labelledby="changebyemail-tab">
+								<form name="login-user-password" class="login-wup">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="form-group">
+												<label class="control-label">Email</label>
+												<input class="form-control" type="email" name="emailnumber" >
+											</div>
+										</div>
+										<div class="col-lg-12 omsb-buttons my-3">
+											<input type="submit" name="submit" class="btn omsb-bg-red-button  w-100" value="Send OTP">
+										</div>
+									</div>
+								</form>
+							</div>
+	
+							<div class="tab-pane fade " id="changebymobilearea" role="tabpanel" aria-labelledby="changebymobile-tab">
+								<form name="login-user-password" class="login-wup">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="form-group">
+												<label class="control-label">Mobile Number</label>
+												<div class="input-group">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="basic-addon1">+968</span>
+													  </div>
+													<input class="form-control" type="text" name="mobilenumber" >
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-12 omsb-buttons my-3">
+											<input type="submit" name="submit" class="btn omsb-bg-red-button  w-100" value="Send OTP">
+										</div>
+									</div>
+								</form>
+							</div>
+	
+							<div class="tab-pane fade" id="mobilearea" role="tabpanel" aria-labelledby="mobile-tab">
+								
+								<form name="login-user-password" class="login-wup">
+									<div class="row">
+										<div class="col-lg-12 mt-4">
+											<div class="form-group">
+												<label class="control-label">Mobile Number </label>
+												<input class="form-control" type="text" name="mobile" id="phone1" >
+											</div>
+										</div>
+										<div class="col-lg-12 omsb-buttons my-4">
+											<input type="submit" name="submit" class="btn omsb-bg-red-button  w-100" value="login">
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12 my-4">
+											<div class="info-text"><span> Don't have an account? </span><a href="" class="red-underline-link">Register Now</a></div>
+										</div>
+									</div>
+									
+									
+								</form>
+							</div>
+	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+</div>
+
+	
+
+	</div>
+	<script type="text/javascript" src="../js/intlTelInput.js"></script>
+
+	<script type="text/javascript">
+
+		var phone1 = document.querySelector("#phone1");
+		window.intlTelInput(phone1,({initialCountry:"om", separateDialCode: "true", showFlags:"false"}));
+
+
+
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#omsb-main-wrapper').toggleClass('toggled');
+  });  
+});
+
+	</script>
+</body>
+</html>

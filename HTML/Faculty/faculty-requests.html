@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>OMSB :: Admin View Trainee</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--- Start Fonts CSS files Here --->
+	<link rel="stylesheet" href=".././css/fontawesome4.7.0/font-awesome.min.css">
+	<!---// End Fonts CSS files Here --->
+
+	<!--- Start CSS files Here --->
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/flaticons/uicons-solid-rounded.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/Faculty/_faculty.css">
+	<link rel="stylesheet" type="text/css" href=".././css/select2_v4/select2.css">
+	<link rel="stylesheet" type="text/css" href=".././css/docs.css">
+
+	<!---// End CSS files Here --->
+
+
+	<!--- Start JS files Here --->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!---// End JS files Here --->
+
+</head>
+
+<body>
+	<div class="main-content">
+
+		<!-- Header -->
+		<header class="omsb-header">
+			<div class="omsb-top-header">
+				<div class="container">
+					<div class="omsb-top-header-row">
+						<div class="leftbar">
+							<div class="buttons-wrap">
+								<div class="button-col"><button class="btn "><i class="fa fa-microphone"></i>
+										Voice</button></div>
+								<div class="button-col"><button class="btn "><i class="fa fa-eye-slash"></i> Special
+										colors</button></div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-plus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-minus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn "><i class="fa fa-sitemap"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="rightbar">
+							<div class="social-links-wrap">
+								<div class="social-link"><a href="#" class="trans" title="Facebook"><img
+											src="../images/svg/fb.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="linkedin"><img
+											src="../images/svg/linkedin.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Twitter"><img
+											src="../images/svg/twitter.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Youtube"><img
+											src="../images/svg/youtube.svg"></a></div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--// End Top Header-->
+
+			<div class="omsb-main-header">
+				<div class="container">
+					<div class="omsb-main-header-wrap">
+						<div class="leftbar">
+							<div class="humber-menu">
+
+							</div>
+							<div class="omsb-brand-logo">
+								<img src="../images/svg/logo.svg">
+								<div class="logo-texts">
+									<span class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </span>
+									<span class="logo-text-english">Oman Medical Specialty Board</span>
+								</div>
+							</div>
+
+
+							<div class="omsb-sidebar-navigation">
+								<ul class="omsb-navbar">
+									<li class="omsb-nav-item active"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Home" /> Home</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Examination" /> Examination</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="About Us" /> About Us</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Events" /> Events</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Services" /> Services</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Contact" /> Contact</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Follow Me" /> Follow Me</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="rightbar">
+							<div class="buttons-wrap">
+								<div class="button-col">
+									<div class="custom-control custom-switch">
+										<label class="first-label" for="switch1">LTR</label>
+										<input type="checkbox" class="custom-control-input" id="switch1" name="example">
+										<label class="custom-control-label second-label" for="switch1">RTL</label>
+									</div>
+								</div>
+								<div class="button-col">
+									<button type="button" class="notification-block" title="Notifications">
+										<span class="notification-alert"></span>
+									</button>
+								</div>
+								<div class="button-col">
+									<button type="button" class="profile-dtls" title="User Profile"><img
+											class="profile-pic" src="../images/svg/profile.svg"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<!-- Header -->
+
+		<!--- Start Main Content Section Here --->
+		<section class="omsb-main-wrapper" id="omsb-main-wrapper">
+			<!-- breadcrumbs -->
+			<div class="omsb-breadcrumbs">
+				<div class="container ">
+					<div class="omsb-breadcrumbs-wrap">
+						<div class="leftbar">
+							<div class="breadcrumb-link">
+								<ul>
+									<li><a href="#" class="trans" title="Home">Home</a></li>
+									<li>Examination</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumbs -->
+
+			<!-- Inner Wrapper Contents -->
+			<div id="wrapper">
+				<div class="container">
+					<div class="omsb-card">
+						<div class="omsb-page-top-info">
+							<div class="pagetitle">Faculty Requests</div>
+							<div class="information">
+								<a href="new-EC-membership-request.html" class="btn omsb-bc-red-button">create new request</a>
+							</div>
+						</div>
+
+                        <div class="omsb-list-filter">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <label>Program</label>
+                                        <select id="programtheshold" class="form-control js-basic-single" name="program-code">
+											<option value="">Select a Program</option>
+											<option value="Adult Cardiology">Adult Cardiology</option>
+											<option value="Diabetes">Diabetes</option>
+											<option value="Medical Genetics">Medical Genetics</option>
+											<option value="Otology">Otology</option>
+											<option value="Pediatrics-Hematology">Pediatrics-Hematology</option>
+											<option value="Anesthesia">Anesthesia</option>
+											<option value="Clinical Biochemistry">Clinical Biochemistry</option>
+											<option value="Dermatology">Dermatology</option>
+											<option value="Emergency Medicine">Emergency Medicine</option>
+											<option value="FamilyMedicine">Family Medicine</option>
+											<option value="General Dentistry">General Dentistry</option>
+											<option value="General Surgery">General Surgery</option>
+											<option value="Hematopathology">Hematopathology</option>
+											<option value="Histopathology">Histopathology</option>
+											<option value="Internal Medicine">Internal Medicine</option>
+											<option value="Medical Microbiology">Medical Microbiology</option>
+											<option value="Obstetrics-Gynecology">Obstetrics & Gynecology</option>
+											<option value="Ophthalmology">Ophthalmology</option>
+											<option value="Oral and Maxillofacial Surgery">Oral and Maxillofacial Surgery</option>
+											<option value="Orthopedics">Orthopedics</option>
+											<option value="Otolaryngology">Otolaryngology</option>
+											<option value="Pediatrics">Pediatrics</option>
+											<option value="Psychiatry">Psychiatry</option>
+											<option value="Radiology">Radiology</option>
+											<option value="MedicalTrack-EmergencyMedicine">Medical Track - Emergency Medicine</option>
+											<option value="Medical Track - Family Medicine">Medical Track - Family Medicine </option>
+											<option value="Medical Track - Pediatrics - General Pediatrics">Medical Track - Pediatrics - General Pediatrics</option>
+											<option value="Medical Track - Pediatrics - Pediatric Hematology">Medical Track - Pediatrics - Pediatric Hematology</option>
+											<option value="Medical Track - Internal Medicine- General Medicne">Medical Track - Internal Medicine- General Medicne</option>
+											<option value="Medical Track - Internal Medicine - General Ophthalmology">Medical Track - Internal Medicine - General Ophthalmology</option>
+											<option value="Medical Track - Internal Medicine - Anesthesia">Medical Track - Internal Medicine - Anesthesia</option>
+											<option value="Medical Track - Internal Medicine - Dermatology">Medical Track - Internal Medicine - Dermatology</option>
+											<option value="Medical Track - Internal Medicine - Psychiatry">Medical Track - Internal Medicine - Psychiatry</option>
+											<option value="Medical Track - Internal Medicine - Adult Hematology">Medical Track - Internal Medicine - Adult Hematology</option>
+											<option value="Medical Track - Internal Medicine - Medical Oncology">Medical Track - Internal Medicine - Medical Oncology</option>
+											<option value="Medical Track - Internal Medicine - Nephrology">Medical Track - Internal Medicine - Nephrology</option>
+											<option value="Medical Track - Internal Medicine - Neurology">Medical Track - Internal Medicine - Neurology</option>
+											<option value="Surgical Track - General Surgery">Surgical Track - General Surgery</option>
+											<option value="Surgical Track - Orthopedics">Surgical Track - Orthopedics</option>
+											<option value="Surgical Track - ENT">Surgical Track - ENT</option>
+											<option value="Surgical Track - Neurosurgery">Surgical Track - Neurosurgery </option>
+											<option value="Surgical Track - Plastic Surgery">Surgical Track - Plastic Surgery</option>
+											<option value="Surgical Track - Obstetrics and Gynecology">Surgical Track - Obstetrics and Gynecology</option>
+											<option value="Surgical Track - Pediatric Surgery">Surgical Track - Pediatric Surgery</option>
+											<option value="Surgical Track - Urology">Surgical Track - Urology</option>
+										</select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select id="roletheshold" class="form-control js-basic-single" name="program-code">
+											<option value="">Select a Program</option>
+											<option value="Chairperson">Chairperson</option>
+											<option value="Manager">Manager</option>
+											<option value="CEO">CEO</option>
+											<option value="GeneralManager">General Manager</option>
+											<option value="Director">Director</option>
+											<option value="Productmanager">Product manager</option>
+											<option value="BusinessAnalyst">Business Analyst</option>
+											<option value="SalesManager">Sales Manager</option>
+										</select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select id="statustheshold" class="form-control js-basic-single" name="program-code">
+											<option value="">Select a Program</option>
+											<option value="Program">Program</option>
+											<option value="ECSectionStaff">EC Section Staff</option>
+											<option value="ECSectionHead">EC Section Head</option>
+											<option value="GMEDirector">GME Director</option>
+											<option value="President">President</option>
+											<option value="VPAA">VPAA</option>
+											<option value="NOC">NOC</option>
+											<option value="MEMBERDETAILSENTRY">Member Details Entry</option>
+											<option value="MEMBERDETAILSREVIEW">Member Details Review</option>
+											<option value="COMPLETE">Complete</option>
+											<option value="PotentialFaculty">Potential Faculty</option>
+										</select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-button-wrap">
+                                <button class="btn omsb-bc-red-button">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="omsb-card border faculty-requests">
+							<div class="omsb-status-boxes">
+								<div class="row align-items-center">
+									<div class="col-lg-3 col-md-12 col-sm-12">
+										<figure class="highcharts-figure box-piechart">
+											<div id="container"></div>
+										</figure>
+									</div>
+									
+									<div class="col-lg-3 col-md-4 col-sm-12">
+										<div class="status-box">
+											<div class="status-img"><img src="../images/svg/all.svg"></div>
+											<div class="status-dtls">
+												<span class="status-number" style="color: #1C1C1C;">10</span>
+												<span class="status-text">Total</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-4 col-sm-12">
+										<div class="status-box">
+											<div class="status-img">
+												<img src="../images/svg/completed_tms.svg">
+											</div>
+											<div class="status-dtls">
+												<span class="status-number" style="color: #e82c2a;">7</span>
+												<span class="status-text">Completed</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-4 col-sm-12">
+										<div class="status-box">
+											<div class="status-img"><img src="../images/svg/workprocess.svg"></div>
+											<div class="status-dtls">
+												<span class="status-number" style="color: #fa981c;">3</span>
+												<span class="status-text">In Process</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="omsb-list-view table-responsive hide_dt_filter">
+							<table class="display omsb-datatables" id="exam_list">
+								<thead>
+									<tr>
+										<th>Program</th>
+										<th>Site</th>
+										<th>Rotations</th>
+										<th>Potential Faculty</th>
+										<th>Role</th>
+										<th>Status / Pending With</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Adult Cardiology</td>
+										<td>SQUH</td>
+										<td>Rotations 1/Rotations 2</td>
+										<td>Adnan khan</td>
+										<td>Chairperson</td>
+										<td>Program</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="edit-EC-membership-request.html" class="dropdown-item"><img src="../images/svg/fi-rr-edit.svg"> Edit</a></li>
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Diabetes</td>
+										<td>SQUH</td>
+										<td>Rotations 1</td>
+										<td>Arshad khan</td>
+										<td>Manager</td>
+										<td>EC Section Staff</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="report-of-faculty.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View Distribution Report</a></li>													
+													<li><a href="report-of-faculty.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View Incentive Report</a></li>
+													<li><a data-toggle="modal" data-target="#adjudicatefacultyrequest" href="#" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Adjudicate Request</a></li>
+													<li><a href="#" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Review Member Details</a></li>													
+                                                
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Medical Genetics</td>
+										<td>SQUH</td>
+										<td>Rotations 2</td>
+										<td>Faizan</td>
+										<td>CEO</td>
+										<td>EC Section Head</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="#" data-toggle="modal" data-target="#adjudicatefacultyrequest" class="dropdown-item"><img src="../images/svg/fi-rr-edit.svg"> Adjudicate Request</a></li>
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Otology</td>
+										<td>SQUH</td>
+										<td>Rotations 1/Rotations 2</td>
+										<td>Kashif</td>
+										<td>General Manager</td>
+										<td>GME Director</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">							
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="#" data-toggle="modal" data-target="#gemdirector" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Adjudicate Request</a></li>
+													
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Pediatrics-Hematology</td>
+										<td>SQUH</td>
+										<td>Rotations 1</td>
+										<td>Umar</td>
+										<td>Director</td>
+										<td>President</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">							
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="#" data-toggle="modal" data-target="#gemdirector" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Adjudicate Request</a></li>
+													
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Anesthesia</td>
+										<td>SQUH</td>
+										<td>Rotations 2</td>
+										<td>Zohaib</td>
+										<td>Product manager</td>
+										<td>VPAA</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="#" data-toggle="modal" data-target="#adjudicatefacultyrequest" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Adjudicate Request</a></li>
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Clinical Biochemistry</td>
+										<td>SQUH</td>
+										<td>Rotations 1/Rotations 2</td>
+										<td>Shahbaz</td>
+										<td>Business Analyst</td>
+										<td>NOC</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="edit-EC-membership-request.html" class="dropdown-item"><img src="../images/svg/fi-rr-edit.svg"> Edit</a></li>
+                                                </ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Dermatology</td>
+										<td>SQUH</td>
+										<td>Rotations 1</td>
+										<td>Rayan</td>
+										<td>Sales Manager</td>
+										<td>Member Details Entry</td>
+										<td width="229">
+											<div class="dropdown ">
+												<button class="btn fa fa-ellipsis-v dropdown-toggle" type="button"
+													data-bs-toggle="dropdown" aria-expanded="false">
+													<i class=""></i>
+												</button>
+												<ul class="dropdown-menu">												
+                                                    <li><a href="view-faculty-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> View</a></li>
+													<li><a href="add-edit-member-details.html" class="dropdown-item"><img src="../images/svg/fi-rr-eye.svg"> Enter Member Details</a></li>
+													
+                                                </ul>
+											</div>
+										</td>
+									</tr>									
+								</tbody>
+							</table>
+						</div>
+						<div class="bottom-backbtn-wrap">
+							<a class="btn omsb-btn btn-back" href="#"><i class="fi fi-sr-arrow-left"></i>Back</a>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+			<!--// Inner Wrapper Contents -->
+
+		</section>
+		<!---// End Main Content Section Here --->
+
+		<!-- footer -->
+		<div class="omsb-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<p class="copyright">2023 All rights reserved to Oman medical specialty board</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal" id="adjudicatefacultyrequest" tabindex="-1" role="dialog"
+			aria-labelledby="adjudicatefacultyrequestTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Adjudicate Faculty request</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Comments</label>
+									<textarea class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn omsb-bc-red-button" type="button" title="Approve">Approve</button>
+						<button class="btn omsb-bc-red-button" type="button" title="Reject">Reject</button>
+						<button class="btn omsb-btn btn-back" type="button" data-dismiss="modal" aria-label="Close">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// Comments pop up -->
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal" id="gemdirector" tabindex="-1" role="dialog"
+			aria-labelledby="gemdirectorTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Adjudicate Faculty request: GME Director</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Comments</label>
+									<textarea class="form-control"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn omsb-bc-red-button" type="button" title="Approve"> Approve to VPAA</button>
+						<button class="btn omsb-bc-red-button" type="button" title="Reject">Approve to Executive President</button>
+						<button class="btn omsb-bc-red-button" type="button" title="Reject">Reject</button>
+						<button class="btn omsb-btn btn-back" type="button" data-dismiss="modal" aria-label="Close">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// Attach case report -->
+
+	</div>
+	<!--- Start JS files Here --->
+	<script type="text/javascript" src=".././js/popper.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src=".././js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+	<script type="text/javascript" src=".././js/select2_v4/select2.js"></script>
+	<script type="text/javascript" src="../js/custom.js"></script>
+	<script type="text/javascript">
+
+        // Data retrieved from https://netmarketshare.com/
+		// Make monochrome colors
+		const colors = Highcharts.getOptions().colors.map((c, i) =>
+			// Start out with a darkened base color (negative brighten), and end
+			// up with a much brighter color
+			Highcharts.color(Highcharts.getOptions().colors[0])
+				.brighten((i - 3) / 7)
+				.get()
+		);
+
+		// Build the chart
+		Highcharts.chart('container', {
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: false,
+				type: 'pie',
+				margin: [0, 0, 0, 0],
+				backgroundColor: null,
+
+			},
+
+			exporting: false,
+			title: {
+				text: '',
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			accessibility: {
+				point: {
+					valueSuffix: '%'
+				}
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					colors,
+					borderRadius: 5,
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+						distance: -50,
+						filter: {
+							property: 'percentage',
+							operator: '>',
+							value: 4
+						}
+					}
+				}
+			},
+			series: [{
+				name: 'Membership Requests',
+				groupPadding: 0,
+				pointPadding: 0,
+				data: [
+					{ name: 'Completed', y: 70, color: '#E82C2A' },
+					{ name: 'In Process', y: 30, color: '#FA981C' },
+
+				]
+			}]
+		});
+
+
+		$('#examstartdate').datepicker({
+			dateFormat: 'dd-mm-yyyy'
+		});
+		
+		$(document).ready(function () {
+			$('.js-basic-single').select2();
+		});
+
+		$("[data-bs-toggle='dropdown']").click(function () {
+			$(this).siblings("ul.dropdown-menu").toggleClass("show");
+		})
+
+		$(document).ready(function () {
+			var trigger = $('.hamburger'),
+				overlay = $('.overlay'),
+				isClosed = false;
+
+			trigger.click(function () {
+				hamburger_cross();
+			});
+
+			function hamburger_cross() {
+
+				if (isClosed == true) {
+					overlay.hide();
+					trigger.removeClass('is-open');
+					trigger.addClass('is-closed');
+					isClosed = false;
+				} else {
+					overlay.show();
+					trigger.removeClass('is-closed');
+					trigger.addClass('is-open');
+					isClosed = true;
+				}
+			}
+
+			$('[data-toggle="offcanvas"]').click(function () {
+				$('#omsb-main-wrapper').toggleClass('toggled');
+			});
+
+			$('.omsb-datatables').DataTable({
+				"bLengthChange": false,
+				"bFilter": false,
+			});
+		});
+		
+	</script>
+	<!--// End JS files Here --->
+</body>
+
+</html>

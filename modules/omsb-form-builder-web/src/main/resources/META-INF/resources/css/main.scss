@@ -1,0 +1,190 @@
+.form-builder-web {
+	.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-search--inline {
+		float: none;
+	}
+	
+	.accordion > .card {
+    	overflow: inherit; 
+	}
+
+	.select2-container--default .select2-search--inline .select2-search__field {
+		padding: 0px 5px;
+	}
+
+	.dataTables_length {
+		padding-top: 12px;
+    	padding-left: 10px;
+	}
+
+	.autofit-float.autofit-row.portlet-header {
+		display: none;
+	}
+
+	.options-label {
+		font-weight: normal;
+	}
+
+	.form-heading {
+		font-size: 30px;
+	}
+
+	.dropzone {
+		background: white;
+		border-radius: 5px;
+		border: 2px dashed rgb(0, 135, 247);
+		border-image: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.dropzone .dz-preview {
+		margin: 0px 16px;
+	}
+	
+	.select2-container{
+		width: 100% !important;
+	}
+
+	.select2-container .select2-selection--single {
+		height: 32px;
+	}	
+	
+	.form-check{
+		.form-check-input{
+			width: 18px;
+    		height: 18px;
+		}
+		.form-check-label{
+			padding-left: 5px;
+    		position: absolute;
+    		line-height: 18px;
+		}
+	}
+	
+	.form-check-inline{
+		.form-check-input{
+			width: 18px;
+    		height: 18px;
+		}
+		.form-check-label{
+			padding-left: 5px;
+    		line-height: 18px;
+		}
+	}
+	
+	.dropdown-config-checkbox-div-el{
+		margin-top: 20px;
+	}
+	
+	.setting-checkbox-div-el{
+		margin-top: 20px;
+		padding-right: 0;
+	}
+	
+	.field-setting-label{
+		font-size: 11px;
+	}
+	
+	.form-layout-row{
+		margin-bottom: 10px;
+	}
+	
+	.form-dialog{
+		max-width: 90%;
+	}
+	
+	/*.form-field-modal-dialog{
+		overflow-y: auto;
+		height: 70vh;
+	}*/
+	
+	.has-error .help-block {
+		color: #dc3545;
+	}
+	.card {
+		.card-header{
+			
+			border-radius: 2px;
+    		padding: 5px;
+   		    padding-left: 0;
+   		    
+   		    .btn-header-link{
+   		    
+   		    	display: block;
+  				text-align: left;
+  				color: #ffffff !important;
+   		    	&:after {
+					content: "\f107";
+				  	font-weight: 900;
+				  	float: right;
+				  	font-family: "Font Awesome 5 Free";
+				}
+				
+   		    	&.collapsed {
+				  
+				  &:after {
+					 content: "\f106";
+				  }
+				}
+   		    }
+		}
+	}
+	.formLoadErr{
+		color: #dc3545;
+	}
+	
+	.has-error{
+		.values-input-tag-el, .range-options-el, .static-values-input-tag-el{
+			background-color: #feefef;
+			border-color: #f48989;
+			box-shadow: 0 0 rgba(0, 0, 0, 0);
+		}
+	}
+	
+	.df-language-selector-btn{
+		padding: 7px 2px 8px 2px !important;
+    	margin-left: 5px !important;
+    	
+    	.df-lang-text{
+			margin-left: 5px !important;
+		}
+		
+		.df-lang-btn{
+			margin-left: 5px !important;
+		}
+	}
+	
+	.df-dropdown-menu{
+		.df-lang-text{
+			margin-left: 5px !important;
+		}
+	}
+	
+	.disable-populate-values{
+		pointer-events: none;
+		background: #f3f0f0 !important;
+	}
+	
+	
+	
+}
+
+*[readonly="readonly"]{
+	pointer-events: none !important;
+	background: #f3f0f0 !important;
+}
+
+.form-group.note-group-image-url {
+    float: none;
+}
+
+.note-modal-content {
+    padding-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left !important;
+}
+.dataTables_wrapper .row {
+    flex-direction: row-reverse;
+}

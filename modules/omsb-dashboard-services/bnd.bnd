@@ -1,0 +1,4 @@
+Bundle-Name: omsb-dashboard-services
+Bundle-SymbolicName: gov.omsb.dashboard.services
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.dashboard.services.constants

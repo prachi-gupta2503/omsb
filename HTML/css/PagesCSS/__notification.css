@@ -1,0 +1,48 @@
+.omsb-header-tab{display: inline-block; width: 100%; margin-bottom: 6px; vertical-align: top; background: #F1F1F1;  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); padding: 17px 0; }
+.omsb-header-tab .nav-item .nav-link{padding: 16px; font-weight: 400; font-size: 16px; line-height: 16px; position: relative; background: none; border: 0; outline: none; box-shadow: none;}
+.omsb-header-tab .nav-tabs{border: none; margin: 0 -10px;}
+.omsb-header-tab .nav-tabs .nav-item{padding: 0 10px;}
+.omsb-header-tab .nav-tabs .nav-item .nav-link.active{color: #FA981C; font-weight: 700;}
+.omsb-header-tab .nav-tabs .nav-item .nav-link.active:after{position: absolute; content:""; left: 0; width: 100%; bottom: 0; height: 2px; background:#FA981C;}
+
+.omsb-filter-notification{display: inline-block; width: 100%; vertical-align: top;background: #FFFFFF; padding: 19px 0; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04); margin-bottom: 16px;}
+.omsb-filter-notification-row{display: flex; align-items: center;}
+.omsb-filter-notification-row .custom-checkbox{margin-right: 19px;}
+.omsb-filter-notification-row .filter-order-list{display: inline-block; width: 100%; vertical-align: top; font-weight: 500;
+    font-size: 16px; line-height: 25px; padding-right: 24px; position: relative; display: inline-block; vertical-align: top; width: auto;}
+.omsb-filter-notification-row .filter-order-list:after{content:""; background: url('../../images/svg/down_arrow.svg'); background-repeat: no-repeat; position: absolute; right:0; top: 12px; width: 10px; height: 5px;} 
+.omsb-filter-notification-row .more-filter{display: inline-block; width: auto; vertical-align: top; margin-left: 55px;}
+.omsb-filter-notification-row .more-filter button{background: none; padding: 6px; border: none; box-shadow: none;}
+
+.omsb-content-tab{margin-bottom: 24px; float: left;}
+.omsb-notification-lists{float: left; width: 100%; padding: 0; margin: 0; background: #FFFFFF;}
+.omsb-notification-lists > li{float: left; width: 100%; list-style: none; padding: 20px; position: relative;}
+.omsb-notification-lists > li:after{position: absolute; content: ""; width: 3px; height: 100%; background: #DC3545; top: 0; left: 0; transition: all 500ms; -ms-transition: all 500ms; -o-transition: all 500ms; visibility: hidden; opacity: 0;}
+.omsb-notification-lists > li:hover:after{visibility: visible; opacity: 1;}
+.omsb-notification-lists .omsb-notification-box{display: flex; align-items: center; position: relative;}
+.omsb-notification-lists .omsb-notification-box .custom-checkbox{margin-right: 23px;}
+.omsb-notification-lists .omsb-notification-box .omsb-notification-img{display: flex; width: 48px; height: 48px; justify-content: center; align-items: center; background: #F1F1F1; border-radius: 100px; margin-right: 20px; overflow: hidden;}
+.omsb-notification-lists .omsb-notification-box .omsb-notification-img img{width: 100%; height: 100%; object-fit: cover;}
+.omsb-notification-dtls{display: flex; flex-direction: column;}
+.omsb-notification-dtls h6{font-weight: 700; font-size: 16px; line-height: 19px; text-transform: capitalize; margin-bottom: 8px;}
+.omsb-notification-dtls h6 span{color: #DC3545;}
+.omsb-notification-dtls .omsb-posted-time{font-weight: 400;color: #0D1B1F; font-size: 14px; line-height: 150%;}
+.omsb-notification-box .dropdown .dropdown-toggle:after{display: none;}
+.omsb-notification-box .dropdown .dropdown-toggle:before{color:#FA981C}
+.omsb-notification-box .dropdown{position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
+.omsb-notification-box .dropdown-menu{left: auto; right: 0;}
+
+/*==== Start Modication of Liferay Default Notification Block with Overwrite following CSS ====*/
+.omsb-notification .list-group-notification .list-group-item-primary.active { background-color: #fff; color: black; box-shadow: inset 0.0625rem 0 rgba(0, 0, 0, 0.125), inset -0.0625rem 0 rgba(0, 0, 0, 0.125), inset 0 0.0625rem rgba(0, 0, 0, 0.125), inset 0 -0.0625rem rgba(0, 0, 0, 0.125);}
+.omsb-notification .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {background-color: #fd7e14; border-color: #fd7e14;}
+.omsb-notification .list-group-notification .list-group-item-primary {color: black; box-shadow: inset 0.5rem 0 #DC3545 !important;}
+.omsb-notification .management-bar-primary {background-color: #fff; border-color: transparent; color: #6b6c7e;}
+.omsb-notification .list-group-notification .list-group-item.active {background-color: #fff; color: black; box-shadow: inset 0.0625rem 0 rgba(0, 0, 0, 0.125), inset -0.0625rem 0 rgba(0, 0, 0, 0.125), inset 0 0.0625rem rgba(0, 0, 0, 0.125), inset 0 -0.0625rem rgba(0, 0, 0, 0.125);}
+.omsb-notification .list-group-notification .list-group-item {box-shadow: none }   
+.omsb-notification .lfr-search-container-wrapper .list-group .list-group-item h4 {font-weight: 700; font-size: 16px;}
+.omsb-notification .omsb-header-tab .navigation-bar-light {background-color: #F1F1F1;}
+.dropdown-item.active { background-color: #DC3545;}
+.omsb-notification .dropdown-item:active{ background-color: #DC3545; }
+.omsb-notification .pagination-items-per-page > button { background-color:#DC3545; color: #fff;}
+.omsb-notification .lfr-search-container-wrapper .lfr-icon-menu > .dropdown-toggle { color: #FA981C;}
+/*====// Modication of Liferay Default Notification Block with Overwrite following CSS ====*/

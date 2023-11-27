@@ -1,0 +1,91 @@
+.padding-cohort.omsb-card{padding: 30px 20px 10px 20px !important;}
+
+.elective_rotation_list_wrap{display: inline-block; width: 100%; min-height: 238px; max-height: 238px; overflow-y: auto; vertical-align: top; padding: 6px 16px; border: 1px solid #D9D9D9; border-radius: 10px;}
+.elective_rotation_list_wrap .custom-checkbox{padding: 0;}
+.elective_rotation_list_wrap .custom-checkbox .custom-control-input{display: none;}
+.elective_rotation_list_wrap .custom-checkbox .custom-control-input.disable{pointer-events: none; cursor: default;}
+.elective_rotation_list_wrap .custom-checkbox .custom-control-label{padding: 10px 0; margin: 0; border-bottom: 1px solid #D9D9D9; font-size: 18px; font-weight: 400; line-height: 24px; letter-spacing: 0em; text-align: left; color: #1C1C1C;padding-left: 30px; position: relative;}
+.elective_rotation_list_wrap .custom-checkbox .custom-control-label::after,.elective_rotation_list_wrap .custom-checkbox .custom-control-label::before{position: absolute; left: 0; top: 0; bottom: 0; margin: auto;}
+.elective_rotation_list_wrap .elective_rotation_list:last-child .custom-checkbox .custom-control-label{border: none;}
+.elective_rotation_list_wrap .custom-checkbox .custom-control-input.disable~.custom-control-label{opacity: 0.5;}
+.elective_rotation_selected_list_items{display: inline-block; width: 100%; vertical-align: top; padding: 6px 16px; border: 1px solid #D9D9D9; border-radius: 10px; margin-top: 24px; min-height: 238px;}
+.elective_rotation_selected_list_items .slist li{padding: 10px 0; margin: 0; border: 0; background: none; border-bottom: 1px solid #D9D9D9; font-size: 18px; font-weight: 400; line-height: 24px; letter-spacing: 0em; text-align: left; color: #1C1C1C; position: relative;}
+.elective_rotation_selected_list_items .slist li:last-child{border: 0;}
+.elective_rotation_selected_list_items .slist li:after{position: absolute; content: ""; background-image: url('../../images/svg/draganddrop_icon.svg'); background-repeat: no-repeat; right: 0; top: 0; bottom: 0; margin: auto; width: 16px; height: 16px;}
+
+.elective-rotation-row {position: relative;}
+.elective-rotation-row .leftbar{padding-right: 32px;}
+.elective-rotation-row .rightbar{padding-left: 32px;}
+.elective-rotation-row:after{position: absolute; width: 16px; height: 12px; left: 0; right: 0; top: 0; bottom: 30px; margin: auto; content: ""; background: url('../../images/svg/transfer_icon.svg'); background-repeat: no-repeat;}
+
+
+
+/* Notification Sidebar CSS Start from here */
+.omsb-notification-sidebar{ position: fixed; right: -100%; bottom:0; z-index: 99; background: #fff; height: -webkit-calc(100% - 6.22rem); margin-bottom: 0;  height: -moz-calc(100% - 6.22rem);  height: calc(100% - 6.22rem); max-width: 460px; width:100%; padding: 8px 10px;
+-webkit-transition: 300ms ease all; -moz-transition: 300ms ease all; -o-transition: 300ms ease all;   transition: 300ms ease all; -webkit-backface-visibility: hidden;-moz-backface-visibility: hidden; backface-visibility: hidden;}
+.omsb-notification-sidebar .omsb-card {overflow: auto; height: 100%;}
+.omsb-notification-sidebar .modal-title { font-weight: 700; font-size: 20px; line-height: 25px; color: #222931; }
+.omsb-notification-sidebar .modal-header { border-bottom: 0; }
+.omsb-notification-sidebar .omsb-comment-box .row { border-bottom: 1px solid rgba(217, 217, 217, 1); }
+.omsb-notification-sidebar .omsb-comment-box .row:last-child { border-bottom: 0px solid rgba(217, 217, 217, 1); }
+.omsb-notification-sidebar .omsb-comment-box { background: rgba(246, 246, 246, 1); border: 1px solid rgba(217, 217, 217, 1); }
+.omsb-notification-sidebar .omsb-comment-box-header { padding-bottom: 0; }
+.omsb-notification-sidebar .omsb-comment-box-header h3 { margin-bottom: 0; font-weight: 800; font-size: 14px; line-height: 17px; text-transform: capitalize; }
+.omsb-notification-sidebar .omsb-comment-box:first-child { margin-bottom: 15px; }
+.omsb-notification-sidebar .omsb-card-header { display: flex;padding-bottom: 30px; }
+.omsb-notification-sidebar .omsb-card-title { margin: 0; }
+.omsb-notification-sidebar.open:before{position: fixed; content: ""; width: 100vw; height: 100vh; left: 0; top: 0; background: rgba(28, 28, 28, 0.2); z-index: -1;}
+.omsb-notification-sidebar.open{right: 0;}
+.omsb-notification-row{display: inline-block; padding-top: 24px; width: 100%; vertical-align: top; border-bottom: 1px solid #D9D9D9;}
+.omsb-notification-row:first-child{padding-top: 0;}
+.omsb-notification-row:last-child{border-bottom: 0;}
+/* Notification Sidebar CSS End from here */
+
+
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* common css for screen size < 1199 (Table landscape view ) */
+@media only screen and (max-width: 1199px) {
+
+
+}
+
+/* common css for screen size < 991 (Table portrait view ) */
+@media only screen and (max-width: 991px) {
+.padding-cohort.omsb-card{padding-bottom: 30px !important;}
+
+
+}
+
+/* common css for screen size < 767 (Mobile landscape view )  */
+@media only screen and (max-width: 768px) {
+.elective-rotation-row .leftbar{padding-right: 15px;}
+.elective-rotation-row .rightbar{padding-left: 15px;}
+.elective-rotation-row .rightbar .elective_rotation_selected_list_items{margin-top: 0;}
+.elective-rotation-row:after{display: none;}
+
+
+}
+
+/* common css for screen size < 479 (Mobile portrait view )  */
+@media only screen and (max-width: 479px) {
+
+}
+
+/* common css for screen size < 320 (Mobile portrait view for 320 )  */
+@media only screen and (max-width: 320px) {}
+
+/* common css for screen size between  768 to 1199 (Tablet view for  768 to 1199 ) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+/* common css for screen size between  768 to 1023 (Tablet view for  768 to 1023 ) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+
+/* common css for screen size between  1024 to 1600  (Small desktop view for  1024 to 1600 )*/
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+
+}

@@ -1,0 +1,6 @@
+Bundle-Name: omsb-object-data-import
+Bundle-SymbolicName: gov.omsb.object.data
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.object.data.constants
+Import-Package: *;resolution:=optional
+-fixupmessages "Classes found in the wrong directory"; restrict:=error; is:=warning

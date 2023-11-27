@@ -1,0 +1,10 @@
+Bundle-Name: omsb-form-builder-api
+Bundle-SymbolicName: gov.omsb.form.builder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	gov.omsb.form.builder.exception,\
+	gov.omsb.form.builder.model,\
+	gov.omsb.form.builder.service,\
+	gov.omsb.form.builder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../omsb-form-builder-service/service.xml

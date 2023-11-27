@@ -1,0 +1,92 @@
+/*customcode start*/
+@import "fontawesome4.7.0/font-awesome.min.css";
+@import 'flaticons/uicons-solid-rounded.css';
+@import "datepicker/bootstrap-datepicker3.min.css";
+@import "datatables/dataTables.bootstrap4.min.css";
+@import "datatables/responsive.bootstrap4.min.css";
+@import "editor/richtext.min.css";
+@import 'drag-drop-sortable/sort-list.css';
+@import 'intlTelInput.css';
+@import "comboTreePlugin.css";
+@import 'bootstrap-multiselect/bootstrap-multiselect.min.css';
+@import 'select-with-search/select2.min.css';
+@import 'flag/flags.css';
+
+/*  Author: SP  
+  Created based on figma -ePortal for OMSB
+*/
+@import 'common.css';
+
+/*=== Page wise styling ===*/
+@import 'PagesCSS/__view-equivalency-request.css';
+@import 'PagesCSS/__equivalency-request-list-screen-employer.css';
+@import 'PagesCSS/__notification.css';
+@import 'PagesCSS/_verification.css';
+@import 'PagesCSS/_registration.css';
+
+
+/*==== TMS ====*/
+@import "TMS/_program.css";
+@import "TMS/_tms_routation.css";
+@import "TMS/_tmsEC.css";
+
+/*==== TMS Master Rotation 2 ====*/
+@import "tms-master-rotation-2/_master-rotation.css";
+
+/*==== Exam ====*/
+@import "exam/_trainee.css";
+
+/*==== leave ====*/
+@import "leave/_leave.css";
+
+/*==== OCT ====*/
+@import "OCT/_setup.css";
+
+/*==== Form Builder ====*/
+@import "form-builder/_form-builder.css";
+
+/*  Author: AK  
+  Created based on figma -ePortal for OMSB
+*/
+@import 'custom_second.css';
+
+
+
+/*  Author: SP  
+ Added theme level changes -ePortal for OMSB
+*/
+
+// .has-control-menu{
+//   padding-top: 159px !important;
+//   .cadmin{
+//     &.control-menu-container{
+//      & > .control-menu{
+//         position: fixed;
+//         top: 0;
+//         z-index: 989;
+//         left: 0;
+//         width: 100%;
+//       }
+     
+//     }
+//   }
+//   .omsb-header{
+//     top: 56px;
+//   }
+//   .omsb-sidebar-navigation{
+//     top: 159px;
+//   }
+// } 
+
+
+/*=== Overwrite Clay CSS ===*/
+.modal-open .modal{display: none !important;}
+.modal-open .modal.show{display: block !important;}
+.modal-open .modal.modal-dialog{display: block !important;}
+.form-group .custom-file{float: left; width: 100%; height: auto;}
+.form-group .custom-file input[type='file'] {display: none;}
+.form-group .custom-file .form-group{margin-bottom: 0;}
+/*===// Overwrite Clay CSS ===*/
+
+
+

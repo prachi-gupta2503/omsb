@@ -1,0 +1,3 @@
+Bundle-Name: omsb-email-template-master-common-service
+Bundle-SymbolicName: gov.omsb.email.template.master.common.service
+Bundle-Version: 1.0.0

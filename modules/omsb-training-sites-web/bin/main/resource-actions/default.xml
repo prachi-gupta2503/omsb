@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 7.4.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_7_4_0.dtd">
+
+<resource-action-mapping>
+<portlet-resource>
+    <portlet-name>omsb_training_sites_web_OmsbTrainingSitesWebPortlet</portlet-name>
+    <permissions>
+        <supports>
+            <action-key>ADMIN_ADD_TRAINING_SITE</action-key>
+            <action-key>ADMIN_UPDATE_TRAINING_SITE</action-key>
+             <action-key>NON_ADMIN_TRAINING_SITE_VIEW</action-key>
+            <action-key>ADMIN_TRAINING_SITE_VIEW</action-key>
+            <action-key>ADMIN_DELETE_TRAINING_SITE</action-key>
+        </supports>
+        <guest-unsupported>
+            <action-key>ADMIN_ADD_TRAINING_SITE</action-key>
+            <action-key>ADMIN_UPDATE_TRAINING_SITE</action-key>
+             <action-key>NON_ADMIN_TRAINING_SITE_VIEW</action-key>
+            <action-key>ADMIN_TRAINING_SITE_VIEW</action-key>
+            <action-key>ADMIN_DELETE_TRAINING_SITE</action-key>
+        </guest-unsupported>
+    </permissions>
+</portlet-resource>
+</resource-action-mapping>

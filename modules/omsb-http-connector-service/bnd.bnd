@@ -1,0 +1,3 @@
+Bundle-Name: omsb-http-connector-service
+Bundle-SymbolicName: gov.omsb.http.connector.service
+Bundle-Version: 1.0.0

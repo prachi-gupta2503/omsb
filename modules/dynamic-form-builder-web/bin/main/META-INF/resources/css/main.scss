@@ -1,0 +1,63 @@
+.dynamic-form-builder-web {
+	
+	.select2-container{
+		width: 175px !important;
+	}
+	
+	.form-check{
+		.form-check-input{
+			width: 18px;
+    		height: 18px;
+		}
+		.form-check-label{
+			padding-left: 5px;
+    		position: absolute;
+    		line-height: 18px;
+		}
+	}
+	
+	.dropdown-config-checkbox-div-el{
+		margin-top: 20px;
+	}
+	
+	.setting-checkbox-div-el{
+		margin-top: 20px;
+		padding-right: 0;
+	}
+	
+	.field-setting-label{
+		font-size: 11px;
+	}
+	
+	.form-layout-row{
+		margin-bottom: 10px;
+	}
+	.card {
+		.card-header{
+			
+			border-radius: 2px;
+    		padding: 5px;
+   		    padding-left: 0;
+   		    
+   		    .btn-header-link{
+   		    
+   		    	display: block;
+  				text-align: left;
+  
+   		    	&:after {
+					content: "\f107";
+				  	font-weight: 900;
+				  	float: right;
+				  	font-family: "Font Awesome 5 Free";
+				}
+				
+   		    	&.collapsed {
+				  
+				  &:after {
+					 content: "\f106";
+				  }
+				}
+   		    }
+		}
+	}
+}

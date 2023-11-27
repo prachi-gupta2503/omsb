@@ -1,0 +1,4 @@
+Bundle-Name: omsb-participation-type-web
+Bundle-SymbolicName: gov.omsb.participation.type.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.participation.type.web.constants

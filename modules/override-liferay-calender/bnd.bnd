@@ -1,0 +1,7 @@
+Bundle-Name: override-liferay-calender
+Bundle-SymbolicName: override.liferay.calender
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.calendar.web;bundle-version="5.0.74"
+Web-ContextPath:/override-liferay-calender
+-sources: true
+Portal-Bundle-Version: 7.4.13

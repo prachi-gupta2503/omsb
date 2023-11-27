@@ -1,0 +1,5 @@
+Bundle-Name: omsb-mobile-sdk-headless-test
+Bundle-SymbolicName: gov.omsb.mobile.sdk.headless.test
+Bundle-Version: 1.0.0
+-includeresource: gov.omsb.mobile.sdk.headless.client.jar=../omsb-mobile-sdk-headless-client/build/libs/gov.omsb.mobile.sdk.headless.client-1.0.0.jar;lib:=true
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}

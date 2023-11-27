@@ -1,0 +1,4 @@
+Bundle-Name: omsb-configure-rotations-web
+Bundle-SymbolicName: omsb.configure.rotations.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.configure.rotations.web.constants

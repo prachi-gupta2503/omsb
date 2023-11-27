@@ -1,0 +1,19 @@
+.progessiv-buttons-wrap{display: inline-block; width: 100%; vertical-align: top; position: relative; margin-bottom: 16px;}
+.progessiv-buttons-wrap > ul{display: -ms-flexbox; display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;
+  padding-left: 0;margin-bottom: 0; list-style: none; justify-content: center;}
+.progessiv-buttons-wrap > ul > li{position: relative;}
+.progessiv-buttons-wrap > ul > li > button{border: 0; background-color: transparent; text-align: center;
+  font-weight: 700;  text-decoration: none !important; display: flex; justify-content: center; flex-direction: column;  box-shadow: none !important; outline: none !important; border: 0 !important; padding: 0 30px;}
+.progessiv-buttons-wrap > ul > li:first-child > button::before{position: absolute; content: ""; width: 50px; height: 2px; display: inline-block; vertical-align: top; background: #000; right:-30px; top: 22px;}
+.progessiv-buttons-wrap > ul > li:first-child + li > button:after{position: absolute; content: ""; width: 50px; height: 2px; display: inline-block; vertical-align: top; background: #000; right:-30px; top: 22px;}
+.progessiv-buttons-wrap > ul > li > .progress-button span{display: flex; justify-content: center; align-items: center; width: 44px; height: 44px; margin: auto; border: 1px solid #222931; border-radius: 100px; overflow: hidden; margin-bottom: 10px;}
+.progessiv-buttons-wrap > ul > li > button.active{color: #DC3545;}
+.progessiv-buttons-wrap > ul > li > button.active span{border-color:#DC3545;}
+.progessiv-buttons-wrap > ul > li:first-child > button.active::before,.progessiv-buttons-wrap > ul > li:first-child + li > button.active:after{background: #DC3545;}
+.progessiv-buttons-wrap > ul > li > button.active span img{filter: invert(67%) sepia(89%) saturate(7492%) hue-rotate(346deg) brightness(84%) contrast(146%);}
+.progessiv-buttons-wrap .omsb-bc-red-button{position: absolute;right: 0;top: 50%;transform: translateY(-50%);}
+.progessiv-buttons-wrap > ul > li > button:disabled{opacity: 0.6;}
+.form-builder-web .card.dfb-card-group-description .card-header .btn-header-link{position: relative; padding-right: 50px;}
+.form-builder-web .card.dfb-card-group-description .card-header .btn-header-link:after{top: 50%;
+    transform: translateY(-50%); position: absolute; right: 15px;}
+.form-builder-web .card.dfb-card-group-description .card-header .btn-header-link p{border-top: 1px solid #717171; margin-top: 5px; margin-bottom: 0; padding-top: 5px;font-size: 14px;font-style: italic; color: #ababab; margin-left: 0;}

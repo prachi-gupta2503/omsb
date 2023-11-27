@@ -1,0 +1,10 @@
+Bundle-Name: omsb-superset-dashboard-api
+Bundle-SymbolicName: gov.omsb.superset.dashboard.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	gov.omsb.superset.dashboard.exception,\
+	gov.omsb.superset.dashboard.model,\
+	gov.omsb.superset.dashboard.service,\
+	gov.omsb.superset.dashboard.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../omsb-superset-dashboard-service/service.xml

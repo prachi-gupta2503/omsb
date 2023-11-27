@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE resource-action-mapping PUBLIC "-//Liferay//DTD Resource Action Mapping 7.4.0//EN" "http://www.liferay.com/dtd/liferay-resource-action-mapping_7_4_0.dtd">
+
+<resource-action-mapping>
+<portlet-resource>
+    <portlet-name>gov_omsb_programs_web_OmsbProgramsWebPortlet</portlet-name>
+    <permissions>
+        <supports>
+            <action-key>ADMIN_ADD_PROGRAM</action-key>
+            <action-key>ADMIN_PROGRAM_LIST_VIEW</action-key>
+            <action-key>NON_ADMIN_PROGRAM_LIST_VIEW</action-key>
+            <action-key>ADMIN_ADD_COHORT</action-key>
+            <action-key>ADMIN_VIEW_COHORT</action-key>
+            <action-key>ADMIN_PROGRAM_VIEW</action-key>
+            <action-key>NON_ADMIN_PROGRAM_VIEW</action-key>
+            <action-key>ADMIN_PROGRAM_ACTIVATION</action-key>           
+            <action-key>ADMIN_PROGRAM_OBJECTIVE</action-key>
+            <action-key>NON_ADMIN_PROGRAM_OBJECTIVE</action-key>
+            <action-key>ADMIN_MANAGE_TRAINEE_SITE</action-key>
+            <action-key>ADMIN_CONFIGURE_ROTATION</action-key>
+            <action-key>ADMIN_ADD_ROTATION</action-key>
+            <action-key>ADMIN_ASSIGN_ROTATION</action-key>
+            <action-key>NON_ADMIN_ELECTIVE_ROTATION</action-key>
+            <action-key>NON_ADMIN_CONFIGURE_ELECTIVE_ROTATION</action-key>
+            <action-key>NON_ADMIN_ELECTIVE_ROTATION_DELETE</action-key>
+            <action-key>ADMIN_CONFIGURE_SITE_CAPACITY</action-key>
+            <action-key>NON_ADMIN_VIEW_SITE_CAPACITY</action-key>
+            <action-key>ADMIN_UPDATE_CONFIGURE_SITE_CAPACITY</action-key>
+			<action-key>ADMIN_DELETE_CONFIGURE_SITE_CAPACITY</action-key>
+			<action-key>ADMIN_EDIT_ASSIGN_ROTATION</action-key>
+			<action-key>ADMIN_DELETE_ASSIGN_ROTATION</action-key>
+			<action-key>ADMIN_SELECT_COHORT_FOR_OBJECTIVE</action-key>
+			<action-key>NON_ADMIN_ELECTIVE_ROTATION_EDIT</action-key>
+        </supports>
+        <guest-unsupported>
+            <action-key>ADMIN_ADD_PROGRAM</action-key>
+            <action-key>ADMIN_ADD_COHORT</action-key>
+            <action-key>ADMIN_VIEW_COHORT</action-key>
+            <action-key>ADMIN_PROGRAM_VIEW</action-key>
+            <action-key>NON_ADMIN_PROGRAM_VIEW</action-key>
+            <action-key>ADMIN_PROGRAM_ACTIVATION</action-key>
+            <action-key>ADMIN_PROGRAM_OBJECTIVE</action-key>
+            <action-key>NON_ADMIN_PROGRAM_OBJECTIVE</action-key>
+            <action-key>ADMIN_MANAGE_TRAINEE_SITE</action-key>
+            <action-key>ADMIN_CONFIGURE_ROTATION</action-key>
+            <action-key>ADMIN_ADD_ROTATION</action-key>
+            <action-key>ADMIN_ASSIGN_ROTATION</action-key>
+            <action-key>NON_ADMIN_ELECTIVE_ROTATION</action-key>
+            <action-key>NON_ADMIN_CONFIGURE_ELECTIVE_ROTATION</action-key>
+            <action-key>NON_ADMIN_ELECTIVE_ROTATION_DELETE</action-key>
+            <action-key>ADMIN_CONFIGURE_SITE_CAPACITY</action-key>
+            <action-key>NON_ADMIN_VIEW_SITE_CAPACITY</action-key>
+            <action-key>ADMIN_UPDATE_CONFIGURE_SITE_CAPACITY</action-key>
+            <action-key>ADMIN_DELETE_CONFIGURE_SITE_CAPACITY</action-key>
+            <action-key>ADMIN_EDIT_ASSIGN_ROTATION</action-key>
+			<action-key>ADMIN_DELETE_ASSIGN_ROTATION</action-key>
+			<action-key>ADMIN_SELECT_COHORT_FOR_OBJECTIVE</action-key>
+			<action-key>NON_ADMIN_ELECTIVE_ROTATION_EDIT</action-key>
+        </guest-unsupported>
+    </permissions>
+</portlet-resource>
+</resource-action-mapping>

@@ -1,0 +1,1 @@
+{"name_i18n":{"en-US":"Result Status"},"name":"Result Status","listTypeEntries":[{"name_i18n":{"en-US":"Pass"},"name":"Pass","type":"","key":"pass","externalReferenceCode":"PL_PASS"},{"name_i18n":{"en-US":"Fail"},"name":"Fail","type":"","key":"fail","externalReferenceCode":"PL_FAIL"}],"externalReferenceCode":"PL_RESULT_STATUS"}

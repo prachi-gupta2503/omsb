@@ -1,0 +1,4 @@
+Bundle-Name: omsb-cpt-codes-web
+Bundle-SymbolicName: gov.omsb.cpt.codes.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.cpt.codes.web.constants

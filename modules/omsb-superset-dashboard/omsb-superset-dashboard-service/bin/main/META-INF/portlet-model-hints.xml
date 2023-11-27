@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="gov.omsb.superset.dashboard.model.RoleDashboardConfig">
+		<field name="configId" type="long" />
+		<field name="roleId" type="long" />
+		<field name="dashboardId" type="String" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+	</model>
+</model-hints>

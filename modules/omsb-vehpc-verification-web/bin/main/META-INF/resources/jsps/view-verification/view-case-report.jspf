@@ -1,0 +1,16 @@
+<table class="your-iterator-class display omsb-tableview" width="100%">
+	<thead>
+		<tr>
+			<th><liferay-ui:message key="FileName" /></th>
+			<th><liferay-ui:message key="File" /></th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr class='odd clickable-row'>
+				<td>${fileName}</td>
+				<td><a href="${ caseReportsFileURL}" >view</a></td>
+			</tr>
+	</tbody>
+</table>
+
+

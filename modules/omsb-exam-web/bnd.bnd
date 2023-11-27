@@ -1,0 +1,11 @@
+Bundle-Name: omsb-exam-web
+Bundle-SymbolicName: gov.omsb.exam.web.portlet
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.exam.web.portlet.constants,\
+	gov.omsb.exam.web.portlet.util,\
+	gov.omsb.exam.web.portlet.dto,\
+	gov.omsb.common.dto
+Import-Package: *;resolution:=optional
+-fixupmessages "Classes found in the wrong directory"; restrict:=error; is:=warning
+

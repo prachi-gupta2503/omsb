@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:omsb-mobile-sdk-headless:omsb-mobile-sdk-headless-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly group: "javax.annotation", name: "javax.annotation-api", version: "1.3.2"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+
+	restBuilder group: "com.liferay", name: "com.liferay.portal.tools.rest.builder", version: "1.0.222"
+}
+
+group = "gov.omsb.mobile.sdk.headless"

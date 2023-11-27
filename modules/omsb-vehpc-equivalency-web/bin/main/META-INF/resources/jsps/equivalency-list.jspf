@@ -1,0 +1,518 @@
+<%-- <%@ include file="../init.jsp"%>  --%>
+<!--- Start Main Content Section Here --->
+
+<%@page import="omsb.vehpc.equivalency.web.constants.AppealConstants"%>
+<%@page import="omsb.vehpc.equivalency.dto.web.EquivalencyRequest"%>
+<portlet:resourceURL id="<%=MVCCommandNames.EQUIVALENCY_SEARCH%>"
+	var="getEquivalencyData">
+	<portlet:param name="cmd" value="getEquivalencyData" />
+</portlet:resourceURL>
+<section class="omsb-main-wrapper" id="omsb-main-wrapper">
+
+	<!-- Inner Wrapper Contents -->
+	<div id="wrapper">
+		<div class="container">
+			<div class="omsb-card">
+				<c:if test="${isEmployer}">
+					<div class="omsb-page-top-info">
+						<portlet:renderURL var="equivalencyRequestURL">
+							<portlet:param name="mvcRenderCommandName"
+								value="<%=MVCCommandNames.EQUIVALENCY_REQUEST%>" />
+						</portlet:renderURL>
+						<div class="information">
+							<a href="<%=equivalencyRequestURL%>"><button
+									class="btn omsb-bc-red-button">
+									<liferay-ui:message key="new-equivalency-certificate-request" />
+								</button></a>
+						</div>
+					</div>
+				</c:if>
+				<c:choose>
+					<c:when test="${not isEmployer}">
+						<c:set var="cssClassName" value="col-lg-4"/>
+					</c:when>
+					<c:otherwise>
+						<c:set var="cssClassName" value="col-lg-6"/>
+					</c:otherwise>
+				</c:choose>
+				<div class="omsb-list-filter omsb-more-btn">
+					<div class="row">
+						<c:if test="${not isEmployer}">
+							<div class="${cssClassName} col-md-6">
+								<div class="form-group">
+									<label><liferay-ui:message key="employer" /></label> <input
+										type="text" id="employer" name="employer" class="form-control">
+								</div>
+							</div>
+						</c:if>
+						<div class="${cssClassName} col-md-6">
+							<div class="form-group">
+								<label><liferay-ui:message key="employee" /></label> <input
+									type="text" id="employee" name="employee" class="form-control">
+							</div>
+						</div>
+						<c:if test="${isAdmin or isEmployer}">
+							<div class="${cssClassName} col-md-6">
+								<div class="form-group">
+									<label><liferay-ui:message key="equivalency-status" /></label> <select
+										name="status" id="status" value=""
+										class="custom-select form-control">
+										<option value=""><liferay-ui:message key="select" /></option>
+										<%-- <c:forEach var="equivalencyStatus"
+											items="${equivalencyStatusList}">
+											<aui:option value="${equivalencyStatus.getKey() }">
+												<liferay-ui:message
+													key="${equivalencyStatus.getName(themeDisplay.getLocale())}" />
+											</aui:option>
+										</c:forEach> --%>
+									</select>
+								</div>
+							</div>
+							<div class="${cssClassName} col-md-6">
+								<div class="form-group">
+									<label><liferay-ui:message key="appeal-status" /></label> <select
+										name="appealStatus" id="appealStatus" value=""
+										class="custom-select form-control">
+										<option value=""><liferay-ui:message key="select" /></option>
+										<%-- <c:forEach var="equivalencyStatus"
+											items="${equivalencyStatusList}">
+											<aui:option value="${equivalencyStatus.getKey() }">
+												<liferay-ui:message
+													key="${equivalencyStatus.getName(themeDisplay.getLocale())}" />
+											</aui:option>
+										</c:forEach> --%>
+									</select>
+								</div>
+							</div>
+						</c:if>
+						<div class="${cssClassName} col-md-6">
+							<div class="form-group">
+								<label><liferay-ui:message key="created-on" /></label> <input
+									type="text" name="create_date" id="createdate"
+									placeholder="DD-MM-YYYY" class="form-control datePicker">
+							</div>
+						</div>
+					</div>
+					<div class="filter-button-wrap">
+						<button class="btn omsb-bc-red-button"
+							id="searchEQRequests">
+							<liferay-ui:message key="search" />
+						</button>
+					</div>
+
+				</div>
+
+				<c:choose>
+					<c:when test="${!empty equivalencyRequests}">
+
+						<div class="omsb-list-view table-responsive"
+							id="equivalencyHomeTable">
+							<table class="display omsb-datatables" id="equivalency-list">
+								<thead>
+									<tr>
+										<th class="d-none"><liferay-ui:message key="equivalency-status" /></th>
+										<th class="d-none"><liferay-ui:message key="appeal-status" /></th>
+										<th id="eqReqHeading"><liferay-ui:message key="equivalency-request-id" /></th>
+										<c:if test="${not isEmployer}">
+											<th id="eqEmployerHeading"><liferay-ui:message key="employer" /></th>
+										</c:if>
+										<th id="eqEmployeeHeading" ><liferay-ui:message key="employee" /></th>
+										<th id="eqStatusHeading"><liferay-ui:message key="equivalency-status" /></th>
+										<th id="eqAppealStatusHeading"><liferay-ui:message key="appeal-status" /></th>
+										<th id="eqCratedOnHeading"><liferay-ui:message key="created-on" /></th>
+										<th id="eqActionHeading"><liferay-ui:message key="action" /></th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${equivalencyRequests}"
+										var="equivalencyRequest" varStatus="status">
+										
+										<portlet:renderURL var="viewEquivalencyURL">
+											<portlet:param name="mvcRenderCommandName"
+												value="<%=MVCCommandNames.EQUIVALENCY_VIEW%>" />
+											<portlet:param name="equivalencyRequestId"
+												value="${equivalencyRequest.getEquivalencyRequestId()}" />
+										</portlet:renderURL>
+										
+										<portlet:renderURL var="viewAppealURL">
+											<portlet:param name="mvcRenderCommandName"
+												value="<%=AppealConstants.VIEW_APPEAL_ALL%>" />
+											<portlet:param name="equivalencyRequestId"
+												value="${equivalencyRequest.getEquivalencyRequestId()}" />
+												
+												<%-- <portlet:param name="assignedToMe" value="${adminSearchDtos[status.index].assignedToMe}" />
+												<portlet:param name="workflowTaskId" value="${adminSearchDtos[status.index].workflowTaskId}" />
+												<portlet:param name="workflowInstanceId" value="${adminSearchDtos[status.index].workflowInstanceId}" />
+												<portlet:param name="<%=Constants.CMD %>" value="<%=AppealConstants.CMD_ASSIGN_TO_ME %>" />
+												<portlet:param name="eqAppealId" value="${adminSearchDtos[status.index].id}" /> --%>
+							
+										</portlet:renderURL>
+										
+										<portlet:renderURL var="resubmitAppealURL">
+											<portlet:param name="mvcRenderCommandName"
+												value="<%=AppealConstants.VIEW_EDIT_APPEAL%>" />
+											<portlet:param name="equivalencyRequestId"
+												value="${equivalencyRequest.getEquivalencyRequestId()}" />
+										</portlet:renderURL>
+
+										<c:choose>
+											<c:when test="${isEmployer}">
+												<portlet:renderURL var="editEquivalencyURL">
+													<portlet:param name="mvcRenderCommandName"
+														value="<%=MVCCommandNames.UPDATE_EQUIVALENCY%>" />
+													<portlet:param name="equivalencyRequestId"
+														value="${equivalencyRequest.getEquivalencyRequestId()}" />
+												</portlet:renderURL>
+											</c:when>
+											<c:otherwise>
+												<portlet:renderURL var="equivalencyEquateURL">
+													<portlet:param name="mvcRenderCommandName"
+														value="<%=MVCCommandNames.EQUIVALENCY_EDIT_LEVEL%>" />
+													<portlet:param name="equivalencyRequestId"
+														value="${equivalencyRequest.getEquivalencyRequestId()}" />
+													<portlet:param name="transitionNames"
+														value="${equivalencyRequest.getTransitions()}" />
+												</portlet:renderURL>
+											</c:otherwise>
+										</c:choose>
+										<tr>
+											<td class="d-none">${equivalencyRequest.getStatus()}</td>
+											<td class="d-none">${equivalencyRequest.getAppealStatus()}</td>
+											<td>EQ-${equivalencyRequest.getEquivalencyRequestId()}</td>
+											<c:if test="${not isEmployer}">
+												<td>${equivalencyRequest.getCreatedBy()}</td>
+											</c:if>
+											<td>${equivalencyRequest.getEmployeeName()}</td>
+											<td><div
+												class="${equivalencyRequest.getStatusColorClass()}">
+												<c:if test = "${equivalencyRequest.getStatus() eq 'In Progress' && isEmployer}">
+												<liferay-ui:message key="submitted-old" /></c:if>
+												
+												<c:if test = "${((equivalencyRequest.getStatus() ne 'In Progress') && isEmployer) || not isEmployer}">
+													${equivalencyRequest.getStatus()}
+												</c:if>
+												</div>
+											</td>
+											
+												<td>
+												
+												<c:choose>
+												<c:when test = "${not empty equivalencyRequest.getAppealStatus() && not empty equivalencyRequest.getAppealStatusColorClass()}">
+													<div
+													class="${equivalencyRequest.getAppealStatusColorClass()}">
+													<c:if test = "${equivalencyRequest.getAppealStatus() eq 'In Progress' && isEmployer}">
+													<liferay-ui:message key="submitted" /></c:if>
+													
+													<c:if test = "${(equivalencyRequest.getAppealStatus() ne 'In Progress' && isEmployer) || not isEmployer}">
+														${equivalencyRequest.getAppealStatus()}
+													</c:if>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<p>Not Initiated</p>
+												</c:otherwise>
+												</c:choose>
+												</td>
+												
+											<td>${equivalencyRequest.getDateCreated()}</td>
+											<td style="width:150px">
+												<div class="dropdown ">
+													<button class="btn fa fa-ellipsis-v dropdown-toggle"
+														type="button" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false">
+														<i class=""></i>
+													</button>
+													<ul class="dropdown-menu">
+														<c:choose>
+															<c:when
+																test="${isEmployer && equivalencyRequest.statusKey eq 'employerDraft'}">
+																	<li><a href="${viewEquivalencyURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-equivalency" /></a></li>
+																		<li><a href="${editEquivalencyURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-edit.svg"
+																		alt=""> <liferay-ui:message key="edit" /></a></li>
+															</c:when>
+															<c:when
+																test="${isEmployer && equivalencyRequest.statusKey eq 'insufficient'}">
+																<portlet:renderURL var="resubmitURL">
+																	<portlet:param name="mvcRenderCommandName"
+																		value="<%=MVCCommandNames.RESUBMIT_VIEW_FORM%>" />
+																	<portlet:param name="assignEqId"
+																		value="${equivalencyRequest.getEquivalencyRequestId()}" />
+																	<portlet:param name="assignWfTransitionName"
+																		value="resubmit" />
+																</portlet:renderURL>
+
+																<li><a href="${resubmitURL}" class="dropdown-item"><img
+																		alt=""
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg">
+																		<liferay-ui:message key="resubmit" /></a></li>
+															</c:when>
+															<c:when
+																test="${isEmployer && equivalencyRequest.statusKey eq 'completed'}">
+																<portlet:renderURL var="appealURL">
+																	<portlet:param name="mvcRenderCommandName"
+																		value="<%=AppealConstants.NEW_APPEAL_SAVE%>" />
+																	<portlet:param name="equivalencyRequestId"
+																		value="${equivalencyRequest.getEquivalencyRequestId()}" />
+																		<portlet:param name="equivalencyAppealId"
+																		value="${equivalencyRequest.getAppealId()}" />
+																</portlet:renderURL>
+																<c:if test="${equivalencyRequest.isAppealValidity() && equivalencyRequest.appealId == 0 }">
+																<li><a href="${appealURL}" class="dropdown-item">
+																		<i class="fa fa-plus-square-o"></i>
+																		<liferay-ui:message key="appeal" /></a></li>
+																</c:if>
+																<li><a href="${viewEquivalencyURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-equivalency" /></a></li>
+																<c:if test="${equivalencyRequest.appealId > 0 && !equivalencyRequest.isResubmit()}">
+																	<li><a href="${viewAppealURL}"
+																		class="dropdown-item"><img
+																			src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																			alt=""> <liferay-ui:message key="view-appeal" /></a></li>
+																</c:if>
+																<c:if test="${equivalencyRequest.appealId > 0 && equivalencyRequest.isResubmit()}">
+																<li><a href="${resubmitAppealURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="resubmit-appeal" /></a></li>
+																</c:if>
+																<c:if test="${equivalencyRequest.appealId > 0 && equivalencyRequest.appealStatusKey eq 'employerDraft'}">
+																<li><a href="${appealURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-edit.svg"
+																		alt=""> <liferay-ui:message key="edit-appeal" /></a></li>
+																</c:if>
+																<c:if test="${equivalencyRequest.appealId == 0 || equivalencyRequest.appealStatusKey eq 'completed'}">
+																	<li><a target="_blank" href="${equivalencyRequest.certificateFileUrl}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-certificate" /></a></li>
+																</c:if>
+															</c:when>
+															<c:otherwise>
+																<li><a href="${viewEquivalencyURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-equivalency" /></a></li>
+																<c:if test="${equivalencyRequest.appealId > 0 }">
+																<li><a href="${viewAppealURL}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-appeal" /></a></li>
+																</c:if>
+																<c:if test="${isAdmin}">
+																	<c:if test="${(equivalencyRequest.statusKey eq 'completed' && equivalencyRequest.appealId ==0) || equivalencyRequest.appealStatusKey eq 'completed'}">
+																		<li><a target="_blank" href="${equivalencyRequest.certificateFileUrl}"
+																	class="dropdown-item"><img
+																		src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-eye.svg"
+																		alt=""> <liferay-ui:message key="view-certificate" /></a></li>
+																	</c:if>
+																</c:if>
+															</c:otherwise>
+														</c:choose>
+														<%-- <%@ include file="./equivalency-button-dropdown.jspf"%> --%>
+													</ul>
+
+												</div>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<liferay-ui:message key="no-records-found" />
+					</c:otherwise>
+				</c:choose>
+			</div>
+
+		</div>
+	</div>
+	<!--// Inner Wrapper Contents -->
+
+</section>
+<!---// End Main Content Section Here --->
+<%@ include file="./common-modals.jspf"%>
+
+<script>
+	var employer = '${isEmployer}';
+	console.log('isEmployer?? ', employer);
+	var visibleColumns;
+	if (employer == 'true') {
+		console.log('this is employer');
+		visibleColumns = [2,3,4,5,6];
+	} else {
+		visibleColumns = [2,3,4,5,6,7];
+	}
+	console.log('visibleColumns ', visibleColumns);
+	
+	var searchTable = new DataTable('.omsb-datatables', {
+		"bLengthChange" : false,
+		"order": [],
+		"search": {
+			"caseInsensitive": false
+		},
+		dom: 'Bfrtip',
+		buttons: [
+			{
+			extend: 'colvis',
+			columns: ':gt(1)',
+			},
+			{
+			extend: 'collection',
+			text: '<liferay-ui:message key="export-as" />',
+			buttons: [
+				{
+					title: '<liferay-ui:message key="equivalency-records" />',
+					extend: 'csv',
+					exportOptions: {
+					columns: visibleColumns
+					}
+				},
+				{
+					title: '<liferay-ui:message key="equivalency-records" />',
+					extend: 'pdf',
+					exportOptions: {
+					columns: visibleColumns
+					}
+				},
+				{	
+					title: '<liferay-ui:message key="equivalency-records" />',
+					extend: 'excel',
+					exportOptions: {
+					columns: visibleColumns
+					}
+				},
+				{	
+					title: '<liferay-ui:message key="equivalency-records" />',
+					extend: 'print',
+					exportOptions: {
+					columns: visibleColumns
+					}
+				}
+			]
+			}
+		]
+	});
+	
+	$(document).ready(function () {
+		var statusValues = searchTable.column(0).data().unique();
+		var appealStatusValues = searchTable.column(1).data().unique();
+		console.log('unique values are ', statusValues);
+		for(var i=0; i < statusValues.length; i++){
+			if (statusValues[i] != "") {
+				$('#status').append("<option value='" + statusValues[i] + "'>"+ statusValues[i] +"</option>");
+			}
+		}
+		for(var i=0; i < appealStatusValues.length; i++){
+			if (appealStatusValues[i] != "") {
+				$('#appealStatus').append("<option value='" + appealStatusValues[i] + "'>"+ appealStatusValues[i] +"</option>");
+			}
+		}
+	});
+	
+	$("#searchEQRequests").on('click',function() {
+		console.log('calling this click fns::');
+		var employer = $('#employer').val();
+		var employee = $('#employee').val();
+		var status = $('#status').val();
+		var appealStatus = $('#appealStatus').val();
+		var createdate = $('#createdate').val();
+		
+		searchTable.columns().every(function(index) {
+			
+			let headerId = searchTable.column( index ).header().id;
+			
+			searchTable.column(index).search('').draw();
+			if (headerId == 'eqEmployerHeading') {
+				if (employer) {
+					console.log('employer not empty:');
+					searchTable.column(index).search(employer).draw();
+				}
+			}
+			if (headerId == 'eqEmployeeHeading') {
+				if (employee) {
+					console.log('employee not empty:');
+					searchTable.column(index).search(employee).draw();
+				}
+			}
+			if (headerId == 'eqStatusHeading') {
+				if (status) {
+					console.log('status not empty:');
+					searchTable.column(index).search(status).draw();
+				}
+			}
+			if (headerId == 'eqAppealStatusHeading') {
+				if (appealStatus) {
+					console.log('status not empty:');
+					searchTable.column(index).search(appealStatus).draw();
+				}
+			} 
+			if (headerId == 'eqCratedOnHeading') {
+				if (createdate) {
+					console.log('createdate not empty:');
+					searchTable.column(index).search(createdate).draw();
+				}
+			}
+		});
+	});
+
+
+	$("#additionalCommentsModal").modal('hide');
+	$('#createdate').datepicker({
+		format : "dd/mm/yyyy",
+		orientation : "bottom auto",
+		autoclose : true
+	}).on('change', function() {
+		$('.datepicker').hide();
+	});
+
+/* 	$('#equivalency-list').DataTable({
+		"bLengthChange" : false,
+		"bFilter" : false,
+		"ordering": false
+	}); */
+
+	/* function getEquivalencyData() {
+		var employer = $("#employer").val();
+		var employee = $("#Employee").val();
+		var status = $('#Status').find(":selected").val();
+		var createDate = $("#createdate").val();
+		var getEquivalencyDataURL = "${getEquivalencyData}";
+		$.ajax({
+			url : getEquivalencyDataURL,
+			async : false,
+			data : {
+				<portlet:namespace />employer : employer,
+				<portlet:namespace />employee : employee,
+				<portlet:namespace />status : status,
+				<portlet:namespace />createDate : createDate
+			},
+			type : 'POST',
+			success : function(data) {
+				$("#equivalencyHomeTable").html(data);
+				$('#equivalency-list').DataTable({
+					"bLengthChange" : false,
+					"bFilter" : false,
+					"ordering": false
+				});
+			},
+		})
+	} */
+	function mimodal_close(){
+		$('#markInsufficientModal').modal("hide");
+	}
+	
+</script>
+<style>
+#equivalency-list_filter {
+    display: none;
+}
+</style>

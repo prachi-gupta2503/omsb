@@ -1,0 +1,49 @@
+-provider-policy=${replacestring;${range;[\=\=,\=\=]};.*,(.*)];$1}
+-contract=*
+Bundle-Name=omsb-exam-web
+path=\:modules\:omsb-exam-web
+testResultsDirName=test-results
+Bundle-SymbolicName=gov.omsb.exam.web.portlet
+-fixupmessages="Classes found in the wrong directory"; restrict\:\=error; is\:\=warning
+liferay.workspace.modules.dir=modules
+group=liferay-workspace.modules
+-fixupmessages.deprecated=annotations are deprecated
+-plugin.metatype=com.liferay.ant.bnd.metatype.MetatypePlugin
+-consumer-policy=${replacestring;${range;[\=\=,\=\=]};.*,(.*)];$1}
+org.gradle.daemon=true
+liferay.workspace.home.dir=D\:/omsb-setup/server/liferay-dxp-tomcat-7.4.13.u77-20230518092127360/liferay-dxp-7.4.13.u77
+liferay.workspace.product=dxp-7.4-u77
+org.gradle.jvmargs=-Xmx2560m
+version=1.0.0
+-fixupmessages.classpath.empty=Classpath is empty
+-fixupmessages.unicode.string=Invalid unicode string
+name=omsb-exam-web
+archivesBaseName=gov.omsb.exam.web.portlet
+testReportDirName=tests
+-noclassforname=true
+status=integration
+displayName=project '\:modules\:omsb-exam-web'
+target.platform.index.sources=false
+description=omsb-exam-web
+Javac-Debug=on
+Javac-Encoding=Cp1252
+Import-Package=*;resolution\:\=optional
+-plugin.liferay=com.liferay.ant.bnd.resource.AddResourceVerifierPlugin,com.liferay.ant.bnd.jsp.JspAnalyzerPlugin,com.liferay.ant.bnd.metatype.MetatypePlugin,com.liferay.ant.bnd.npm.NpmAnalyzerPlugin,com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin,com.liferay.ant.bnd.sass.SassAnalyzerPlugin,com.liferay.ant.bnd.service.ServiceAnalyzerPlugin,com.liferay.ant.bnd.social.SocialAnalyzerPlugin,aQute.lib.spring.SpringComponent,com.liferay.ant.bnd.spring.SpringDependencyAnalyzerPlugin,com.liferay.ant.bnd.enterprise.EnterpriseAnalyzerPlugin
+Export-Package=gov.omsb.exam.web.portlet.constants,gov.omsb.exam.web.portlet.util,gov.omsb.exam.web.portlet.dto,gov.omsb.common.dto
+-metatype=*
+liferay.workspace.themes.dir=themes
+-liferay-service-xml=service.xml,*/service.xml
+liferay.workspace.bundle.dist.include.metadata=true
+-includeresource.compileInclude=lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/html2pdf/4.0.4/338b12b4c659700c8bf6528538911a31ad9ea66f/html2pdf-4.0.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/barcodes/7.2.4/f97974c14fb6582ab3c3279b0764bb8266719a68/barcodes-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/font-asian/7.2.4/6a2cf4b399529ae275ecd1942ea2b30b19b8f6a9/font-asian-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/sign/7.2.4/303902f471517cbf1beb963cce9bb7e18ffb4621/sign-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/forms/7.2.4/c3d0040e3e6cdd873c833a348fd118842960213b/forms-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/hyph/7.2.4/78fe4b0053caa2d7a84987bf1426636f9b08e6d8/hyph-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/svg/7.2.4/29ed814f1e252e2235ebdddebffa0218c2130af5/svg-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/styled-xml-parser/7.2.4/d42851ebd300e4269e8ed71fc3901bc8b2223e01/styled-xml-parser-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/layout/7.2.4/e48140a71dbda7f77fe4dd4a3f12618db5e15455/layout-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/pdfa/7.2.4/8f64183c98d5bc7b7b5b5d56378131f5ae69bf8a/pdfa-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.2.4/c5268d8651084e0eb8faf8bef734bdb7991d57b6/kernel-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.2.4/3b79f25f60f2d9d9123087d91e50396361faf9ff/io-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/7.2.4/220beb3581a7a39807f78f63e8e1484535c358a3/commons-7.2.4.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.36/6c62681a2f655b49963a5983b8b0950a6120ae14/slf4j-api-1.7.36.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.70/f81e5af49571a9d5a109a88f239a73ce87055417/bcpkix-jdk15on-1.70.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk15on/1.70/54280e7195a7430d7911ded93fc01e07300b9526/bcutil-jdk15on-1.70.jar;lib\:\=true,lib/\=C\:/Users/AdjLT3/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.70/4636a0d01f74acaf28082fb62b317f1080118371/bcprov-jdk15on-1.70.jar;lib\:\=true
+Javac-Deprecation=off
+-cdiannotations=
+liferay.workspace.wars.dir=modules
+-jsp=*.jsp,*.jspf,*.jspx
+distsDirName=distributions
+-sass=*
+Bundle-Version=1.0.0
+-add-resource=C\:/Users/AdjLT3/Documents/omsb/omsb-liferay74/liferay-workspace/modules/omsb-exam-web/build/tmp/compileJSP,C\:/Users/AdjLT3/Documents/omsb/omsb-liferay74/liferay-workspace/modules/omsb-exam-web/build/jspc
+docsDirName=docs
+microsoft.translator.subscription.key=
+libsDirName=libs
+-donotcopy=(.*.wsdd)

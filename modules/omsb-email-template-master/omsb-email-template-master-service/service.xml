@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="gov.omsb.email.template.master">
+	<namespace>omsb_master</namespace>
+	
+	<entity local-service="true" name="EmailTemplateMaster" remote-service="false" table="omsb_email_template">
+		<column name="templateId" primary="true" type="long" id-type="increment" />
+		<column name="templateName" type="String" />
+		<column name="templateDescription" type="String" />
+		<column name="senderType" type="String" />
+		<column name="senderEmailId" type="String" />
+		<column name="defaultCC" type="String" />
+		<column name="defaultBCC" type="String" />
+		<column name="subject" type="String" />
+		
+		<column name="dynamicBody" type="String" />
+		<column name="staticBody" type="String" />
+		<column name="signature" type="String" />
+		<column name="userNotification" type="String" />
+		<column name="isRichText" type="boolean" />
+	
+		<!-- Audit fields -->	
+		<column name="createdBy" type="long" />
+		<column name="createdDate" type="Date" />
+		<column name="modifiedBy" type="long" />
+		<column name="modifiedDate" type="Date" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		
+		<finder name="templateName" return-type="EmailTemplateMaster">
+			<finder-column name="templateName"/>
+		</finder>
+		
+	</entity>
+	
+</service-builder>

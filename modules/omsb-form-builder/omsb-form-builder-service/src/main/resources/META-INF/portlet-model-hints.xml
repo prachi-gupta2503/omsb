@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="gov.omsb.form.builder.model.FormDefinition">
+		<field name="uuid" type="String" />
+		<field name="formDefinitionId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="formName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="formTitle" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="formDescription" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="formVersion" type="String" />
+		<field name="formConfig" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+	<model name="gov.omsb.form.builder.model.FormRecordEntry">
+		<field name="uuid" type="String" />
+		<field name="formRecordEntryId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="formDefinitionId" type="long" />
+		<field name="recordId" type="long" />
+		<field name="dfTableName" type="String" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+	<model name="gov.omsb.form.builder.model.RangeOptionMaster">
+		<field name="uuid" type="String" />
+		<field name="rangeOptionId" type="long" />
+		<field name="rangeOptionName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="rangeOptions" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

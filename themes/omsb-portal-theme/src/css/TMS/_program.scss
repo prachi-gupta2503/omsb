@@ -1,0 +1,300 @@
+.omsb-program-header-top .rightbar-info{display: flex; align-items: center; flex-wrap: wrap;}
+.omsb-program-header-top .colors-info{display: inline-block; width: auto; vertical-align: top; padding: 18px 27px; background: #ffffff; border-radius: 8px; margin-right: 18px;}
+.omsb-program-header-top .colors-info > ul,.omsb-program-header-top .colors-info > ul > li{padding: 0; list-style: none; margin: 0;}
+.omsb-program-header-top .colors-info > ul{display: flex; align-items: center; margin: 0 -12px;}
+.omsb-program-header-top .colors-info > ul > li{font-size: 16px; line-height: 21px; color: #000000; font-weight: 400; padding: 0 12px;}
+.omsb-program-header-top .colors-info > ul > li > span{display: inline-block; width: 10px; height: 10px; vertical-align: middle; border-radius: 50px; margin-right: 12px;}
+.omsb-program-header-top .rightbar-info .switch{display: inline-block; vertical-align: top; padding: 16px 27px; background: #ffffff; border-radius: 8px; font-size: 16px; line-height: 21px; color: #000;}
+.omsb-program-header-top .rightbar-info .omsb-bg-red-button{margin-right: 16px;}
+
+.switch .custom-control-label{position: relative;}
+.switch .custom-switch .custom-control-label::before{width: 42px; height: 24px; color: #fff; border-color: #dc3545; background-color: #dc3545 !important; left: -54px; border-radius: 16px; top: 0px;  position: absolute;}
+.switch .custom-switch .custom-control-label::after{width: 21px; height: 20px; background: #ffffff; border-radius: 100px; left: -50px; top: 2px; position: absolute;}
+.switch .custom-switch .custom-control-input:checked~.custom-control-label::after{ transform: translateX(14px); background: #ffffff !important;}
+.switch .custom-control-input:checked~.custom-control-label::before{color: #18A850; border-color: #18A850; background-color: #18A850 !important;}
+
+.custom-switch .custom-control-label .inactive{display: none;}
+.omsb-cards-wrap .col-cst-5,.omsb-cards-wrap .mb-cst{margin-bottom: 30px;}
+.card-info{display: inline-block; vertical-align: top; width: 100%; background: #FFFFFF; padding: 18px 18px; border-bottom: 5px solid #000000; border-radius: 8px; font-size: 20px; line-height: 30px; color: #222931;  height: 100%; transition: all 500ms; -ms-transition: all 500ms; -o-transition: all 500ms; -webkit-transition: all 500ms; padding-bottom: 20px;}
+.card-info {border-color: #DC3545;}
+.card-info.blue-info-card{border-color: #57B6B5;}
+.card-info.black-info-card{border-color: #222931;}
+.add_cohort_button { border: 1px solid rgba(220, 53, 69, 0.2); padding: 8px; font-size: 14px; font-weight: 400; line-height: 21px; width: 100%; display: inline-block; text-align: center; color: #DC3545; border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px;}
+.add_cohort_button:hover { background-color: #DC3545; color: #ffffff; }
+.view_cohort_button { border: 1px solid rgba(250, 152, 28, 0.2); padding: 8px; font-size: 14px; font-weight: 400; line-height: 21px; width: 100%; display: inline-block; text-align: center; color: #FA981C; border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; }
+.view_cohort_button:hover { background-color: #FA981C; color: #ffffff; }
+.view_cohort_button:hover img { filter: brightness(0) invert(1);}
+.card-info .buttons-wrap { display: flex; gap: 15px; }
+.card-info h5 {font-size: 20px; font-weight: 700; line-height: 30px; padding-bottom: 24px; padding-top: 5px;}
+.card-info span { color: rgba(27, 169, 80, 1); border: 1px solid rgba(27, 169, 80, 1); padding: 0 15px; border-radius: 55px; font-size: 12px; display: inline-block; margin-bottom: 13px; }
+.omsb-cards-wrap .mb-cst .card-info{padding-bottom: 110px; position: relative;}
+.omsb-cards-wrap .mb-cst .card-info .buttons-wrap{display: flex;gap: 10px;position: absolute; bottom: 0;  width: 100%; padding: 0 18px;left: 0;  bottom: 20px; flex-wrap: wrap;}
+
+.form-group div.form-control{height: auto; padding: 16px; font-size: 16px; line-height: 19px; color: #57585A;}
+.omsb-programdetails-list{padding: 0; margin: 0;padding-right: 30px; max-height: 310px; height: 100%; overflow: auto;}
+.omsb-programdetails-list li{list-style-type: none; padding: 0; margin: 0; margin-bottom: 16px;}
+.omsb-programdetails-list li a{display: inline-block; width: 100%; vertical-align: top; text-align: center; padding: 16px; font-size: 16px; line-height: 25px; color: #222931; background: #EEEEEE; border-radius: 4px;}
+.omsb-programdetails-list li.active a{background: #FA981C; color: #ffffff;}
+
+.white-box{font-size: 16px; line-height: normal;  color:#000000; display: inline-block; vertical-align: top; padding: 20px 10px; border-radius: 4px; text-align: center; display: inline-block; width: 100%;vertical-align: top; text-align: center; font-weight: 700;}
+.gray-box{font-size: 16px; line-height: normal; display: inline-block;  width: 100%; vertical-align: top; border-radius: 4px; text-align: center; color:#000000; display: inline-block; vertical-align: top; padding: 20px 10px; font-weight: 700;}
+
+.pediatrics-table .omsb-card-title{display: flex; justify-content: center; align-items: center; padding: 8px; font-size: 25px; font-weight: 800; line-height: 38px; letter-spacing: 0em; text-align: center; color: #ffffff; background: #222931; margin-bottom: 16px; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+.pediatrics-program-structure-table.table thead{box-shadow: 0px 4px 4px 0px #00000008;border-left: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6;}
+.pediatrics-program-structure-table.table thead th{border: 0; padding-bottom: 0; padding-top: 0; background: #eee; border-right: 1px solid #dee2e6;}
+.pediatrics-program-structure-table.table thead th .white-box{border: 0; border-radius: 0;}
+.pediatrics-program-structure-table.table thead th .gray-box{border: 0; border-radius: 0;}
+/* .pediatrics-program-structure-table.table thead th:first-child{border-radius:4px 0 0 4px;}
+.pediatrics-program-structure-table.table thead th:last-child{border-radius:0 4px 4px 0;} */
+/* .pediatrics-program-structure-table.table tbody tr:first-child td{border: 0;} */
+.pediatrics-program-structure-table.table tbody tr td{border-right: 1px solid #dee2e6;}
+.pediatrics-program-structure-table.table{margin-bottom: 0;}
+.id-table{border-top: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6; border-radius: 4px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden;}
+/* .white-box.borderBox{border: 2px solid #EEEEEE; color: #DC3545;} */
+.pediatrics-program-structure-table.table > tbody:before { content: "@"; display: block; line-height: 8px; text-indent: -99999px;}
+.pediatrics-program-structure-table.table tbody tr td:first-child{border-left: 1px solid #dee2e6;}
+
+
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box{box-shadow: 0px 4px 4px 0px #00000008; display: inline-block; width: 100%; vertical-align: top; height: 100%; background: #fff; padding: 24px; border-radius: 10px;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box h6{ font-size: 16px;font-weight: 400; line-height: 15px; letter-spacing: 0em; text-align: left; margin-bottom: 4px; color: #57585A;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box h3{font-size: 20px;font-weight: 700;line-height: 30px;letter-spacing: 0em; text-align: left; color: #DC3545; margin-bottom: 10px;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box .program-dtls h4{font-size: 16px; font-weight: 600; line-height: 21px; letter-spacing: 0em; text-align: left;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box > ul{padding: 0; margin: 0;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box > ul > li{list-style: none; padding: 0; margin: 0;background: #F2F2F2; padding: 10px; border-radius: 4px; margin-bottom: 16px;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box > ul > li .title{font-size: 14px;font-weight: 400; line-height: 15px; letter-spacing: 0em; text-align: left; margin-bottom: 4px; color: #57585A;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box > ul > li .title-value{ font-size: 16px; font-weight: 600;line-height: 21px;letter-spacing: 0em; text-align: left; color: #222931;}
+.omsb-pediatrics-trainingdetails .omsb-pediatrics-box > ul > li:last-child{margin-bottom: 0;}
+.omsb-pediatrics-trainingdetails .mb-cst{margin-bottom: 24px;}
+
+.omsb-pediatrics-rotationdetails .omsb-card-title{justify-content: flex-start;}
+.omsb-pediatrics-rotationdetails .omsb-card-title .omsb-complete-bg{margin-left: 10px;}
+.omsb-card.omsb-pediatrics-rotationdetails .omsb-pediatrics-box{border: 1px solid #D9D9D9;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box{box-shadow: 0px 4px 4px 0px #00000008; display: inline-block; width: 100%; vertical-align: top; height: 100%; background: #fff; padding: 24px; padding-bottom:14px; border-radius: 10px;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box h6{ font-size: 14px;font-weight: 400; line-height: 15px; letter-spacing: 0em; text-align: left; margin-bottom: 4px; color: #57585A;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box h3 ,.omsb-pediatrics-rotationdetails .omsb-pediatrics-box h3 a{font-size: 20px;font-weight: 700;line-height: 30px;letter-spacing: 0em; text-align: left; color: #DC3545; margin-bottom: 10px; text-decoration: none;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box > ul{display: flex; flex-wrap: wrap; padding: 0; margin: 0 -5px;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box > ul > li{padding: 0 5px; list-style: none; flex: 0 0 25%; -webkit-flex: 0 0 25%; max-width: 25%; margin-bottom:10px;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box .Program-dtls{display: flex; flex-direction: column; justify-content: space-between; text-align: center; height: 78px; border-radius: 4px; border: 1px solid #D9D9D9; padding: 10px;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box .Program-dtls .title{font-weight: 700; font-size: 16px; line-height: 21px;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box .Program-dtls .title-value{font-weight: 400; font-size: 16px; line-height: 21px;}
+.omsb-pediatrics-rotationdetails .mb-cst{margin-bottom: 24px;}
+
+.pediatric-supported-training-site.omsb-card{padding-bottom: 11px;}
+.omsb-cards-wrap .m-0{margin-bottom: 10px !important;}
+.pediatric-click-box{display: flex; height: 100%; justify-content: center; align-items: center; border-radius: 4px; border: 1px solid #D9D9D9; background: #FFF; padding: 20px; font-size: 20px;  font-style: normal; font-weight: 700; color: #000;}
+
+.notification-box {display: flex; justify-content: flex-end;}
+.notification-img {width: 32px; height: 32px; background: #fff; display: flex; border-radius: 50%; justify-content: center; align-items: center;}
+.notification-img img {width: 16px; height: 16px; }
+.bg-red {background-color: #DC3545 !important; }
+.bg-red .title , .bg-red .title-value { color: #fff !important; }
+
+.view_program_details_button { width: 100%; text-align: center; font-size: 14px; font-style: normal; font-weight: 400; color: #1BA950; border-radius: 8px; border: 1px solid rgba(27, 169, 80, 0.20); padding: 5px; -webkit-border-radius: 8px; -moz-border-radius: 8px; -ms-border-radius: 8px; -o-border-radius: 8px; }
+.view_program_details_button:hover {background: #1BA950;color: #ffffff;}
+.view_program_details_button:hover img {filter: brightness(0) invert(1);}
+.select_cohort {width: 160px;margin: 0;margin-left: 20px;}
+.select-cohort.omsb-card-title {justify-content: flex-start;}
+
+.buttons-wrap_pediatrics .view_program_details_button { display: block; margin-bottom: 10px;}
+.buttons-wrap_pediatrics .view_cohort_button {width: 100%;border-radius: 8px;}
+.pediatrics-training-sites .card-info {border-bottom: 0;border: 1px solid #D9D9D9;box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.03); position: relative; min-height: 100%; padding-bottom: 120px;}
+.pediatrics-training-sites .card-info .buttons-wrap_pediatrics{position: absolute; left: 0; width: 100%; bottom: 0; padding: 0 20px; padding-bottom: 20px;} 
+.omsb-datatables td .elective_wrap{display: inline-block; width: auto; vertical-align: top; position: relative; padding-right: 0;}
+.omsb-datatables td span.elective{background-color: #E82C2A;color: #fff;display: inline-block;width: 12px;font-size: 8px;height: 12px;line-height: 13px;border-radius: 25px;position: absolute; right: -15px; top:0px;}
+.electiveRotation_wrap{display: inline-block; width: auto; vertical-align: top; position: relative; padding-right: 15px;}
+span.electiveRotation{background-color: #BAF8DF;color: #006F43;display: inline-block;width: 12px;font-size: 8px;height: 12px;line-height: 13px;border-radius: 25px;position: absolute; right: 0; top:0px;}
+.pediatric-rotations p span {background-color: #E82C2A;color: #fff;display: inline-block;width: 21px;font-size: 14px;height: 21px;line-height: 20px;border-radius: 25px;text-align: center;}
+.elective_rotation_indentity {background-color: #E82C2A;color: #fff;display: inline-block;width: 21px;font-size: 14px;height: 21px;line-height: 20px;border-radius: 25px;text-align: center;}
+.shared_rotation_indentity {background-color: #BAF8DF !important;color: #006F43!important;display: inline-block;width: 21px;font-size: 14px;height: 21px;line-height: 20px;border-radius: 25px;text-align: center;}
+.pediatric-rotations p {font-size: 16px;color: #000;font-weight: 400;text-align: right;}
+.modalheading {font-size: 16px;font-weight: 700;padding: 20px 0 15px 0;}
+.omsb-bc-red-button.competencies {padding: 11px;}
+.form-group-view.white-bg {border-radius: 4px;border: 1px solid #D9D9D9;background: #FFF;padding: 16px;}
+.col-sm-12 .form-group-view.white-bg{height: 100%; margin-bottom: 0;}
+.col-sm-12 .form-group-view.white-bg pre{white-space:normal;}
+.white-bg .label-content ul{padding: 0;margin: 0;padding-left: 15px; line-height: 27px;}
+.white-bg .label-content ul{list-style: auto;}
+
+
+.rtl .white-bg .label-content ul{padding-right: 15px; padding-left: 0;}
+.rtl .omsb-programdetails-list{padding-left: 30px;padding-right: 0;}
+
+.elective_rotation .elective {position: relative;}
+/* Select */
+.select_box_main {
+    height: 12rem;
+    position: absolute;
+    z-index: 9;
+  }
+  .select_box ul {
+    padding: 0;
+    list-style: none;
+  }
+  .select_box p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .select_box {
+    width: 3rem;
+    height: 100%;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 5px;
+    padding-right: 6px;
+    }
+    .share-icon img, .share-icon img {
+      width: 60%;
+  }
+    .select_box .by_default {
+      background: #dde1e7;
+      margin-bottom: 0;
+      box-shadow: -3px -3px 7px #fffdfdcc, 3px 3px 5px rgba(94, 104, 121, 0.342);
+      border-radius: 5px;
+      position: relative;
+      cursor: pointer;
+      z-index: 2;
+    }
+    
+   
+    
+    .select_box .options {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    border-radius: 5px;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    opacity: 0;
+    background: #ffffff;
+    box-shadow: -3px -3px 7px #fffdfdcc,
+                  3px 3px 5px rgba(94, 104, 121, 0.342);
+    }
+    
+    .select_box .options li {
+    cursor: pointer;
+    }
+    
+    .select_box .sharing {
+      text-align: center;
+      margin-top: -5px;
+    }
+    
+    .select_box .sharing .share-icon {
+      margin: 5px;
+      margin-bottom: 0;
+    }
+    
+    .select_box.active .options {
+    opacity: 1;
+    transform: translateY(0%);
+    }
+    
+    .select_box.active .by_default:before {
+      top: 28px;
+      transform: rotate(-225deg);
+    }
+  
+    .form-group-with-lang {
+      display: flex;
+      gap: 15px;
+  }
+  .form-group-with-lang input {width: 90%;}
+  /* Select */
+
+.view_cohart_details_button {
+    border-radius: 8px;
+    border: 1px solid rgba(220, 53, 69, 0.20);
+    background: #FFF;
+    padding: 6px 10px;
+    color: #dc3545;
+    display: inline-block;
+    margin-right: 10px;
+}
+.view_cohart_details_button:hover {
+  background: #dc3545;
+  color: #fff;
+}
+.view_cohort_details_button:hover {
+  background: #FA981C;
+  color: #ffffff;
+}
+.view_cohort_details_button:hover img {
+  filter: brightness(10);
+  -webkit-filter: brightness(10);
+}
+.view_cohort_details_button {
+  border-radius: 8px;
+  border: 1px solid rgba(250, 152, 28, 0.20);
+  background: #FFF;
+  padding: 6px 10px;
+  color: #FA981C;
+  display: inline-block;
+}
+.buttons-wrap_program-details a img {
+  margin-right: 3px;
+}
+.buttons-wrap_program-details {
+  padding-bottom: 25px;
+}
+.elective_main {position: relative;}
+
+#configure-elective-rotation .note {color: #dc3545;padding-top: 5px;font-size: 14px;}
+
+.programCodeAlert .omsb-card-graybg{background-color: #F6F6F6 !important; border-color: #F6F6F6 !important;}
+
+.rtl .omsb-program-header-top .colors-info > ul > li > span{display: inline-block; width: 10px; height: 10px; vertical-align: middle; border-radius: 50px; margin-right: 0; margin-left: 12px;}
+.rtl .switch .custom-switch .custom-control-label::after {top: 2px;right: -18px;}
+.rtl label.custom-control-label {padding-right: 13px;}
+
+.rtl .omsb-program-header-top .colors-info {margin-right: 0; margin-left: 18px;}
+.rtl .omsb-program-header-top .rightbar-info .omsb-bg-red-button {margin-right: 0; margin-left: 18px;}
+.rtl .omsb-bg-red-button img {margin-right: 0;margin-left: 10px;}
+
+
+.badge-default-program {border-radius: 4px;border: 1px solid #D9D9D9;padding: 6px 15px;}
+.badge-default-main {justify-content: initial;gap: 20px;}
+
+.training-title-wrap .leftbar{max-width:calc(100% - 220px);}
+
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {
+.omsb-cards-wrap .col-cst-5{-ms-flex: 0 0 20%;  flex: 0 0 20%; max-width: 20%;}
+.omsb-programdetails-list li a:hover{background: #FA981C; color: #ffffff;}
+.pediatric-click-box:hover{background: #FA981C; color: #fff; border-color: #FA981C;}
+.omsb-pediatrics-rotationdetails .omsb-pediatrics-box h3 a:hover{color: #FA981C;} 
+}
+    
+/* common css for screen size < 1199  */
+@media only screen and (max-width: 1199px) {}
+    
+/* common css for screen size < 991  */
+@media only screen and (max-width: 991px) {
+.omsb-program-header-top .rightbar-info{margin-top: 30px; position: relative; width: 100%; min-height: 43px;}
+.omsb-program-header-top .rightbar-info .switch{position: absolute; right: 0; top: 0; padding: 9.5px 27px;}
+.omsb-program-header-top .colors-info{display: flex; justify-content: center; margin: 0; width: 100%; flex-wrap: wrap; margin-top: 15px;}
+}
+
+/* common css for screen size < 767  */
+@media only screen and (max-width: 768px) {}
+    
+/* common css for screen size < 479  */
+@media only screen and (max-width: 479px) {
+.omsb-program-header-top .colors-info{justify-content: flex-start;}
+.omsb-program-header-top .colors-info > ul{flex-direction: column; justify-content: flex-start;}
+.omsb-program-header-top .colors-info > ul > li{width: 100%;}
+}
+    
+/* common css for screen size < 320  */
+@media only screen and (max-width: 320px) {}
+    
+/* common css for screen size between  768 to 1199  */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+    
+/* common css for screen size between  768 to 1023 */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+    
+/* common css for screen size between  1024 to 1600  */
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {}

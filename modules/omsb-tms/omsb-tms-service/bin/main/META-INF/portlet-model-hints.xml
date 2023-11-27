@@ -1,0 +1,1047 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="gov.omsb.tms.model.BankDetails">
+		<field name="uuid" type="String" />
+		<field name="bankDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ecMemberRequestId" type="long" />
+		<field localized="true" name="bankName" type="String" />
+		<field localized="true" name="accountNumber" type="String" />
+		<field localized="true" name="bankBranch" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.BlocksMetadataDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="blocksMetadataDetailsRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="progDurationTlBlocksLtId" type="long" />
+		<field name="blockNo" type="String" />
+		<field name="blockStartDate" type="Date" />
+		<field name="blockEndDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.BlockWeekMetadataDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="blockWeekMetadataDetailsRelId" type="long" />
+		<field name="blocksMetadataDetailRelId" type="long" />
+		<field name="weekNo" type="String" />
+		<field name="weekStartDate" type="Date" />
+		<field name="weekEndDate" type="Date" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.CompetenciesMaster">
+		<field name="uuid" type="String" />
+		<field name="competenciesMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="competencyName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.CptCodeMaster">
+		<field name="uuid" type="String" />
+		<field name="cptCodeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="cptCodeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.DutyAssignment">
+		<field name="uuid" type="String" />
+		<field name="dutyAssignmentId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="dutyTypeId" type="long" />
+		<field name="assignment" type="String" />
+		<field name="status" type="String" />
+		<field name="colorCode" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.DutyLog">
+		<field name="uuid" type="String" />
+		<field name="dutyLogId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="programDutyAssignmentId" type="long" />
+		<field name="blocksMetadataDetailRelId" type="long" />
+		<field name="residencyLevelId" type="long" />
+		<field name="multiDays" type="Boolean" />
+		<field name="startDate" type="Date" />
+		<field name="endDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.DutyLogViolation">
+		<field name="uuid" type="String" />
+		<field name="ViolationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="programMasterId" type="long" />
+		<field name="residencyLevel" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="trainingSiteId" type="long" />
+		<field name="blockId" type="long" />
+		<field name="blockWeekId" type="long" />
+		<field name="programDutyRuleId" type="long" />
+		<field name="acgme80HoursRule" type="int" />
+		<field name="acgmeCallRuleOption1" type="int" />
+		<field name="acgmeCallRuleOption2" type="int" />
+		<field name="acgmeShortBreakRule" type="int" />
+		<field name="acgme24HoursRule" type="int" />
+		<field name="acgmeDayOffRule" type="int" />
+		<field name="dutyLogId" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.DutyRule">
+		<field name="uuid" type="String" />
+		<field name="dutyRuleId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="rule" type="String" />
+		<field name="description" type="String" />
+		<field name="parentId" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.DutyTypes">
+		<field name="uuid" type="String" />
+		<field name="dutyTypeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="dutyType" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.EcMemberRequest">
+		<field name="uuid" type="String" />
+		<field name="ecMemberRequestId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="programId" type="long" />
+		<field name="potentialEcMemberId" type="long" />
+		<field name="potentialEcMemberRoleId" type="long" />
+		<field name="latestEcMemberRequestStateId" type="long" />
+		<field name="coveringLetterId" type="long" />
+		<field name="cvId" type="long" />
+		<field name="noObjectionLetterId" type="long" />
+		<field name="passportCopyId" type="long" />
+		<field name="nationalIdCopyId" type="long" />
+		<field name="qararRequestId" type="long" />
+		<field name="qararDocId" type="long" />
+		<field localized="true" name="comments" type="String" />
+		<field name="potentialEcMemberLruserid" type="long" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="userName" type="String" />
+		<field name="userId" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.EcMemberRequestRotations">
+		<field name="uuid" type="String" />
+		<field name="ecMemberRequestRotationsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ecMemberRequestId" type="long" />
+		<field name="trainingSiteId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="isActive" type="Boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.EcMemberRequestState">
+		<field name="uuid" type="String" />
+		<field name="ecMemberRequestStateId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdByRoleId" type="long" />
+		<field name="ecMemberRequestId" type="long" />
+		<field name="ecMemberRequestStatusId" type="long" />
+		<field name="comments" type="String" />
+		<field name="isPublic" type="boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.EcMemberRequestStatus">
+		<field name="uuid" type="String" />
+		<field name="ecMemberRequestStatusId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="code" type="String" />
+		<field name="nameEn" type="String" />
+		<field name="nameAr" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.EligibilityDegreeMaster">
+		<field name="uuid" type="String" />
+		<field name="eligibilityDegreeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="eligibilityDegree" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyBankDetails">
+		<field name="uuid" type="String" />
+		<field name="facultyBankDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="facultyRequestId" type="long" />
+		<field localized="true" name="bankName" type="String" />
+		<field localized="true" name="accountNo" type="String" />
+		<field localized="true" name="bankBranch" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyIncentive">
+		<field name="uuid" type="String" />
+		<field name="FacultyIncentiveId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="roleId" type="long" />
+		<field name="amountInOMR" type="long" />
+		<field name="applicableForm" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyRequest">
+		<field name="uuid" type="String" />
+		<field name="facultyRequestId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="programId" type="long" />
+		<field name="potentialFacultyId" type="long" />
+		<field name="potentialFacultyTypeId" type="long" />
+		<field name="lastestFacultyRequestStateId" type="long" />
+		<field name="coveringLetterId" type="long" />
+		<field name="cvId" type="long" />
+		<field name="passportCopyId" type="long" />
+		<field name="notionalIdCopyId" type="long" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyRequestRotations">
+		<field name="uuid" type="String" />
+		<field name="facultyRequestRotationsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="facultyRequestId" type="long" />
+		<field name="trainingSiteId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="isActive" type="boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyRequestState">
+		<field name="uuid" type="String" />
+		<field name="facultyRequestStateId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdBy" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdByRoleId" type="long" />
+		<field name="facultyRequestId" type="long" />
+		<field name="facultyRequestStatusId" type="long" />
+		<field name="comments" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+	</model>
+	<model name="gov.omsb.tms.model.FacultyRequestStatus">
+		<field name="uuid" type="String" />
+		<field name="facultyRequestStatusId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="code" type="String" />
+		<field name="nameEn" type="String" />
+		<field name="nameAr" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyRotationTsBlockDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="facultyRotationTsBlockDetailsRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="facultyId" type="long" />
+		<field name="blocksMetadataDetailsRelId" type="long" />
+		<field name="progDurationRotationTsRelId" type="long" />
+		<field name="status" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.FacultyType">
+		<field name="facultyTypeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="code" type="String" />
+		<field name="nameEn" type="String" />
+		<field name="nameAr" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.GenderMaster">
+		<field name="uuid" type="String" />
+		<field name="genderMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="genderName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveAnnualMaster">
+		<field name="uuid" type="String" />
+		<field name="leaveAnnualMasterId" type="long" />
+		<field name="leaveProgramMasterId" type="long" />
+		<field name="leaveTypesId" type="long" />
+		<field name="trainingLevelId" type="long" />
+		<field localized="true" name="blockName" type="String" />
+		<field name="maxTraineeApplyLeave" type="int" />
+		<field name="noOfTraineeTakenLeave" type="int" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveAnnualMaxTrainee">
+		<field name="uuid" type="String" />
+		<field name="leaveAnnualMaxTraineeId" type="long" />
+		<field name="leaveAnnualRuleId" type="long" />
+		<field localized="true" name="trainingLevel" type="String" />
+		<field name="block" type="int" />
+		<field name="week" type="int" />
+		<field name="maxTraineeApplyLeave" type="int" />
+		<field name="noOfTraineeTakenLeave" type="int" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveAnnualRule">
+		<field name="uuid" type="String" />
+		<field name="leaveAnnualRuleId" type="long" />
+		<field name="programMasterId" type="long" />
+		<field name="lastDateForSubmission" type="Date" />
+		<field name="annualLeaveAvailableAt" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveMaster">
+		<field name="uuid" type="String" />
+		<field name="leaveMasterId" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="leaveTypeId" type="long" />
+		<field name="leaveTraineeId" type="long" />
+		<field localized="true" name="blockName" type="String" />
+		<field name="leaveFrom" type="Date" />
+		<field name="leaveTo" type="Date" />
+		<field name="noOfDays" type="int" />
+		<field localized="true" name="contactName" type="String" />
+		<field name="contactEmail" type="String" />
+		<field name="contactNo" type="String" />
+		<field localized="true" name="reasonForLeave" type="String" />
+		<field name="applicationDate" type="Date" />
+		<field name="returnFromLeave" type="Date" />
+		<field localized="true" name="reasonForDelay" type="String" />
+		<field name="programId" type="long" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveProgramMaster">
+		<field name="uuid" type="String" />
+		<field name="leaveProgramMasterId" type="long" />
+		<field name="programMasterId" type="long" />
+		<field name="leaveTypesId" type="long" />
+		<field name="noOfLeaves" type="int" />
+		<field localized="true" name="residentLevelRule" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveTraineeMaster">
+		<field name="uuid" type="String" />
+		<field name="leaveTraineeMasterId" type="long" />
+		<field name="leaveProgramMasterId" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="noOfLeaveTaken" type="int" />
+		<field name="noOfLeaveRemaining" type="int" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LeaveTypes">
+		<field name="uuid" type="String" />
+		<field name="leaveTypesId" type="long" />
+		<field localized="true" name="leaveTypes" type="String" />
+		<field localized="true" name="leaveCode" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.LevelTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="LevelTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="levelTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.OmsbTmsFinder">
+		<field name="uuid" type="String" />
+		<field name="omsbTmsFinderId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.ParticipationTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="participationTypeMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="participationTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.PatientTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="patientTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="patientTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.PatientTypeProgDurationRel">
+		<field name="uuid" type="String" />
+		<field name="PatientTypeProgDurationRelId" type="long" />
+		<field name="patientTypeMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.ProcedureGroupMaster">
+		<field name="uuid" type="String" />
+		<field name="procedureGroupMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="procedureGroupName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProcedureGroupProceduresCPTCodeRel">
+		<field name="uuid" type="String" />
+		<field name="pgProcedureCptCodeRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="procedureGroupId" type="long" />
+		<field name="procedureId" type="long" />
+		<field name="cptCodeId" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.ProceduregroupProgdurationRel">
+		<field name="uuid" type="String" />
+		<field name="pgPdRelId" type="long" />
+		<field name="procedureGroupMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.ProcedureMaster">
+		<field name="uuid" type="String" />
+		<field name="procedureMasterId" type="long" />
+		<field name="procedureGroupMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="procedureName" type="String" />
+		<field localized="true" name="cptCode" type="String" />
+		<field name="isMandatory" type="boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.ProcedurePgProgdurationRel">
+		<field name="uuid" type="String" />
+		<field name="procedurePgPdRelId" type="long" />
+		<field name="procedureGroupMasterId" type="long" />
+		<field name="procedureMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationCompetenciesRequirementsRel">
+		<field name="uuid" type="String" />
+		<field name="progdurationCompetenciesRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="progDurationId" type="long" />
+		<field name="competenciesMasterId" type="long" />
+		<field localized="true" name="requirements" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationObjectivesRel">
+		<field name="uuid" type="String" />
+		<field name="PDObjectivesId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="progDurationId" type="long" />
+		<field localized="true" name="objectives" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationRotationTlPgProcedurePtRel">
+		<field name="uuid" type="String" />
+		<field name="progdurationRotationTlPgProcedurePtRelId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="traineeLevelId" type="long" />
+		<field name="procedureGroupId" type="long" />
+		<field name="procedureId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="minimumProcedures" type="int" />
+		<field name="traineelevelMinimumProcedures" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationRotationTraineelevelBlocksRel">
+		<field name="uuid" type="String" />
+		<field name="progdurationRotationTlBlocksRelId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="rotationType" type="long" />
+		<field name="traineeLevelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="noOfBlocks" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationRotationTrainingsitesRel">
+		<field name="uuid" type="String" />
+		<field name="progdurationRotationTsRelId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="trainingSitesId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="isSharedRotation" type="boolean" />
+		<field name="rotationOwningProgramId" type="long" />
+		<field name="progCodeRsnSiteCode" type="String" />
+		<field name="owningProgramDurationId" type="long" />
+		<field name="noOfSlots" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgdurationTraineelevelBlocksLevelTypeRel">
+		<field name="uuid" type="String" />
+		<field name="progdurationTlBlocksLtId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="levelTypeId" type="long" />
+		<field name="traineeLevelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="noOfBlocks" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramDurationDetails">
+		<field name="uuid" type="String" />
+		<field name="progDurationId" type="long" />
+		<field name="programId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ayApplicableForm" type="String" />
+		<field name="noOfBlocks" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramDutyAssignment">
+		<field name="uuid" type="String" />
+		<field name="programDutyAssignmentId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="programId" type="long" />
+		<field name="dutyAssignmentId" type="long" />
+		<field name="cohortId" type="long" />
+		<field name="status" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramDutyRule">
+		<field name="uuid" type="String" />
+		<field name="programDutyRuleId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="programId" type="long" />
+		<field name="dutyRuleId" type="long" />
+		<field name="cohortId" type="long" />
+		<field name="status" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramEligibilityDegreeRel">
+		<field name="uuid" type="String" />
+		<field name="programEdId" type="long" />
+		<field name="programId" type="long" />
+		<field name="eligibilityDegreeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramMaster">
+		<field name="uuid" type="String" />
+		<field name="programMasterId" type="long" />
+		<field name="programTypeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="programCode" type="String" />
+		<field localized="true" name="programName" type="String" />
+		<field localized="true" name="programDescription" type="String" />
+		<field name="establishmentDate" type="Date" />
+		<field localized="true" name="programVision" type="String" />
+		<field localized="true" name="programMission" type="String" />
+		<field name="programStatus" type="Boolean" />
+		<field localized="true" name="programObjectives" type="String" />
+		<field localized="true" name="programAdmissionRequirements" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramProgramTypeRel">
+		<field name="uuid" type="String" />
+		<field name="programPtId" type="long" />
+		<field name="programId" type="long" />
+		<field name="programTypeId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="programTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="programTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ProgramWorkflowDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="programWorkflowDetailsRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="programId" type="long" />
+		<field name="workflowApprovalOrder" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.QararRequest">
+		<field name="uuid" type="String" />
+		<field name="qararRequestId" type="long" />
+		<field name="referenceId" type="long" />
+		<field name="referenceClass" type="String" />
+		<field name="qararType" type="String" />
+		<field name="docTreeId" type="long" />
+		<field name="docURL" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="qararDocId" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.RoleTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="roleTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="roleTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.RoleTypeProgDurationRel">
+		<field name="uuid" type="String" />
+		<field name="RoleTypeProgDurationRelId" type="long" />
+		<field name="roleTypeMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.RotationCompetenciesRequirementsRel">
+		<field name="uuid" type="String" />
+		<field name="rotationCompetenciesRelId" type="long" />
+		<field name="progDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="competenciesMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="requirements" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.RotationMaster">
+		<field name="uuid" type="String" />
+		<field name="rotationMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="rotationCode" type="String" />
+		<field localized="true" name="rotationShortName" type="String" />
+		<field localized="true" name="rotationName" type="String" />
+		<field name="rotationStatus" type="Boolean" />
+		<field localized="true" name="rotationObjectives" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.RotationObjectivesRel">
+		<field name="uuid" type="String" />
+		<field name="rotationObjectivesRelId" type="long" />
+		<field name="progDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="objectives" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.RotationTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="rotationTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="rotationTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.SharedRotationApproverDetails">
+		<field name="uuid" type="String" />
+		<field name="sharedRotationApproverDetailsId" type="long" />
+		<field name="sharedRotationRequestDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="status" type="String" />
+		<field name="approvedTrainees" type="long" />
+		<field name="rejectedTrainees" type="long" />
+		<field localized="true" name="approversComment" type="String" />
+		<field name="decisionMakingDate" type="Date" />
+	</model>
+	<model name="gov.omsb.tms.model.SharedRotationRequestDetails">
+		<field name="uuid" type="String" />
+		<field name="sharedRotationRequestDetailsId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="noOfTraineesRequested" type="long" />
+		<field localized="true" name="requesterComment" type="String" />
+		<field name="status" type="String" />
+		<field name="approvedCount" type="long" />
+		<field name="rejectedCount" type="long" />
+		<field name="requestRaisedTo" type="String" />
+		<field name="requestRaisedBy" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeAdmissionDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="traineeAdmissionDetailsRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="admissionYear" type="String" />
+		<field name="omsbNumber" type="String" />
+		<field localized="true" name="traineeAddress" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeCohortDetails">
+		<field name="uuid" type="String" />
+		<field name="traineeCohortDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeAdmissionDetailsRelId" type="long" />
+		<field name="cohortYear" type="String" />
+		<field name="isCurrentCohort" type="Boolean" />
+		<field name="traineeLevelId" type="long" />
+		<field name="isCurrentTraineeLevel" type="Boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeElectiverotationPriorityDetails">
+		<field name="uuid" type="String" />
+		<field name="traineeElectiverotationPriorityDetailsId" type="long" />
+		<field name="traineePdTlErDetailsId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="sequence" type="int" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeLevelMaster">
+		<field name="uuid" type="String" />
+		<field name="traineeLevelMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="traineeLevelName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeLoggedProcedureDetails">
+		<field name="uuid" type="String" />
+		<field name="traineeLoggedProcedureDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="rotationId" type="long" />
+		<field name="traineeLevelId" type="long" />
+		<field name="procedureGroupId" type="long" />
+		<field name="procedureId" type="long" />
+		<field name="genderId" type="long" />
+		<field name="patientTypeId" type="long" />
+		<field name="visitTypeId" type="long" />
+		<field localized="true" name="cptCode" type="String" />
+		<field name="trainingSitesId" type="long" />
+		<field name="roleTypeId" type="long" />
+		<field name="facultyId" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="patientId" type="String" />
+		<field name="patientDOB" type="Date" />
+		<field name="procedurePerformedDate" type="Date" />
+		<field localized="true" name="diagnosisDescription" type="String" />
+		<field localized="true" name="traineeComments" type="String" />
+		<field localized="true" name="supervisorComments" type="String" />
+		<field name="procedureStatus" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeProgdurationTraineelevelDetails">
+		<field name="uuid" type="String" />
+		<field name="traineePdTlErDetailsId" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="traineeLevelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeRotationTsBlockDetailsRel">
+		<field name="uuid" type="String" />
+		<field name="traineeRotationTsBlockDetailsRelId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="blocksMetadataDetailsRelId" type="long" />
+		<field name="progDurationRotationTsRelId" type="long" />
+		<field name="traineeCohortDetailsId" type="long" />
+		<field name="rotationStatus" type="String" />
+		<field name="status" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TraineeSponsorDetails">
+		<field name="uuid" type="String" />
+		<field name="traineeSponsorDetailsId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="traineeId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field localized="true" name="sponsor" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.TrainingSitesMaster">
+		<field name="uuid" type="String" />
+		<field name="trainingSiteMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field localized="true" name="trainingSiteName" type="String" />
+		<field localized="true" name="trainingSiteCode" type="String" />
+		<field name="trainingSiteStatus" type="Boolean" />
+		<field localized="true" name="trainingSiteAddress" type="String" />
+		<field localized="true" name="trainingSiteDescription" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.ViolationUpdateStatus">
+		<field name="uuid" type="String" />
+		<field name="violationUpdateStatusId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createdDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field name="blocksMetadataDetailRelId" type="long" />
+		<field name="status" type="Boolean" />
+	</model>
+	<model name="gov.omsb.tms.model.VisitTypeMaster">
+		<field name="uuid" type="String" />
+		<field name="visitTypeMasterId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+		<field localized="true" name="visitTypeName" type="String" />
+	</model>
+	<model name="gov.omsb.tms.model.VisitTypeProgDurationRel">
+		<field name="uuid" type="String" />
+		<field name="VisitTypeProgDurationRelId" type="long" />
+		<field name="visitTypeMasterId" type="long" />
+		<field name="programDurationId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="createdBy" type="long" />
+		<field name="modifiedDate" type="Date" />
+		<field name="modifiedBy" type="long" />
+	</model>
+</model-hints>

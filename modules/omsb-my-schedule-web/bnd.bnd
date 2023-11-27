@@ -1,0 +1,4 @@
+Bundle-Name: omsb-my-schedule-web
+Bundle-SymbolicName: gov.omsb.my.schedule.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.my.schedule.web.constants

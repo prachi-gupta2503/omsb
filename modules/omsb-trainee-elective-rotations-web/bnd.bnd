@@ -1,0 +1,4 @@
+Bundle-Name: omsb-trainee-elective-rotations-web
+Bundle-SymbolicName: gov.omsb.trainee.elective.rotations.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.trainee.elective.rotations.web.constants

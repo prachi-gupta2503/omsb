@@ -1,0 +1,4 @@
+Bundle-Name: omsb-role-types-web
+Bundle-SymbolicName: gov.omsb.role.types.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.role.types.web.constants

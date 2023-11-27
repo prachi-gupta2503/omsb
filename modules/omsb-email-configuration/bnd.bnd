@@ -1,0 +1,7 @@
+Bundle-Name: omsb-email-configuration
+Bundle-SymbolicName: omsb.email.configuration
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.email.config.configuration,\
+	gov.omsb.email.config.configuration.action
+Web-ContextPath: /omsb-email-configuration

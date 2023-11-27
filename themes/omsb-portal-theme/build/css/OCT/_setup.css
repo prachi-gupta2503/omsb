@@ -1,0 +1,14 @@
+.omsb-datatables .form-control {margin: auto;}
+.colspan-child:after {position: absolute; content: ""; background: url('../../images/svg/colspand-icon.svg'); background-repeat: no-repeat; left: 0; top: 2px; width: 16px; height: 16px; transform: rotate(180deg);}
+.colspan-child { position: relative;cursor: pointer;display: inline-block;width: 100%;vertical-align: top;font-weight: 500; font-size: 16px; line-height: 24px; color: #0D1B1F;padding-left: 26px;margin-left: 15px;}
+.view-setup-expand { width: 100%;padding-top: 20px;display: none;}
+.colspan-child.show:after { top: 7px; transform: rotate(0);}
+.omsb-card.omsb-card-graybg.mb-3 { margin-bottom: 10px !important;}
+.flex-wrapper {display: flex;align-items: self-start;gap: 15px;}
+.flex-wrapper .omsb-bg-red-button {width: 160px;}
+.viewforms_table {border: 1px solid rgba(217, 217, 217, 1);padding: 0 30px;border-radius: 10px;padding-top: 10px;}
+.viewforms_table .table thead th {border: 0px solid rgba(217, 217, 217, 1);border-bottom: 0px solid #dee2e6;}
+.omsb-map-wrap{display: inline-block; width: 100%; vertical-align: top; border: 1px solid #d9d9d9; border-radius: 4px; overflow: hidden;}
+
+.omsb-view-result-box.btns-bottom{padding-bottom: 143px; position: relative;}
+.omsb-view-result-box.btns-bottom .buttons-wrap{padding: 24px; position: absolute; left: 0; bottom: 0;}

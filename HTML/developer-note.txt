@@ -1,0 +1,56 @@
+/===== Dropdown Issue ====/
+
+Old :
+
+"<button class="btn fa fa-ellipsis-v dropdown-toggle" 
+type="button" data-bs-toggle="dropdown" aria-expanded="false">
+<i class=""></i>
+</button>"
+
+New :
+
+"<button class="btn fa fa-ellipsis-v dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+<i class=""></i>
+</button>"
+
+Note : We used above the HTML in our HTML page and I think you also use the same in your JSP page, however there's few changes need to be done in our structure as boostrape version so that you can fix the issue. You just have to replace old with new one as above following.
+
+/===== Image Loading Issue in module ====/
+
+"<img src="<%= themeDisplay.getPathThemeImages() %>/svg/delete_icon.svg" />
+
+Note : If you have a concern about how to load image from scr folder of theme into mudule then you can use "<%= themeDisplay.getPathThemeImages() %>" for till images folder path.
+
+/===== File Uploading ====/
+
+"<div class="col-md-12">
+	<div class="form-group">
+		<div class="custom-file">
+				<aui:input id="verificationReportPaymentReceipt" label="verification-report-payment-receipt" name="verificationReportPaymentReceipt" type="file" />
+					<label class="custom-file-label" for="<portlet:namespace/>verificationReportPaymentReceipt"></label>
+		</div>
+	</div>
+</div>"
+
+
+/==== Mutli Selection   ====/
+
+For the mutli selection, we need to add one attribute on select box is multiple="multiple" then we need to call function of that with selection's id
+
+<select name="Employer" id="traineelevel" value="2" class="custom-select form-control" multiple="multiple" tabindex="-1">
+														<option value="1" data-multiselectid="multiselect_jc7zgm01wid_0_0"></option>
+														<option value="2" data-multiselectid="multiselect_jc7zgm01wid_0_1">Engineer</option>
+														<option value="3" data-multiselectid="multiselect_jc7zgm01wid_0_2">Mechanical</option>
+													</select>
+
+
+$(document).ready(function () {
+	$('#traineelevel').multiselect();
+})
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Right" clip-path="url(#clip0_5119_200263)">
+<g id="Mask group">
+<mask id="mask0_5119_200263" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="17">
+<g id="Group">
+<path id="bg" d="M16 0.5H0V16.5H16V0.5Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_5119_200263)">
+<g id="Group_2">
+<g id="g441">
+<g id="g447">
+<g id="Clip path group">
+<g id="g449">
+<g id="g455">
+<path id="path457" d="M15.375 8.5C15.375 12.5731 12.0731 15.875 8 15.875C3.92691 15.875 0.625 12.5731 0.625 8.5C0.625 4.42691 3.92691 1.125 8 1.125C12.0731 1.125 15.375 4.42691 15.375 8.5Z" fill="#1BA950" stroke="#1BA950" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<mask id="mask1_5119_200263" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="17">
+<g id="clipPath453">
+<path id="path451" d="M0 0.500001H16V16.5H0V0.500001Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask1_5119_200263)">
+</g>
+</g>
+</g>
+<g id="g443">
+<path id="path445" d="M11.0945 6.40374L6.90155 10.5967L4.90552 8.60068" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5119_200263">
+<rect width="16" height="16" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,4 @@
+Bundle-Name: omsb-email-template-master-web
+Bundle-SymbolicName: gov.omsb.email.template.master.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.email.template.master.constants

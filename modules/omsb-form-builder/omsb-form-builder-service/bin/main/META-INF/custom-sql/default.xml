@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+	<sql id="createFormTable">
+		<![CDATA[
+			CREATE TABLE DF_FORM_NAME(
+			 id SERIAL PRIMARY KEY NOT NULL, 
+			 formDefinitionId BIGINT DEFAULT NULL,
+			 formVersion VARCHAR(75) DEFAULT NULL,
+			 uuid_ VARCHAR(75) DEFAULT NULL,
+			 createdBy BIGINT DEFAULT NULL,
+			 createdDate timestamp DEFAULT NULL,
+			 modifiedBy BIGINT DEFAULT NULL,
+			 modifiedDate timestamp DEFAULT NULL,
+			 groupId BIGINT DEFAULT NULL,
+			 companyId BIGINT DEFAULT NULL)
+		]]>
+	</sql>
+	
+	<sql id="createMasterTable">
+		<![CDATA[
+			CREATE TABLE DF_MASTER_TABLE(
+			 id SERIAL PRIMARY KEY NOT NULL, 
+			 formdefinitionid BIGINT DEFAULT NULL,
+			 recordid VARCHAR(75) DEFAULT NULL,
+			 createdBy BIGINT DEFAULT NULL,
+			 createdDate timestamp DEFAULT NULL,
+			 modifiedBy BIGINT DEFAULT NULL,
+			 modifiedDate timestamp DEFAULT NULL,
+			 groupId BIGINT DEFAULT NULL,
+			 companyId BIGINT DEFAULT NULL,
+			 COLUMN_NAME BIGINT DEFAULT NULL)
+		]]>
+	</sql>
+	
+	<sql id="getLastestMasterTableId">
+		<![CDATA[
+			select id from DF_MASTER_TABLE ORDER BY id desc LIMIT 1
+		]]>
+	</sql>
+	
+	<sql id="createMasterTableMapping">
+		<![CDATA[
+			CREATE TABLE DF_MASTER_TABLE(
+			 id SERIAL PRIMARY KEY NOT NULL, 
+			 formdefinitionid BIGINT DEFAULT NULL,
+			 recordid VARCHAR(75) DEFAULT NULL,
+			 createdBy BIGINT DEFAULT NULL,
+			 createdDate timestamp DEFAULT NULL,
+			 modifiedBy BIGINT DEFAULT NULL,
+			 modifiedDate timestamp DEFAULT NULL,
+			 groupId BIGINT DEFAULT NULL,
+			 companyId BIGINT DEFAULT NULL,
+			 COLUMN_NAME BIGINT DEFAULT NULL)
+		]]>
+	</sql>
+	
+	<sql id="alterFormTable">
+		<![CDATA[
+			ALTER TABLE DF_FORM_NAME ADD COLUMN_NAME_DATA_TYPE
+		]]>
+	</sql>
+	
+	<sql id="getColumnNames">
+		<![CDATA[
+			SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = SQL_TABLE_NAME
+		]]>
+	</sql>
+	
+	<!-- <sql id="getColumnNames">
+		<![CDATA[
+			SELECT NAME FROM SYS.COLUMNS where TABLE_NAME = SQL_TABLE_NAME
+		]]>
+	</sql> -->
+	
+	<sql id="isTableExists">
+		<![CDATA[
+			SELECT EXISTS(SELECT FROM information_schema.tables WHERE  table_schema = 'public' AND table_name = SQL_TABLE_NAME)
+		]]>
+	</sql>
+	
+	<sql id="modifyTableName">
+		<![CDATA[
+			ALTER TABLE OLD_TABLE_NAME RENAME TO NEW_TABLE_NAME
+		]]>
+	</sql>
+	
+	<sql id="insertIntoTable">
+		<![CDATA[
+			INSERT INTO public.TABLE_NAME(COLUMN_NAMES) VALUES (COLUMN_VALUES)
+		]]>
+	</sql>
+	
+	<sql id="selectLatestRecord">
+		<![CDATA[
+			SELECT id FROM TABLE_NAME order by id desc limit 1
+		]]>
+	</sql>
+	
+	<sql id="selectLatestMasterRecord">
+		<![CDATA[
+			SELECT recordid FROM TABLE_NAME order by id desc limit 1
+		]]>
+	</sql>
+	
+	<sql id="getDataSelectQuery">
+		<![CDATA[
+			SELECT COLUMN_NAMES FROM TABLE_NAME
+		]]>
+	</sql>
+	
+	<sql id="updateTableRecord">
+		<![CDATA[
+			UPDATE public.TABLE_NAME SET COLUMN_VALUES WHERE id=LATEST_RECORD;
+		]]>
+	</sql>
+	
+	<sql id="updateMasterTableRecord">
+		<![CDATA[
+			UPDATE public.TABLE_NAME SET COLUMN_VALUES WHERE recordid=LATEST_RECORD;
+		]]>
+	</sql>
+	
+	<sql id="updateMasterRecord">
+		<![CDATA[
+			UPDATE public.TABLE_NAME SET COLUMN_NAME = COLUMN_VALUE WHERE recordid=LATEST_RECORD;
+		]]>
+	</sql>
+
+	<sql id="deleteFormRecords">
+		<![CDATA[
+			DELETE from public.TABLE_NAME where id in (RECORD_IDS);
+		]]>
+	</sql>
+	
+	<sql id="getLatestFormDefinition">
+		<![CDATA[
+			
+			WITH RankedForms AS (SELECT formdefinitionid, status, formname, formversion, groupid, companyid, ROW_NUMBER() 
+				OVER (PARTITION BY formname ORDER BY COALESCE(formversion, 'NULL') DESC) AS VersionRank FROM df_form_definition)
+			SELECT formdefinitionid, status, formname,
+				CASE
+					WHEN formversion = 'NULL' THEN NULL
+					ELSE formversion
+				END AS formversion
+			FROM RankedForms WHERE VersionRank = 1 and groupid=? and companyid=? ORDER BY formname;
+        
+		]]>
+	</sql>
+	
+</custom-sql>

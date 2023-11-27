@@ -1,0 +1,846 @@
+{
+	"name": "SampleForm",
+	"title": "Medical Specialty Board In-Training Assessment Report (Clinical)",
+	"layout": "col-3",
+	"description": "SW5zdHJ1Y3Rpb25zOgpTQ0FMRSAKMS4gVW5zYXRpc2ZhY3RvcnkgOiBQb29yIGNvbXBldGVuY3kganVkZ21lbnQuIFJlcXVpcmVzIGNvbnRpbnVvdXMgc3VwZXJ2aXNpb24uCjIuIEJlbG93IEV4cGVjdGF0aW9ucyA6IEluYWRlcXVhdGUgY29tcGV0ZW5jeSBqdWRnbWVudC4gUmVxdWlyZXMgZnJlcXVlbnQgc3VwZXJ2aXNpb24uCjMuIE1lZXRzIEV4cGVjdGF0aW9ucyA6IEVmZmVjdGl2ZSBjb21wZXRlbmN5IGp1ZGdtZW50LiBTdXBlcnZpc2lvbiBuZWVkZWQgZm9yIGNvbXBsZXgvZGlmZmljdWx0eSBzaXR1YXRpb25zLiAKNC4gRXhjZWVkcyBFeHBlY3RhdGlvbnMgOiBFeGVtcGxhcnkgY29tcGV0ZW5jeSBqdWRnbWVudCBpbmNsdWRpbmcgaW4gY29tcGxleC9kaWZmaWN1bHQgc2l0dWF0aW9ucy4gQ2FuIHByYWN0aWNlCmluZGVwZW5kZW50bHkuCk5vdCBBcHBsaWNhYmxlIDogTm90IHJlbGV2YW50IGluIHRoZSBzZXR0aW5nLCBub3Qgb2JzZXJ2ZWQgb3IgdW5hYmxlIHRvIGV2YWx1YXRl",
+	"fields": [{
+			"key": "firstName",
+			"label": "First Name",
+			"settings": {
+				"fieldOrder": 1,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"disable": false,
+				"required": true,
+				"placeHolder": "Enter your first name",
+				"validations": [{
+					"type": "nowhitespace",
+					"message": "White space is not allowed for first name."
+				}, {
+					"type": "lettersonly",
+					"message": "Letters only please"
+				}],
+				"postData": {
+					"fieldName": "first_name"
+				},
+				"populateData": {
+					"fieldName": "first_name"
+				},
+				"readFromRequestParam": {
+					"paramName": "firstName"
+				}
+			}
+		},
+		{
+			"key": "lastName",
+			"label": "Last Name",
+			"settings": {
+				"fieldOrder": 2,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "letterswithbasicpunc",
+					"message": "Letters or punctuation only please"
+				}, {
+					"type": "notEqualTo",
+					"param": "#firstName",
+					"message": "Please enter a different value, values must not be the same as first name."
+				}],
+				"postData": {
+					"fieldName": "last_name"
+				},
+				"populateData": {
+					"fieldName": "last_name"
+				},
+				"readFromRequestParam": {
+					"paramName": "firstName"
+				}
+			}
+		},
+		{
+			"key": "passportNo",
+			"label": "PassportNo",
+			"settings": {
+				"fieldOrder": 3,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "passportNo",
+					"message": "Please enter a valid passport number."
+				}]
+			}
+		},
+		{
+			"key": "password",
+			"label": "Password",
+			"settings": {
+				"fieldOrder": 4,
+				"type": "password",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true
+			}
+		},
+		{
+			"key": "confirm_password",
+			"label": "Confirm Password",
+			"settings": {
+				"fieldOrder": 5,
+				"type": "password",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "equalTo",
+					"param": "#password",
+					"message": "Please enter the same value again."
+				}]
+			}
+		},
+		{
+			"key": "passportNo",
+			"label": "Passport No",
+			"settings": {
+				"fieldOrder": 6,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"postData": {
+					"fieldName": "passportNo"
+				}
+			}
+		},
+		{
+			"key": "address",
+			"label": "Address",
+			"settings": {
+				"fieldOrder": 7,
+				"type": "textarea",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "rangelength",
+					"param": [30, 500],
+					"message": "Please enter a value between {0} and {1} characters long."
+				}]
+			}
+		},
+		{
+			"key": "university",
+			"label": "University(URL)",
+			"settings": {
+				"fieldOrder": 8,
+				"type": "string",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "url",
+					"message": "Please enter a valid URL."
+				}]
+			}
+		},
+		{
+			"key": "profilePicture",
+			"label": "Profile Picture",
+			"settings": {
+				"fieldOrder": 9,
+				"type": "file",
+				"dataType": "long",
+				"status": "active",
+				"readonly": false,
+				"required": false,
+				"multiple": false,
+				"validations": [{
+					"type": "extension",
+					"param": "png,jpg,jpeg",
+					"message": "Please upload a valid file type with {0} extensions."
+				}, {
+					"type": "maxsize",
+					"param": 46369,
+					"message": "Upload a file less than {0} bytes."
+				}]
+			}
+		},
+		{
+			"key": "other_documents",
+			"label": "Other Documents",
+			"settings": {
+				"fieldOrder": 10,
+				"type": "file",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": false,
+				"multiple": true,
+				"validations": [{
+					"type": "extension",
+					"param": "png,jpg,jpeg",
+					"message": "Please upload a valid file type with {0} extensions."
+				}, {
+					"type": "maxfiles",
+					"param": 1,
+					"message": "Maximum {0} files are allowed."
+				}]
+			}
+		},
+		{
+			"key": "dateOfBirth",
+			"label": "Date Of Birth",
+			"settings": {
+				"fieldOrder": 11,
+				"type": "date",
+				"dateConfig": {
+					"format": "DD/MM/YYYY"
+				},
+				"dataType": "datetime",
+				"status": "active",
+				"readonly": false,
+				"required": true
+			}
+		},
+		{
+			"key": "email",
+			"label": "Email",
+			"settings": {
+				"fieldOrder": 12,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"readonly": false,
+				"validations": [{
+					"type": "email",
+					"message": "Please enter a valid email address."
+				}, {
+					"type": "minlength",
+					"param": 50,
+					"message": "Please enter at least {0} characters."
+				}, {
+					"type": "maxlength",
+					"param": 100,
+					"message": "Please enter no more than {0} characters."
+				}]
+			}
+		},
+		{
+			"key": "gender",
+			"label": "Gender",
+			"settings": {
+				"fieldOrder": 13,
+				"type": "radio",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"readonly": false,
+				"default_selected": [
+					"Male"
+				],
+				"values": [
+					"Male",
+					"Female"
+				]
+			}
+		},
+		{
+			"key": "age",
+			"label": "Age",
+			"visibleOn": {
+				"fieldName": "gender",
+				"fieldValue": "Male"
+			},
+			"settings": {
+				"fieldOrder": 14,
+				"type": "number",
+				"dataType": "integer",
+				"status": "active",
+				"required": false,
+				"readonly": false,
+				"validations": [{
+					"type": "digits",
+					"message": "Please enter only digits."
+				}, {
+					"type": "range",
+					"param": [20, 45],
+					"message": "Please enter a value between {0} and {1}."
+				}]
+			}
+		},
+		{
+			"key": "age2",
+			"label": "Age2",
+			"visibleOn": {
+				"fieldName": "gender",
+				"fieldValue": "Male"
+			},
+			"settings": {
+				"fieldOrder": 15,
+				"type": "number",
+				"dataType": "integer",
+				"status": "active",
+				"required": false,
+				"readonly": false,
+				"validations": [{
+					"type": "min",
+					"param": 20,
+					"message": "Please enter a value greater than or equal to {0}."
+				}, {
+					"type": "max",
+					"param": 60,
+					"message": "Please enter a value less than or equal to {0}."
+				}]
+			}
+		},
+		{
+			"key": "age3",
+			"label": "Age3",
+			"visibleOn": {
+				"fieldName": "gender",
+				"fieldValue": "Male"
+			},
+			"settings": {
+				"fieldOrder": 16,
+				"type": "number",
+				"dataType": "integer",
+				"status": "active",
+				"required": false,
+				"readonly": false,
+				"validations": [{
+					"type": "lessThan",
+					"param": 60,
+					"message": "Please enter a value less than {0}."
+				}, {
+					"type": "greaterThan",
+					"param": 20,
+					"message": "Please enter a value greater than {0}."
+				}]
+			}
+		},
+		{
+			"key": "age4",
+			"label": "Age4",
+			"visibleOn": {
+				"fieldName": "gender",
+				"fieldValue": "Male"
+			},
+			"settings": {
+				"fieldOrder": 17,
+				"type": "number",
+				"dataType": "integer",
+				"status": "active",
+				"required": false,
+				"readonly": false,
+				"validations": [{
+					"type": "lessThanEqual",
+					"param": 60,
+					"message": "Please enter a value less than or equal to {0}."
+				}, {
+					"type": "greaterThanEqual",
+					"param": 20,
+					"message": "Please enter a value greater than or equal to {0}."
+				}]
+			}
+		},
+		{
+			"key": "amount",
+			"label": "Amount",
+			"settings": {
+				"fieldOrder": 18,
+				"type": "number",
+				"dataType": "integer",
+				"status": "active",
+				"required": false,
+				"readonly": false,
+				"validations": [{
+					"type": "number",
+					"message": "Please enter a valid number."
+				}]
+			}
+		},
+		{
+			"key": "graduation",
+			"label": "Graduation",
+			"readonly": true,
+			"settings": {
+				"fieldOrder": 19,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"multiselect": false,
+				"required": true,
+				"readonly": true,
+				"dependency": {
+					"fieldName": "gender",
+					"fieldValues": [{
+							"fieldValue": "Male",
+							"displayValues": [
+								"Associate in Nursing (ASN)",
+								"Bachelor in Nursing (BSN)"
+							]
+						},
+						{
+							"fieldValue": "Female",
+							"displayValues": [
+								"Associate in Nursing (ASN)",
+								"Bachelor in Nursing (BSN)",
+								"Master in Nursing (MSN)"
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"key": "graduation",
+			"label": "Graduation",
+			"settings": {
+				"fieldOrder": 20,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dataProvider": {
+					"url": "https://eportal.omsb.com/data-provider/graduation",
+					"property": "degreeName"
+				}
+			}
+		},
+		{
+			"key": "users",
+			"label": "Users",
+			"settings": {
+				"fieldOrder": 21,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dataProvider": {
+					"url": "https://reqres.in/api/users",
+					"property": "data::first_name",
+					"method": "GET",
+					"dataProps": ["id"]
+				}
+			}
+		},
+		{
+			"key": "country",
+			"label": "Country",
+			"settings": {
+				"fieldOrder": 22,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dataProvider": {
+					"url": "https://api.countrystatecity.in/v1/countries",
+					"property": "name",
+					"method": "GET",
+					"headers": {
+						"X-CSCAPI-KEY": "API_KEY"
+					},
+					"dataProps": ["id", "iso2"]
+				}
+			}
+		},
+		{
+			"key": "state",
+			"label": "State",
+			"settings": {
+				"fieldOrder": 23,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dependency": {
+					"fieldName": "country",
+					"dataProvider": {
+						"url": "https://api.countrystatecity.in/v1/countries/{param1}/states",
+						"method": "GET",
+						"headers": {
+							"X-CSCAPI-KEY": "API_KEY"
+						},
+						"property": "state",
+						"data-property": "state_id",
+						"sourceProps": ["iso2"]
+					}
+				}
+			}
+		},
+		{
+			"key": "country2",
+			"label": "Country2",
+			"settings": {
+				"fieldOrder": 24,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dataProvider": {
+					"url": "https://api.countrystatecity.in/v1/countries",
+					"method": "POST",
+					"contentType": "application/x-www-form-urlencoded",
+					"accept": "application/json",
+					"headers": {
+						"X-CSCAPI-KEY": "API_KEY"
+					},
+					"params": [{
+						"Param1": "Value1"
+					}],
+					"property": "country",
+					"dataProps": ["country_id", "country_iso2code"]
+				}
+			}
+		},
+
+		{
+			"key": "state2",
+			"label": "State2",
+			"settings": {
+				"fieldOrder": 25,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"dependency": {
+					"fieldName": "country",
+					"dataProvider": {
+						"url": "https://api.countrystatecity.in/v1/countries/states",
+						"method": "POST",
+						"contentType": "application/x-www-form-urlencoded",
+						"accept": "application/json",
+						"headers": {
+							"X-CSCAPI-KEY": "API_KEY"
+						},
+						"property": "state",
+						"data-property": "stateId",
+						"sourceProps": ["country_id", "country_iso2code"]
+					}
+				}
+			}
+		},
+		{
+			"key": "country3",
+			"label": "Country3",
+			"settings": {
+				"fieldOrder": 26,
+				"type": "dropdown",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"values": ["Albania", "Afghanistan", "India", "Oman", "United States", "United Kingdom", "UAE", "Qatar"]
+			}
+		},
+		{
+			"key": "personality",
+			"label": "Personality",
+			"settings": {
+				"fieldOrder": 27,
+				"type": "range",
+				"dataType": "integer",
+				"status": "active",
+				"rangeConfig": {
+					"boundaries": [0, 2],
+					"options": [0, 0.5, 1, 1.5, 2]
+				},
+				"required": true
+			}
+		},
+		{
+			"key": "attitude",
+			"label": "Attitude",
+			"settings": {
+				"fieldOrder": 28,
+				"type": "range",
+				"dataType": "integer",
+				"status": "active",
+				"rangeConfig": {
+					"boundaries": [0, 4],
+					"options": [0, 1, 2, 3, 4]
+				},
+				"required": false
+			}
+		},
+		{
+			"key": "communication_skills",
+			"label": "Communication Skills",
+			"settings": {
+				"fieldOrder": 29,
+				"type": "range",
+				"dataType": "string",
+				"status": "active",
+				"rangeConfig": {
+					"boundaries": [0, 4],
+					"options": [{
+							"name": "Unsatisfactory",
+							"value": 0
+						},
+						{
+							"name": "Below Expectations",
+							"value": 1
+						},
+						{
+							"name": "Meets Expectations",
+							"value": 2
+						},
+						{
+							"name": "Exceeds Expectations",
+							"value": 3
+						},
+						{
+							"name": "N/A",
+							"value": 4
+						}
+					]
+				},
+				"required": false
+			}
+		},
+		{
+			"key": "basic_science_knowledge",
+			"label": "Demonstrates basic science knowledge",
+			"settings": {
+				"fieldOrder": 30,
+				"type": "range",
+				"dataType": "string",
+				"status": "active",
+				"groupOrder": 1,
+				"group": "MEDICAL KNOWLEDGE",
+				"rangeConfig": {
+					"groupAverage": true,
+					"overallAverage": true,
+					"boundaries": [0, 4],
+					"options": [{
+							"name": "Unsatisfactory",
+							"value": 0
+						},
+						{
+							"name": "Below Expectations",
+							"value": 1
+						},
+						{
+							"name": "Meets Expectations",
+							"value": 2
+						},
+						{
+							"name": "Exceeds Expectations",
+							"value": 3
+						},
+						{
+							"name": "N/A",
+							"value": 4
+						}
+					]
+				},
+				"required": true
+			}
+		},
+		{
+			"key": "medical_knowledge_patient_care",
+			"label": "Applies medical knowledge in patient care",
+			"settings": {
+				"fieldOrder": 31,
+				"type": "range",
+				"dataType": "string",
+				"status": "active",
+				"groupOrder": 1,
+				"group": "MEDICAL KNOWLEDGE",
+				"rangeConfig": {
+					"groupAverage": true,
+					"overallAverage": true,
+					"boundaries": [0, 4],
+					"options": [{
+							"name": "Unsatisfactory",
+							"value": 0
+						},
+						{
+							"name": "Below Expectations",
+							"value": 1
+						},
+						{
+							"name": "Meets Expectations",
+							"value": 2
+						},
+						{
+							"name": "Exceeds Expectations",
+							"value": 3
+						},
+						{
+							"name": "N/A",
+							"value": 4
+						}
+					]
+				},
+				"required": false
+			}
+		},
+		{
+			"key": "overall_assessment",
+			"label": "Overall Assessment",
+			"settings": {
+				"fieldOrder": 32,
+				"groupOrder": 2,
+				"group": "Comments",
+				"type": "range",
+				"dataType": "string",
+				"status": "active",
+				"rangeConfig": {
+					"groupAverage": false,
+					"overallAverage": false,
+					"boundaries": [0, 4],
+					"options": [{
+							"name": "Unsatisfactory",
+							"value": 0
+						},
+						{
+							"name": "Below Expectations",
+							"value": 1
+						},
+						{
+							"name": "Meets Expectations",
+							"value": 2
+						},
+						{
+							"name": "Exceeds Expectations",
+							"value": 3
+						},
+						{
+							"name": "N/A",
+							"value": 4
+						}
+					]
+				},
+				"required": true
+			}
+		},
+		{
+			"key": "focus",
+			"label": "Focus",
+			"settings": {
+				"fieldOrder": 33,
+				"type": "checkbox",
+				"dataType": "string",
+				"status": "active",
+				"required": true,
+				"default_selected": [
+					"History",
+					"Physical Exam"
+				],
+				"values": [
+					"History",
+					"Physical Exam",
+					"Diagnosis",
+					"Management",
+					"Counselling"
+				]
+			}
+		},
+		{
+			"key": "appointment_date_time",
+			"label": "Appointment Date & Time",
+			"settings": {
+				"fieldOrder": 34,
+				"type": "datetime",
+				"dateConfig": {
+					"format": "DD/MM/YYYY HH:mm:ss"
+				},
+				"dataType": "datetime",
+				"status": "active",
+				"required": true
+			}
+		},
+		{
+			"key": "appointment_date",
+			"label": "Appointment Date",
+			"settings": {
+				"fieldOrder": 35,
+				"type": "date",
+				"dateConfig": {
+					"format": "DD/MM/YYYY"
+				},
+				"dataType": "datetime",
+				"status": "active",
+				"required": true
+			}
+		},
+		{
+			"key": "appointment_time",
+			"label": "Appointment Time",
+			"settings": {
+				"fieldOrder": 36,
+				"type": "time",
+				"dateConfig": {
+					"format": "HH:mm:ss"
+				},
+				"dataType": "datetime",
+				"status": "active",
+				"required": true
+			}
+		}, {
+			"key": "comments",
+			"label": "Comments",
+			"settings": {
+				"fieldOrder": 37,
+				"groupOrder": 2,
+				"group": "Comments",
+				"type": "html",
+				"dataType": "longtext",
+				"status": "active",
+				"required": true
+			}
+		}, {
+			"key": "ipv4",
+			"label": "IP v4 Address",
+			"settings": {
+				"fieldOrder": 38,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "ipv4",
+					"message": "Please enter a valid IP v4 address."
+				}]
+			}
+		},
+		{
+			"key": "ipv6",
+			"label": "IP v6 Address",
+			"settings": {
+				"fieldOrder": 39,
+				"type": "text",
+				"dataType": "string",
+				"status": "active",
+				"readonly": false,
+				"required": true,
+				"validations": [{
+					"type": "ipv6",
+					"message": "Please enter a valid IP v6 address."
+				}]
+			}
+		}
+	],
+	"postData": {
+		"url": "https://eportal.externalomsb.com/finance/postdata",
+		"contentType": "application/x-www-form-urlencoded"
+	},
+	"populateData": {
+		"url": "https://eportal.externalomsb.com/omsb-rest/v1/populatedata",
+		"contentType": "application/json"
+	}
+}

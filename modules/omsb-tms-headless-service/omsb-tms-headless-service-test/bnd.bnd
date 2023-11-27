@@ -1,0 +1,5 @@
+Bundle-Name: omsb-tms-headless-service-test
+Bundle-SymbolicName: omsb.tms.headless.service.test
+Bundle-Version: 1.0.0
+-includeresource: omsb.tms.headless.service.client.jar=../omsb-tms-headless-service-client/build/libs/omsb.tms.headless.service.client-1.0.0.jar;lib:=true
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}

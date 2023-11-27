@@ -1,0 +1,21 @@
+create table omsb_email_template (
+	templateId LONG not null primary key,
+	templateName VARCHAR(75) null,
+	templateDescription VARCHAR(75) null,
+	senderType VARCHAR(75) null,
+	senderEmailId VARCHAR(75) null,
+	defaultCC VARCHAR(75) null,
+	defaultBCC VARCHAR(75) null,
+	subject TEXT null,
+	dynamicBody TEXT null,
+	staticBody TEXT null,
+	signature TEXT null,
+	userNotification TEXT null,
+	isRichText BOOLEAN,
+	createdBy LONG,
+	createdDate DATE null,
+	modifiedBy LONG,
+	modifiedDate DATE null,
+	groupId LONG,
+	companyId LONG
+);

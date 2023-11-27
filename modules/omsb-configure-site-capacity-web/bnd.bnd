@@ -1,0 +1,4 @@
+Bundle-Name: omsb-configure-site-capacity-web
+Bundle-SymbolicName: gov.omsb.configure.site.capacity.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.configure.site.capacity.web.constants

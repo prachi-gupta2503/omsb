@@ -1,0 +1,86 @@
+.id-box {
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin: 0 auto;
+    background-color: #fff;
+    margin: 20px;
+    margin-top: -70px;
+    overflow: hidden;
+}
+.signed-out .id-box {
+    margin-top: 20px;
+}
+.omsb-pre-login.header{
+	display: flex;
+    padding: 16px 0;
+    align-items: center;
+    gap: 20px;
+}
+.omsb-pre-login.header img {
+	height: 80px;
+}
+.omsb-pre-login.header p {
+	font-size: 16px;
+    font-weight: 800;
+    line-height: 30px;
+    margin: 0px;
+}
+.yesorno {
+	display: flex;
+	gap: 20px;
+}
+.reg-form-title{font-size: 20px; font-weight: 700;line-height: 30px;}
+.reg-form-section-title{font-size: 18px; font-weight: 400;line-height: 24px; padding: 30px 0; }
+.reg-form-sub-title{font-size: 18px; font-weight: 700;line-height: 24px; padding: 20px 0; }
+
+
+
+.reg_page_center .omsb-pre-login.header, .reg_page_center .omsb-page-top-info, .reg_page_center .page-links ,.reg_page_center .page-information{ text-align: center; display: flex; justify-content: center;}
+.page-information label{ width: 70% }
+.page-links { gap: 20px; }
+.page-links a {color: #DC3545 !important; border-bottom: 1px solid; }
+.thankyou-info {margin:100px 0;}
+
+.reg_page_center .pagetitle{ margin-top:  48px;}
+
+.form-group .label-file{
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: capitalize;
+}
+
+
+
+
+/* common css for screen size > 767  */
+@media only screen and (min-width: 1199px) {
+.omsb-status-boxes .col-5-equal{-ms-flex: 0 0 20%;  flex: 0 0 20%; max-width: 20%;}
+}
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {}
+
+/* common css for screen size < 1199  */
+@media only screen and (max-width: 1199px) {}
+
+/* common css for screen size < 991  */
+@media only screen and (max-width: 991px) {}
+
+/* common css for screen size < 767  */
+@media only screen and (max-width: 768px) {}
+
+/* common css for screen size < 479  */
+@media only screen and (max-width: 479px) {}
+
+/* common css for screen size < 320  */
+@media only screen and (max-width: 320px) {}
+
+/* common css for screen size between  768 to 1199  */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+/* common css for screen size between  768 to 1023 */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+
+/* common css for screen size between  1024 to 1600  */
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {}

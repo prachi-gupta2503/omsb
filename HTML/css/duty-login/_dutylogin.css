@@ -1,0 +1,10 @@
+.calendar-sidebar #external-events .fc-h-event {background-color: transparent;border: 0px;display: block;}
+.calendar-sidebar #external-events .fc-h-event .fc-event-main {color: #57585A;font-weight: 400;line-height: 30px;}
+.calendar-sidebar #external-events {background-color: #fff;padding: 10px;border-radius: 5px;}
+.calendar-sidebar .removeafterdrop {display: none;}
+.calendar-sidebar .fc-event-main span {width: 12px;height: 12px;display: inline-block;border-radius: 25px;}
+.calendar-sidebar .col-form-label {line-height: 40px !important;margin: 0 !important;}
+.calendar-sidebar h5 {font-size: 14px;color: #222931; text-transform: capitalize;font-weight: 600;}
+.calendar-sidebar .current-selection {border-radius: 4px;border: 1px solid #FA981C; background: #FFF;padding: 5px 10px;}
+.calendar-sidebar .fc-event-main {position: relative;font-size: 14px;color: #57585A;}
+.fc-event-main.disable-cst {opacity: 0.5;}

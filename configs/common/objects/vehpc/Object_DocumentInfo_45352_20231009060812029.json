@@ -1,0 +1,365 @@
+{
+    "enableComments": false,
+    "objectRelationships": [],
+    "enableCategorization": true,
+    "accountEntryRestrictedObjectFieldName": "",
+    "objectActions": [],
+    "accountEntryRestricted": false,
+    "externalReferenceCode": "OB_DOCUMENT_INFO_ERC",
+    "objectFields": [
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Case Request ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "0b035cd8-9e04-0385-de35-9e85c6c1aeea",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "caseRequestId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Component Class Ref ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "ecda64c7-b4c3-8288-269a-414e8ce5762f",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "componentClassRefId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Component ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "8f54167f-f7b7-0dc2-ce5d-bc6e542055be",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "componentId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": false,
+            "objectFieldSettings": [],
+            "DBType": "Date",
+            "label": {
+                "en_US": "Create Date"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "b5d00918-cb98-16fe-d901-cd721b1ddae1",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "createDate",
+            "state": false,
+            "businessType": "Date"
+        },
+        {
+            "indexed": false,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "Author"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "5421bed3-beb9-7b85-0175-2804222cf491",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "creator",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Integer",
+            "label": {
+                "en_US": "DF Document ID"
+            },
+            "type": "Integer",
+            "required": false,
+            "externalReferenceCode": "3a8e4ad3-f9d7-b0f5-4cc3-fa9148f710d1",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "dFDocumentId",
+            "state": false,
+            "businessType": "Integer"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "DF File Key"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "8107c103-990c-34c3-377b-50e3bbe38c63",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "en_US",
+            "name": "dFFileKey",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "DF File Name"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "c252d984-505f-40f9-d196-80f5cdeaa56a",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "en_US",
+            "name": "dFFileName",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "Document Type"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "1ed66ca2-f030-e7fb-d6c1-4f18d1f0d610",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "en_US",
+            "name": "documentType",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Equivalency Appeal ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "ce9a8be5-a7cf-5c1a-5b69-37631b7f2317",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "equivalencyAppealId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Equivalency Doc Type Id"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "641a9607-5b4b-936b-a185-9ddf399120c5",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "equivalencyDocTypeId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Equivalency Request ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "a5a199b7-cb39-dccd-96d1-66e9608bf41a",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "equivalencyRequestId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": false,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "External Reference Code"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "97c13b1a-1679-949e-3d86-084ef9af647f",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "externalReferenceCode",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "File Entry ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "c796721c-0972-c8b1-efcc-bad75b923381",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "fileEntryID",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "4831ad45-67eb-2ef9-4221-7e552298e7ae",
+            "indexedAsKeyword": true,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "id",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": false,
+            "objectFieldSettings": [],
+            "DBType": "Date",
+            "label": {
+                "en_US": "Modified Date"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "2e120b01-0855-967b-b642-c5507d100201",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "modifiedDate",
+            "state": false,
+            "businessType": "Date"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "Other Doc Type"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "17b7dc67-cf29-f049-0514-8bab5ab782bf",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "en_US",
+            "name": "otherDocType",
+            "state": false,
+            "businessType": "Text"
+        },
+        {
+            "indexed": true,
+            "objectFieldSettings": [],
+            "DBType": "Long",
+            "label": {
+                "en_US": "Person ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "1e319263-dff2-78f7-49ae-5829c32e4a93",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "personId",
+            "state": false,
+            "businessType": "LongInteger"
+        },
+        {
+            "indexed": false,
+            "objectFieldSettings": [],
+            "DBType": "String",
+            "label": {
+                "en_US": "Status"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "1d76340b-ee69-b66f-83fb-2f03aba747a6",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "status",
+            "state": false,
+            "businessType": "Text"
+        }
+    ],
+    "restContextPath": "/o/c/documentinfos",
+    "scope": "site",
+    "portlet": false,
+    "parameterRequired": false,
+    "enableObjectEntryHistory": false,
+    "titleObjectFieldName": "id",
+    "objectValidationRules": [],
+    "active": true,
+    "defaultLanguageId": "en_US",
+    "label": {
+        "en_US": "Document Info"
+    },
+    "panelCategoryKey": "site_administration.content",
+    "pluralLabel": {
+        "en_US": "Documents Info"
+    },
+    "objectLayouts": [],
+    "system": false,
+    "objectViews": [],
+    "name": "DocumentInfo",
+    "actions": {
+        "permissions": {},
+        "get": {},
+        "update": {},
+        "delete": {}
+    },
+    "status": {
+        "label_i18n": "Approved",
+        "code": 0,
+        "label": "approved"
+    }
+}

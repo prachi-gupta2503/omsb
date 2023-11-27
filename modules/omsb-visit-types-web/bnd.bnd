@@ -1,0 +1,4 @@
+Bundle-Name: omsb-visit-types-web
+Bundle-SymbolicName: gov.omsb.visit.types.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.visit.types.web.constants

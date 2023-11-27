@@ -1,0 +1,4 @@
+Bundle-Name: omsb-oct-calendar-events-resp-api
+Bundle-SymbolicName: gov.omsb.oct.calendar.application
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration

@@ -1,0 +1,6 @@
+Bundle-Name: omsb-http-connector-api
+Bundle-SymbolicName: gov.omsb.http.connector
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.http.connector.api
+-sources: true
+-metatype: *

@@ -1,0 +1,6 @@
+Bundle-Name: omsb-tms-headless-service-api
+Bundle-SymbolicName: omsb.tms.headless.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	omsb.tms.headless.service.dto.v1_0,\
+	omsb.tms.headless.service.resource.v1_0

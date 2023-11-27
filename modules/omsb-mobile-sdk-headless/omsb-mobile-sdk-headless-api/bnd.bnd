@@ -1,0 +1,6 @@
+Bundle-Name: omsb-mobile-sdk-headless-api
+Bundle-SymbolicName: gov.omsb.mobile.sdk.headless.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	gov.omsb.mobile.sdk.headless.dto.v1_0,\
+	gov.omsb.mobile.sdk.headless.resource.v1_0

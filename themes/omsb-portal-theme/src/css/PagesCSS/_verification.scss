@@ -1,0 +1,58 @@
+.Verifications .omsb-page-top-info{margin-bottom: 30px;}
+.omsb-status-boxes{display: inline-block; width: 100%; vertical-align: top; }
+.status-box{display: flex; padding-left: 24px; justify-content: flex-start; align-items: center; width: 100%; min-height: 134px; background: #FFFFFF;  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03); border-radius: 10px; margin-bottom: 22px;}
+.status-box .status-img{margin-right: 35px;}
+.status-box .status-dtls{display: flex; flex-direction: column;}
+.status-box .status-dtls .status-number{font-weight: 800;  font-size: 25px; line-height: 150%; color: #FA981C;}
+.status-box .status-dtls .status-text{font-weight: 700;font-size: 16px;line-height: 150%;color: #222931;}
+.configureprocedures {display: flex;gap: 24px;}
+.configureprocedures .status-box {flex: 1 1 20%;}
+
+
+
+
+
+
+
+
+
+
+
+/* common css for screen size > 767  */
+@media only screen and (min-width: 1199px) {
+.omsb-status-boxes .col-5-equal{-ms-flex: 0 0 20%;  flex: 0 0 20%; max-width: 20%;}
+}
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {}
+
+/* common css for screen size < 1199  */
+@media only screen and (max-width: 1199px) {}
+
+/* common css for screen size < 991  */
+@media only screen and (max-width: 991px) {
+    .configureprocedures {flex-wrap: wrap;}
+    .configureprocedures .status-box {flex: 3 3 30%;}
+}
+
+/* common css for screen size < 767  */
+@media only screen and (max-width: 768px) {
+    .configureprocedures .status-box {flex: 2 2 45%;}
+}
+
+/* common css for screen size < 479  */
+@media only screen and (max-width: 479px) {
+    .configureprocedures .status-box {flex: 2 2 100%;}
+}
+
+/* common css for screen size < 320  */
+@media only screen and (max-width: 320px) {}
+
+/* common css for screen size between  768 to 1199  */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+/* common css for screen size between  768 to 1023 */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+
+/* common css for screen size between  1024 to 1600  */
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {}

@@ -1,0 +1,6 @@
+
+<%@ include file="./edit-equivalency/markinsufficient-wf-model-view.jsp"%>
+<%@ include file="./edit-equivalency/initiate-wf-model-view.jsp"%>
+<%@ include file="./edit-equivalency/assign-wf-model-view.jsp"%>
+<%@ include file="./edit-equivalency/in-progress-admin-modal.jsp"%>
+<%@include file ="./add-multiple-files-delete-popup.jsp" %>

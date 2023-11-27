@@ -1,0 +1,41 @@
+<svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Right" clip-path="url(#clip0_5978_196776)">
+<g id="Mask group">
+<mask id="mask0_5978_196776" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="23" height="22">
+<g id="Group">
+<path id="bg" d="M22.5 0H0.5V22H22.5V0Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_5978_196776)">
+<g id="Group_2">
+<g id="g441">
+<g id="g447">
+<g id="Clip path group">
+<mask id="mask1_5978_196776" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="23" height="22">
+<g id="clipPath453">
+<path id="path451" d="M0.5 1.90735e-06H22.5V22H0.5V1.90735e-06Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask1_5978_196776)">
+<g id="g449">
+<g id="g455">
+<path id="path457" d="M21.6406 11C21.6406 16.6005 17.1005 21.1406 11.5 21.1406C5.8995 21.1406 1.35938 16.6005 1.35938 11C1.35938 5.3995 5.8995 0.859377 11.5 0.859377C17.1005 0.859377 21.6406 5.3995 21.6406 11Z" fill="#BAF8DF" stroke="#1BA950" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g443">
+<path id="path445" d="M15.7549 8.1174L9.98966 13.8827L7.24512 11.1382" stroke="#1BA950" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5978_196776">
+<rect width="22" height="22" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>

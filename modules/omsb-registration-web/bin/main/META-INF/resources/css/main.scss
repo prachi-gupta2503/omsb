@@ -1,0 +1,51 @@
+.omsb-registration-web {
+}
+
+.bottom-backbtn-wrap{
+    display: flex;
+    margin-top: 15px;
+    justify-content: flex-end;
+}
+
+.omsb-list-filter{
+    padding-bottom:0;
+}
+
+.get-civil-id{
+	width: 180px;
+    margin-left: 20px;
+    position: relative;
+    bottom: -2px;
+}
+
+.tooltipp {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.tooltipp .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltipp:hover .tooltiptext {
+	visibility: visible;
+}
+.cst_ul{
+	margin: 0px;
+	float:left;
+	width:100%; 
+}
+
+.cst_ul li{
+	padding:0px;
+	float:left;
+	width:100%; 
+}

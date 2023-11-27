@@ -1,0 +1,3 @@
+Bundle-Name: omsb-form-builder-headless-client
+Bundle-SymbolicName: gov.omsb.form.builder.headless.client
+Bundle-Version: 1.0.0

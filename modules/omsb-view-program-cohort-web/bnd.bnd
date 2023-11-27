@@ -1,0 +1,4 @@
+Bundle-Name: omsb-view-program-cohort-web
+Bundle-SymbolicName: gov.omsb.view.program.cohort.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.view.program.cohort.web.constants

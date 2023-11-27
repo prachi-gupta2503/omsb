@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:omsb-email-template-master:omsb-email-template-master-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../omsb-email-template-master-api/src/main/java"
+}
+
+group = "gov.omsb.email.template.master"

@@ -1,0 +1,5 @@
+Bundle-Name: omsb-notification-custom-web
+Bundle-SymbolicName: omsb.notification.custom.web
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.notifications.web;bundle-version="5.0.42"
+Portal-Bundle-Version: 7.4.13

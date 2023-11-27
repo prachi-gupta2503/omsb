@@ -1,0 +1,3166 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds"
+	package-path="gov.omsb.tms">
+	<namespace>OMSBTMS</namespace>
+
+	<entity local-service="true" name="ProgramMaster"
+		table="program_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programMasterId" db-name="program_master_id"
+			primary="true" type="long" />
+		<column name="programTypeId" db-name="program_type_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="programCode" db-name="program_code" type="String"
+			localized="true" />
+		<column name="programName" db-name="program_name" type="String"
+			localized="true" />
+		<column name="programDescription" db-name="program_description"
+			type="String" localized="true" />
+		<column name="establishmentDate" db-name="establishment_date"
+			type="Date" />
+		<column name="programVision" db-name="program_vision"
+			type="String" localized="true" />
+		<column name="programMission" db-name="program_mission"
+			type="String" localized="true" />
+		<column name="programStatus" db-name="program_status"
+			type="Boolean" />
+		<column name="programObjectives" db-name="program_objectives"
+			type="String" localized="true" />
+		<column name="programAdmissionRequirements"
+			db-name="program_admission_requirements" type="String"
+			localized="true" />
+
+		<!-- Finder methods -->
+		<finder name="ProgramStatus" return-type="Collection">
+			<finder-column name="programStatus" />
+		</finder>
+		<finder name="ProgramNameByLike" return-type="Collection">
+			<finder-column name="programName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+		<finder name="ProgramCodeByLike" return-type="Collection">
+			<finder-column name="programCode" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+		<finder name="programTypeId" return-type="Collection">
+			<finder-column name="programTypeId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="ProgramTypeMaster"
+		table="program_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programTypeMasterId"
+			db-name="program_type_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="programTypeName" db-name="program_type_name"
+			type="String" localized="true" />
+
+		<finder name="ProgramTypeNameByLike" return-type="Collection">
+			<finder-column name="programTypeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="ProgramProgramTypeRel"
+		table="program_programtype_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programPtId" db-name="program_pt_id"
+			primary="true" type="long" />
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="programTypeId" db-name="program_type_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Finder methods -->
+		<finder name="ProgramProgramType"
+			return-type="ProgramProgramTypeRel">
+			<finder-column name="programId" />
+			<finder-column name="programTypeId" />
+		</finder>
+
+		<finder name="ProgramId" return-type="ProgramProgramTypeRel">
+			<finder-column name="programId" />
+		</finder>
+		<finder name="programTypeId" return-type="Collection">
+			<finder-column name="programTypeId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="RotationMaster"
+		table="rotation_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="rotationMasterId" db-name="rotation_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="rotationCode" db-name="rotation_code"
+			type="String" localized="true" />
+		<column name="rotationShortName" db-name="rotation_short_name"
+			type="String" localized="true" />
+		<column name="rotationName" db-name="rotation_name"
+			type="String" localized="true" />
+		<column name="rotationStatus" db-name="rotation_status"
+			type="Boolean" />
+		<column name="rotationObjectives"
+			db-name="rotation_objecctives" type="String" localized="true" />
+
+		<!-- Finder methods -->
+		<finder name="RotationStatus" return-type="Collection">
+			<finder-column name="rotationStatus" />
+		</finder>
+		<finder name="RotationNameByLike" return-type="Collection">
+			<finder-column name="rotationName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+		<finder name="RotationCodeByLike" return-type="Collection">
+			<finder-column name="rotationCode" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="TrainingSitesMaster"
+		table="training_sites_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="trainingSiteMasterId"
+			db-name="training_site_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="trainingSiteName" db-name="training_site_name"
+			type="String" localized="true" />
+		<column name="trainingSiteCode" db-name="training_site_code"
+			type="String" localized="true" />
+		<column name="trainingSiteStatus"
+			db-name="training_site_status" type="Boolean" />
+		<column name="trainingSiteAddress"
+			db-name="training_site_address" type="String" localized="true" />
+		<column name="trainingSiteDescription"
+			db-name="training_site_description" type="String" localized="true" />
+
+		<!-- Finder methods -->
+		<finder name="TrainingSiteStatus" return-type="Collection">
+			<finder-column name="trainingSiteStatus" />
+		</finder>
+		<finder name="TrainingSiteNameByLike" return-type="Collection">
+			<finder-column name="trainingSiteName"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+		<finder name="TrainingSiteCodeByLike" return-type="Collection">
+			<finder-column name="trainingSiteCode"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="TraineeLevelMaster"
+		table="trainee_level_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeLevelMasterId"
+			db-name="trainee_level_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeLevelName" db-name="trainee_level_name"
+			type="String" localized="true" />
+
+
+		<finder name="traineeLevelNameByLike" return-type="Collection">
+			<finder-column name="traineeLevelName"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="LevelTypeMaster"
+		table="level_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="LevelTypeMasterId" db-name="level_type_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="levelTypeName" db-name="level_type_name"
+			type="String" localized="true" />
+
+		<!-- Finder methods -->
+		<finder name="LevelTypeNameByLike" return-type="Collection">
+			<finder-column name="levelTypeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="ProgramDurationDetails"
+		table="program_duration_details" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progDurationId" db-name="prog_duration_id"
+			primary="true" type="long" />
+		<column name="programId" db-name="program_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="ayApplicableForm" db-name="ay_applicable_form"
+			type="String" />
+		<column name="noOfBlocks" db-name="no_of_blocks" type="int" />
+
+		<!-- Finer fields -->
+		<finder name="ProgramId" return-type="Collection">
+			<finder-column name="programId" />
+		</finder>
+		<finder name="ProgramIdAndAYApplicableFrom"
+			return-type="ProgramDurationDetails">
+			<finder-column name="programId" />
+			<finder-column name="ayApplicableForm" />
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="ProgdurationRotationTrainingsitesRel"
+		table="progduration_rotation_trainingsites_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progdurationRotationTsRelId"
+			db-name="progduration_rotation_ts_rel_id" primary="true" type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="trainingSitesId" db-name="training_sites_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+		<column name="isSharedRotation" db-name="is_shared_rotation"
+			type="boolean" />
+		<column name="rotationOwningProgramId"
+			db-name="rotation_owning_program_id" type="long" />
+		<column name="progCodeRsnSiteCode"
+			db-name="progcode_rsn_sitecode" type="String" />
+		<column name="owningProgramDurationId"
+			db-name="owning_program_duration_id" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="noOfSlots" db-name="no_of_slots" type="int" />
+
+		<!-- Finder fields -->
+		<finder name="ProgramDurationId" return-type="Collection">
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder name="RotationId" return-type="Collection">
+			<finder-column name="rotationId" />
+		</finder>
+		<finder name="TrainingSitesId" return-type="Collection">
+			<finder-column name="trainingSitesId" />
+		</finder>
+		<finder name="TrainingSiteAndRotationId"
+			return-type="ProgdurationRotationTrainingsitesRel">
+			<finder-column name="trainingSitesId" />
+			<finder-column name="rotationId" />
+		</finder>
+		<finder name="RotationIdAndIsSharedRotation"
+			return-type="Collection">
+			<finder-column name="rotationId" />
+			<finder-column name="isSharedRotation" />
+		</finder>
+		<finder name="ProgDurationTrainingSiteAndRotationId"
+			return-type="ProgdurationRotationTrainingsitesRel">
+			<finder-column name="trainingSitesId" />
+			<finder-column name="rotationId" />
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder name="ProgDurationAndTrainingSite"
+			return-type="ProgdurationRotationTrainingsitesRel">
+			<finder-column name="trainingSitesId" />
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder name="ProgDurationRotationOwningProgramAndRotationId"
+			return-type="ProgdurationRotationTrainingsitesRel">
+			<finder-column name="rotationOwningProgramId" />
+			<finder-column name="rotationId" />
+			<finder-column name="programDurationId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="ProgdurationRotationTraineelevelBlocksRel"
+		table="progduration_rotation_traineelevel_blocks_rel"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progdurationRotationTlBlocksRelId"
+			db-name="progduration_rotation_tl_blocks_rel_id" primary="true"
+			type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="rotationType" db-name="rotation_type" type="long" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="noOfBlocks" db-name="no_of_blocks" type="int" />
+
+		<finder name="TraineeLevelId" return-type="Collection">
+			<finder-column name="traineeLevelId" />
+		</finder>
+
+		<finder name="ProgramDurationId" return-type="Collection">
+			<finder-column name="programDurationId" />
+		</finder>
+
+		<finder return-type="Collection"
+			name="ProgramDurationIdAndTraineeLevelId">
+			<finder-column name="traineeLevelId" />
+			<finder-column name="programDurationId" />
+		</finder>
+
+		<finder return-type="ProgdurationRotationTraineelevelBlocksRel"
+			name="ProgramDurationIdAndTraineeLevelIdAndRotationId">
+			<finder-column name="traineeLevelId" />
+			<finder-column name="programDurationId" />
+			<finder-column name="rotationId" />
+		</finder>
+
+		<finder return-type="Collection"
+			name="ProgramDurationIdAndRotationId">
+			<finder-column name="programDurationId" />
+			<finder-column name="rotationId" />
+		</finder>
+
+		<finder name="TraineeLevelIdAndRotationType"
+			return-type="Collection">
+			<finder-column name="traineeLevelId" />
+			<finder-column name="rotationType" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true"
+		name="ProgdurationTraineelevelBlocksLevelTypeRel"
+		table="progduration_traineelevel_blocks_leveltype_rel"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progdurationTlBlocksLtId"
+			db-name="progduration_tl_blocks_lt_id" primary="true" type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="levelTypeId" db-name="level_type_id" type="long" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="noOfBlocks" db-name="no_of_blocks" type="int" />
+
+		<!-- Finder methods -->
+		<finder name="ProgramDurationId" return-type="Collection">
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder name="ProgramDurationIdAndTraineeLevelId"
+			return-type="ProgdurationTraineelevelBlocksLevelTypeRel">
+			<finder-column name="programDurationId" />
+			<finder-column name="traineeLevelId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="EligibilityDegreeMaster"
+		table="eligibility_degree_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="eligibilityDegreeMasterId"
+			db-name="eligibility_degree_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="eligibilityDegree" db-name="eligibility_degree"
+			type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="eligibilityDegreeByLike" return-type="Collection">
+			<finder-column name="eligibilityDegree"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="ProgramEligibilityDegreeRel"
+		table="program_eligibility_degree_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programEdId" db-name="program_ed_id"
+			primary="true" type="long" />
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="eligibilityDegreeMasterId"
+			db-name="eligibility_degree_master_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Finder methods -->
+		<finder name="ProgramEligibilityDegreeId"
+			return-type="ProgramEligibilityDegreeRel">
+			<finder-column name="programId" />
+			<finder-column name="eligibilityDegreeMasterId" />
+		</finder>
+
+		<finder name="ProgramId"
+			return-type="ProgramEligibilityDegreeRel">
+			<finder-column name="programId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="OmsbTmsFinder"
+		table="omsb_tms_finder" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="omsbTmsFinderId" db-name="omsb_tms_finder_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+	</entity>
+
+	<entity local-service="true" name="ProcedureMaster"
+		table="procedure_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="procedureMasterId" db-name="procedure_master_id"
+			primary="true" type="long" />
+		<column name="procedureGroupMasterId"
+			db-name="procedure_group_master_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="procedureName" db-name="procedure_name"
+			type="String" localized="true" />
+		<column name="cptCode" db-name="cpt_code" type="String"
+			localized="true" />
+		<column name="isMandatory" db-name="is_mandatory"
+			type="boolean" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="ProcedureNameByLike" return-type="Collection">
+			<finder-column name="procedureName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+
+		<finder name="ProcedureNameByLikeAndProcedureGroupMasterId"
+			return-type="Collection">
+			<finder-column name="procedureName" comparator="LIKE"
+				case-sensitive="false" />
+			<finder-column name="procedureGroupMasterId" />
+		</finder>
+
+		<finder return-type="Collection" name="ProcedureGroupMasterId">
+			<finder-column name="procedureGroupMasterId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="ProcedureGroupMaster"
+		table="procedure_group_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="procedureGroupMasterId"
+			db-name="procedure_group_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="procedureGroupName"
+			db-name="procedure_group_name" type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finders -->
+		<finder name="procedureGroupNameByLike"
+			return-type="Collection">
+			<finder-column name="procedureGroupName"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="VisitTypeMaster"
+		table="visit_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="visitTypeMasterId" db-name="visit_type_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="visitTypeName" db-name="visit_type_name"
+			type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="VisitTypeNameByLike" return-type="Collection">
+			<finder-column name="visitTypeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="VisitTypeProgDurationRel"
+		table="visit_type_prog_duration_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="VisitTypeProgDurationRelId"
+			db-name="visit_type_prog_duration_rel_id" primary="true" type="long" />
+
+		<column name="visitTypeMasterId" db-name="visit_type_master_id"
+			type="long" />
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder return-type="VisitTypeProgDurationRel"
+			name="ProgramDurationIdAndVisitTypeMasterId">
+			<finder-column name="programDurationId" />
+			<finder-column name="visitTypeMasterId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="CptCodeMaster"
+		table="cpt_code_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="cptCodeMasterId" db-name="cpt_code_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="cptCodeName" db-name="cpt_code_name"
+			type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="CptCodeNameByLike" return-type="Collection">
+			<finder-column name="cptCodeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="ProcedureGroupProceduresCPTCodeRel"
+		table="proceduregroup_procedures_cptcode_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="pgProcedureCptCodeRelId"
+			db-name="pg_procedures_cpt_rel_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="procedureGroupId" db-name="procedure_group_id"
+			type="long" localized="false" />
+		<column name="procedureId" db-name="procedure_id" type="long"
+			localized="false" />
+		<column name="cptCodeId" db-name="cpt_code_id" type="long"
+			localized="false" />
+
+		<finder name="ProcedureGroupId" return-type="Collection">
+			<finder-column name="procedureGroupId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="RoleTypeMaster"
+		table="role_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="roleTypeMasterId" db-name="role_type_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="roleTypeName" db-name="role_type_name"
+			type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="RoleTypeNameByLike" return-type="Collection">
+			<finder-column name="roleTypeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="RoleTypeProgDurationRel"
+		table="role_type_prog_duration_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="RoleTypeProgDurationRelId"
+			db-name="role_type_prog_duration_rel_id" primary="true" type="long" />
+
+		<column name="roleTypeMasterId" db-name="role_type_master_id"
+			type="long" />
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder return-type="RoleTypeProgDurationRel"
+			name="ProgramDurationIdAndRoleTypeMasterId">
+			<finder-column name="programDurationId" />
+			<finder-column name="roleTypeMasterId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="PatientTypeMaster"
+		table="patient_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="patientTypeMasterId"
+			db-name="patient_type_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="patientTypeName" db-name="patient_type_name"
+			type="String" localized="true" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="PatientTypeNameByLike" return-type="Collection">
+			<finder-column name="patientTypeName" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="PatientTypeProgDurationRel"
+		table="patient_type_prog_duration_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PatientTypeProgDurationRelId"
+			db-name="patient_type_prog_duration_rel_id" primary="true"
+			type="long" />
+
+		<column name="patientTypeMasterId"
+			db-name="patient_type_master_id" type="long" />
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- order method -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId" />
+		</finder>
+		<finder return-type="PatientTypeProgDurationRel"
+			name="ProgramDurationIdAndPatientTypeMasterId">
+			<finder-column name="programDurationId" />
+			<finder-column name="patientTypeMasterId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="TraineeLoggedProcedureDetails"
+		table="trainee_logged_procedure_details" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeLoggedProcedureDetailsId"
+			db-name="trainee_logged_procedure_details_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+		<column name="procedureGroupId" db-name="procedure_group_id"
+			type="long" />
+		<column name="procedureId" db-name="procedure_id" type="long" />
+		<column name="genderId" db-name="gender_id" type="long" />
+		<column name="patientTypeId" db-name="patient_type_id"
+			type="long" />
+		<column name="visitTypeId" db-name="visit_type_id" type="long" />
+		<column name="cptCode" db-name="cpt_code" type="String"
+			localized="true" />
+		<column name="trainingSitesId" db-name="training_sites_id"
+			type="long" />
+		<column name="roleTypeId" db-name="role_type_id" type="long" />
+		<column name="facultyId" db-name="faculty_id" type="long" />
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="patientId" db-name="patient_id" type="String" />
+		<column name="patientDOB" db-name="patient_dob" type="Date" />
+		<column name="procedurePerformedDate"
+			db-name="procedure_performed_date" type="Date" />
+		<column name="diagnosisDescription"
+			db-name="diagnosis_description" type="String" localized="true" />
+		<column name="traineeComments" db-name="trainee_comments"
+			type="String" localized="true" />
+		<column name="supervisorComments" db-name="supervisor_comments"
+			type="String" localized="true" />
+		<column name="procedureStatus" db-name="procedure_status"
+			type="String" />
+
+		<finder name="PatientId" return-type="Collection">
+			<finder-column name="patientId" />
+		</finder>
+		<finder name="PatientIdByLike" return-type="Collection">
+			<finder-column name="patientId" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+		<finder name="TraineeId" return-type="Collection">
+			<finder-column name="traineeId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="ParticipationTypeMaster"
+		table="participation_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="participationTypeMasterId"
+			db-name="participation_type_master_id" primary="true" type="long" />
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="participationTypeName"
+			db-name="participation_type_name" type="String" localized="true" />
+
+		<!-- Order by -->
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Find By -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId" />
+		</finder>
+
+		<finder return-type="Collection"
+			name="ParticipationTypeNameByLikeAndProgramDurationId">
+			<finder-column name="participationTypeName"
+				comparator="LIKE" case-sensitive="false"></finder-column>
+			<finder-column name="programDurationId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="GenderMaster"
+		table="gender_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="genderMasterId" db-name="gender_master_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="genderName" db-name="gender_name" type="String"
+			localized="true" />
+	</entity>
+
+	<entity local-service="true"
+		name="ProgdurationRotationTlPgProcedurePtRel"
+		table="progduration_rotation_tl_pg_procedure_pt_rel"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progdurationRotationTlPgProcedurePtRelId"
+			db-name="progduration_rotation_tl_pg_procedure_pt_rel_id"
+			primary="true" type="long" />
+
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+		<column name="procedureGroupId" db-name="procedure_group_id"
+			type="long" />
+		<column name="procedureId" db-name="procedure_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="minimumProcedures" db-name="minimum_procedures"
+			type="int" />
+
+		<column name="traineelevelMinimumProcedures"
+			db-name="traineelevel_minimum_procedures" type="int" />
+
+		<finder name="ProcedureGroupId" return-type="Collection">
+			<finder-column name="procedureGroupId" />
+		</finder>
+
+		<finder name="ProcedureId"
+			return-type="ProgdurationRotationTlPgProcedurePtRel">
+			<finder-column name="procedureId" />
+		</finder>
+
+		<finder name="ProgramDurationId" return-type="Collection">
+			<finder-column name="programDurationId" />
+		</finder>
+
+
+		<finder
+			name="ProgramDurationIdAndProcedureGroupIdAndProcedureId"
+			return-type="Collection">
+			<finder-column name="programDurationId" />
+			<finder-column name="procedureGroupId" />
+			<finder-column name="procedureId" />
+		</finder>
+
+		<finder
+			name="ProgramDurationIdAndProcedureGroupIdAndProcedureIdAndRotationId"
+			return-type="ProgdurationRotationTlPgProcedurePtRel">
+			<finder-column name="programDurationId" />
+			<finder-column name="procedureGroupId" />
+			<finder-column name="procedureId" />
+			<finder-column name="rotationId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="LeaveMaster"
+		table="leave_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveMasterId" db-name="leave_master_id"
+			primary="true" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="leaveTypeId" db-name="leave_type_id" type="long" />
+		<column name="leaveTraineeId" db-name="leave_trainee_id"
+			type="long" />
+		<column name="blockName" db-name="block_name" localized="true"
+			type="String" />
+		<column name="leaveFrom" db-name="leave_from" type="Date" />
+		<column name="leaveTo" db-name="leave_to" type="Date" />
+		<column name="noOfDays" db-name="no_of_days" type="int" />
+		<column name="contactName" db-name="contact_name"
+			localized="true" type="String" />
+		<column name="contactEmail" db-name="contact_email"
+			type="String" />
+		<column name="contactNo" db-name="contact_no" type="String" />
+		<column name="reasonForLeave" db-name="reason_for_leave"
+			localized="true" type="String" />
+		<column name="applicationDate" db-name="application_date"
+			type="Date" />
+		<column name="returnFromLeave" db-name="return_from_leave"
+			type="Date" />
+		<column name="reasonForDelay" db-name="reason_for_delay"
+			localized="true" type="String" />
+		<column name="programId" db-name="program_id" type="long" />
+
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<finder name="TraineeId" return-type="Collection">
+			<finder-column name="traineeId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+
+	</entity>
+
+	<entity local-service="true" name="RotationTypeMaster"
+		table="rotation_type_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="rotationTypeMasterId"
+			db-name="rotation_type_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="rotationTypeName" db-name="rotation_type_name"
+			type="String" localized="true" />
+
+		<!-- Order By fields -->
+
+		<order>
+			<order-column name="modifiedDate" order-by="desc" />
+		</order>
+
+		<!-- Find By fields -->
+		<finder name="RotationTypeNameByLike" return-type="Collection">
+			<finder-column name="rotationTypeName"
+				comparator="LIKE" case-sensitive="false" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="LeaveTypes"
+		table="leave_types" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveTypesId" db-name="leave_types_id"
+			primary="true" type="long" />
+		<column name="leaveTypes" db-name="leave_types"
+			localized="true" type="String" />
+		<column name="leaveCode" db-name="leave_code" localized="true"
+			type="String" />
+
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+	</entity>
+
+
+	<entity local-service="true" name="LeaveProgramMaster"
+		table="leave_program_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveProgramMasterId"
+			db-name="leave_program_master_id" primary="true" type="long" />
+		<column name="programMasterId" db-name="program_master_id"
+			type="long" />
+		<column name="leaveTypesId" db-name="leave_types_id"
+			type="long" />
+		<column name="noOfLeaves" db-name="no_of_leaves" type="int" />
+		<column name="residentLevelRule" db-name="resident_level_rule"
+			localized="true" type="String" />
+
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Finder methods -->
+		<finder name="ProgramMasterId" return-type="Collection">
+			<finder-column name="programMasterId" />
+		</finder>
+		<finder name="ProgramMasterLeaveTypeId"
+			return-type="LeaveProgramMaster">
+			<finder-column name="programMasterId" />
+			<finder-column name="leaveTypesId" />
+		</finder>
+	</entity>
+
+
+
+	<entity local-service="true" name="LeaveTraineeMaster"
+		table="leave_trainee_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveTraineeMasterId"
+			db-name="leave_trainee_master_id" primary="true" type="long" />
+		<column name="leaveProgramMasterId"
+			db-name="leave_program_master_id" type="long" />
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="noOfLeaveTaken" db-name="no_of_leave_taken"
+			type="int" />
+		<column name="noOfLeaveRemaining"
+			db-name="no_of_leave_remaining" type="int" />
+
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+	</entity>
+
+
+
+	<entity local-service="true" name="LeaveAnnualMaster"
+		table="leave_annual_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveAnnualMasterId"
+			db-name="leave_annual_master_id" primary="true" type="long" />
+		<column name="leaveProgramMasterId"
+			db-name="leave_program_master_id" type="long" />
+		<column name="leaveTypesId" db-name="leave_types_id"
+			type="long" />
+		<column name="trainingLevelId" db-name="training_level_id"
+			type="long" />
+		<column name="blockName" db-name="block_name" localized="true"
+			type="String" />
+		<column name="maxTraineeApplyLeave"
+			db-name="max_trainee_apply_leave" type="int" />
+		<column name="noOfTraineeTakenLeave"
+			db-name="no_of_trainee_taken_leave" type="int" />
+
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+	</entity>
+
+
+	<entity local-service="true" name="ProgramWorkflowDetailsRel"
+		table="program_workflow_details_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programWorkflowDetailsRelId"
+			db-name="program_workflow_details_rel_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other Fields -->
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="workflowApprovalOrder"
+			db-name="workflow_approval_order" type="String" />
+
+		<finder name="ProgramWorkflowByProgramId"
+			return-type="ProgramWorkflowDetailsRel">
+			<finder-column name="programId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="LeaveAnnualRule"
+		table="leave_annual_rule" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveAnnualRuleId" db-name="leave_annual_rule_id"
+			primary="true" type="long" />
+
+		<!-- Other Fields -->
+
+		<column name="programMasterId" db-name="program_master_id"
+			type="long" />
+		<column name="lastDateForSubmission"
+			db-name="last_date_for_submission" type="Date" />
+		<column name="annualLeaveAvailableAt"
+			db-name="annual_leave_available_at" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+	</entity>
+
+	<entity local-service="true" name="LeaveAnnualMaxTrainee"
+		table="leave_annual_max_trainee" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="leaveAnnualMaxTraineeId"
+			db-name="leave_annual_max_trainee_id" primary="true" type="long" />
+
+		<!-- Other Fields -->
+
+		<column name="leaveAnnualRuleId" db-name="leave_annual_rule_id"
+			type="long" />
+		<column name="trainingLevel" db-name="training_level"
+			type="String" localized="true" />
+		<column name="block" db-name="block" type="int" />
+		<column name="week" db-name="week" type="int" />
+		<column name="maxTraineeApplyLeave"
+			db-name="max_trainee_apply_leave" type="int" />
+		<column name="noOfTraineeTakenLeave"
+			db-name="no_of_trainee_taken_leave" type="int" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+	</entity>
+
+
+	<entity local-service="true" name="SharedRotationRequestDetails"
+		table="shared_rotation_request_details" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="sharedRotationRequestDetailsId"
+			db-name="shared_rotation_request_details_id" primary="true"
+			type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="noOfTraineesRequested"
+			db-name="no_of_trainees_requested" type="long" />
+		<column name="requesterComment" db-name="requester_comment"
+			type="String" localized="true" />
+		<column name="status" db-name="status" type="String" />
+		<column name="approvedCount" db-name="approved_count"
+			type="long" />
+		<column name="rejectedCount" db-name="rejected_count"
+			type="long" />
+		<column name="requestRaisedTo" db-name="request_raised_to"
+			type="String" />
+		<column name="requestRaisedBy" db-name="request_raised_by"
+			type="String" />
+
+		<!-- Finder column -->
+		<finder return-type="Collection" name="RequestRaisedBy">
+			<finder-column name="requestRaisedBy"></finder-column>
+		</finder>
+
+	</entity>
+
+	<entity local-service="true"
+		name="SharedRotationApproverDetails"
+		table="shared_rotation_approver_details" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="sharedRotationApproverDetailsId"
+			db-name="shared_rotation_approver_details_id" primary="true"
+			type="long" />
+		<column name="sharedRotationRequestDetailsId"
+			db-name="shared_rotation_request_details_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="status" db-name="status" type="String" />
+		<column name="approvedTrainees" db-name="approved_trainees"
+			type="long" />
+		<column name="rejectedTrainees" db-name="rejected_trainees"
+			type="long" />
+		<column name="approversComment" db-name="approvers_comment"
+			type="String" localized="true" />
+		<column name="decisionMakingDate"
+			db-name="decision_making_date" type="Date" />
+
+		<!-- Finder methods -->
+		<finder name="SharedRotationRequestDetailsId"
+			return-type="SharedRotationApproverDetails">
+			<finder-column name="sharedRotationRequestDetailsId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true"
+		name="TraineeProgdurationTraineelevelDetails"
+		table="trainee_progduration_traineelevel_details"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineePdTlErDetailsId"
+			db-name="trainee_pd_tl_er_details_id" primary="true" type="long" />
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Finder methods -->
+		<finder name="TraineeId" return-type="Collection">
+			<finder-column name="traineeId" />
+		</finder>
+		<finder name="TraineeIdAndTraineeLevelId"
+			return-type="TraineeProgdurationTraineelevelDetails">
+			<finder-column name="traineeId" />
+			<finder-column name="traineeLevelId" />
+		</finder>
+		<finder name="TraineeIdAndProgramDurationId"
+			return-type="Collection">
+			<finder-column name="traineeId" />
+			<finder-column name="programDurationId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="TraineeElectiverotationPriorityDetails"
+		table="trainee_electiverotation_priority_details"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeElectiverotationPriorityDetailsId"
+			db-name="trainee_electiverotation_priority_details_id" primary="true"
+			type="long" />
+		<column name="traineePdTlErDetailsId"
+			db-name="trainee_pd_tl_er_details_id" type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="sequence" db-name="sequence" type="int" />
+
+		<!-- Finder methods -->
+		<finder name="TraineePdTlErDetailsId" return-type="Collection">
+			<finder-column name="traineePdTlErDetailsId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="EcMemberRequest"
+		table="ec_member_request" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ecMemberRequestId" db-name="ec_member_request_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="potentialEcMemberId"
+			db-name="potential_ec_member_id" type="long" />
+		<column name="potentialEcMemberRoleId"
+			db-name="potential_ec_member_role_id" type="long" />
+		<column name="latestEcMemberRequestStateId"
+			db-name="latest_ec_member_request_state_id" type="long" />
+		<column name="coveringLetterId" db-name="covering_letter_id"
+			type="long" />
+		<column name="cvId" db-name="cv_id" type="long" />
+		<column name="noObjectionLetterId"
+			db-name="no_objection_letter_id" type="long" />
+		<column name="passportCopyId" db-name="passport_copy_id"
+			type="long" />
+		<column name="nationalIdCopyId" db-name="national_id_copy_id"
+			type="long" />
+		<column name="qararRequestId" db-name="qarar_request_id"
+			type="long" />
+		<column name="qararDocId" db-name="qarar_doc_id" type="long" />
+		<column name="comments" db-name="comments" type="String"
+			localized="true" />
+		<column name="potentialEcMemberLruserid"
+			db-name="potential_ec_member_lruserid" type="long" />
+
+		<!-- Workflow fields -->
+
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		<column name="userName" type="String" />
+		<column name="userId" type="long" />
+
+		<finder name="PotentialEcMemberId"
+			return-type="EcMemberRequest">
+			<finder-column name="potentialEcMemberId" />
+		</finder>
+
+
+		<finder name="PotentialEcMemberLruserid"
+			return-type="Collection">
+			<finder-column name="potentialEcMemberLruserid" />
+		</finder>
+
+		<reference package-path="com.liferay.portlet.asset"
+			entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset"
+			entity="AssetLink" />
+
+	</entity>
+
+	<entity local-service="true" name="EcMemberRequestRotations"
+		table="ec_member_request_rotations" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ecMemberRequestRotationsId"
+			db-name="ec_member_request_rotations_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="ecMemberRequestId" db-name="ec_member_request_id"
+			type="long" />
+		<column name="trainingSiteId" db-name="training_site_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="isActive" db-name="is_active" type="Boolean" />
+
+		<finder name="EcMemberRequestId" return-type="Collection">
+			<finder-column name="ecMemberRequestId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="BankDetails"
+		table="bank_details" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="bankDetailsId" db-name="bank_details_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="ecMemberRequestId" db-name="ec_member_request_id"
+			type="long" />
+		<column name="bankName" db-name="bank_name" type="String"
+			localized="true" />
+		<column name="accountNumber" db-name="account_number"
+			type="String" localized="true" />
+		<column name="bankBranch" db-name="bank_branch" type="String"
+			localized="true" />
+
+		<finder name="EcMemberRequestId" return-type="BankDetails">
+			<finder-column name="ecMemberRequestId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="EcMemberRequestState"
+		table="ec_member_request_state" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ecMemberRequestStateId"
+			db-name="ec_member_request_state_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdByRoleId" db-name="created_by_role_id"
+			type="long" />
+
+		<!-- Other fields -->
+
+		<column name="ecMemberRequestId" db-name="ec_member_request_id"
+			type="long" />
+		<column name="ecMemberRequestStatusId"
+			db-name="ec_member_request_status_id" type="long" />
+		<column name="comments" db-name="comments" type="String" />
+		<column name="isPublic" db-name="is_public" type="boolean" />
+
+		<finder name="EcMemberRequestId" return-type="Collection">
+			<finder-column name="ecMemberRequestId" />
+		</finder>
+
+		<finder name="Visibility" return-type="Collection">
+			<finder-column name="ecMemberRequestId" />
+			<finder-column name="isPublic" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="EcMemberRequestStatus"
+		table="ec_member_request_status" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="ecMemberRequestStatusId"
+			db-name="ec_member_request_status_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="code" db-name="code" type="String" />
+		<column name="nameEn" db-name="name_en" type="String" />
+		<column name="nameAr" db-name="name_ar" type="String" />
+
+		<finder name="Code" return-type="Collection">
+			<finder-column name="code" comparator="LIKE"
+				case-sensitive="false" />
+		</finder>
+
+		<finder name="NameEn" return-type="EcMemberRequestStatus">
+			<finder-column name="nameEn" />
+		</finder>
+	</entity>
+	<entity local-service="true" name="FacultyIncentive"
+		table="faculty_incentive" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="FacultyIncentiveId"
+			db-name="faculty_incentive_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="roleId" db-name="role_id" type="long" />
+		<column name="amountInOMR" db-name="amount_in_omr" type="long" />
+		<column name="applicableForm" db-name="applicable_form"
+			type="Date" />
+
+		<finder name="RoleId" return-type="FacultyIncentive">
+			<finder-column name="roleId" />
+		</finder>
+	</entity>
+
+	<!-- trainee_admission_details_rel -->
+	<entity local-service="true" name="TraineeAdmissionDetailsRel"
+		table="trainee_admission_details_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeAdmissionDetailsRelId"
+			db-name="trainee_admission_details_rel_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+		<column name="admissionYear" db-name="admission_year"
+			type="String" />
+		<column name="omsbNumber" db-name="omsb_number" type="String" />
+		<column name="traineeAddress" db-name="trainee_address"
+			type="String" localized="true" />
+
+		<!-- Finder columns -->
+		<finder name="ProgramDurationId" return-type="Collection">
+			<finder-column name="programDurationId" />
+		</finder>
+
+		<finder name="TraineeId"
+			return-type="TraineeAdmissionDetailsRel">
+			<finder-column name="traineeId" />
+		</finder>
+
+	</entity>
+
+	<!-- trainee_cohort_details -->
+	<entity local-service="true" name="TraineeCohortDetails"
+		table="trainee_cohort_details" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeCohortDetailsId"
+			db-name="trainee_cohort_details_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeAdmissionDetailsRelId"
+			db-name="trainee_admission_details_rel_id" type="long" />
+		<column name="cohortYear" db-name="cohort_year" type="String" />
+		<column name="isCurrentCohort" db-name="is_current_cohort"
+			type="Boolean" />
+		<column name="traineeLevelId" db-name="trainee_level_id"
+			type="long" />
+		<column name="isCurrentTraineeLevel"
+			db-name="is_current_trainee_level" type="Boolean" />
+
+		<finder
+			name="TraineeAdmissionDetailsRelIdAndCohortYearAndTraineeLevelId"
+			return-type="Collection">
+			<finder-column name="traineeAdmissionDetailsRelId" />
+			<finder-column name="cohortYear" />
+			<finder-column name="traineeLevelId" />
+		</finder>
+
+		<finder
+			name="TraineeAdmissionDetailsRelIdAndIsCurrentTraineeLevel"
+			return-type="TraineeCohortDetails">
+			<finder-column name="traineeAdmissionDetailsRelId" />
+			<finder-column name="isCurrentTraineeLevel" />
+		</finder>
+		<finder name="TraineeAdmissionDetailsRelId"
+			return-type="Collection">
+			<finder-column name="traineeAdmissionDetailsRelId" />
+		</finder>
+	</entity>
+
+	<!-- blocks_metadata_details_rel -->
+	<entity local-service="true" name="BlocksMetadataDetailsRel"
+		table="blocks_metadata_details_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="blocksMetadataDetailsRelId"
+			db-name="blocks_metadata_details_rel_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="progDurationTlBlocksLtId"
+			db-name="progduration_tl_blocks_lt_id" type="long" />
+		<column name="blockNo" db-name="block_no" type="String" />
+		<column name="blockStartDate" db-name="block_start_date"
+			type="Date" />
+		<column name="blockEndDate" db-name="block_end_date"
+			type="Date" />
+
+		<finder name="ProgDurationTlBlocksLtId"
+			return-type="Collection">
+			<finder-column name="progDurationTlBlocksLtId" />
+		</finder>
+
+		<finder name="ProgDurationTlBlocksLtIdAndBlockStartDate"
+			return-type="BlocksMetadataDetailsRel">
+			<finder-column name="progDurationTlBlocksLtId" />
+			<finder-column name="blockStartDate" />
+		</finder>
+
+	</entity>
+
+	<!-- trainee_rotation_ts_block_details_rel -->
+	<entity local-service="true"
+		name="TraineeRotationTsBlockDetailsRel"
+		table="trainee_rotation_ts_block_details_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeRotationTsBlockDetailsRelId"
+			db-name="trainee_rotation_ts_block_details_rel_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="blocksMetadataDetailsRelId"
+			db-name="blocks_metadata_details_rel_id" type="long" />
+		<column name="progDurationRotationTsRelId"
+			db-name="progduration_rotation_ts_rel_id" type="long" />
+		<column name="traineeCohortDetailsId"
+			db-name="trainee_cohort_details_id" type="long" />
+		<column name="rotationStatus" db-name="rotation_status"
+			type="String" />
+		<column name="status" db-name="status" type="String" />
+
+		<!-- Finder -->
+		<finder return-type="Collection"
+			name="BlocksMetadataDetailsRelId">
+			<finder-column name="blocksMetadataDetailsRelId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="TraineeId">
+			<finder-column name="traineeId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection"
+			name="ProgDurationRotationTsRelId">
+			<finder-column name="progDurationRotationTsRelId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="TraineeIdAndStatus">
+			<finder-column name="traineeId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+
+		<finder return-type="TraineeRotationTsBlockDetailsRel"
+			name="TraineeIdAndBlocksMetadataDetailsRelId">
+			<finder-column name="traineeId"></finder-column>
+			<finder-column name="blocksMetadataDetailsRelId"></finder-column>
+		</finder>
+	</entity>
+
+	<!-- faculty_rotation_ts_block_details_rel -->
+	<entity local-service="true"
+		name="FacultyRotationTsBlockDetailsRel"
+		table="faculty_rotation_ts_block_details_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="facultyRotationTsBlockDetailsRelId"
+			db-name="faculty_rotation_ts_block_details_rel_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="facultyId" db-name="faculty_id" type="long" />
+		<column name="blocksMetadataDetailsRelId"
+			db-name="blocks_metadata_details_rel_id" type="long" />
+		<column name="progDurationRotationTsRelId"
+			db-name="progduration_rotation_ts_rel_id" type="long" />
+		<column name="status" db-name="status" type="String" />
+
+		<!-- Finder -->
+		<finder return-type="Collection" name="FacultyId">
+			<finder-column name="facultyId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection"
+			name="ProgDurationRotationTsRelId">
+			<finder-column name="progDurationRotationTsRelId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="FacultyIdAndStatus">
+			<finder-column name="facultyId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+
+		<finder return-type="Collection"
+			name="BlocksMetadataDetailsRelIdAndProgDurationRotationTsRelId">
+			<finder-column name="blocksMetadataDetailsRelId"></finder-column>
+			<finder-column name="progDurationRotationTsRelId"></finder-column>
+		</finder>
+	</entity>
+
+	<entity local-service="true"
+		name="ProceduregroupProgdurationRel"
+		table="proceduregroup_progduration_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+		<column name="pgPdRelId" db-name="pg_pd_rel_id" primary="true"
+			type="long" />
+		<column name="procedureGroupMasterId"
+			db-name="procedure_group_master_id" type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Finder -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="ProcedureGroupMasterId">
+			<finder-column name="procedureGroupMasterId"></finder-column>
+		</finder>
+
+		<finder return-type="ProceduregroupProgdurationRel"
+			name="ProgramDurationIdAndProcedureGroupMasterId">
+			<finder-column name="programDurationId"></finder-column>
+			<finder-column name="procedureGroupMasterId"></finder-column>
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="ProcedurePgProgdurationRel"
+		table="procedure_pg_progduration_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+		<column name="procedurePgPdRelId"
+			db-name="procedure_pg_pd_rel_id" primary="true" type="long" />
+		<column name="procedureGroupMasterId"
+			db-name="procedure_group_master_id" type="long" />
+		<column name="procedureMasterId" db-name="procedure_master_id"
+			type="long" />
+		<column name="programDurationId" db-name="program_duration_id"
+			type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Finder -->
+		<finder return-type="Collection" name="ProgramDurationId">
+			<finder-column name="programDurationId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="ProcedureGroupMasterId">
+			<finder-column name="procedureGroupMasterId"></finder-column>
+		</finder>
+
+		<finder return-type="Collection" name="ProcedureMasterId">
+			<finder-column name="procedureMasterId"></finder-column>
+		</finder>
+
+		<finder return-type="ProcedurePgProgdurationRel"
+			name="ProgramDurationIdAndProcedureGroupMasterIdAndProcedureMasterId">
+			<finder-column name="programDurationId"></finder-column>
+			<finder-column name="procedureGroupMasterId"></finder-column>
+			<finder-column name="procedureMasterId"></finder-column>
+		</finder>
+
+	</entity>
+
+	<!-- progduration_objectives_rel -->
+	<entity local-service="true" name="ProgdurationObjectivesRel"
+		table="progduration_objectives_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="PDObjectivesId" db-name="pd_objectives_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="progDurationId" db-name="prog_duration_id"
+			type="long" />
+		<column name="objectives" db-name="objectives" type="String"
+			localized="true" />
+		<!-- <column name="objectiveType" db-name="objective_type" type="String"/> -->
+
+	</entity>
+
+	<!-- rotation_objectives_rel -->
+	<entity local-service="true" name="RotationObjectivesRel"
+		table="rotation_objectives_rel" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="rotationObjectivesRelId"
+			db-name="rotation_objectives_rel_id" primary="true" type="long" />
+		<column name="progDurationId" db-name="prog_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="objectives" db-name="objectives" type="String"
+			localized="true" />
+
+
+		<!-- finder -->
+		<finder return-type="Collection"
+			name="RotationIdAndProgramDurationId">
+			<finder-column name="rotationId"></finder-column>
+			<finder-column name="progDurationId"></finder-column>
+		</finder>
+
+	</entity>
+
+	<!-- competencies_master -->
+	<entity local-service="true" name="CompetenciesMaster"
+		table="competencies_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="competenciesMasterId"
+			db-name="competencies_master_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="competencyName" db-name="competency_name"
+			type="String" localized="true" />
+
+	</entity>
+
+	<!-- progduration_competencies_requirements_rel -->
+	<entity local-service="true"
+		name="ProgdurationCompetenciesRequirementsRel"
+		table="progduration_competencies_requirements_rel"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="progdurationCompetenciesRelId"
+			db-name="progduration_competencies_rel_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="progDurationId" db-name="prog_duration_id"
+			type="long" />
+		<column name="competenciesMasterId"
+			db-name="competencies_master_id" type="long" />
+		<column name="requirements" db-name="requirements"
+			type="String" localized="true" />
+		<!-- <column name="competencyType" db-name="competency_type" type="String" 
+			/> -->
+
+	</entity>
+
+	<!-- rotation_competencies_requirements_rel -->
+	<entity local-service="true"
+		name="RotationCompetenciesRequirementsRel"
+		table="rotation_competencies_requirements_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+		<column name="rotationCompetenciesRelId"
+			db-name="rotation_competencies_rel_id" primary="true" type="long" />
+
+		<column name="progDurationId" db-name="prog_duration_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="competenciesMasterId"
+			db-name="competencies_master_id" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="requirements" db-name="requirements"
+			type="String" localized="true" />
+
+		<!-- finder -->
+		<finder return-type="Collection"
+			name="RotationIdAndProgramDurationId">
+			<finder-column name="rotationId"></finder-column>
+			<finder-column name="progDurationId"></finder-column>
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="DutyTypes"
+		table="duty_types_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="dutyTypeId" db-name="duty_type_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="dutyType" db-name="duty_type" type="String"
+			localized="false" />
+		<column name="status" db-name="status" type="String"
+			localized="false" />
+
+		<!-- Finder method -->
+
+		<finder name="DutyType" return-type="DutyTypes">
+			<finder-column name="dutyType" />
+		</finder>
+
+		<finder name="DutyTypeAndStatus" return-type="DutyTypes">
+			<finder-column name="dutyType" />
+			<finder-column name="status" />
+		</finder>
+
+
+
+	</entity>
+
+	<entity local-service="true" name="DutyAssignment"
+		table="duty_assignment_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="dutyAssignmentId" db-name="duty_assignment_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="dutyTypeId" db-name="duty_type_id" type="long" />
+		<column name="assignment" db-name="assignment" type="String"
+			localized="false" />
+		<column name="status" db-name="status" type="String" />
+		<column name="colorCode" db-name="color_code" type="String" />
+
+
+		<finder name="DutyTypeId" return-type="Collection">
+			<finder-column name="dutyTypeId" />
+		</finder>
+		<finder name="DutyTypeIdAndStatus" return-type="Collection">
+			<finder-column name="dutyTypeId" />
+			<finder-column name="status" />
+		</finder>
+
+		<finder name="DutyTypeIdAndAssignment" return-type="Collection">
+			<finder-column name="dutyTypeId" />
+			<finder-column name="assignment" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="ProgramDutyAssignment"
+		table="program_duty_assignment" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programDutyAssignmentId"
+			db-name="program_duty_assignment_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="dutyAssignmentId" db-name="duty_assignment_id"
+			type="long" />
+		<column name="cohortId" db-name="cohort_id" type="long" />
+		<column name="status" db-name="status" type="String" />
+
+		<!-- finder -->
+
+		<finder name="DutyAssignmentId" return-type="Collection">
+			<finder-column name="dutyAssignmentId" />
+		</finder>
+		<finder name="DutyAssignmentIdAndStatus"
+			return-type="Collection">
+			<finder-column name="dutyAssignmentId" />
+			<finder-column name="status" />
+		</finder>
+
+		<finder name="ProgramId" return-type="Collection">
+			<finder-column name="programId" />
+		</finder>
+
+		<finder name="ProgramIdAndCohortId" return-type="Collection">
+			<finder-column name="programId" />
+			<finder-column name="cohortId" />
+		</finder>
+
+		<finder name="ProgramIdDutyAssignmentIdCohortId"
+			return-type="ProgramDutyAssignment">
+			<finder-column name="programId" />
+			<finder-column name="dutyAssignmentId" />
+			<finder-column name="cohortId" />
+		</finder>
+	</entity>
+
+	<entity local-service="true" name="DutyRule"
+		table="duty_rule_master" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="dutyRuleId" db-name="duty_rule_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="rule" db-name="rule" type="String" />
+		<column name="description" db-name="description" type="String" />
+		<column name="parentId" db-name="parent_id" type="long" />
+
+	</entity>
+
+	<entity local-service="true" name="ProgramDutyRule"
+		table="program_duty_rule" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="programDutyRuleId" db-name="program_duty_rule_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="dutyRuleId" db-name="duty_rule_id" type="long" />
+		<column name="cohortId" db-name="cohort_id" type="long" />
+		<column name="status" db-name="status" type="String" />
+
+		<finder name="ProgramIdAndCohortId" return-type="Collection">
+			<finder-column name="programId" />
+			<finder-column name="cohortId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="DutyLog" table="duty_log"
+		remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="dutyLogId" db-name="duty_log_id" primary="true"
+			type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="programDutyAssignmentId"
+			db-name="program_duty_assignment_id" type="long" />
+		<column name="blocksMetadataDetailRelId"
+			db-name="blocks_metadata_details_rel_id" type="long" />
+		<column name="residencyLevelId" db-name="residency_level_id"
+			type="long" />
+		<column name="multiDays" db-name="multi_days" type="Boolean" />
+		<column name="startDate" db-name="start_date" type="Date" />
+		<column name="endDate" db-name="end_date" type="Date" />
+
+		<!-- Finder -->
+		<finder name="TraineeIdAndStartDate" return-type="DutyLog">
+			<finder-column name="traineeId" />
+			<finder-column name="startDate" />
+		</finder>
+
+		<finder name="TranieeIdAndBlocksMetadataDetailRelId"
+			return-type="Collection">
+			<finder-column name="traineeId" />
+			<finder-column name="blocksMetadataDetailRelId" />
+		</finder>
+
+		<finder name="TranieeIdAndProgramDutyAssignmentId"
+			return-type="Collection">
+			<finder-column name="traineeId" />
+			<finder-column name="programDutyAssignmentId" />
+		</finder>
+
+
+		<finder name="BlocksMetadataDetailRelId"
+			return-type="Collection">
+			<finder-column name="blocksMetadataDetailRelId" />
+		</finder>
+
+		<finder name="ProgramDutyAssignmentId" return-type="Collection">
+			<finder-column name="programDutyAssignmentId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="DutyLogViolation"
+		table="duty_log_violation" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ViolationId" db-name="violation_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other Fields -->
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="programMasterId" db-name="program_master_id"
+			type="long" />
+		<column name="residencyLevel" db-name="residency_level"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="trainingSiteId" db-name="training_site_id"
+			type="long" />
+		<column name="blockId" db-name="block_id" type="long" />
+		<column name="blockWeekId" db-name="block_week_id" type="long" />
+		<column name="programDutyRuleId" db-name="program_duty_rule_id"
+			type="long" />
+		<column name="acgme80HoursRule" db-name="acgme_80_hours_rule"
+			type="int" />
+		<column name="acgmeCallRuleOption1"
+			db-name="acgme_call_rule_option1" type="int" />
+		<column name="acgmeCallRuleOption2"
+			db-name="acgme_call_rule_option2" type="int" />
+		<column name="acgmeShortBreakRule"
+			db-name="acgme_Short_Break_Rule" type="int" />
+		<column name="acgme24HoursRule" db-name="acgme_24_hours_rule"
+			type="int" />
+		<column name="acgmeDayOffRule" db-name="acgme_day_off_rule"
+			type="int" />
+		<column type="long" name="dutyLogId" db-name="duty_log_id" />
+
+		<!-- Finder -->
+		<finder name="TraineeId" return-type="DutyLogViolation">
+			<finder-column name="traineeId" />
+		</finder>
+		<finder name="TraineeIdAndBlockId" return-type="Collection">
+			<finder-column name="traineeId" />
+			<finder-column name="blockId" />
+		</finder>
+
+		<finder name="TraineeAndBlockAndProgramAndDutyLogId"
+			return-type="DutyLogViolation">
+			<finder-column name="traineeId" />
+			<finder-column name="blockId" />
+			<finder-column name="programMasterId" />
+			<finder-column name="dutyLogId" />
+		</finder>
+
+		<finder name="DutyLogId" return-type="DutyLogViolation">
+			<finder-column name="dutyLogId" />
+		</finder>
+
+	</entity>
+
+
+	<entity local-service="true" name="TraineeSponsorDetails"
+		table="trainee_sponsor_details" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="traineeSponsorDetailsId"
+			db-name="trainee_sponsor_details_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createdDate" db-name="created_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="traineeId" db-name="trainee_id" type="long" />
+		<column name="programDurationId" db-name="program_duration_Id"
+			type="long" />
+		<column name="sponsor" db-name="sponsor" type="String"
+			localized="true" />
+
+		<!-- Finder -->
+
+		<finder return-type="TraineeSponsorDetails" name="traineeId">
+			<finder-column name="traineeId"></finder-column>
+		</finder>
+	</entity>
+
+
+	<entity local-service="true" name="BlockWeekMetadataDetailsRel"
+		table="block_week_metadata_details_rel" remote-service="true"
+		uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="blockWeekMetadataDetailsRelId"
+			db-name="block_week_metadata_details_rel_id" primary="true"
+			type="long" />
+
+		<!-- Other fields -->
+		<column name="blocksMetadataDetailRelId"
+			db-name="blocks_metadata_details_rel_id" type="long" />
+		<column name="weekNo" db-name="week_no" type="String" />
+		<column name="weekStartDate" db-name="week_start_date"
+			type="Date" />
+		<column name="weekEndDate" db-name="week_end_date" type="Date" />
+
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createdDate" db-name="created_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<finder name="BlocksMetadataDetailRelId"
+			return-type="Collection">
+			<finder-column name="blocksMetadataDetailRelId" />
+		</finder>
+
+	</entity>
+
+	<entity local-service="true" name="QararRequest"
+		table="qarar_request_info" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="qararRequestId" db-name="qarar_request_id"
+			primary="true" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="referenceId" db-name="reference_id" type="long" />
+		<column name="referenceClass" db-name="reference_class"
+			type="String" />
+		<column name="qararType" db-name="qarar_type" type="String" />
+		<column name="docTreeId" db-name="doc_tree_id" type="long" />
+
+		<column name="docURL" db-name="doc_url" type="String" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+		<column name="qararDocId" db-name="qarar_doc_id" type="long" />
+
+		<finder name="DocTreeId" return-type="QararRequest">
+			<finder-column name="docTreeId" />
+		</finder>
+
+	</entity>
+
+
+	<entity local-service="true" name="ViolationUpdateStatus"
+		table="violation_update_status" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="violationUpdateStatusId"
+			db-name="violation_update_status_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createdDate" db-name="created_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="blocksMetadataDetailRelId"
+			db-name="blocks_metadata_details_rel_id" type="long" />
+		<column name="status" db-name="status" type="Boolean" />
+
+		<!-- Finder -->
+
+		<finder name="BlocksMetadataDetailRelId"
+			return-type="ViolationUpdateStatus">
+			<finder-column name="blocksMetadataDetailRelId"></finder-column>
+		</finder>
+	</entity>
+
+	<!-- Faculty Request Status -->
+	<entity local-service="true" name="FacultyRequestStatus"
+		table="faculty_request_status" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="facultyRequestStatusId"
+			db-name="faculty_request_status_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="code" db-name="code" type="String" />
+		<column name="nameEn" db-name="name_en" type="String" />
+		<column name="nameAr" db-name="name_ar" type="String" />
+
+		<finder name="Code" return-type="FacultyRequestStatus">
+			<finder-column name="code" case-sensitive="false" />
+		</finder>
+	</entity>
+
+	<!-- Faculty Type -->
+	<entity local-service="true" name="FacultyType"
+		table="faculty_type" remote-service="true" uuid="false">
+
+		<!-- PK fields -->
+		<column name="facultyTypeId" db-name="faculty_type_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="code" db-name="code" type="String" />
+		<column name="nameEn" db-name="name_en" type="String" />
+		<column name="nameAr" db-name="name_ar" type="String" />
+
+		<finder name="Code" return-type="FacultyType">
+			<finder-column name="code" case-sensitive="false" />
+		</finder>
+
+	</entity>
+
+	<!-- Faculty Request -->
+	<entity local-service="true" name="FacultyRequest"
+		table="faculty_request" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="facultyRequestId" db-name="faculty_request_id"
+			primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+		<column name="programId" db-name="program_id" type="long" />
+		<column name="potentialFacultyId"
+			db-name="potential_faculty_id" type="long" />
+		<column name="potentialFacultyTypeId"
+			db-name="potential_faculty_type_id" type="long" />
+		<column name="lastestFacultyRequestStateId"
+			db-name="lastest_faculty_request_state_id" type="long" />
+		<column name="coveringLetterId" db-name="covering_letter_id"
+			type="long" />
+		<column name="cvId" db-name="cv_id" type="long" />
+		<column name="passportCopyId" db-name="passport_copy_id"
+			type="long" />
+		<column name="notionalIdCopyId" db-name="notional_id_copy_id"
+			type="long" />
+			
+		<!-- Workflow fields -->
+
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
+			
+		<reference package-path="com.liferay.portlet.asset"
+			entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset"
+			entity="AssetLink" />
+
+	</entity>
+
+	<!-- Faculty Request State -->
+	<entity local-service="true" name="FacultyRequestState"
+		table="faculty_request_state" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="facultyRequestStateId"
+			db-name="faculty_request_state_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="createdByRoleId" db-name="created_by_role_id" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="facultyRequestId" db-name="faculty_request_id"
+			type="long" />
+		<column name="facultyRequestStatusId"
+			db-name="faculty_request_status_id" type="long" />
+		<column name="comments" db-name="comments" type="String" />
+
+		<finder name="facultyRequestId" return-type="Collection">
+			<finder-column name="facultyRequestId" />
+		</finder>
+		
+		<finder name="facultyRequestIdAndCreatedBy" return-type="Collection" >
+			<finder-column name="facultyRequestId"/>
+			<finder-column name="createdBy"/>
+		</finder>
+	</entity>
+
+	<!-- Faculty Bank Details -->
+	<entity local-service="true" name="FacultyBankDetails"
+		table="faculty_bank_details" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="facultyBankDetailsId"
+			db-name="faculty_bank_details_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+
+		<!-- Other fields -->
+		<column name="facultyRequestId" db-name="faculty_request_id"
+			type="long" />
+		<column name="bankName" db-name="bank_name" type="String"
+			localized="true" />
+		<column name="accountNo" db-name="account_no" type="String"
+			localized="true" />
+		<column name="bankBranch" db-name="bank_branch" type="String"
+			localized="true" />
+
+		<finder name="facultyRequestId"
+			return-type="FacultyBankDetails">
+			<finder-column name="facultyRequestId" />
+		</finder>
+
+	</entity>
+
+	<!-- Faculty Request Rotations -->
+	<entity local-service="true" name="FacultyRequestRotations"
+		table="faculty_request_rotations" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="facultyRequestRotationsId"
+			db-name="faculty_request_rotations_id" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" db-name="group_id" type="long" />
+
+		<!-- Audit fields -->
+		<column name="companyId" db-name="company_id" type="long" />
+		<column name="createdBy" db-name="created_by" type="long" />
+		<column name="createDate" db-name="create_date" type="Date" />
+		<column name="modifiedDate" db-name="modified_date" type="Date" />
+		<column name="modifiedBy" db-name="modified_by" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="facultyRequestId" db-name="faculty_request_id"
+			type="long" />
+		<column name="trainingSiteId" db-name="training_site_id"
+			type="long" />
+		<column name="rotationId" db-name="rotation_id" type="long" />
+		<column name="isActive" db-name="is_active" type="boolean" />
+
+		<finder name="facultyRequestIdAndIsActive"
+			return-type="FacultyRequestRotations">
+			<finder-column name="facultyRequestId" />
+			<finder-column name="isActive" />
+		</finder>
+
+	</entity>
+
+</service-builder>

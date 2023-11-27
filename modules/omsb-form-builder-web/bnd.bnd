@@ -1,0 +1,10 @@
+Bundle-Name: omsb-form-builder-web
+Bundle-SymbolicName: gov.omsb.form.builder.web
+Bundle-Version: 1.0.0
+Export-Package: org.omsb.dynamic.form.builder.constants
+Import-Package:\
+!com.sun.jna*,\
+!org.osgi.service.jdbc*,\
+!waffle.windows.auth*,\
+*
+Import-Package: *;resolution:="optional"

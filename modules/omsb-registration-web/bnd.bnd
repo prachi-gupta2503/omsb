@@ -1,0 +1,4 @@
+Bundle-Name: omsb-registration-web
+Bundle-SymbolicName: gov.omsb.registration.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.registration.web.constants

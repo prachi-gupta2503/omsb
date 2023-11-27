@@ -1,0 +1,294 @@
+<portlet:resourceURL id="<%=MVCCommands.VERIFY_CIVILID_PASSPORT%>" var="verifyCivilPassportURL" />
+<h3 class="reg-form-title w-auto"><liferay-ui:message key="personal-details" /></h3>
+							<p id="errorContainer-user-exist" class="error-container"></p>
+							<div class="row">
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="username" /></label>
+										<input type="text" name="<portlet:namespace/>userName" id="userName" value="${user_.screenName}" class="form-control" readonly>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+								  <c:if test="${not empty person.civilId ||  empty person}" >
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="omani-civil-id-or-omani-resident-id" /></label>
+										<input type="text" name="<portlet:namespace/>civilId" id="civilId" value="${person.civilId}" class="form-control" ${not empty person.getId()?'readonly':''} onblur='validate();'>
+									</div>
+								  </c:if>
+								  <p id="errorContainer-civilId" class="error-container"></p>								
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="date-of-birth" /></label>
+										<input type="text" name="<portlet:namespace/>dateOfBirth" id="dateOfBirth" value="${person.dateOfBirth}" placeholder="DD-MM-YYYY" class="form-control  ${not empty person.getId()?'':'datePicker'}" ${not empty person.getId()?'readonly':''} onkeyup='validate();'>
+									</div><p id="errorContainer-dateOfBirth" class="error-container"></p>
+								</div>
+								<c:if test="${not empty person.civilId ||  empty person}" >
+								<div class="col-lg-12 col-md-12">
+									<div class="row">
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group">
+												<label class="control-label required"><liferay-ui:message key="civil-card-front-photo" /></label>
+												<div class="custom-file">
+													<input type="file" name="<portlet:namespace/>civilCardFrontPhoto" id="civilCardFrontPhoto" class="form-control custom-file-input" value="" onchange="validateFile(this.id,'errorContainer-civilCardFrontPhoto','photo','<liferay-ui:message key="please-select-image" />')">
+													<label class="custom-file-label" for="civilCardFrontPhoto">${civilCardFrontPhoto} </label>
+												</div>
+											</div>
+											<p id="errorContainer-civilCardFrontPhoto" class="error-container"></p>
+										</div>
+										<div class="col-lg-1 col-md-1">
+											<div class="form-group">
+												<label class="control-label"></label>
+												<c:if test="${not empty civilCardFrontPhotoURL}">
+													<a href="${civilCardFrontPhotoURL}" class="btn view_btn text-danger" target="_blank">
+													<img src="<%=themeDisplay.getPathThemeImages()%>/svg/view_icon.svg" alt=""><liferay-ui:message key="view" /></a>
+												</c:if>
+											</div>
+										</div>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group">
+												<label class="control-label required"><liferay-ui:message key="civil-card-back-photo" /></label>
+												<div class="custom-file">
+													<input type="file" name="<portlet:namespace/>civilCardBackPhoto" id="civilCardBackPhoto" class="form-control custom-file-input" value="${civilCardBackPhoto}" onchange="validateFile(this.id,'errorContainer-civilCardBackPhoto','photo','<liferay-ui:message key="please-select-image" />')">
+													<label class="custom-file-label" for="civilCardBackPhoto">${civilCardBackPhoto} </label>
+												</div>
+											</div>
+											<p id="errorContainer-civilCardBackPhoto" class="error-container"></p>
+										</div>
+										<div class="col-lg-1 col-md-1">
+											<div class="form-group">
+												<label class="control-label"></label>
+												<c:if test="${not empty civilCardBackPhotoURL}">
+													<a href="${civilCardBackPhotoURL}" class="btn view_btn text-danger" target="_blank"><img src="<%=themeDisplay.getPathThemeImages()%>/svg/view_icon.svg" alt=""> <liferay-ui:message key="view" /></a>
+												</c:if>
+											</div>
+										</div>
+									</div>
+								</div>
+								</c:if>
+								<div class="col-lg-4 col-md-6 ">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="passport-no" /></label>
+										<input type="text" name="<portlet:namespace/>passportNumber" id="passportNumber" value="${person.passportNumber}" class="form-control" ${not empty person.passportNumber && empty person.civilId?'readonly':''} onkeyup="showPassportPhoto(this.id)" onblur='validate();'>
+									</div>
+									<p id="errorContainer-passportNumber" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6 ">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="country-of-issue" /></label>
+										<select name="<portlet:namespace/>countryOfIssue" id="countryOfIssue" class="form-control" onchange="validateField(this.id,'errorContainer-countryOfIssue','<liferay-ui:message key="please-select-country-of-issue" />')"  >
+											<option value=""><liferay-ui:message key="select" /></option>
+											<c:forEach var="country" items="${countries}">
+												<option value="${country.countryId}" <c:if test="${country.countryId == personalDetails.passportIssuingCountryId}">selected="selected"</c:if> >
+													<liferay-ui:message key="${country.getName(themeDisplay.getLocale())}" />
+												</option>
+											</c:forEach>
+										</select>
+									</div>
+									<p id="errorContainer-countryOfIssue" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="date-of-passport-exipry" /></label>
+										<input type="text" name="<portlet:namespace/>passportExpiryDate" id="passportExpiryDate" onkeyup="validateField(this.id,'errorContainer-passportExpiryDate','<liferay-ui:message key="please-enter-passport-expiry-date" />')"value="${personalDetails.passportExpiryDate}" placeholder="<liferay-ui:message key="DD-MM-YYYY" />" class="form-control datePicker">
+									</div>
+									<p id="errorContainer-passportExpiryDate" class="error-container"></p>								
+								</div>									
+								<div class="col-lg-11 col-md-11 ${empty person.civilId && not empty person.passportNumber? '' : 'd-none'}" id="passportPhotoDiv">
+									<div class="row">
+										<div class="col-lg-10 col-md-10">
+											<div class="form-group">
+												<label class="control-label required" id="passportphotolabel"><liferay-ui:message key="passport-photo" /></label>
+												<div class="custom-file">
+													<input type="file" name="<portlet:namespace/>passportPhoto" id="passportPhoto" class="form-control custom-file-input" value="${passportPhoto}" onchange="validateFile(this.id,'errorContainer-passportPhoto','photo','<liferay-ui:message key="please-select-image" />')">
+													<label class="custom-file-label" for="passportPhoto"> ${passportPhoto} </label>
+												</div>
+											</div>
+											<p id="errorContainer-passportPhoto" class="error-container"></p>
+										</div>
+										<div class="col-lg-1 col-md-1">
+											<div class="form-group">
+												<label class="control-label"></label>
+												<c:if test="${not empty passportPhotoURL}">
+													<a href="${passportPhotoURL}" class="btn view_btn text-danger" target="_blank"><img src="<%=themeDisplay.getPathThemeImages()%>/svg/view_icon.svg" alt=""><liferay-ui:message key="view" /></a>
+												</c:if>
+											</div>
+										</div>
+									</div>
+									</div>							
+								<c:choose>
+								<c:when test="${not empty person.civilId || empty person.getId()}">
+										<div class="col-lg-6 col-md-6" id="civilid-full-name">
+											<div class="form-group">
+												<label class="control-label required"><liferay-ui:message key="full-name" /></label>
+												<input type="text" name="<portlet:namespace/>fullName" id="fullName" class="form-control" value="${user_.fullName}" readonly>
+											</div>
+											<p id="errorContainer-fullName" class="error-container"></p>
+										</div>
+										<div class="col-lg-6 col-md-6" id="civilid-full-name-ar">
+											<div class="form-group">
+												<label class="control-label required"><liferay-ui:message key="full-name-ar" /></label>
+												<input type="text" name="<portlet:namespace/>fullNameAr" id="fullNameAr" class="form-control" value="${personalDetails.fullNameAr}" ${empty personalDetails.fullNameAr?'':'readonly'}>
+											</div>
+											<p id="errorContainer-fullName-ar" class="error-container"></p>
+										</div>
+									</c:when>	
+								    <c:otherwise>
+								     <div class="col-lg-6 col-md-6" id="civilid-first-div">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="first-name" /></label>
+										<input type="text" onkeyup="validateField(this.id,'errorContainer-firstName','<liferay-ui:message key="please-enter-firstname" />')"name="<portlet:namespace/>firstName" id="firstName" value="${user_.firstName}" class="form-control">
+									</div>
+									<p id="errorContainer-firstName" class="error-container"></p>
+								</div>
+								<div class="col-lg-6 col-md-6" id="civilid-family-div">
+									<div class="form-group">
+										<label class="control-label"><liferay-ui:message key="family-name" /></label>
+										<input type="text" name="<portlet:namespace/>lastName" id="lastName" value="${user_.lastName}" class="form-control">
+									</div>
+									<p id="errorContainer-lastName" class="error-container"></p>
+								</div>
+								    </c:otherwise>
+								</c:choose>								
+								<div class="col-lg-6 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="email" /></label>
+										<div class="omsb-ilo-area">
+											<input type="text" name="<portlet:namespace/>emailAddress" id="emailAddress" value="${user_.getEmailAddress()}" class="form-control" ${user_.emailAddressVerified?'readOnly':''}>
+											<c:if test="${!user_.emailAddressVerified}">	
+												<span class="" ><button type="button" class="btn label-btn input-over-button" name="sendEmailOTP" onclick="sendVerificationOTP('emailAddress')" title="<liferay-ui:message key="send-otp" />" id="sendEmailOTP" ><liferay-ui:message key="send-otp" /></button></span>
+											</c:if>
+										</div>
+									</div>
+									<p id="errorContainer-emailAddress" class="error-container"></p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="row">
+										<div class="col-lg-8 col-md-8">
+											<div class="form-group ${user_.emailAddressVerified?'hide':''}">
+												<label class="control-label"><liferay-ui:message key="email-otp" /></label>
+												<input type="text" name="emailAddressOTP" id="emailAddressOTP" placeholder="<liferay-ui:message key="_ _ _ _ _ _" />" class="form-control" onKeyPress="if(this.value.length==6) return false;return onlyNumberKey(event);" onpaste="return false;" ondrop="return false;" ${user_.emailAddressVerified?'readOnly':''} >
+											</div>
+											<p id="errorContainer-emailAddressOTP" class="error-container"></p>
+										</div>
+										<div class="col-lg-4 col-md-4">
+											<c:if test="${!user_.emailAddressVerified}">
+												<div class="form-group">
+													<label></label>
+													<button type="button" class="btn omsb-bc-red-button" name="verifyEmailAddressOTP" title="<liferay-ui:message key="verify-email" />" id="verifyEmailAddressOTP" name="verifyEmailOTP" onclick="verifyOTP('emailAddress')" title="<liferay-ui:message key="verify-email" />" id="verifyEmailOTP" ${user_.emailAddressVerified?'disabled':''}><liferay-ui:message key="verify-email" /></button>
+												</div>
+											</c:if>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="mobile" /></label>
+										<div class="omsb-ilo-area">
+											<input type="text" name="<portlet:namespace/>mobileNumber" id="mobileNumber" value="${personalDetails.mobileNumber}"
+												class="form-control" ${personalDetails.mobileNumberVerified?'readOnly':''} onKeyPress="return isAllowedMobileDigits(this.value);return onlyNumberKey(event);" onpaste="return false;" ondrop="return false;" >
+											<c:if test="${!personalDetails.mobileNumberVerified}">
+												<span class=""><button type="button" class="btn label-btn input-over-button" onclick="sendVerificationOTP('mobileNumber')" id="sendMobileOTP"><liferay-ui:message key="send-otp" /></button></span>
+											</c:if>
+										</div>
+									</div>
+									<p id="errorContainer-mobileNumber" class="error-container"></p>
+								</div>
+								<div class="col-lg-6 col-md-6 " id="mobile-otp-div">
+									<div class="row">
+										<div class="col-lg-8 col-md-8">
+											<div class="form-group ${personalDetails.mobileNumberVerified?'hide':''}">
+												<label class="control-label"><liferay-ui:message key="mobile-otp" /></label>
+												<input type="text" name="mobileNumberOTP" id="mobileNumberOTP" placeholder="<liferay-ui:message key="_ _ _ _ _ _" />"
+													class="form-control" onKeyPress="if(this.value.length==6) return false;return onlyNumberKey(event);" onpaste="return false;" ondrop="return false;" ${personalDetails.mobileNumberVerified?'readOnly':''} >
+											</div>
+											<p id="errorContainer-mobileNumberOTP" class="error-container"></p>
+										</div>
+										<div class="col-lg-4 col-md-3">
+											<c:if test="${!personalDetails.mobileNumberVerified}">
+												<div class="form-group">
+													<button type="button" class="btn omsb-bc-red-button" name="verifyMobileNumberOTP" onclick="verifyOTP('mobileNumber')" title="<liferay-ui:message key="verify-mobile" />" id="verifyMobileNumberOTP" ${personalDetails.mobileNumberVerified?'disabled':''}><liferay-ui:message key="verify-mobile" /></button>
+												</div>
+											</c:if>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="gender" /></label>
+										<select name="<portlet:namespace/>gender" id="gender" class="form-control" onchange="validateField(this.id,'errorContainer-gender','<liferay-ui:message key="please-select-gender" />')">
+											<option value=""><liferay-ui:message key="select" /></option>
+											<c:forEach var="gender" items="${genderList}">
+												<option value="${gender.genderMasterId}" <c:if test="${gender.genderMasterId == personalDetails.genderId}">selected="selected"</c:if> > ${gender.genderName}
+												</option>
+											</c:forEach>
+										</select>
+									</div>
+									<p id="errorContainer-gender" class="error-container"></p>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="country-of-nationality" /></label>
+										<select name="<portlet:namespace/>nationality" id="nationality" class="form-control" onchange="validateField(this.id,'errorContainer-nationality','<liferay-ui:message key="please-select-nationality" />')">
+											<option value=""><liferay-ui:message key="select" /></option>
+											<c:forEach var="country" items="${countries}">
+												<option value="${country.countryId}" <c:if test="${country.countryId == personalDetails.nationalityCountryId || country.countryId == countryId}">selected="selected"</c:if> ><liferay-ui:message key="${country.getName(themeDisplay.getLocale())}" />
+												</option>
+											</c:forEach>
+										</select>
+									</div>
+									<p id="errorContainer-nationality" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="profession" /></label>
+										<select name="<portlet:namespace/>profession" id="profession" class="form-control" onchange="showOtherField(this.id,'errorContainer-profession','<liferay-ui:message key="please-select-profession" />');setPrimarySpecialty()">
+											<option value=""><liferay-ui:message key="select" /></option>
+											<c:forEach var="profession" items="${professionList}">
+												<option value="${profession.listTypeEntryId}" <c:if test="${profession.listTypeEntryId == personalDetails.profession}">selected="selected"</c:if> >${profession.getName(themeDisplay.getLocale())}
+												</option>
+											</c:forEach>
+										</select>
+									</div>
+									<p id="errorContainer-profession" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6 d-none" id="professionOtherDiv">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="profession-other" /></label>
+										<input  type="text" name="<portlet:namespace/>professionOther" id="professionOther" class="form-control" value="${professionOther}" >
+									</div>
+									<p id="errorContainer-profession" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="primary-speciality" /></label>
+										<select name="<portlet:namespace/>primarySpeciality" id="primarySpeciality" class="form-control" onchange="showOtherField(this.id,'errorContainer-primarySpeciality','<liferay-ui:message key="please-select-primary-speciality" />');setSecondarySpeciality()">
+											<option value=""><liferay-ui:message key="select" /></option>
+										</select>
+									</div>
+									<p id="errorContainer-primarySpeciality" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6 d-none" id="primarySpecialityOtherDiv">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="primarySpeciality-other" /></label>
+										<input type="text" name="<portlet:namespace/>primarySpecialityOther" id="primarySpecialityOther" class="form-control" value="${primarySpecialityOther}" <%-- onchange="validateFile(this.id,'errorContainer-photo','<liferay-ui:message key="please-select-image" />')" --%>>
+									</div>
+									<p id="errorContainer-profession" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="secondary-speciality" /></label>
+										<select name="<portlet:namespace/>secondarySpeciality" id="secondarySpeciality" class="form-control" onchange="showOtherField(this.id,'errorContainer-secondarySpeciality','<liferay-ui:message key="please-select-secondary-speciality" />')">
+											<option value=""><liferay-ui:message key="select" /></option>
+										</select>
+									</div>
+									<p id="errorContainer-secondarySpeciality" class="error-container"></p>
+								</div>
+								<div class="col-lg-4 col-md-6 d-none" id="secondarySpecialityOtherDiv">
+									<div class="form-group">
+										<label class="control-label required"><liferay-ui:message key="secondarySpeciality-other" /></label>
+										<input class="d-none" type="hidden" name="<portlet:namespace/>secondarySpecialityOther" id="secondarySpecialityOther" class="form-control " value="${secondarySpecialityOther}" <%-- onchange="validateFile(this.id,'errorContainer-photo','<liferay-ui:message key="please-select-image" />')" --%>>
+									</div>
+									<p id="errorContainer-profession" class="error-container"></p>
+								</div>
+							</div>

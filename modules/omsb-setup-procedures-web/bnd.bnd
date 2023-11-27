@@ -1,0 +1,7 @@
+Bundle-Name: omsb-setup-procedures-web
+Bundle-SymbolicName: gov.omsb.setup.procedures.web
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.setup.procedures.web.constants,\
+	gov.omsb.setup.procedures.web.mvcactions,\
+	gov.omsb.setup.procedures.web.portlet.util

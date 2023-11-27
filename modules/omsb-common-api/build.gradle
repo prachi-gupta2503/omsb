@@ -1,0 +1,6 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	implementation group: 'javax.mail', name: 'mail', version: '1.4.1'	
+	
+	compileOnly project(":modules:omsb-email-configuration")
+}

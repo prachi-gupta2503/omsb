@@ -1,0 +1,6 @@
+Bundle-Name: omsb-web-notification-configuration
+Bundle-SymbolicName: omsb.web.notification.configuration
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.web.notification.configuration,\
+	gov.omsb.web.notification.configuration.action

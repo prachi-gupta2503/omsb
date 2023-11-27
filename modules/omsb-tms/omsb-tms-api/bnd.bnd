@@ -1,0 +1,13 @@
+Bundle-Name: omsb-tms-api
+Bundle-SymbolicName: gov.omsb.tms.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	gov.omsb.tms.exception,\
+	gov.omsb.tms.model,\
+	gov.omsb.tms.service,\
+	gov.omsb.tms.service.persistence,\
+	gov.omsb.tms.common.constants,\
+	gov.omsb.tms.custom.dto,\
+	gov.omsb.tms.common.util
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../omsb-tms-service/service.xml

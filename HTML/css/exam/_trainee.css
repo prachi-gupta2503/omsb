@@ -1,0 +1,31 @@
+.omsb-view-result-box{display: inline-block; vertical-align: top; min-height: 100%; background: #fff; padding: 24px; border-radius: 10px;width: 100%;}
+.omsb-view-result-box .status-code{float: left; width: 100%; margin-bottom: 4px;}
+.omsb-view-result-box h6{display: inline-block; width: 100%; vertical-align: top; font-size: 20px; font-weight: 700; line-height: 30px; letter-spacing: 0em; text-align: left; margin-bottom: 10px;}
+.omsb-view-result-box .form-group-dtls label{font-size: 14px; font-weight: 400; line-height: 15px; letter-spacing: 0em; text-align: left; margin-bottom: 2px;}
+.omsb-view-result-box .form-group-dtls .value{font-size: 16px; font-weight: 700; line-height: 21px; letter-spacing: 0em; text-align: left; color: #222931;}
+.omsb-view-result-box .form-group-dtls{display: flex; flex-direction: column; margin-bottom: 15px;}
+.omsb-view-result-box .buttons-wrap .btn{padding: 11px !important; width: 100%; justify-content: center; align-items: center;}
+.omsb-view-result-box .buttons-wrap .row{margin: 0 -6px;}
+.omsb-view-result-box .buttons-wrap .row .col-lg-6{padding: 0 6px;}
+.omsb-view-result-box .buttons-wrap{display: inline-block; width: 100%; vertical-align: top; padding-top: 10px; border-top: 1px solid #EEEEEE}
+.omsb-view-result-list .row{margin: 0 -6px;}
+.omsb-view-result-list .row .mb-cst{padding: 0 6px; margin-bottom: 12px;}
+.omsb-view-result-box .buttons-wrap .btn:disabled{background:#A0A0A0; border: #A0A0A0; color: #ffffff !important;}
+.omsb-view-result-box h6 + .row .col-lg-6{-ms-flex: 0 0 50%; flex: 0 0 50%; max-width: 50%; padding: 0 6px;} 
+.omsb-view-result-box h6 + .row .col-md-12{padding: 0 6px;}
+.available-parameter {display: flex;justify-content: space-between;align-items: center;}
+.available-parameter label {width: auto;}
+.available-parameter a {font-size: 14px;color: #DC3545;font-weight: 700;}
+#editrule .omsb-card {margin-bottom: 20px !important;}
+.available-parameter-main .elective_rotation_selected_list_items, .available-parameter-main .elective_rotation_list_wrap {background: #fff;}
+
+.elective_rotation_selected_list_items .slist li:last-child {border: 0;}
+.elective_rotation_selected_list_items .slist li {padding: 10px 0;margin: 0;border: 0;background: none;border-bottom: 1px solid #D9D9D9;font-size: 18px;font-weight: 400;line-height: 24px;letter-spacing: 0em;text-align: left;color: #1C1C1C;position: relative;}
+.available-parameter-main .slist {list-style: none;padding: 0;margin: 0;}
+.omsb-card-graybg-title .pagetitle {padding-bottom: 16px; font-weight: 800; font-size: 25px; line-height: 150%; color: #0D1B1F;}
+.available-parameter-main .error-container {color: #DC3545;}
+/* common css for screen size < 767  */
+@media only screen and (max-width: 768px) {
+.omsb-view-result-box .buttons-wrap .btn{margin-bottom: 10px;}
+.omsb-view-result-box{padding-bottom: 14px;}
+}

@@ -1,0 +1,520 @@
+.omsb-brand-logo img {height: 67px; width: auto;}
+.omsb-no-records {height: 300px; width: 100%;}
+.omsb-page-top-info .pagetitle:first-letter,.no-capital:first-letter,.form-group label:first-letter {text-transform: capitalize !important;}
+.no-capital {text-transform: lowercase !important;}
+img[data-toggle="tooltip"] {
+  height: 12px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+.navbar-underline.navbar-expand-md .navbar-nav .nav-link.active:after, 
+.yui3-skin-sam .calendar-portlet-mini-calendar .yui3-calendar-day.lfr-current-day
+{
+  background-color: #fa981c !important;
+}
+ .yui3-skin-sam .calendar-portlet-mini-calendar .yui3-calendar-weekday, 
+ .scheduler-view-agenda-container .scheduler-view-agenda-header .scheduler-view-agenda-header-extra,
+ .scheduler-view-agenda-info-container .scheduler-view-agenda-info,
+ .calendar-portlet .scheduler-view-table-data-col-title-today
+ {
+  color: #fa981c !important;
+}
+.calendar-portlet-column-grid .calendar-add-event-btn{
+  background-color: #fa981c;
+  border-color: #fa981c;
+}
+.scheduler-view-day-header-day .scheduler-today-hd {
+  border-bottom: 3px solid #fa981c;
+  color: #fa981c;
+}
+.scheduler-view-table-colgrid-today, 
+.scheduler-view-table-data-col-title-today {
+  border: 1px solid #fa981c;
+}
+.richText .richText-editor{ height: 150px; }
+.red-underline-link {
+  color: #DC3545;
+  text-decoration: underline !important;
+}
+.red-underline-link:hover { color: #c02121; }
+.info-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+.tabview button {
+  border: 0px;
+  background: transparent;
+  color: #666666;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+}
+.nav.tabview {
+  border-bottom: 1px solid #EEEEEE;
+  justify-content: space-evenly;
+}
+.nav-pills.tabview .nav-link.active,
+.nav-pills.tabview .show>.nav-link {
+  color: #FA981C;
+  background-color: transparent;
+  border-radius: 0px;
+  border-bottom: 2px solid #FA981C;
+  margin-bottom: -1px;
+}
+.nav-pills.tabview .nav-link {
+  border-radius: 0px;
+}
+.header-bottom .part-two {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin: 0 70px;
+}
+.header-bottom .part-one {
+  display: flex;
+  align-items: center;
+}
+.header-bottom .part-one div,
+.header-bottom .part-two div {
+  padding: 0 5px;
+}
+.header-bottom .part-one .hamburger {
+  margin: 0 30px;
+}
+.header-top .part-one,
+.header-top .part-two,
+.header-bottom .part-two {
+  margin: 0 70px;
+}
+.header-bottom .logo-text-arabic,
+.header-bottom .logo-text-english {
+  color: #fff;
+  margin: 0px;
+  font-size: 12px;
+}
+img.sup-not {
+  position: absolute;
+  height: 14px;
+  margin: 5px -4px;
+}
+.login-box {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-box {
+  height: auto;
+  width: 80%;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #000;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.login-forms .omsb-nav-pills.nav-pills .nav-item {
+    padding: 0 5px;
+}
+.logo-img {
+  height: 180px;
+
+}
+.logo-img img{
+  height: 100%;
+}
+.pki-card-box img {
+  margin: 0 auto;
+}
+.login-box .site-title{
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 25px; 
+}
+.login-box .iti {
+  width: 100%;
+}
+.login-forms { width: 80%; }
+.login-forms .login-wup .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.login-wup .omsb-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: space-between ;
+  width: 100%;
+}
+.login-wup .omsb-buttons a,
+.login-wup .omsb-buttons button {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+}
+.modal-dialog.information-box {
+  max-width: 80%;
+}
+.modal-dialog.information-box .modal-body {
+  width: 90%;
+  margin: 20px auto;
+}
+.modal-dialog.information-box .label-group-header {
+  display: flex;
+  justify-content: space-between;
+}
+.omsb-bc-red-button:hover,
+.omsb-filter-button:hover {
+  background: #DC3545;
+  color: #fff !important;
+}
+.omsb-list-filter .datepicker {
+  background: url('../images/svg/fi-rr-calendar.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 95%;
+  -webkit-appearance: none !important;
+  appearance: none;
+}
+.omsb-list-filter .omsb-input-date::-webkit-inner-spin-button,
+.omsb-list-filter .datepicker::-webkit-inner-spin-button,
+.omsb-list-filter .omsb-input-date::-webkit-outer-spin-button,
+.omsb-list-filter .datepicker::-webkit-outer-spin-button,
+.omsb-list-filter .omsb-input-date::-webkit-calendar-picker-indicator,
+.omsb-list-filter .datepicker::-webkit-calendar-picker-indicator,
+.omsb-list-filter .timePicker::-webkit-calendar-picker-indicator,
+.omsb-list-filter .timepicker::-webkit-calendar-picker-indicator {
+  z-index: 0;
+  display: none;
+  -moz-appearance: none !important;
+  -webkit-appearance: none;
+}
+.omsb-datatables td:has(.omsb-dd-doc),
+.dataTable td:has(.omsb-dd-doc),
+.omsb-tableview td:has(.omsb-dd-doc) {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.omsb-flex-jc {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-body .bottom-btn-wrap {
+  padding: 5px 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-body textarea.form-control {
+  height: auto;
+}
+.modal-body .omsb-card {
+  margin: 0px !important;
+}
+.bottom-btn-wrap .omsb-bc-red-button {
+  margin: 0 5px;
+}
+.profile-menu .dropdown-menu a.dropdown-item:hover {
+  color: #DC3545;
+}
+.no-file-selector ::-webkit-file-upload-button, 
+.no-file-selector ::file-selector-button {
+  display: none;
+}
+.form-group .form-control input {
+  text-transform: lowercase !important;
+}
+.form-group  input[type='file'].form-control::-webkit-file-upload-button {
+  display: none;
+}
+.omsb-file-label, .omsb-custom-html-file { 
+  display: flex; 
+}
+.omsb-file-label input[type='file'], .omsb-custom-html-file input[type='file']{
+  padding: 8px 16px;
+  z-index: 1;
+  background: transparent;
+  cursor: pointer;
+  border:0px !important;
+}
+.omsb-file-label span.file-value , .omsb-custom-html-file span.file-value {
+  position: absolute;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+  width: 85%;
+  height: 40px;
+  background-color: #fff;
+}
+.col-lg-6 .omsb-custom-html-file span.file-value, .col-md-6 .omsb-custom-html-file span.file-value {
+  width: 70%;
+}
+.rtl .form-group .omsb-file-label span.file-title,.rtl .omsb-custom-html-file  span.file-title {
+  right: 0px;
+  }
+.form-group .omsb-file-label span.file-title, .omsb-custom-html-file span.file-title {
+  right: 0px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  border: 1px solid #DC3545;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding: 16px 32px;
+  align-items: center;
+  color: #DC3545;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  height: 40px;
+  position: absolute;
+  text-transform: capitalize;
+  margin: 0 10px;
+}
+.richText a { 
+  color: #000;
+}
+.no_sorting::before, .no_sorting::after {
+  display: none !important;
+}
+th.no_sorting{
+  padding: 0px !important;
+}
+.form-group .form-control.timePicker {
+  background-image: url(../images/svg/clock.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 95%;
+  -webkit-appearance: none !important;
+  appearance: none;
+}
+
+.form-group .custom-html-file {
+  padding-right: 0px;
+}
+/*RTL*/
+.rtl .omsb-main-header-wrap .custom-switch label.custom-control-label::before {
+  width: 42px;
+  height: 24px;
+  background: #FFFFFF;
+  right: 45px;
+  border-radius: 16px;
+  top: 0px;
+  position: absolute;
+}
+.rtl .omsb-main-header-wrap .custom-switch label.custom-control-label::after {
+  width: 21px;
+  height: 20px;
+  background: #18A850;
+  border-radius: 100px;
+  right: 63px;
+  top: 2px;
+  position: absolute;
+}
+.rtl .omsb-main-header-wrap .custom-switch label.custom-control-label {
+  margin-left: 90px;
+  position: relative;
+  padding-right: 0px;
+}
+.rtl .form-group select.form-control {
+  background: url(../images/svg/select_arrow.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5%;
+  padding-left: 40px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.rtl .form-group .form-control.datePicker {
+  background-image: url(../images/svg/fi-rr-calendar.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5%;
+  -webkit-appearance: none !important;
+  appearance: none;
+}
+.rtl .form-group .form-control.timePicker {
+  background-image: url(../images/svg/clock.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 5%;
+  -webkit-appearance: none !important;
+  appearance: none;
+}
+.rtl table.dataTable thead>tr>th.sorting:before, 
+.rtl table.dataTable thead>tr>th.sorting:after, 
+.rtl table.dataTable thead>tr>th.sorting_asc:before, 
+.rtl table.dataTable thead>tr>th.sorting_asc:after, 
+.rtl table.dataTable thead>tr>th.sorting_desc:before, 
+.rtl table.dataTable thead>tr>th.sorting_desc:after, 
+.rtl table.dataTable thead>tr>th.sorting_asc_disabled:before, 
+.rtl table.dataTable thead>tr>th.sorting_asc_disabled:after, 
+.rtl table.dataTable thead>tr>th.sorting_desc_disabled:before, 
+.rtl table.dataTable thead>tr>th.sorting_desc_disabled:after, 
+.rtl table.dataTable thead>tr>td.sorting:before, 
+.rtl table.dataTable thead>tr>td.sorting:after, 
+.rtl table.dataTable thead>tr>td.sorting_asc:before, 
+.rtl table.dataTable thead>tr>td.sorting_asc:after, 
+.rtl table.dataTable thead>tr>td.sorting_desc:before, 
+.rtl table.dataTable thead>tr>td.sorting_desc:after, 
+.rtl table.dataTable thead>tr>td.sorting_asc_disabled:before, 
+.rtl table.dataTable thead>tr>td.sorting_asc_disabled:after, 
+.rtl table.dataTable thead>tr>td.sorting_desc_disabled:before, 
+.rtl table.dataTable thead>tr>td.sorting_desc_disabled:after {
+  right: 10px;
+  left: unset;
+}
+/*RTL*/
+
+.omsb-map-h300 {
+  width: 100%;
+  height: 300px;
+}
+.omsb-map-h250 {
+  width: 100%;
+  height: 250px;
+}
+form .error-container {
+  color: #DC3545;
+}
+label.required:after, span.required:after {content: "*"; color: #dc3545 !important; font-size: 17px; }
+.form-control option:hover, .form-group select option:hover { background-color: #FA981C !important; }
+.form-group select.form-control select:read-only { background-color: transparent;}
+.status-text-verified { color: #1BA950; padding: 0 10px; display: inline-flex; align-items: flex-start; gap: 10px; }
+.status-text-un-verified { color: #DC3545; padding: 0 10px; display: inline-flex; align-items: flex-start; gap: 10px; }
+.status-buttons { padding: 10px; display: inline-flex; align-items: flex-start; gap: 10px; }
+.view-download-link, .view-download-link:hover {color: #DC3545 !important; padding: 0; background-color: unset !important;} 
+
+.omsb-popup-buttons, .omsb-popup-buttons-1, .omsb-popup-buttons-2, .omsb-popup-buttons-3, .omsb-popup-buttons-4, .omsb-popup-buttons-5 {
+    display: flex;
+    justify-content: space-between !important;
+}
+.omsb-popup-buttons .btn, .omsb-popup-buttons-1 .btn{ width: 100%; }
+.omsb-popup-buttons-2 .btn{ width: 49%; }
+.omsb-popup-buttons-3 .btn{ width: 32%; }
+.omsb-popup-buttons-4 .btn{ width: 24%; }
+.omsb-popup-buttons-5 .btn{ width: 19%; } 
+/*customcode end  */
+
+.blackandwhite img, .blackandwhite *:after, .blackandwhite *:before   { filter: grayscale(100%); -webkit-filter: grayscale(100%); }
+.blackandwhite * { color: #000 !important; background-color: #fff !important; background-blend-mode: luminosity !important; }
+.blackandwhite .omsb-sidebar-navigation .omsb-navbar > li > a:hover { color: #000 !important; background: #000 !important; }
+.blackandwhite .notification-alert, .blackandwhite .btn-back, .blackandwhite .omsb-bc-red-button, .blackandwhite .omsb-bg-red-button,.blackandwhite .uploader-title{ border-color: #000 !important;}
+.blackandwhite .humber-menu, .blackandwhite .btn img { background-blend-mode: difference !important; }
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable, .select2-container--default .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  background-color: #FA981C;
+  color: #fff;
+}
+.omsb-ilo-area{
+  display: flex;
+}
+.omsb-ilo-area .input-over-button {
+  right: 0px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 16px 32px;
+  align-items: center;
+  color: #DC3545;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  height: 40px;
+  position: absolute;
+  text-transform: capitalize;
+}
+.omsb-ilo-area .input-over-button:hover{
+  color: #DC3545;
+}
+.hide_dt_filter .dataTables_filter {
+    display: none;
+}
+
+
+.multiselect-container .multiselect-option .form-check {padding: 0; display: flex; gap: 10px; align-items: center;}
+
+
+
+/* Custome responsive css start from here */
+/* common css for screen size > 991  */
+@media only screen and (min-width: 991px) {
+  .table-responsive .dropdown-menu:has(.show){
+    overflow-x: visible !important;
+  }
+}
+
+/* comn css for container  */
+@media only screen and (min-width: 1302px) {
+}
+
+@media only screen and (max-width: 1302px) {
+}
+
+
+
+/* comn css for hover effects  */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* common css for screen size < 1199 (Table landscape view ) */
+@media only screen and (max-width: 1199px) {
+
+}
+
+/* common css for screen size < 991 (Table portrait view ) */
+@media only screen and (max-width: 991px) {
+
+}
+
+/* common css for screen size < 767 (Mobile landscape view )  */
+@media only screen and (max-width: 768px) {
+.omsb-file-label span.file-value, .omsb-custom-html-file span.file-value {
+    width: 70%;
+  }
+}
+
+/* common css for screen size < 479 (Mobile portrait view )  */
+@media only screen and (max-width: 479px) {
+  .omsb-file-label span.file-value, .omsb-custom-html-file span.file-value {
+    width: 45%;
+  }
+  .omsb-nav-pills{
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+  }
+  .login-left {
+    z-index: -1;
+  }
+  .iti-mobile:has(div.login-box) {
+    padding: 0;
+  }
+}
+
+/* common css for screen size < 320 (Mobile portrait view for 320 )  */
+@media only screen and (max-width: 320px) {}
+
+/* common css for screen size between  768 to 1199 (Tablet view for  768 to 1199 ) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+/* common css for screen size between  768 to 1023 (Tablet view for  768 to 1023 ) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {}
+
+/* common css for screen size between  1024 to 1600  (Small desktop view for  1024 to 1600 )*/
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+
+}
+

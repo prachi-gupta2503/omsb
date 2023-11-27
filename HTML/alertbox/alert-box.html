@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>OMSB :: Admin View Trainee</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--- Start Fonts CSS files Here --->
+	<link rel="stylesheet" href=".././css/fontawesome4.7.0/font-awesome.min.css">
+	<!---// End Fonts CSS files Here --->
+
+	<!--- Start CSS files Here --->
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/flaticons/uicons-solid-rounded.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/docs.css">
+	<link rel="stylesheet" type="text/css" href=".././css/editor/richtext.min.css">
+
+	<!---// End CSS files Here --->
+
+
+	<!--- Start JS files Here --->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!---// End JS files Here --->
+
+</head>
+
+<body>
+	<div class="main-content">
+
+		<!-- Header -->
+		<header class="omsb-header">
+			<div class="omsb-top-header">
+				<div class="container">
+					<div class="omsb-top-header-row">
+						<div class="leftbar">
+							<div class="buttons-wrap">
+								<div class="button-col"><button class="btn "><i class="fa fa-microphone"></i>
+										Voice</button></div>
+								<div class="button-col"><button class="btn "><i class="fa fa-eye-slash"></i> Special
+										colors</button></div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-plus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-minus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn "><i class="fa fa-sitemap"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="rightbar">
+							<div class="social-links-wrap">
+								<div class="social-link"><a href="#" class="trans" title="Facebook"><img
+											src="../images/svg/fb.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="linkedin"><img
+											src="../images/svg/linkedin.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Twitter"><img
+											src="../images/svg/twitter.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Youtube"><img
+											src="../images/svg/youtube.svg"></a></div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--// End Top Header-->
+
+			<div class="omsb-main-header">
+				<div class="container">
+					<div class="omsb-main-header-wrap">
+						<div class="leftbar">
+							<div class="humber-menu">
+
+							</div>
+							<div class="omsb-brand-logo">
+								<img src="../images/svg/logo.svg">
+								<div class="logo-texts">
+									<span class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </span>
+									<span class="logo-text-english">Oman Medical Specialty Board</span>
+								</div>
+							</div>
+
+
+							<div class="omsb-sidebar-navigation">
+								<ul class="omsb-navbar">
+									<li class="omsb-nav-item active"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Home" /> Home</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Examination" /> Examination</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="About Us" /> About Us</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Events" /> Events</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Services" /> Services</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Contact" /> Contact</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Follow Me" /> Follow Me</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="rightbar">
+							<div class="buttons-wrap">
+								<div class="button-col">
+									<div class="custom-control custom-switch">
+										<label class="first-label" for="switch1">LTR</label>
+										<input type="checkbox" class="custom-control-input" id="switch1" name="example">
+										<label class="custom-control-label second-label" for="switch1">RTL</label>
+									</div>
+								</div>
+								<div class="button-col">
+									<button type="button" class="notification-block" title="Notifications">
+										<span class="notification-alert"></span>
+									</button>
+								</div>
+								<div class="button-col">
+									<button type="button" class="profile-dtls" title="User Profile"><img
+											class="profile-pic" src="../images/svg/profile.svg"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<!-- Header -->
+
+		<!--- Start Main Content Section Here --->
+		<section class="omsb-main-wrapper" id="omsb-main-wrapper">
+			<!-- breadcrumbs -->
+			<div class="omsb-breadcrumbs">
+				<div class="container ">
+					<div class="omsb-breadcrumbs-wrap">
+						<div class="leftbar">
+							<div class="breadcrumb-link">
+								<ul>
+									<li><a href="#" class="trans" title="Home">Home</a></li>
+									<li>Examination</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumbs -->
+
+			<!-- Inner Wrapper Contents -->
+			<div id="wrapper">
+				<div class="container">
+
+					<button class="btn omsb-bg-red-button mb-5" data-toggle="modal" data-target="#confirmation" type="button">
+						Confirmation
+					</button>
+
+					<button class="btn omsb-bg-red-button mb-5" data-toggle="modal" data-target="#success" type="button">
+						Success
+					</button>
+
+					<button class="btn omsb-bg-red-button mb-5" data-toggle="modal" data-target="#error" type="button">
+						error
+					</button>
+
+					<div class="alert alert-light alert-success-text" role="alert">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<div class="alert-box">
+							<span><img src="../images/svg/Right.svg" alt="Right"></span>
+							<div class="alert-text">
+								<h4 class="alert-heading"><span>Your message here - Make it short</h4>
+								<p>Discribe the event here and add the furthur details if needed,Inlcuding <a href="">links</a> to other pages if needed.</p>
+							</div>
+						</div>
+					</div>
+					<div class="alert alert-light alert-danger-text" role="alert">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<div class="alert-box">
+							<span><img src="../images/svg/reject.svg" alt="reject"></span>
+							<div class="alert-text">
+								<h4 class="alert-heading"><span>Your message here - Make it short</h4>
+								<p>Discribe the event here and add the furthur details if needed,Inlcuding <a href="">links</a> to other pages if needed.</p>
+							</div>
+						</div>
+					</div>
+					<div class="alert alert-success" role="alert">
+						<div class="alert-box">
+							<span><img src="../images/svg/Right.svg" alt="Right"></span>
+							<div class="alert-text">
+								<h4 class="alert-heading"><span>Your message here - Make it short</h4>
+								<p>Discribe the event here and add the furthur details if needed,Inlcuding <a href="">links</a> to other pages if needed.</p>
+							</div>
+						</div>
+					</div>
+					<div class="alert alert-danger" role="alert">
+						<div class="alert-box">
+							<span><img src="../images/svg/reject.svg" alt="reject"></span>
+							<div class="alert-text">
+								<h4 class="alert-heading"><span>Your message here - Make it short</h4>
+								<p>Discribe the event here and add the furthur details if needed,Inlcuding <a href="">links</a> to other pages if needed.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// Inner Wrapper Contents -->
+
+		</section>
+		<!---// End Main Content Section Here --->
+
+		<!-- footer -->
+		<div class="omsb-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<p class="copyright">2023 All rights reserved to Oman medical specialty board</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+
+	
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="confirmationTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-sm modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Do you want to continue?</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you really want to delete this action? This action<br>can not be undone.</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn omsb-bc-red-button" type="button" title="Add">Continue</button>
+						<button type="button" class="btn omsb-btn omsb-bg-red-button" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal omsb-modal-success" id="success" tabindex="-1" role="dialog" aria-labelledby="successTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-sm modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-success-icon">
+						<img src="../images/svg/success.svg" alt="" width="50">
+					</div>
+					<div class="modal-header justify-content-center">
+						<h5 class="modal-title text-center">SUCCESS</h5>
+					</div>
+					<div class="modal-body text-center">
+						<p><strong>Thank you for your request.<br>We are working hard to find the best service and deals for you.</strong></p>
+						<p>Shortly you will find a confirmation in your email.</p>
+					</div>
+					<div class="modal-footer justify-content-center">
+						<button class="btn omsb-bc-success-button" data-dismiss="modal">Continue</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal omsb-modal-error" id="error" tabindex="-1" role="dialog" aria-labelledby="errorTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-sm modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-success-icon">
+						<img src="../images/svg/error.svg" alt="" width="50">
+					</div>
+					<div class="modal-header justify-content-center">
+						<h5 class="modal-title text-center">ERROR!</h5>
+					</div>
+					<div class="modal-body text-center">
+						<p><strong>Thank you for your request.<br>We are unable to continue the process.</strong></p>
+						<p>Please try again to complete the request.</p>
+					</div>
+					<div class="modal-footer justify-content-center">
+						<button class="btn omsb-bg-red-button" data-dismiss="modal">Try Again</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// Attach case report -->
+
+	</div>
+	<!--- Start JS files Here --->
+	<script type="text/javascript" src=".././js/popper.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src=".././js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/responsive.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="../js/editor/jquery.richtext.js"></script>
+	<script type="text/javascript" src="../js/editor/jquery.richtext.min.js"></script>
+	<script type="text/javascript" src="../js/custom.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.textEditor').richText();
+		});
+	</script>
+	<!--// End JS files Here --->
+</body>
+
+</html>

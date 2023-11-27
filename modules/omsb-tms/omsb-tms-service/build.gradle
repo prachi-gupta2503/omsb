@@ -1,0 +1,12 @@
+dependencies {
+	compile project(":modules:omsb-tms:omsb-tms-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../omsb-tms-api/src/main/java"
+	databaseNameMaxLength=50
+}
+
+group = "gov.omsb.tms"

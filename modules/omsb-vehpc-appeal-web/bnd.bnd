@@ -1,0 +1,6 @@
+Bundle-Name: omsb-vehpc-appeal-web
+Bundle-SymbolicName: gov.omsb.vehpc.appeal.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.vehpc.appeal.web.constants
+Import-Package: *;resolution:=optional
+-fixupmessages "Classes found in the wrong directory"; restrict:=error; is:=warning

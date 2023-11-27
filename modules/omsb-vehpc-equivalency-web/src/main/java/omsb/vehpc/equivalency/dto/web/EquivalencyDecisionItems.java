@@ -1,0 +1,28 @@
+package omsb.vehpc.equivalency.dto.web;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EquivalencyDecisionItems {
+	
+	private List<EquivalencyDecision> items = new ArrayList<>();
+
+	public List<EquivalencyDecision> getItems() {
+		return items;
+	}
+
+	public void setItems(List<EquivalencyDecision> items) {
+		this.items = items;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("EquivalencyDecisionItems [items=");
+		builder.append(items);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
+}

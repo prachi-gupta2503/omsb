@@ -1,0 +1,5 @@
+Bundle-Name: omsb-form-builder-headless-test
+Bundle-SymbolicName: gov.omsb.form.builder.headless.test
+Bundle-Version: 1.0.0
+-includeresource: omsb.form.builder.headless.client.jar=../omsb-form-builder-headless-client/build/libs/gov.omsb.form.builder.headless.client-1.0.0.jar;lib:=true
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}

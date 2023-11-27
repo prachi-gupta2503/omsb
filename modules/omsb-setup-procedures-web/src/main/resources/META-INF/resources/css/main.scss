@@ -1,0 +1,50 @@
+.portlet-header {
+	display: none;
+}
+
+.portlet-topper {
+	display: none;
+}
+
+select > .placeholder {
+  display: none;
+}
+
+.procedure-select {
+    min-width: 100%;
+}
+
+.procedure-group-select {
+    min-width: 100%;
+}
+
+#configureProcedureMainDiv .custom-checkbox.custom-checkbox .custom-control-label::before{
+	margin: 0;
+}
+
+#configureProcedureMainDiv .custom-checkbox.custom-checkbox .custom-control-label::after{
+	margin: 0;
+}
+
+#editConfigureProcedureMainDiv .custom-checkbox.custom-checkbox .custom-control-label::before{
+	margin: 0;
+}
+
+#editConfigureProcedureMainDiv .custom-checkbox.custom-checkbox .custom-control-label::after{
+	margin: 0;
+}
+
+.select2-container{
+	width: 100% !important;
+}
+
+.form-group .select2-selection{
+	background-position-x: 98% !important;
+}
+
+#configureProcedureMainDiv .custom-checkbox .custom-control-label,
+#editConfigureProcedureMainDiv .custom-checkbox .custom-control-label {
+	font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+}

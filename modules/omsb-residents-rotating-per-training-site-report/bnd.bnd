@@ -1,0 +1,4 @@
+Bundle-Name: omsb-residents-rotating-per-training-site-report
+Bundle-SymbolicName: omsb.residents.rotating.per.training.site.report.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.residents.rotating.per.training.site.report.web.constants

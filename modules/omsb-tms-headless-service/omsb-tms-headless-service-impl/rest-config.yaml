@@ -1,0 +1,9 @@
+apiDir: "../omsb-tms-headless-service-api/src/main/java"
+apiPackagePath: "omsb.tms.headless.service"
+application:
+    baseURI: "/eportal-service"
+    className: "OmsbTmsHeadlessServiceApplication"
+    name: "OmsbTmsHeadlessService"
+author: "AftabA"
+clientDir: "../omsb-tms-headless-service-client/src/main/java"
+testDir: "../omsb-tms-headless-service-test/src/testIntegration/java"

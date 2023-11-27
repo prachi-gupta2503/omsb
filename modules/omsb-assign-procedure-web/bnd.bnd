@@ -1,0 +1,4 @@
+Bundle-Name: omsb-assign-procedure-web
+Bundle-SymbolicName: gov.omsb.assign.procedure.web
+Bundle-Version: 1.0.0
+Export-Package: gov.omsb.assign.procedure.web.constants

@@ -1,0 +1,104 @@
+
+<c:set var="created" value="<%=EquivalencyStatusConstants.CREATED %>"></c:set>
+<c:set var="initiated" value="<%=EquivalencyStatusConstants.INITIATED %>"></c:set>
+<c:set var="equated" value="<%=EquivalencyStatusConstants.EQUATED %>"></c:set>
+<c:forEach items="${equivalencyRequest.getTransitions()}"
+	var="transition">
+	<c:choose>
+		<c:when
+			test="${(transition eq 'assignToMe' or transition eq 'initiate' or transition eq 'insufficient' ) and equivalencyRequest.getStatus() eq created}">
+			<c:choose>
+				<c:when test="${transition eq 'assignToMe'}">
+					<li><aui:form action="${quivalencyWorkflowURL}"
+							name="assignEqWf" enctype="multipart/form-data">
+							<aui:input type="hidden" name="assignWfTransitionName"
+								id="assignWfTransitionName" value="${transition}" />
+							<aui:input type="hidden" name="assignEqId"
+								value="${equivalencyRequest.getEquivalencyRequestId()}" />
+							<a href="javascript:void(0)" class="dropdown-item"
+								onClick="submitAssignEqWf()"><img
+								src="${themeDisplay.getPathThemeImages()}/svg/Initiate_icon.svg">
+								<liferay-ui:message key="assign-to-me" /></a>
+
+						</aui:form></li>
+				</c:when>
+				<c:when test="${transition eq 'initiate'}">
+					<li><a href="javascript:void(0)" data-toggle="modal"
+						data-target="#initiateModal" class="dropdown-item"
+						data-transition="${transition}"
+						data-eq-reqid="${equivalencyRequest.getEquivalencyRequestId()}"
+						data-pesonid="${equivalencyRequest.getPersonId()}"><img
+							src="${themeDisplay.getPathThemeImages()}/svg/Initiate_icon.svg">
+							<liferay-ui:message key="initiate" /></a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a data-toggle="modal"
+						data-target="#markInsufficientModal" href="javascript:void(0)"
+						class="dropdown-item" data-transition="${transition}"
+						data-eq-reqid="${equivalencyRequest.getEquivalencyRequestId()}"><img
+							src="${themeDisplay.getPathThemeImages()}/svg/mark_Insufficient_icon.svg">
+							<liferay-ui:message key="mark-insufficient" /> </a></li>
+				</c:otherwise>
+			</c:choose>
+
+		</c:when>
+		
+		<c:when
+			test="${(transition eq 'assignToMe' or transition eq 'equate') and equivalencyRequest.getStatus() eq initiated}">
+			<c:choose>
+				<c:when test="${transition eq 'assignToMe'}">
+
+					<li><aui:form action="${quivalencyWorkflowURL}"
+							name="assignEqWf" enctype="multipart/form-data">
+							<aui:input type="hidden" name="assignWfTransitionName"
+								id="assignWfTransitionName" value="${transition}" />
+							<aui:input type="hidden" name="assignEqId"
+								value="${equivalencyRequest.getEquivalencyRequestId()}" />
+							<a href="javascript:void(0)" class="dropdown-item"
+								onClick="submitAssignEqWf()"><img
+								src="${themeDisplay.getPathThemeImages()}/svg/Initiate_icon.svg">
+								<liferay-ui:message key="assign-to-me" /></a>
+						</aui:form></li>
+
+				</c:when>
+				<c:otherwise>
+					<li><a href="${equivalencyEquateURL}" class="dropdown-item"><img
+							src="${themeDisplay.getPathThemeImages()}/svg/fi-rr-equate.svg">
+							<liferay-ui:message key="equate" /></a></li>
+				</c:otherwise>
+			</c:choose>
+
+		</c:when>
+		<c:when
+			test="${(transition eq'assignToMe' or transition eq'complete') and equivalencyRequest.getStatus() eq equated}">
+			<c:choose>
+				<c:when test="${transition eq 'assignToMe'}">
+
+					<li><aui:form action="${quivalencyWorkflowURL}"
+							name="assignEqWf" enctype="multipart/form-data">
+							<aui:input type="hidden" name="assignWfTransitionName"
+								id="assignWfTransitionName" value="${transition}" />
+							<aui:input type="hidden" name="assignEqId"
+								value="${equivalencyRequest.getEquivalencyRequestId()}" />
+							<a href="javascript:void(0)" class="dropdown-item"
+								onClick="submitAssignEqWf()"><img
+								src="${themeDisplay.getPathThemeImages()}/svg/Initiate_icon.svg">
+								<liferay-ui:message key="assign-to-me" /></a>
+						</aui:form></li>
+
+				</c:when>
+				<c:otherwise>
+					<li><a href="${equivalencyEquateURL}" class="dropdown-item"><img
+							src="${themeDisplay.getPathThemeImages()}/svg/completed.svg">
+							<liferay-ui:message key="complete" /></a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:when>
+	</c:choose>
+</c:forEach>
+
+<script type="text/javascript">
+	function submitAssignEqWf() {
+		$("#<portlet:namespace />assignEqWf").submit();
+	}
+</script>

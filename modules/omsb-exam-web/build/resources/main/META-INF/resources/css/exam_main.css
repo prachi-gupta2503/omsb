@@ -1,0 +1,77 @@
+.omsb-page-top-info{
+	margin-bottom: 21px !important;
+}
+.label-name {
+	margin-bottom: 6px;
+}
+.label-box {
+	padding: 5px 10px !important;
+	max-width: 33% !important;
+}
+table.omsb-datatables > tbody:before {
+	line-height: 2px !important;
+}
+table.omsb-datatables {
+	padding-bottom: 2px !important;
+}
+.omsb-card-graybg{
+	margin-bottom: 0.5rem !important;
+}
+.omsb-card .bottom-backbtn-wrap {
+	margin-top: 10px !important;
+}
+th {
+    height: auto !important;
+}
+table.omsb-datatables > thead > tr > th {
+	line-height: 10px !important;
+}
+.page-item.previous .page-link, .page-item.next .page-link, .page-item.active .page-link{
+	padding: 0.25rem 0.5rem !important;
+}
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.25em !important;
+}
+.row:has(.label-box){
+	padding: 0 15px !important;
+}
+.omsb-card-title {
+	margin-bottom: 14px !important;
+}
+.btn{
+	padding: 8px 16px !important;
+}
+.omsb-list-filter .omsb-bc-red-button {
+	line-height: 24px !important;
+}
+.omsb-list-filter{
+	padding-bottom: 16px !important;
+}
+.error-container {
+    color: #DC3545;
+}
+
+/* common css for screen size < 479 (Mobile portrait view )  */
+@media only screen and (max-width: 479px) {
+	
+	.label-box {
+		width: 100% !important;
+	}
+}
+/* common css for screen size > 991  */
+@media only screen and (min-width: 991px) {
+	tbody .dropdown.show {
+		width: 200px !important;
+		z-index: 1 !important;
+	}
+	omsb-navbar {
+		height:95%;
+		overflow-y:auto;
+	}
+	label-box {
+		max-width: 33% !important;
+	}
+}
+.error-container {
+    color: #DC3545;
+}

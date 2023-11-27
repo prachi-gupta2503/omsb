@@ -1,0 +1,5 @@
+
+.input-graybg, texarea[readonly], input[readonly]{background-color: #F2F2F2 !important;}
+.omsb-view-file:hover {text-decoration: none; cursor: pointer; }
+.omsb-view-file label{ cursor: pointer; border-radius: 6px; background-color: #F2F2F2; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;}
+.omsb-view-file .view-download { color: #DC3545; }

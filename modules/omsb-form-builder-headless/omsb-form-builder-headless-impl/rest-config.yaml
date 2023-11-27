@@ -1,0 +1,9 @@
+apiDir: "../omsb-form-builder-headless-api/src/main/java"
+apiPackagePath: "gov.omsb.form.builder.headless"
+application:
+    baseURI: "/omsb-form-api"
+    className: "FormBuilderHeadlessApplication"
+    name: "FormBuilderHeadless"
+author: "Jinal Patel"
+clientDir: "../omsb-form-builder-headless-client/src/main/java"
+testDir: "../omsb-form-builder-headless-test/src/testIntegration/java"

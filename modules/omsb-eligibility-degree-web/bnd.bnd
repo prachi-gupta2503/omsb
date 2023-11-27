@@ -1,0 +1,4 @@
+Bundle-Name: omsb-eligibility-degree-web
+Bundle-SymbolicName: omsb.eligibility.degree.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.eligibility.degree.web.constants

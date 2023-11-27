@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>OMSB :: Admin View Trainee</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--- Start Fonts CSS files Here --->
+	<link rel="stylesheet" href=".././css/fontawesome4.7.0/font-awesome.min.css">
+	<!---// End Fonts CSS files Here --->
+
+	<!--- Start CSS files Here --->
+	<link rel="stylesheet" type="text/css" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/flaticons/uicons-solid-rounded.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/datatables/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/bootstrap-multiselect/bootstrap-multiselect.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/select-with-search/select2.min.css">
+	<link rel="stylesheet" type="text/css" href=".././css/docs.css">
+
+	<!---// End CSS files Here --->
+
+
+	<!--- Start JS files Here --->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!---// End JS files Here --->
+
+</head>
+
+<body>
+	<div class="main-content">
+
+		<!-- Header -->
+		<header class="omsb-header">
+			<div class="omsb-top-header">
+				<div class="container">
+					<div class="omsb-top-header-row">
+						<div class="leftbar">
+							<div class="buttons-wrap">
+								<div class="button-col"><button class="btn "><i class="fa fa-microphone"></i>
+										Voice</button></div>
+								<div class="button-col"><button class="btn "><i class="fa fa-eye-slash"></i> Special
+										colors</button></div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-plus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn ">A<i class="fa fa-minus sup"></i></button>
+								</div>
+								<div class="button-col"><button class="btn "><i class="fa fa-sitemap"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="rightbar">
+							<div class="social-links-wrap">
+								<div class="social-link"><a href="#" class="trans" title="Facebook"><img
+											src="../images/svg/fb.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="linkedin"><img
+											src="../images/svg/linkedin.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Twitter"><img
+											src="../images/svg/twitter.svg"></a></div>
+								<div class="social-link"><a href="#" class="trans" title="Youtube"><img
+											src="../images/svg/youtube.svg"></a></div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!--// End Top Header-->
+
+			<div class="omsb-main-header">
+				<div class="container">
+					<div class="omsb-main-header-wrap">
+						<div class="leftbar">
+							<div class="humber-menu">
+
+							</div>
+							<div class="omsb-brand-logo">
+								<img src="../images/svg/logo.svg">
+								<div class="logo-texts">
+									<span class="logo-text-arabic">المجلس العماني للاختصاصات الطبية </span>
+									<span class="logo-text-english">Oman Medical Specialty Board</span>
+								</div>
+							</div>
+
+
+							<div class="omsb-sidebar-navigation">
+								<ul class="omsb-navbar">
+									<li class="omsb-nav-item active"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Home" /> Home</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Examination" /> Examination</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="About Us" /> About Us</a></li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Events" /> Events</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Services" /> Services</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+									<li class="omsb-nav-item"><a href="#" class="trans omsb-nav-link" title="Home"><img
+												class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Contact" /> Contact</a></li>
+									<li class="omsb-nav-item has-submenu"><a href="#" class="trans omsb-nav-link"
+											title="Home"><img class="nav-icon" src="../images/svg/examination_icon.svg"
+												alt="Follow Me" /> Follow Me</a>
+										<span class="submenu-icon"></span>
+										<ul class="sub-menu">
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company Value">Company
+													Value</a></li>
+											<li><a href="#" class="trans omsb-nav-link" title="Company">Company</a></li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="rightbar">
+							<div class="buttons-wrap">
+								<div class="button-col">
+									<div class="custom-control custom-switch">
+										<label class="first-label" for="switch1">LTR</label>
+										<input type="checkbox" class="custom-control-input" id="switch1" name="example">
+										<label class="custom-control-label second-label" for="switch1">RTL</label>
+									</div>
+								</div>
+								<div class="button-col">
+									<button type="button" class="notification-block" title="Notifications">
+										<span class="notification-alert"></span>
+									</button>
+								</div>
+								<div class="button-col">
+									<button type="button" class="profile-dtls" title="User Profile"><img
+											class="profile-pic" src="../images/svg/profile.svg"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<!-- Header -->
+
+		<!--- Start Main Content Section Here --->
+		<section class="omsb-main-wrapper" id="omsb-main-wrapper">
+			<!-- breadcrumbs -->
+			<div class="omsb-breadcrumbs">
+				<div class="container ">
+					<div class="omsb-breadcrumbs-wrap">
+						<div class="leftbar">
+							<div class="breadcrumb-link">
+								<ul>
+									<li><a href="#" class="trans" title="Home">Home</a></li>
+									<li>Examination</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- breadcrumbs -->
+
+			<!-- Inner Wrapper Contents -->
+			<div id="wrapper">
+				<div class="container">
+					<div class="omsb-card">
+						<div class="omsb-page-top-info">
+							<div class="pagetitle">Edit Exam Definition</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<ul class="nav nav-pills omsb-nav-pills justify-content-center" id="myTab"
+									role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active" id="procedureloggingparameters-tab" data-toggle="tab"
+											href="#procedureloggingparameters" role="tab"
+											aria-controls="procedureloggingparameters" aria-selected="true">Procedure
+											Logging Parameters</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id="configureprocedures-tab" data-toggle="tab"
+											href="#configureprocedures" role="tab" aria-controls="configureprocedures"
+											aria-selected="false">Configure Procedures</a>
+									</li>
+
+								</ul>
+							</div>
+
+							<div class="col-lg-12 mt-4">
+								<div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade show active" id="procedureloggingparameters"
+										role="tabpanel" aria-labelledby="procedureloggingparameters-tab">
+
+										<div class="pill-tab-nav">
+											<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+												<li class="nav-item" role="presentation">
+													<button class="nav-link active" id="pills-participation-tab"
+														data-toggle="pill" data-target="#pills-participation"
+														type="button" role="tab" aria-controls="pills-participation"
+														aria-selected="true">
+
+														Participation Type</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link" id="pills-roletype-tab" data-toggle="pill"
+														data-target="#pills-roletype" type="button" role="tab"
+														aria-controls="pills-roletype" aria-selected="false">
+
+														Role type</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link" id="pills-patienttype-tab"
+														data-toggle="pill" data-target="#pills-patienttype"
+														type="button" role="tab" aria-controls="pills-patienttype"
+														aria-selected="false">
+
+														Patient Type</button>
+												</li>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link" id="pills-visittype-tab" data-toggle="pill"
+														data-target="#pills-visittype" type="button" role="tab"
+														aria-controls="pills-visittype" aria-selected="false">
+
+														Visit Type</button>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content" id="pills-tabContent">
+											<div class="tab-pane fade show active" id="pills-participation"
+												role="tabpanel" aria-labelledby="pills-participation-tab">
+
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Select A Program*</label>
+															<select name="selectaprogram" id="selectaprogram"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Program Cohort*</label>
+															<select name="programcohort" id="programcohort"
+																class="js-basic-single custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="d-flex align-items-end">
+															<div class="form-group">
+																<label>Participation Type*</label>
+																<select name="participationtype" id="participationtype"
+																	multiple="multiple" data-live-search="true"
+																	class="custom-select form-control">
+																	<option value="Oman">Oman</option>
+																	<option value="Saudi-Arabia">Saudi Arabia</option>
+																	<option value="United-Arab-Emirates">United Arab
+																		Emirates</option>
+																</select>
+															</div>
+															<button
+																class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+																type="button" title="Add"
+																data-target="#exampleModalCenter"
+																data-toggle="modal"><img src="../images/svg/add.svg"
+																	alt="" /></button>
+														</div>
+
+													</div>
+												</div>
+												<div class="bottom-backbtn-wrap">
+													<button class="btn omsb-bc-red-button" type="button"
+														title="Save">Save</button>
+													<button class="btn omsb-bg-red-button" type="button"
+														title="Reset">Reset</button>
+												</div>
+												<div class="row mt-4">
+													<div class="col-md-12">
+														<div class="omsb-list-view table-responsive">
+															<table class="display omsb-datatables">
+																<thead>
+																	<tr>
+																		<th>Program COHORT</th>
+																		<th>Participation type</th>
+
+																		<th>Action</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+
+											</div>
+											<div class="tab-pane fade" id="pills-roletype" role="tabpanel"
+												aria-labelledby="pills-roletype-tab">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Select A Program*</label>
+															<select name="selectaprogram" id="selectaprogram"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Program Cohort*</label>
+															<select name="programcohort" id="programcohort"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="d-flex align-items-end">
+															<div class="form-group">
+																<label>Role Type*</label>
+																<select name="participationtype" id="participationtype"
+																	class="custom-select form-control">
+																	<option value="Oman">Oman</option>
+																	<option value="Saudi-Arabia">Saudi Arabia</option>
+																	<option value="United-Arab-Emirates">United Arab
+																		Emirates</option>
+																</select>
+															</div>
+															<button
+																class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+																type="button" title="Add"
+																data-target="#exampleModalCenter"
+																data-toggle="modal"><img src="../images/svg/add.svg"
+																	alt="" /></button>
+														</div>
+
+													</div>
+												</div>
+												<div class="bottom-backbtn-wrap">
+													<button class="btn omsb-bc-red-button" type="button"
+														title="Save">Save</button>
+													<button class="btn omsb-bg-red-button" type="button"
+														title="Reset">Reset</button>
+												</div>
+												<div class="row mt-4">
+													<div class="col-md-12">
+														<div class="omsb-list-view table-responsive">
+															<table class="display omsb-datatables">
+																<thead>
+																	<tr>
+																		<th>Program COHORT</th>
+																		<th>Participation type</th>
+
+																		<th>Action</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="pills-patienttype" role="tabpanel"
+												aria-labelledby="pills-patienttype-tab">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Select A Program*</label>
+															<select name="selectaprogram" id="selectaprogram"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Program Cohort*</label>
+															<select name="programcohort" id="programcohort"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="d-flex align-items-end">
+															<div class="form-group">
+																<label>Patient Type*</label>
+																<select name="participationtype" id="participationtype"
+																	class="custom-select form-control">
+																	<option value="Oman">Oman</option>
+																	<option value="Saudi-Arabia">Saudi Arabia</option>
+																	<option value="United-Arab-Emirates">United Arab
+																		Emirates</option>
+																</select>
+															</div>
+															<button
+																class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+																type="button" title="Add"
+																data-target="#exampleModalCenter"
+																data-toggle="modal"><img src="../images/svg/add.svg"
+																	alt="" /></button>
+														</div>
+
+													</div>
+												</div>
+												<div class="bottom-backbtn-wrap">
+													<button class="btn omsb-bc-red-button" type="button"
+														title="Save">Save</button>
+													<button class="btn omsb-bg-red-button" type="button"
+														title="Reset">Reset</button>
+												</div>
+												<div class="row mt-4">
+													<div class="col-md-12">
+														<div class="omsb-list-view table-responsive">
+															<table class="display omsb-datatables">
+																<thead>
+																	<tr>
+																		<th>Program COHORT</th>
+																		<th>Participation type</th>
+
+																		<th>Action</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="pills-visittype" role="tabpanel"
+												aria-labelledby="pills-visittype-tab">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Select A Program*</label>
+															<select name="selectaprogram" id="selectaprogram"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Program Cohort*</label>
+															<select name="programcohort" id="programcohort"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="d-flex align-items-end">
+															<div class="form-group">
+																<label>Visit Type*</label>
+																<select name="participationtype" id="participationtype"
+																	class="custom-select form-control">
+																	<option value="Oman">Oman</option>
+																	<option value="Saudi-Arabia">Saudi Arabia</option>
+																	<option value="United-Arab-Emirates">United Arab
+																		Emirates</option>
+																</select>
+															</div>
+															<button
+																class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+																type="button" title="Add"
+																data-target="#exampleModalCenter"
+																data-toggle="modal"><img src="../images/svg/add.svg"
+																	alt="" /></button>
+														</div>
+
+													</div>
+												</div>
+												<div class="bottom-backbtn-wrap">
+													<button class="btn omsb-bc-red-button" type="button"
+														title="Save">Save</button>
+													<button class="btn omsb-bg-red-button" type="button"
+														title="Reset">Reset</button>
+												</div>
+												<div class="row mt-4">
+													<div class="col-md-12">
+														<div class="omsb-list-view table-responsive">
+															<table class="display omsb-datatables">
+																<thead>
+																	<tr>
+																		<th>Program COHORT</th>
+																		<th>Participation type</th>
+
+																		<th>Action</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>2023-2024</td>
+																		<td>With observation</td>
+																		<td>
+																			<div class="dropdown ">
+																				<button
+																					class="btn fa fa-ellipsis-v dropdown-toggle"
+																					type="button"
+																					data-bs-toggle="dropdown"
+																					aria-expanded="false">
+																					<i class=""></i>
+																				</button>
+																				<ul class="dropdown-menu">
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-edit.svg">
+																							Edit</a></li>
+																					<li><a href="#"
+																							class="dropdown-item"><img
+																								src="../images/svg/fi-rr-delete.svg">
+																							Delete</a></li>
+																				</ul>
+																			</div>
+																		</td>
+																	</tr>
+
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="tab-pane fade" id="configureprocedures" role="tabpanel"
+										aria-labelledby="configureprocedures-tab">
+
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>Select A Program*</label>
+													<select name="selectaprogram" id="selectaprogram"
+														class="custom-select form-control">
+														<option value="Oman">Oman</option>
+														<option value="Saudi-Arabia">Saudi Arabia</option>
+														<option value="United-Arab-Emirates">United Arab
+															Emirates</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>Program Cohort*</label>
+													<select name="selectaprogram" id="selectaprogram"
+														class="custom-select form-control">
+														<option value="Oman">Oman</option>
+														<option value="Saudi-Arabia">Saudi Arabia</option>
+														<option value="United-Arab-Emirates">United Arab
+															Emirates</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="omsb-card-graybg omsb-BorderRadius-4 omsb-card main-card-tms">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="d-flex align-items-end">
+														<div class="form-group">
+															<label>Procedure Group</label>
+															<select name="proceduregroup" id="proceduregroup"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+														<button class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+															type="button" title="Add" data-target="#exampleModalCenter"
+															data-toggle="modal"><img src="../images/svg/add.svg"
+																alt=""></button>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="d-flex align-items-end">
+														<div class="form-group">
+															<label>Procedure*</label>
+															<select name="Procedure" id="procedure"
+																class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+														<button class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3"
+															type="button" title="Add" data-target="#exampleModalCenter"
+															data-toggle="modal"><img src="../images/svg/add.svg"
+																alt=""></button>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="omsb-card omsb-BorderRadius-4 sub-card-tms">
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="form-group d-flex">
+															<div class="custom-control custom-radio ">
+																<input type="radio" onclick="showHideOftrainneLevel()"
+																	name="bychoiceoftypeSetupProcedure"
+																	class="custom-control-input" id="byrotation"
+																	value="rotation" checked="">
+																<label class="custom-control-label m-0"
+																	for="byrotation">By Rotation</label>
+															</div>
+
+															<div class="custom-control custom-radio ">
+																<input type="radio" onclick="showHideOftrainneLevel()"
+																	name="bychoiceoftypeSetupProcedure"
+																	class="custom-control-input" id="bytraineelevel"
+																	value="service">
+																<label class="custom-control-label m-0"
+																	for="bytraineelevel">Service</label>
+															</div>
+														</div>
+
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Rotation*</label>
+															<select name="rotation" class="form-control">
+																<option>select</option>
+																<option value="1">Rotation 1</option>
+																<option value="2">Rotation 2</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="col-lg-6 col-md-6 col-sm-12 traineeLevel"
+														style="display: none;">
+														<div class="form-group">
+															<label>Trainee Level*</label>
+															<select name="TraineeLevel" class="form-control">
+																<option>select</option>
+																<option value="1">Rotation 1</option>
+																<option value="2">Rotation 2</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label class="control-label">Minimum numbers of
+																procedures</label>
+															<input type="text" name="minimumnumbersofprocedures"
+																id="minimumnumbersofprocedures" value=""
+																class="form-control">
+														</div>
+													</div>
+
+												</div>
+
+												<div class="bottom-backbtn-wrap mt-0">
+													<button class="btn omsb-bc-red-button m-0 addMoreSubCard"
+														onclick="addSubCard()" type="button" title="Add">Add</button>
+													<button style="display:none"
+														class="btn omsb-bg-red-button discardSubCard"
+														onclick="discardSubCard()" type="button"
+														title="Discard">Discard</button>
+												</div>
+											</div>
+
+											<div class="bottom-backbtn-wrap mt-0">
+												<button class="btn omsb-bc-red-button m-0 addProcedure"
+													onclick="addProcedure()" type="button" title="Add Procedure">Add
+													Procedure</button>
+												<button style="display: none;"
+													class="btn omsb-bg-red-button discardProcedure"
+													onclick="discardProcedure()" type="button"
+													title="Discard Procedure">Discard Procedure</button>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+			</div>
+			<!--// Inner Wrapper Contents -->
+
+		</section>
+		<!---// End Main Content Section Here --->
+
+		<!-- footer -->
+		<div class="omsb-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<p class="copyright">2023 All rights reserved to Oman medical specialty board</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+
+		<!-- Modal -->
+		<div class="modal fade omsb-modal" id="exampleModalCenter" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 715px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Add Participation type</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="form-group-view">
+									<div class="label-name">Program </div>
+									<div class="label-content">Pediatrics</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="form-group-view">
+									<div class="label-name">Program Cohort </div>
+									<div class="label-content">2023-2024</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Participation Type*</label>
+									<select name="participationtype" id="participationtype"
+										class="custom-select form-control">
+										<option value="Oman">Oman</option>
+										<option value="Saudi-Arabia">Saudi Arabia</option>
+										<option value="United-Arab-Emirates">United Arab
+											Emirates</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn omsb-bc-red-button" type="button" title="Add">Add</button>
+						<button type="button" class="btn omsb-btn omsb-bg-red-button"
+							data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--// Comments pop up -->
+
+
+
+		<!--// Attach case report -->
+
+	</div>
+	<!--- Start JS files Here --->
+	<script type="text/javascript" src=".././js/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.usebootstrap.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src=".././js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src=".././js/datatables/responsive.bootstrap4.min.js"></script>
+	<script type="text/javascript" src=".././js/bootstrap-multiselect/bootstrap-multiselect.min.js"></script>
+	<script type="text/javascript" src=".././js/select-with-search/select2.min.js"></script>
+
+	<script type="text/javascript" src="../js/custom.js"></script>
+	<script type="text/javascript">
+		$("[data-bs-toggle='dropdown']").click(function () {
+			$(this).siblings("ul.dropdown-menu").toggleClass("show");
+		})
+
+		$('#participationtype').multiselect({
+			enableFiltering: true
+		});
+
+		$("#rotation_one").multiselect({
+			enableFiltering: true
+		});
+
+		$(document).ready(function () {
+			$('.js-basic-single').select2();
+		});
+
+		// Clone Javascript
+
+		//Checkbox when Minimum numbers of procedures is checked then trainee-level fields to be shown.
+
+		function showHideOftrainneLevel() {
+			debugger;
+			if (event.target.value == "service") {
+				event.target.closest(`.sub-card-tms`).querySelector('.traineeLevel').style.display = "block";
+			} else {
+				event.target.closest(`.sub-card-tms`).querySelector('.traineeLevel').style.display = "none";
+			}
+		}
+
+		// Clone Rotation fields by clicking on add button.
+
+		let counter = 0;
+
+		function addSubCard() {
+			counter++;
+			const defaultHtmlOfSubCard = `<div class="omsb-card omsb-BorderRadius-4 sub-card-tms">
+											<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="form-group d-flex">
+															<div class="custom-control custom-radio ">
+																<input type="radio" onclick="showHideOftrainneLevel()" name="bychoiceoftypeSetupProcedure_${counter}" class="custom-control-input" id="byrotation_${counter}" value="rotation" checked="">
+																<label class="custom-control-label m-0" for="byrotation_${counter}">By Rotation</label>
+															</div>
+															
+															<div class="custom-control custom-radio ">
+																<input type="radio" onclick="showHideOftrainneLevel()" name="bychoiceoftypeSetupProcedure_${counter}" class="custom-control-input" id="bytraineelevel_${counter}" value="service" >
+																<label class="custom-control-label m-0" for="bytraineelevel_${counter}">Service</label>
+															</div>
+														</div>
+														
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="form-group">
+															<label>Rotation*</label>
+															<select name="rotation" class="form-control">
+																<option>select</option>
+																<option value="1">Rotation 1</option>
+																<option value="2">Rotation 2</option>
+															</select>
+														</div>
+													</div>
+
+													<div  class="col-lg-6 col-md-6 col-sm-12 traineeLevel" style="display: none;" >
+														<div class="form-group">
+															<label>Trainee Level*</label>
+															<select name="TraineeLevel" class="form-control">
+																<option>select</option>
+																<option value="1">Rotation 1</option>
+																<option value="2">Rotation 2</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label class="control-label">Minimum numbers of procedures</label>
+															<input type="text" name="minimumnumbersofprocedures" id="minimumnumbersofprocedures" value="" class="form-control">
+														</div>
+													</div>
+													
+												</div>
+												<div class="bottom-backbtn-wrap mt-0">
+													<button class="btn omsb-bc-red-button m-0 addMoreSubCard" type="button" onClick="addSubCard()"  title="Add">Add</button>
+													<button style="display:none" class="btn omsb-bg-red-button discardSubCard" onClick="discardSubCard()" type="button" title="Discard">Discard</button>
+												</div>
+											</div>`;
+
+			const node = event.target.closest(`.main-card-tms`).querySelector('.sub-card-tms');
+			$(node).before(defaultHtmlOfSubCard);
+			event.target.closest(`.sub-card-tms`).querySelector('.addMoreSubCard').style.display = "none";
+			event.target.closest(`.sub-card-tms`).querySelector('.discardSubCard').style.display = "block";
+
+		}
+
+		//Remove Sub Card 
+
+		function discardSubCard() {
+			event.target.closest(`.sub-card-tms`).remove();
+		}
+
+
+		// Clone Add Procedure by clicking on add button.
+		let counter2 = 101;
+		function addProcedure() {
+			counter2++;
+			const defaultProcedureHtml = `<div class="omsb-card-graybg omsb-BorderRadius-4 omsb-card main-card-tms">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="d-flex align-items-end">
+														<div class="form-group">
+															<label>Procedure Group</label>
+															<select name="proceduregroup" id="proceduregroup" class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+														<button class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3" type="button" title="Add" data-target="#exampleModalCenter" data-toggle="modal"><img src="../images/svg/add.svg" alt=""></button>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="d-flex align-items-end">
+														<div class="form-group">
+															<label>Procedure*</label>
+															<select name="Procedure" id="procedure" class="custom-select form-control">
+																<option value="Oman">Oman</option>
+																<option value="Saudi-Arabia">Saudi Arabia</option>
+																<option value="United-Arab-Emirates">United Arab
+																	Emirates</option>
+															</select>
+														</div>
+														<button class="btn omsb-bc-red-button omsb-add-btn mb-3 ml-3" type="button" title="Add" data-target="#exampleModalCenter" data-toggle="modal"><img src="../images/svg/add.svg" alt=""></button>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="omsb-card omsb-BorderRadius-4 sub-card-tms">
+												<div class="row">
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													<div class="form-group d-flex">
+														<div class="custom-control custom-radio ">
+															<input type="radio" onclick="showHideOftrainneLevel()" name="bychoiceoftypeSetupProcedure_${counter2}"
+																class="custom-control-input" id="byrotation_${counter2}" value="rotation" checked="">
+															<label class="custom-control-label m-0" for="byrotation_${counter2}">By Rotation</label>
+														</div>
+
+														<div class="custom-control custom-radio ">
+															<input type="radio" onclick="showHideOftrainneLevel()" name="bychoiceoftypeSetupProcedure_${counter2}"
+																class="custom-control-input" id="bytraineelevel_${counter2}" value="service">
+															<label class="custom-control-label m-0" for="bytraineelevel_${counter2}">Service</label>
+														</div>
+													</div>
+
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Rotation*</label>
+														<select name="rotation" class="form-control">
+															<option>select</option>
+															<option value="1">Rotation 1</option>
+															<option value="2">Rotation 2</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="col-lg-6 col-md-6 col-sm-12 traineeLevel" style="display: none;">
+													<div class="form-group">
+														<label>Trainee Level*</label>
+														<select name="TraineeLevel" class="form-control">
+															<option>select</option>
+															<option value="1">Rotation 1</option>
+															<option value="2">Rotation 2</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="col-lg-6 col-md-6">
+													<div class="form-group">
+														<label class="control-label">Minimum numbers of procedures</label>
+														<input type="text" name="minimumnumbersofprocedures" id="minimumnumbersofprocedures" value=""
+															class="form-control">
+													</div>
+												</div>
+											</div>
+
+											<div class="bottom-backbtn-wrap mt-0">
+												<button class="btn omsb-bc-red-button m-0 addProcedure" onclick="addProcedure()" type="button" title="Add Procedure">Add Procedure</button>
+												<button style="display: none;" class="btn omsb-bg-red-button discardProcedure" onclick="discardProcedure()" type="button" title="Discard Procedure">Discard Procedure</button>
+											</div>
+										</div>`;
+
+			const node = event.target.closest(`#configureprocedures`).querySelector('.main-card-tms');
+			$(node).before(defaultProcedureHtml);
+			event.target.closest(`.main-card-tms`).querySelector('.addProcedure').style.display = "none";
+			event.target.closest(`.main-card-tms`).querySelector('.discardProcedure').style.display = "block";
+
+		}
+
+		//Remove Procedure
+
+		function discardProcedure() {
+			event.target.closest(`.main-card-tms`).remove();
+		}
+
+
+	</script>
+	<!--// End JS files Here --->
+</body>
+
+</html>
+<figcaption></figcaption>

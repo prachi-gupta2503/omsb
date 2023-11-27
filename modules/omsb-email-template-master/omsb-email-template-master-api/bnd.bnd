@@ -1,0 +1,10 @@
+Bundle-Name: omsb-email-template-master-api
+Bundle-SymbolicName: gov.omsb.email.template.master.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	gov.omsb.email.template.master.exception,\
+	gov.omsb.email.template.master.model,\
+	gov.omsb.email.template.master.service,\
+	gov.omsb.email.template.master.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../omsb-email-template-master-service/service.xml

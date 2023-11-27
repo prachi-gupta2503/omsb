@@ -1,0 +1,7 @@
+Bundle-Name: omsb-vehpc-equivalency-web
+Bundle-SymbolicName: omsb.vehpc.equivalency.web
+Bundle-Version: 1.0.0
+Export-Package: omsb.vehpc.equivalency.web.constants
+Import-Package: *;resolution:=optional
+-fixupmessages "Classes found in the wrong directory"; restrict:=error; is:=warning
+-metatype: *
